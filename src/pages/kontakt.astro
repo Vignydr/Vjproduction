@@ -1,0 +1,678 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const today = new Date().toISOString().split("T")[0];
+
+const icons = {
+  drone: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="5" cy="5" r="2.4"></circle>
+    <circle cx="19" cy="5" r="2.4"></circle>
+    <circle cx="5" cy="19" r="2.4"></circle>
+    <circle cx="19" cy="19" r="2.4"></circle>
+    <path d="M7 7l3.1 3.1"></path>
+    <path d="M17 7l-3.1 3.1"></path>
+    <path d="M7 17l3.1-3.1"></path>
+    <path d="M17 17l-3.1-3.1"></path>
+    <rect x="9.7" y="9.7" width="4.6" height="4.6" rx="1.1"></rect>
+    <path d="M12 9.7V7.8"></path>
+    <path d="M12 14.3v1.9"></path>
+    <path d="M9.7 12H7.8"></path>
+    <path d="M14.3 12h1.9"></path>
+  </svg>`,
+};
+---
+
+<BaseLayout
+  title="Kontakt | Hochzeitsvideograf Witten & NRW | VJ Production"
+  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, nachträgliches Hochzeitsvideoshooting oder Zusatzleistungen."
+>
+  <section class="kontakt-page">
+    <section class="kontakt-head">
+      <p>Anfrage</p>
+      <h1>Kontakt</h1>
+      <span>Erzählt mir von eurem Tag</span>
+    </section>
+
+    <form class="kontakt-form" id="kontaktForm">
+      <input type="hidden" name="_subject" value="Neue Anfrage über vjproduction.de" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_template" value="table" />
+
+      <fieldset>
+        <legend>Was ist der Anlass? *</legend>
+
+        <label class="option-card">
+          <input type="radio" name="Anlass" value="Hochzeit" required />
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="8" cy="7" r="3"></circle>
+              <circle cx="16" cy="7" r="3"></circle>
+              <path d="M4.5 20v-2.2A5.5 5.5 0 0 1 10 12.3"></path>
+              <path d="M19.5 20v-2.2A5.5 5.5 0 0 0 14 12.3"></path>
+              <path d="M8.8 14.5c1.7 1.6 4.7 1.6 6.4 0"></path>
+              <path d="M10.2 13.2 12 15l1.8-1.8"></path>
+            </svg>
+          </span>
+          Hochzeit
+        </label>
+
+        <label class="option-card">
+          <input type="radio" name="Anlass" value="Nachträgliches Hochzeitsvideoshooting" />
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h16v16H4z"></path>
+              <path d="M8 4v16"></path>
+              <path d="M16 4v16"></path>
+              <path d="M4 8h4"></path>
+              <path d="M4 12h4"></path>
+              <path d="M4 16h4"></path>
+              <path d="M16 8h4"></path>
+              <path d="M16 12h4"></path>
+              <path d="M16 16h4"></path>
+            </svg>
+          </span>
+          Nachträgliches Hochzeitsvideoshooting
+        </label>
+
+        <label class="option-card">
+          <input type="radio" name="Anlass" value="Sonstiges" />
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2 14.4 9.2 22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2Z"></path>
+            </svg>
+          </span>
+          Sonstiges
+        </label>
+      </fieldset>
+
+      <div class="form-grid">
+        <label>
+          <span>Datum</span>
+          <input type="date" name="Datum" value={today} />
+        </label>
+
+        <label>
+          <span>Location / Ort</span>
+          <input type="text" name="Location" placeholder="z. B. Witten, Dortmund, Essen..." />
+        </label>
+      </div>
+
+      <label>
+        <span>Paket optional</span>
+        <select name="Paket">
+          <option value="">Paket auswählen...</option>
+          <option>Basic</option>
+          <option>Classic</option>
+          <option>Premium</option>
+          <option>Individuell</option>
+          <option>Noch unsicher</option>
+        </select>
+      </label>
+
+      <fieldset>
+        <legend>Zusatzleistungen optional</legend>
+
+        <label class="check-card">
+          <input type="checkbox" name="Zusatzleistungen" value="Drohnenaufnahmen" />
+          <span class="line-icon drone-icon" set:html={icons.drone}></span>
+          Drohnenaufnahmen
+        </label>
+
+        <label class="check-card">
+          <input type="checkbox" name="Zusatzleistungen" value="Express-Lieferung" />
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"></path>
+            </svg>
+          </span>
+          Express-Lieferung
+        </label>
+
+        <label class="check-card">
+          <input type="checkbox" name="Zusatzleistungen" value="Social Media Reel" />
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path>
+              <path d="M10 9.5v5l5-2.5-5-2.5Z"></path>
+            </svg>
+          </span>
+          Social Media Reel
+        </label>
+      </fieldset>
+
+      <div class="separator"></div>
+
+      <label>
+        <span>Ihr Name *</span>
+        <input type="text" name="Name" placeholder="Anna & Max Mustermann" required />
+      </label>
+
+      <div class="form-grid">
+        <label>
+          <span>E-Mail *</span>
+          <input type="email" name="email" placeholder="ihre@email.de" required />
+        </label>
+
+        <label>
+          <span>Telefon</span>
+          <input type="tel" name="Telefon" placeholder="+49 123 456789" />
+        </label>
+      </div>
+
+      <fieldset class="contact-way">
+        <legend>Bevorzugter Kontaktweg</legend>
+
+        <label>
+          <input type="radio" name="Bevorzugter Kontaktweg" value="E-Mail" checked />
+          E-Mail
+        </label>
+
+        <label>
+          <input type="radio" name="Bevorzugter Kontaktweg" value="Telefon" />
+          Telefon
+        </label>
+
+        <label>
+          <input type="radio" name="Bevorzugter Kontaktweg" value="WhatsApp" />
+          WhatsApp
+        </label>
+      </fieldset>
+
+      <label>
+        <span>Nachricht</span>
+        <textarea
+          name="Nachricht"
+          rows="7"
+          placeholder="Erzählt mir kurz von euch, eurer Hochzeit und was euch wichtig ist..."
+        ></textarea>
+      </label>
+
+      <div class="separator"></div>
+
+      <label class="consent">
+        <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required />
+        <span>
+          Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. *
+        </span>
+      </label>
+
+      <label class="consent">
+        <input type="checkbox" name="Kontakt erlaubt" value="Ja" required />
+        <span>Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *</span>
+      </label>
+
+      <button class="submit-button" type="submit">
+        Anfrage absenden
+        <span>→</span>
+      </button>
+
+      <p class="form-error" id="formError" hidden>
+        Die Anfrage konnte gerade nicht gesendet werden. Bitte versuche es erneut oder schreibe direkt an info@vjproduction.de.
+      </p>
+    </form>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  const form = document.getElementById("kontaktForm");
+  const errorMessage = document.getElementById("formError");
+  const submitButton = form?.querySelector(".submit-button");
+
+  form?.addEventListener("submit", async (event) => {
+    event.preventDefault();
+
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    submitButton.disabled = true;
+    submitButton.innerHTML = "Wird gesendet...";
+
+    try {
+      const formData = new FormData(form);
+
+      const response = await fetch("https://formsubmit.co/ajax/info@vjproduction.de", {
+        method: "POST",
+        body: formData,
+        headers: {
+          Accept: "application/json",
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error("FormSubmit error");
+      }
+
+      window.location.href = "/danke";
+    } catch (error) {
+      errorMessage.hidden = false;
+      submitButton.disabled = false;
+      submitButton.innerHTML = 'Anfrage absenden <span>→</span>';
+    }
+  });
+</script>
+
+<style>
+  :global(body) {
+    background: white;
+  }
+
+  .kontakt-page {
+    background: white;
+    color: #17181d;
+    padding: 150px 20px 120px;
+  }
+
+  .kontakt-head {
+    width: min(900px, 100%);
+    margin: 0 auto 70px;
+    text-align: center;
+  }
+
+  .kontakt-head p {
+    margin: 0 0 18px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .kontakt-head h1 {
+    margin: 0;
+    font-size: clamp(52px, 7vw, 92px);
+    font-weight: 300;
+    letter-spacing: -0.07em;
+    line-height: 1;
+  }
+
+  .kontakt-head span {
+    display: block;
+    margin-top: 28px;
+    color: #777984;
+    font-size: 22px;
+    line-height: 1.6;
+  }
+
+  .kontakt-form {
+    width: min(900px, 100%);
+    margin: 0 auto;
+    display: grid;
+    gap: 30px;
+  }
+
+  fieldset {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    display: grid;
+    gap: 18px;
+  }
+
+  legend,
+  label > span {
+    display: block;
+    margin-bottom: 14px;
+    color: #17181d;
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  .option-card,
+  .check-card {
+    min-height: 86px;
+    padding: 18px 24px;
+    border-radius: 14px;
+    border: 2px solid #e1e2e6;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    color: #17181d;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .option-card input,
+  .check-card input,
+  .consent input {
+    width: 22px;
+    height: 22px;
+    accent-color: #df7b00;
+    flex: 0 0 auto;
+  }
+
+  .line-icon {
+    width: 36px;
+    height: 36px;
+    flex: 0 0 36px;
+    display: grid;
+    place-items: center;
+    color: #df7b00;
+  }
+
+  .line-icon svg {
+    width: 30px;
+    height: 30px;
+    display: block;
+  }
+
+  .line-icon svg path,
+  .line-icon svg circle,
+  .line-icon svg rect {
+    fill: none;
+    stroke: #df7b00;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .drone-icon {
+    background: transparent;
+    border-radius: 0;
+  }
+
+  :global(.drone-icon svg) {
+    width: 30px !important;
+    height: 30px !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  :global(.drone-icon svg path),
+  :global(.drone-icon svg rect),
+  :global(.drone-icon svg circle) {
+    fill: none !important;
+    stroke: #df7b00 !important;
+    stroke-width: 1.8 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 22px;
+  }
+
+  input,
+  select,
+  textarea {
+    width: 100%;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: white;
+    color: #17181d;
+    font: inherit;
+    font-size: 18px;
+    outline: none;
+  }
+
+  input,
+  select {
+    height: 52px;
+    padding: 0 18px;
+  }
+
+  textarea {
+    padding: 18px;
+    resize: vertical;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  .option-card:has(input:checked),
+  .check-card:has(input:checked) {
+    border-color: #df7b00;
+    box-shadow: 0 0 0 4px rgba(223, 123, 0, 0.08);
+  }
+
+  .contact-way {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+  }
+
+  .contact-way legend {
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .contact-way label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 22px;
+  }
+
+  .contact-way input {
+    width: 22px;
+    height: 22px;
+    accent-color: #17181d;
+  }
+
+  .separator {
+    margin: 14px 0 0;
+    height: 1px;
+    background: #dedfe3;
+  }
+
+  .consent {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  .consent span {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
+  .consent a {
+    color: #df7b00;
+    text-decoration: underline;
+  }
+
+  .submit-button {
+    justify-self: end;
+    margin-top: 20px;
+    height: 56px;
+    padding: 0 34px;
+    border: 0;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    font: inherit;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .submit-button:disabled {
+    opacity: 0.72;
+    cursor: wait;
+  }
+
+  .form-error {
+    margin: 0;
+    color: #b42318;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 700px) {
+    .kontakt-page {
+      padding: 130px 14px 80px;
+    }
+
+    .form-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .option-card,
+    .check-card {
+      min-height: 78px;
+      padding: 18px;
+      font-size: 18px;
+    }
+
+    .line-icon {
+      width: 32px;
+      height: 32px;
+      flex-basis: 32px;
+    }
+
+    .line-icon svg,
+    .drone-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .contact-way label {
+      font-size: 18px;
+    }
+
+    .submit-button {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+/* ============================= */
+/* Feinschliff Kontakt */
+/* Nur Größen / Abstände */
+/* ============================= */
+
+.kontakt-page {
+  padding: 135px 20px 108px;
+}
+
+.kontakt-head {
+  margin-bottom: 60px;
+}
+
+.kontakt-head p {
+  font-size: 12px;
+}
+
+.kontakt-head h1 {
+  font-size: clamp(40px, 5.4vw, 72px);
+  line-height: 1.05;
+}
+
+.kontakt-head span {
+  margin-top: 22px;
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.kontakt-form {
+  gap: 26px;
+}
+
+fieldset {
+  gap: 16px;
+}
+
+legend,
+label > span {
+  margin-bottom: 12px;
+  font-size: 17px;
+}
+
+.option-card,
+.check-card {
+  min-height: 76px;
+  padding: 16px 22px;
+  gap: 20px;
+  font-size: 18px;
+}
+
+.option-card input,
+.check-card input,
+.consent input {
+  width: 20px;
+  height: 20px;
+}
+
+.line-icon {
+  width: 34px;
+  height: 34px;
+  flex-basis: 34px;
+}
+
+.line-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.form-grid {
+  gap: 20px;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+input,
+select {
+  height: 50px;
+}
+
+.contact-way {
+  gap: 22px;
+}
+
+.contact-way label {
+  font-size: 18px;
+}
+
+.contact-way input {
+  width: 20px;
+  height: 20px;
+}
+
+.consent {
+  font-size: 16px;
+  line-height: 1.55;
+}
+
+.consent span {
+  font-size: 16px;
+}
+
+.submit-button {
+  height: 52px;
+  font-size: 16px;
+}
+
+.form-error {
+  font-size: 15px;
+}
+
+@media (max-width: 700px) {
+  .kontakt-page {
+    padding: 120px 14px 80px;
+  }
+
+  .option-card,
+  .check-card {
+    min-height: 72px;
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .contact-way label {
+    font-size: 16px;
+  }
+}</style>

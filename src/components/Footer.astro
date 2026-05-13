@@ -1,0 +1,272 @@
+---
+const year = new Date().getFullYear();
+
+const navigation = [
+  { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pakete & Preise", href: "/pakete" },
+  { label: "Über mich", href: "/ueber-mich" },
+  { label: "Bewertungen", href: "/bewertungen" },
+  { label: "Kontakt", href: "/kontakt" },
+];
+
+const legal = [
+  { label: "Impressum", href: "/impressum" },
+  { label: "Datenschutz", href: "/datenschutz" },
+  { label: "AGB", href: "/agb" },
+  { label: "Widerrufsbelehrung", href: "/widerruf" },
+];
+---
+
+<footer class="vj-footer">
+  <div class="vj-footer-inner">
+    <div class="vj-footer-grid">
+      <div class="vj-footer-brand">
+        <a href="/" class="vj-footer-logo" aria-label="VJ Production Startseite">
+          <img src="/images/vj-logo-white.png" alt="VJ Production" />
+        </a>
+
+        <p>
+          Emotionen für immer festgehalten.<br />
+          Euer Tag, eure Geschichte.
+        </p>
+      </div>
+
+      <div class="vj-footer-column">
+        <h3>Navigation</h3>
+        <nav>
+          {navigation.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <div class="vj-footer-column">
+        <h3>Rechtliches</h3>
+        <nav>
+          {legal.map((item) => (
+            <a href={item.href}>{item.label}</a>
+          ))}
+        </nav>
+      </div>
+
+      <div class="vj-footer-column">
+        <h3>Kontakt</h3>
+
+        <div class="vj-contact-links">
+          <a href="mailto:info@vjproduction.de" aria-label="E-Mail schreiben">
+            <span class="vj-contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+                <path d="M4.5 7.5 12 13l7.5-5.5"></path>
+              </svg>
+            </span>
+            info@vjproduction.de
+          </a>
+
+          <a href="tel:+4915561237671" aria-label="Telefonnummer anrufen">
+            <span class="vj-contact-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <path d="M7.4 4.5 9.8 9c.3.6.2 1.3-.3 1.8l-1.2 1.2a13.5 13.5 0 0 0 5.7 5.7l1.2-1.2c.5-.5 1.2-.6 1.8-.3l4.5 2.4c.7.4 1 1.2.7 1.9-.4 1-1.3 2.3-3 2.3C10.1 22.8 1.2 13.9 1.2 4.8c0-1.7 1.3-2.6 2.3-3 .7-.3 1.5 0 1.9.7Z"></path>
+              </svg>
+            </span>
+            +49 1556 1237671
+          </a>
+
+          <a
+            class="vj-instagram-link"
+            href="https://www.instagram.com/v.j.production?igsh=MXh2MXIzeWJhc3U4bQ%3D%3D&utm_source=qr"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Instagram VJ Production öffnen"
+          >
+            <span class="vj-instagram-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.2" cy="6.8" r="1.1"></circle>
+              </svg>
+            </span>
+            Instagram
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="vj-footer-line"></div>
+
+    <p class="vj-copyright">© {year} VJ Production. Alle Rechte vorbehalten.</p>
+  </div>
+</footer>
+
+<style>
+  .vj-footer {
+    background: #050607;
+    color: white;
+    padding: 90px 20px 44px;
+  }
+
+  .vj-footer-inner {
+    width: min(1280px, 100%);
+    margin: 0 auto;
+  }
+
+  .vj-footer-grid {
+    display: grid;
+    grid-template-columns: 1.25fr 1fr 1fr 1fr;
+    gap: 82px;
+    align-items: start;
+  }
+
+  .vj-footer-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    width: 98px;
+    height: 72px;
+    margin-bottom: 30px;
+    text-decoration: none;
+  }
+
+  .vj-footer-logo img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+  }
+
+  .vj-footer-brand p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.46);
+    font-size: 16px;
+    line-height: 1.55;
+  }
+
+  .vj-footer-column h3 {
+    margin: 0 0 26px;
+    color: rgba(255, 255, 255, 0.72);
+    text-transform: uppercase;
+    letter-spacing: 0.13em;
+    font-size: 15px;
+    font-weight: 600;
+  }
+
+  .vj-footer-column nav,
+  .vj-contact-links {
+    display: grid;
+    gap: 16px;
+  }
+
+  .vj-footer-column a,
+  .vj-contact-links a {
+    color: rgba(255, 255, 255, 0.42);
+    font-size: 16px;
+    line-height: 1.45;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .vj-footer-column a:hover,
+  .vj-contact-links a:hover {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .vj-contact-links a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .vj-contact-icon,
+  .vj-instagram-icon {
+    width: 22px;
+    height: 22px;
+    flex: 0 0 22px;
+    display: inline-grid;
+    place-items: center;
+    color: rgba(255, 255, 255, 0.56);
+  }
+
+  .vj-contact-icon svg,
+  .vj-instagram-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+
+  .vj-contact-icon svg path,
+  .vj-contact-icon svg rect,
+  .vj-instagram-icon svg rect,
+  .vj-instagram-icon svg circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.75;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .vj-instagram-link {
+    width: fit-content;
+  }
+
+  .vj-instagram-link:hover .vj-instagram-icon,
+  .vj-contact-links a:hover .vj-contact-icon {
+    color: rgba(255, 255, 255, 0.82);
+  }
+
+  .vj-footer-line {
+    margin-top: 72px;
+    height: 1px;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  .vj-copyright {
+    margin: 32px 0 0;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.36);
+    font-size: 14px;
+  }
+
+  @media (max-width: 950px) {
+    .vj-footer {
+      padding-top: 66px;
+    }
+
+    .vj-footer-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+    }
+
+    .vj-footer-logo {
+      width: 92px;
+      height: 68px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .vj-footer {
+      padding: 62px 20px 40px;
+    }
+
+    .vj-footer-grid {
+      grid-template-columns: 1fr;
+      gap: 44px;
+    }
+
+    .vj-footer-logo {
+      width: 86px;
+      height: 64px;
+      margin-bottom: 26px;
+    }
+
+    .vj-footer-brand p,
+    .vj-footer-column a,
+    .vj-contact-links a {
+      font-size: 15px;
+    }
+
+    .vj-footer-line {
+      margin-top: 52px;
+    }
+  }
+</style>

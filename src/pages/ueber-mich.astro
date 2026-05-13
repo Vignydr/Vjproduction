@@ -1,0 +1,441 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const reasons = [
+  {
+    title: "Cineastischer Stil",
+    text: "Filmische Ästhetik, die sich von Standard-Videos abhebt.",
+  },
+  {
+    title: "Diskrete Arbeitsweise",
+    text: "Ich bin da, ohne aufdringlich zu sein.",
+  },
+  {
+    title: "Emotionale Tiefe",
+    text: "Ich fange nicht nur Bilder, sondern Gefühle ein.",
+  },
+  {
+    title: "Professionelle Technik",
+    text: "4K, Farbkorrektur und lizenzierte Musik.",
+  },
+  {
+    title: "Drohnenführerschein vorhanden",
+    text: "Für Drohnenaufnahmen arbeite ich verantwortungsvoll, regelkonform und mit dem nötigen Nachweis für sichere Luftaufnahmen.",
+  },
+  {
+    title: "Persönlicher Service",
+    text: "Von der Planung bis zur Lieferung – alles aus einer Hand.",
+  },
+];
+---
+
+<BaseLayout
+  title="Über mich | Hochzeitsvideograf Witten & NRW | VJ Production"
+  description="Lerne Vigny von VJ Production kennen: Hochzeitsvideograf aus Witten für emotionale Hochzeitsfilme in NRW und deutschlandweit."
+>
+  <section class="about-page">
+    <section class="about-hero">
+      <div class="portrait-card">
+        <img src="/images/vigny.jpg" alt="Vigny von VJ Production" />
+
+        <a
+          href="https://www.instagram.com/vigny.cesar?igsh=MTN1MDc5ZDBpNnVvMg%3D%3D&utm_source=qr"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Instagram Profil von Vigny öffnen"
+        >
+          Instagram
+        </a>
+      </div>
+
+      <div class="hero-text">
+        <p>Über mich</p>
+        <h1>Hallo, ich bin Vigny</h1>
+        <span>
+          Videograf aus Leidenschaft – eure Hochzeit ist mehr als nur ein Event,
+          sie ist der Beginn eurer gemeinsamen Geschichte.
+        </span>
+      </div>
+    </section>
+
+    <section class="about-content">
+      <article class="story">
+        <h2>Meine Geschichte</h2>
+
+        <p>
+          Hallo, ich bin Vigny, 26 Jahre alt. Ich stehe kurz vor dem Abschluss meines
+          Medizinstudiums und filme seit 2022. Angefangen hat alles mit Fitnessvideos,
+          weil Sport meine große Leidenschaft ist. Dabei habe ich gelernt, wie viel Wirkung
+          in Timing, Musikgefühl und kleinen Details steckt.
+        </p>
+
+        <p>
+          Zur Hochzeitsvideografie bin ich ehrlich gesagt eher zufällig gekommen. Ein guter
+          Freund meinte zu mir: Deine Fitnessvideos sind so stark, ich heirate bald, magst du
+          mich filmen? Ich habe zuerst gelacht, weil ich mir dachte, das ist eine ganz andere
+          Welt und ich habe so etwas noch nie gemacht. Trotzdem habe ich es ihm versprochen.
+          Und genau dieses eine Projekt hat alles verändert.
+        </p>
+
+        <p>
+          Als ich die Hochzeit gefilmt habe, habe ich zum ersten Mal gemerkt, wie besonders
+          es ist, echte Emotionen festzuhalten, die im Moment selbst oft zu schnell vorbeiziehen.
+          Und beim Schnitt ist es dann richtig passiert. Ich habe den Tag nochmal erlebt,
+          Szene für Szene. Ich habe gemerkt, wie sehr mich das erfüllt, wenn aus einzelnen
+          Momenten eine Geschichte wird, die man nicht nur sieht, sondern wieder fühlt.
+          Seit 2024 ist daraus eine echte Leidenschaft geworden.
+        </p>
+
+        <p>
+          Ich filme ruhig, respektvoll und unaufdringlich. Mir ist wichtig, dass ihr euch
+          nicht wie in einer Produktion fühlt, sondern einfach euren Tag lebt. Ich bin da,
+          wenn es passiert, aber ich dränge mich nicht in den Vordergrund. Und beim Schneiden
+          achte ich darauf, dass es nicht nur schön aussieht, sondern dass es euch wirklich
+          widerspiegelt.
+        </p>
+
+        <p>
+          Und noch etwas, das mir am Hochzeitstag sehr wichtig ist: eine gute Zusammenarbeit.
+          Ich mag Teamwork und klare, unkomplizierte Kommunikation. Deshalb stimme ich mich
+          mit Fotografen und allen Beteiligten ab, damit wir uns gegenseitig Raum lassen,
+          der Ablauf entspannt bleibt und ihr am Ende das bestmögliche Ergebnis bekommt.
+        </p>
+      </article>
+
+      <aside class="why">
+        <h2>Warum ich?</h2>
+
+        <div class="reason-list">
+          {reasons.map((reason) => (
+            <div class="reason-item">
+              <span></span>
+              <div>
+                <h3>{reason.title}</h3>
+                <p>{reason.text}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </aside>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Bereit für euren Film?</h2>
+        <p>
+          Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag
+          am besten festhalte.
+        </p>
+        <a href="/kontakt">Verfügbarkeit anfragen <span>→</span></a>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: white;
+  }
+
+  .about-page {
+    background: white;
+    color: #17181d;
+    padding: 150px 20px 120px;
+  }
+
+  .about-hero {
+    width: min(1320px, 100%);
+    margin: 0 auto 110px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 74px;
+    align-items: center;
+  }
+
+  .portrait-card {
+    position: relative;
+    border-radius: 18px;
+    overflow: visible;
+  }
+
+  .portrait-card img {
+    width: 100%;
+    display: block;
+    border-radius: 18px;
+    box-shadow: 0 26px 70px rgba(0, 0, 0, 0.14);
+  }
+
+  .portrait-card a {
+    position: absolute;
+    left: 50%;
+    bottom: -28px;
+    transform: translateX(-50%);
+    padding: 10px 22px;
+    border-radius: 999px;
+    background: linear-gradient(90deg, #8d4cf6, #f044b8);
+    color: white;
+    font-size: 12px;
+    font-weight: 700;
+    text-decoration: none;
+    box-shadow: 0 12px 26px rgba(240, 68, 184, 0.22);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .portrait-card a:hover {
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 16px 34px rgba(240, 68, 184, 0.3);
+  }
+
+  .hero-text p {
+    margin: 0 0 26px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .hero-text h1 {
+    margin: 0;
+    font-size: clamp(52px, 7vw, 92px);
+    font-weight: 300;
+    letter-spacing: -0.07em;
+    line-height: 1.02;
+  }
+
+  .hero-text span {
+    display: block;
+    margin-top: 32px;
+    max-width: 760px;
+    color: #5f6068;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.55;
+  }
+
+  .about-content {
+    width: min(1260px, 100%);
+    margin: 0 auto 105px;
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 90px;
+    align-items: start;
+  }
+
+  .story,
+  .why {
+    text-align: center;
+  }
+
+  .story h2,
+  .why h2 {
+    margin: 0 0 48px;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+  }
+
+  .story p {
+    margin: 0 auto 42px;
+    color: #5f6068;
+    font-size: 21px;
+    line-height: 1.68;
+  }
+
+  .reason-list {
+    display: grid;
+    gap: 34px;
+    text-align: left;
+  }
+
+  .reason-item {
+    display: grid;
+    grid-template-columns: 18px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+
+  .reason-item > span {
+    width: 11px;
+    height: 11px;
+    margin-top: 9px;
+    border-radius: 999px;
+    background: #f59a12;
+  }
+
+  .reason-item h3 {
+    margin: 0 0 6px;
+    font-size: 22px;
+  }
+
+  .reason-item p {
+    margin: 0;
+    color: #777984;
+    font-size: 19px;
+    line-height: 1.5;
+  }
+
+  .cta {
+    width: min(1180px, 100%);
+    margin: 0 auto;
+  }
+
+  .cta > div {
+    padding: 70px 30px;
+    border-radius: 28px;
+    background: #17181d;
+    color: white;
+    text-align: center;
+  }
+
+  .cta h2 {
+    margin: 0;
+    font-size: clamp(36px, 4vw, 50px);
+    font-weight: 300;
+    letter-spacing: -0.045em;
+  }
+
+  .cta p {
+    max-width: 740px;
+    margin: 26px auto 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 20px;
+    line-height: 1.62;
+  }
+
+  .cta a {
+    margin-top: 40px;
+    display: inline-flex;
+    height: 56px;
+    padding: 0 38px;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    align-items: center;
+    gap: 18px;
+    font-size: 17px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  @media (max-width: 950px) {
+    .about-hero,
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 58px;
+    }
+
+    .story,
+    .why {
+      text-align: left;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .about-page {
+      padding: 130px 14px 80px;
+    }
+
+    .story p,
+    .reason-item p,
+    .cta p {
+      font-size: 18px;
+    }
+  }
+/* ============================= */
+/* Feinschliff Über mich */
+/* Nur Größen / Abstände */
+/* ============================= */
+
+.about-page {
+  padding: 135px 20px 108px;
+}
+
+.about-hero {
+  margin-bottom: 92px;
+  gap: 64px;
+}
+
+.hero-text p {
+  margin-bottom: 22px;
+  font-size: 12px;
+}
+
+.hero-text h1 {
+  font-size: clamp(40px, 5.4vw, 72px);
+  line-height: 1.06;
+}
+
+.hero-text span {
+  margin-top: 28px;
+  font-size: clamp(18px, 1.8vw, 24px);
+  line-height: 1.62;
+}
+
+.about-content {
+  margin-bottom: 92px;
+  gap: 78px;
+}
+
+.story h2,
+.why h2 {
+  margin-bottom: 42px;
+  font-size: clamp(32px, 3.8vw, 46px);
+}
+
+.story p {
+  margin-bottom: 32px;
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.reason-list {
+  gap: 28px;
+}
+
+.reason-item h3 {
+  font-size: 20px;
+}
+
+.reason-item p {
+  font-size: 16px;
+  line-height: 1.58;
+}
+
+.cta > div {
+  padding: 62px 28px;
+}
+
+.cta h2 {
+  font-size: clamp(32px, 3.5vw, 44px);
+}
+
+.cta p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.cta a {
+  height: 50px;
+  font-size: 15px;
+}
+
+@media (max-width: 950px) {
+  .about-hero,
+  .about-content {
+    gap: 50px;
+  }
+}
+
+@media (max-width: 620px) {
+  .about-page {
+    padding: 120px 14px 80px;
+  }
+
+  .story p,
+  .reason-item p,
+  .cta p {
+    font-size: 16px;
+  }
+}</style>

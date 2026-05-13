@@ -1,0 +1,987 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const metaIcons = {
+  time: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <circle cx="12" cy="12" r="8"></circle>
+    <path d="M12 7v5l3 2"></path>
+  </svg>`,
+
+  film: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <rect x="4" y="4" width="16" height="16" rx="1.5"></rect>
+    <path d="M8 4v16"></path>
+    <path d="M16 4v16"></path>
+    <path d="M4 8h4"></path>
+    <path d="M4 12h4"></path>
+    <path d="M4 16h4"></path>
+    <path d="M16 8h4"></path>
+    <path d="M16 12h4"></path>
+    <path d="M16 16h4"></path>
+  </svg>`,
+
+  revision: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M20 7v5h-5"></path>
+    <path d="M4 17v-5h5"></path>
+    <path d="M18.1 9A7 7 0 0 0 6.2 6.8L4 9"></path>
+    <path d="M5.9 15A7 7 0 0 0 17.8 17.2L20 15"></path>
+  </svg>`,
+};
+
+const packages = [
+  {
+    name: "Basic",
+    subtitle: "Perfekt für intime Hochzeiten",
+    price: "1.090",
+    meta: [
+      { icon: "time", label: "4h" },
+      { icon: "film", label: "1 Film" },
+      { icon: "revision", label: "1x Revision" },
+    ],
+    features: [
+      "4 Stunden Begleitung",
+      "Highlightfilm (3–5 Min.)",
+      "Professioneller Schnitt",
+      "Lizenzierte Musik",
+      "Lieferung innerhalb 8 Wochen",
+      "1 Korrekturschleife",
+    ],
+  },
+  {
+    name: "Classic",
+    subtitle: "Mein beliebtestes Paket",
+    price: "1.690",
+    popular: true,
+    meta: [
+      { icon: "time", label: "7h" },
+      { icon: "film", label: "2 Filme" },
+      { icon: "revision", label: "2x Revision" },
+    ],
+    features: [
+      "7 Stunden Begleitung",
+      "Highlightfilm (5–8 Min.)",
+      "Kurzfilm für Social Media",
+      "Erweiterte Farbkorrektur",
+      "Lizenzierte Musik",
+      "Lieferung innerhalb 8 Wochen",
+      "2 Korrekturschleifen",
+    ],
+  },
+  {
+    name: "Premium",
+    subtitle: "Das komplette Kinoerlebnis",
+    price: "2.290",
+    meta: [
+      { icon: "time", label: "10h" },
+      { icon: "film", label: "2 Filme" },
+      { icon: "revision", label: "3x Revision" },
+    ],
+    features: [
+      "Ganztägige Begleitung (bis zu 10h)",
+      "Cinematic Highlightfilm (8–12 Min.)",
+      "Kurzfilm für Social Media",
+      "Erweiterte Farbkorrektur",
+      "Drohnenaufnahmen inklusive",
+      "Lieferung innerhalb 6 Wochen",
+      "3 Korrekturschleifen",
+    ],
+  },
+];
+
+const faqs = [
+  {
+    question: "Welche Musik wird verwendet?",
+    answer:
+      "Ich verwende ausschließlich lizenzierte Musik aus professionellen Musikbibliotheken. Wenn ihr euch einen bestimmten Song wünscht, prüfen wir gemeinsam, ob eine rechtssichere Nutzung möglich ist. Falls dafür zusätzliche Lizenzkosten anfallen, sage ich euch das vorher transparent.",
+  },
+  {
+    question: "Wie funktioniert die Anzahlung?",
+    answer:
+      "Nach der Buchung wird eine Anzahlung fällig. Erst nach Eingang der Anzahlung ist euer Termin verbindlich reserviert.",
+  },
+  {
+    question: "Kann ich Änderungen am fertigen Film vornehmen?",
+    answer:
+      "Ja. Je nach Paket sind eine oder mehrere Korrekturschleifen enthalten. Kleinere Anpassungen können wir gemeinsam besprechen.",
+  },
+  {
+    question: "Wie lange dauert die Lieferung?",
+    answer:
+      "Je nach Paket liegt die reguläre Lieferzeit meist zwischen 6 und 8 Wochen. Bei Expresslieferung kann der Film schneller fertiggestellt werden.",
+  },
+  {
+    question: "Darf ich meinen Film auf Social Media teilen?",
+    answer:
+      "Ja, natürlich. Dafür eignet sich besonders ein zusätzlicher Kurzfilm oder ein Social-Media-Reel.",
+  },
+];
+---
+
+<BaseLayout
+  title="Pakete & Preise | Hochzeitsvideograf Witten & NRW | VJ Production"
+  description="Hochzeitsvideo Pakete und Preise von VJ Production. Transparente Preise für Hochzeitsfilme in Witten, NRW und deutschlandweit."
+>
+  <section class="prices-page">
+    <div class="prices-head">
+      <p>Preise</p>
+      <h1>Hochzeitsvideo Pakete & Preise</h1>
+      <span>Transparente Preise, keine versteckten Kosten</span>
+      <small>Preise gemäß § 19 UStG ohne Ausweis der MwSt.</small>
+    </div>
+
+    <div class="discount-box">
+      <div class="discount-icon">✧</div>
+
+      <div class="discount-content">
+        <strong>Portfolio-Angebot: 10% Rabatt</strong>
+        <p>
+          Spart 10% auf euer Paket, wenn ihr der Veröffentlichung eures Films auf meiner Website zustimmt.
+        </p>
+
+        <button
+          class="offer-toggle"
+          type="button"
+          onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden; this.querySelector('span').textContent = this.nextElementSibling.hidden ? 'Mehr erfahren' : 'Weniger anzeigen';"
+        >
+          <span>Mehr erfahren</span>
+        </button>
+
+        <div class="offer-details" hidden>
+          Die Veröffentlichung eures Films ist selbstverständlich freiwillig. Ihr entscheidet selbst,
+          ob euer Hochzeitsfilm im Portfolio gezeigt werden darf. Die Einwilligung kann jederzeit
+          widerrufen werden – dann entferne ich den Film wieder von meiner Website.
+        </div>
+      </div>
+    </div>
+
+    <div class="package-grid">
+      {packages.map((item) => (
+        <article class={`package-card ${item.popular ? "popular" : ""}`}>
+          {item.popular && <div class="badge">✤ Beliebt</div>}
+
+          <h2>{item.name}</h2>
+          <p class="package-subtitle">{item.subtitle}</p>
+
+          <div class="price">{item.price}<span>€</span></div>
+
+          <div class="meta-row">
+            {item.meta.map((metaItem) => (
+              <div>
+                <span class="meta-icon" set:html={metaIcons[metaItem.icon]}></span>
+                <strong>{metaItem.label}</strong>
+              </div>
+            ))}
+          </div>
+
+          <ul>
+            {item.features.map((feature) => (
+              <li>{feature}</li>
+            ))}
+          </ul>
+
+          <a class="package-button" href="/kontakt">Paket anfragen <span>→</span></a>
+        </article>
+      ))}
+
+      <article class="package-card individual">
+        <div class="badge flexible">✤ Flexibel</div>
+
+        <h2>Individuell</h2>
+        <p class="package-subtitle">Stellt euch euer Paket so zusammen, wie es zu eurem Tag passt</p>
+
+        <div class="price request">Auf Anfrage</div>
+
+        <ul>
+          <li>Film-Länge frei wählbar, z. B. 30–45 Min.</li>
+          <li>Begleitungsdauer nach Wunsch</li>
+          <li>Optional: Drohnenaufnahmen</li>
+          <li>Standesamt / freie Trauung / Feier</li>
+          <li>Optional: Social Media Clip</li>
+          <li>Optional: Rohmaterial oder extra Versionen</li>
+        </ul>
+
+        <a class="package-button" href="/kontakt">Individuell anfragen <span>→</span></a>
+      </article>
+    </div>
+
+    <div class="notes-box">
+      <h2>Wichtige Hinweise</h2>
+      <p>• Reisekosten ab 50 km: 0,50 € pro km Hin- und Rückfahrt</p>
+      <p>• Der Termin ist nach Eingang der Anzahlung verbindlich reserviert</p>
+      <p>• Add-ons wie Drohne, Extra-Reels oder Express-Lieferung findet ihr unter „Zusatzleistungen“</p>
+    </div>
+
+    <section class="faq-section">
+      <h2>Häufige Fragen</h2>
+
+      <div class="faq-list">
+        {faqs.map((faq, index) => (
+          <details open={index === 0}>
+            <summary>
+              <span>{faq.question}</span>
+              <span class="faq-arrow" aria-hidden="true">⌄</span>
+            </summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="late-video-card">
+      <div class="late-icon">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="16" height="16" rx="1.5" stroke="#df7b00" stroke-width="1.8"></rect>
+          <path d="M8 4v16" stroke="#df7b00" stroke-width="1.8"></path>
+          <path d="M16 4v16" stroke="#df7b00" stroke-width="1.8"></path>
+          <path d="M4 8h4" stroke="#df7b00" stroke-width="1.8"></path>
+          <path d="M4 12h4" stroke="#df7b00" stroke-width="1.8"></path>
+          <path d="M4 16h4" stroke="#df7b00" stroke-width="1.8"></path>
+          <path d="M16 8h4" stroke="#df7b00" stroke-width="1.8"></path>
+          <path d="M16 12h4" stroke="#df7b00" stroke-width="1.8"></path>
+          <path d="M16 16h4" stroke="#df7b00" stroke-width="1.8"></path>
+        </svg>
+      </div>
+
+      <div>
+        <h2>Nachträgliches Hochzeitsvideo</h2>
+        <p>
+          Für Paare, die am Hochzeitstag keinen Videografen hatten. Ein professionelles Shooting nach der Hochzeit.
+        </p>
+        <a href="/nachtraegliches-hochzeitsvideo">Mehr erfahren <span>→</span></a>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Bereit für euren Film?</h2>
+        <p>
+          Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag am besten festhalte.
+        </p>
+        <a href="/kontakt">Verfügbarkeit anfragen <span>→</span></a>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: white;
+  }
+
+  .prices-page {
+    background: white;
+    color: #17181d;
+    padding: 150px 20px 120px;
+  }
+
+  .prices-head {
+    text-align: center;
+    width: min(980px, 100%);
+    margin: 0 auto 72px;
+  }
+
+  .prices-head p {
+    margin: 0 0 18px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .prices-head h1 {
+    margin: 0;
+    font-size: clamp(46px, 6vw, 82px);
+    font-weight: 300;
+    letter-spacing: -0.065em;
+    line-height: 1.02;
+  }
+
+  .prices-head span,
+  .prices-head small {
+    display: block;
+    color: #777984;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .prices-head span {
+    margin-top: 26px;
+  }
+
+  .prices-head small {
+    margin-top: 6px;
+    color: #9a9ba3;
+  }
+
+  .discount-box {
+    width: min(880px, 100%);
+    margin: 0 auto 70px;
+    padding: 28px 34px;
+    display: flex;
+    gap: 24px;
+    text-align: left;
+    align-items: flex-start;
+    border-radius: 18px;
+    border: 1px solid #f5c755;
+    background: linear-gradient(90deg, rgba(255, 243, 194, 0.7), rgba(255, 251, 236, 0.95));
+  }
+
+  .discount-icon {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #fff0ba;
+    color: #df7b00;
+    font-size: 24px;
+  }
+
+  .discount-content {
+    flex: 1;
+  }
+
+  .discount-box strong {
+    color: #17181d;
+    font-size: 19px;
+  }
+
+  .discount-box p {
+    margin: 9px 0 0;
+    color: #5c5d65;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .offer-toggle {
+    margin-top: 12px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #b95700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .offer-toggle::before {
+    content: "i";
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b95700;
+    border-radius: 999px;
+    display: inline-grid;
+    place-items: center;
+    color: #b95700;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .offer-details {
+    margin-top: 18px;
+    padding: 22px 26px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    color: #5f626d;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .package-grid {
+    width: min(1320px, 100%);
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 36px;
+    align-items: start;
+  }
+
+  .package-card {
+    position: relative;
+    min-height: 690px;
+    padding: 42px 46px;
+    border-radius: 22px;
+    background: #f8f8f9;
+    text-align: left;
+    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.035);
+  }
+
+  .package-card.popular {
+    background: #17181d;
+    color: white;
+    transform: translateY(-16px);
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+  }
+
+  .badge {
+    position: absolute;
+    top: -18px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 9px 26px;
+    border-radius: 8px;
+    background: #ffc21d;
+    color: #17181d;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  }
+
+  .package-card h2 {
+    margin: 0;
+    text-align: center;
+    color: inherit;
+    font-size: 30px;
+    font-weight: 700;
+  }
+
+  .package-subtitle {
+    margin: 16px auto 0;
+    min-height: 48px;
+    text-align: center;
+    color: #767882;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .popular .package-subtitle {
+    color: rgba(255, 255, 255, 0.56);
+  }
+
+  .price {
+    margin: 22px 0 36px;
+    text-align: center;
+    color: inherit;
+    font-size: 56px;
+    font-weight: 300;
+    letter-spacing: -0.05em;
+  }
+
+  .price span {
+    margin-left: 8px;
+    font-size: 18px;
+  }
+
+  .price.request {
+    font-size: 50px;
+  }
+
+  .meta-row {
+    padding: 22px 0;
+    margin-bottom: 28px;
+    border-top: 1px solid rgba(23, 24, 29, 0.1);
+    border-bottom: 1px solid rgba(23, 24, 29, 0.1);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    text-align: center;
+  }
+
+  .popular .meta-row {
+    border-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .meta-row div {
+    display: grid;
+    gap: 8px;
+    justify-items: center;
+    color: inherit;
+  }
+
+  .meta-icon {
+    width: 22px;
+    height: 22px;
+    color: #df7b00;
+    display: grid;
+    place-items: center;
+  }
+
+  :global(.meta-icon svg) {
+    width: 18px !important;
+    height: 18px !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  :global(.meta-icon svg circle),
+  :global(.meta-icon svg rect),
+  :global(.meta-icon svg path) {
+    fill: none !important;
+    stroke: #df7b00 !important;
+    stroke-width: 1.9 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  :global(.package-card.popular .meta-icon svg circle),
+  :global(.package-card.popular .meta-icon svg rect),
+  :global(.package-card.popular .meta-icon svg path) {
+    stroke: #ffc21d !important;
+  }
+
+  .meta-row strong {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  .package-card ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 18px;
+  }
+
+  .package-card li {
+    color: #5f6068;
+    line-height: 1.45;
+    font-size: 16px;
+  }
+
+  .popular li {
+    color: rgba(255, 255, 255, 0.76);
+  }
+
+  .package-card li::before {
+    content: "✓";
+    margin-right: 16px;
+    color: #df7b00;
+    font-weight: 800;
+  }
+
+  .popular li::before {
+    color: #ffc21d;
+  }
+
+  .package-button {
+    margin-top: 38px;
+    height: 52px;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    font-weight: 800;
+  }
+
+  .individual {
+    margin-top: 34px;
+  }
+
+  .notes-box {
+    width: min(1320px, 100%);
+    margin: 95px auto 90px;
+    padding: 44px 48px;
+    border-radius: 18px;
+    border: 1px solid #f5d36d;
+    background: #fffaf0;
+  }
+
+  .notes-box h2 {
+    margin: 0 0 22px;
+    font-size: 24px;
+  }
+
+  .notes-box p {
+    margin: 12px 0;
+    color: #5f6068;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .faq-section {
+    width: min(960px, 100%);
+    margin: 0 auto 105px;
+  }
+
+  .faq-section > h2 {
+    margin: 0 0 50px;
+    text-align: center;
+    font-size: clamp(36px, 4vw, 50px);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 20px;
+  }
+
+  details {
+    border-radius: 16px;
+    background: #f8f8f9;
+    overflow: hidden;
+  }
+
+  summary {
+    cursor: pointer;
+    padding: 26px 32px;
+    list-style: none;
+    font-size: 20px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+  }
+
+  summary span:first-child {
+    flex: 1;
+  }
+
+  .faq-arrow {
+    color: #9a9ca4;
+    font-size: 24px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  details[open] .faq-arrow {
+    transform: rotate(180deg);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details p {
+    margin: 0;
+    padding: 0 32px 30px;
+    color: #5f6068;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .late-video-card {
+    width: min(940px, 100%);
+    margin: 0 auto 90px;
+    padding: 44px;
+    border: 3px solid #e5e5e8;
+    border-radius: 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 32px;
+  }
+
+  .late-icon {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: #fff0ba;
+    color: #df7b00;
+  }
+
+  .late-video-card h2 {
+    margin: 0 0 12px;
+    font-size: 28px;
+    letter-spacing: -0.03em;
+  }
+
+  .late-video-card p {
+    margin: 0 0 26px;
+    color: #5f6068;
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  .late-video-card a {
+    display: inline-flex;
+    height: 46px;
+    padding: 0 24px;
+    align-items: center;
+    gap: 14px;
+    border-radius: 7px;
+    background: white;
+    border: 1px solid #d9d9dd;
+    color: #17181d;
+    font-weight: 800;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  }
+
+  .cta {
+    width: min(1320px, 100%);
+    margin: 0 auto;
+  }
+
+  .cta > div {
+    padding: 70px 30px;
+    border-radius: 28px;
+    background: #17181d;
+    color: white;
+    text-align: center;
+  }
+
+  .cta h2 {
+    margin: 0;
+    font-size: clamp(34px, 4vw, 48px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+  }
+
+  .cta p {
+    max-width: 620px;
+    margin: 24px auto 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .cta a {
+    margin-top: 38px;
+    display: inline-flex;
+    height: 52px;
+    padding: 0 34px;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    align-items: center;
+    gap: 14px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 980px) {
+    .package-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .package-card.popular {
+      transform: none;
+    }
+
+    .late-video-card {
+      flex-direction: column;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .prices-page {
+      padding: 130px 14px 80px;
+    }
+
+    .discount-box,
+    .notes-box,
+    .late-video-card {
+      padding: 26px;
+    }
+
+    .package-card {
+      padding: 34px 26px;
+    }
+
+    .price {
+      font-size: 46px;
+    }
+  }
+/* ============================= */
+/* Feinschliff Pakete & Preise */
+/* Nur Größen / Abstände */
+/* ============================= */
+
+.prices-page {
+  padding: 135px 20px 108px;
+}
+
+.prices-head {
+  margin-bottom: 62px;
+}
+
+.prices-head p {
+  font-size: 12px;
+}
+
+.prices-head h1 {
+  font-size: clamp(40px, 5.2vw, 70px);
+  line-height: 1.05;
+}
+
+.prices-head span,
+.prices-head small {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.prices-head span {
+  margin-top: 22px;
+}
+
+.discount-box {
+  margin-bottom: 64px;
+}
+
+.discount-box strong {
+  font-size: 18px;
+}
+
+.discount-box p {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.offer-toggle {
+  font-size: 15px;
+}
+
+.offer-details {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.package-grid {
+  gap: 32px;
+}
+
+.package-card {
+  min-height: 640px;
+  padding: 38px 40px;
+}
+
+.package-card h2 {
+  font-size: 26px;
+}
+
+.package-subtitle {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.price {
+  font-size: 48px;
+  margin: 20px 0 32px;
+}
+
+.price span {
+  font-size: 16px;
+}
+
+.price.request {
+  font-size: 42px;
+}
+
+.meta-row {
+  padding: 20px 0;
+  margin-bottom: 26px;
+}
+
+.meta-icon {
+  font-size: 22px;
+}
+
+.meta-row strong {
+  font-size: 13px;
+}
+
+.package-card ul {
+  gap: 16px;
+}
+
+.package-card li {
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.package-button {
+  height: 50px;
+  font-size: 15px;
+}
+
+.notes-box {
+  margin: 84px auto 80px;
+  padding: 40px 44px;
+}
+
+.notes-box h2 {
+  font-size: 22px;
+}
+
+.notes-box p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.faq-section {
+  margin-bottom: 92px;
+}
+
+.faq-section > h2 {
+  font-size: clamp(34px, 3.6vw, 46px);
+  margin-bottom: 42px;
+}
+
+summary {
+  padding: 24px 30px;
+  font-size: 18px;
+}
+
+details p {
+  padding: 0 30px 28px;
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.late-video-card {
+  margin-bottom: 84px;
+  padding: 40px;
+}
+
+.late-video-card h2 {
+  font-size: 26px;
+}
+
+.late-video-card p {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.late-video-card a {
+  height: 44px;
+  font-size: 15px;
+}
+
+.cta > div {
+  padding: 62px 28px;
+}
+
+.cta h2 {
+  font-size: clamp(32px, 3.5vw, 44px);
+}
+
+.cta p {
+  font-size: 16px;
+  line-height: 1.65;
+}
+
+.cta a {
+  height: 50px;
+  font-size: 15px;
+}
+
+@media (max-width: 620px) {
+  .prices-page {
+    padding: 120px 14px 80px;
+  }
+
+  .package-card {
+    min-height: auto;
+    padding: 32px 24px;
+  }
+
+  .price {
+    font-size: 42px;
+  }
+
+  .price.request {
+    font-size: 36px;
+  }
+}</style>

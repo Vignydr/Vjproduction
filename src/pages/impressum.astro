@@ -1,0 +1,224 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+---
+
+<BaseLayout
+  title="Impressum | VJ Production"
+  description="Impressum von VJ Production – Angaben gemäß § 5 DDG."
+>
+  <section class="legal-page">
+    <div class="legal-inner">
+      <p class="kicker">Rechtliches</p>
+      <h1>Impressum</h1>
+
+      <div class="legal-content">
+        <section>
+          <h2>Angaben gemäß § 5 DDG</h2>
+
+          <p>
+            <strong>VJ Production</strong><br />
+            Inhaber: Vigny Ngakanou<br />
+            Im Eickhoff 6<br />
+            58454 Witten<br />
+            Deutschland
+          </p>
+        </section>
+
+        <section>
+          <h2>Kontakt</h2>
+
+          <p>
+            Telefon:
+            <a href="tel:+4915561237671">+49 1556 1237671</a><br />
+            E-Mail:
+            <a href="mailto:info@vjproduction.de">info@vjproduction.de</a>
+          </p>
+        </section>
+
+        <section>
+          <h2>Umsatzsteuer</h2>
+
+          <p>
+            Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: nicht vorhanden
+          </p>
+
+          <p>
+            Gemäß § 19 UStG wird keine Umsatzsteuer berechnet
+            (Kleinunternehmerregelung).
+          </p>
+        </section>
+
+        <section>
+          <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+
+          <p>
+            Vigny Ngakanou<br />
+            Im Eickhoff 6<br />
+            58454 Witten
+          </p>
+        </section>
+
+        <section>
+          <h2>Haftung für Inhalte</h2>
+
+          <p>
+            Als Diensteanbieter bin ich für eigene Inhalte auf diesen Seiten nach den
+            allgemeinen Gesetzen verantwortlich. Ich bin jedoch nicht verpflichtet,
+            übermittelte oder gespeicherte fremde Informationen zu überwachen oder
+            nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.
+          </p>
+
+          <p>
+            Verpflichtungen zur Entfernung oder Sperrung der Nutzung von Informationen
+            nach den allgemeinen Gesetzen bleiben hiervon unberührt. Eine Haftung ist
+            jedoch erst ab dem Zeitpunkt der Kenntnis einer konkreten Rechtsverletzung
+            möglich. Bei Bekanntwerden von entsprechenden Rechtsverletzungen werde ich
+            diese Inhalte umgehend entfernen.
+          </p>
+        </section>
+
+        <section>
+          <h2>Haftung für Links</h2>
+
+          <p>
+            Diese Website enthält Links zu externen Websites Dritter, auf deren Inhalte
+            ich keinen Einfluss habe. Deshalb kann ich für diese fremden Inhalte auch
+            keine Gewähr übernehmen. Für die Inhalte der verlinkten Seiten ist stets der
+            jeweilige Anbieter oder Betreiber der Seiten verantwortlich.
+          </p>
+
+          <p>
+            Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
+            Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt der
+            Verlinkung nicht erkennbar. Eine permanente inhaltliche Kontrolle der
+            verlinkten Seiten ist jedoch ohne konkrete Anhaltspunkte einer
+            Rechtsverletzung nicht zumutbar. Bei Bekanntwerden von Rechtsverletzungen
+            werde ich derartige Links umgehend entfernen.
+          </p>
+        </section>
+
+        <section>
+          <h2>Urheberrecht</h2>
+
+          <p>
+            Die durch den Seitenbetreiber erstellten Inhalte und Werke auf dieser Website
+            unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung,
+            Verbreitung und jede Art der Verwertung außerhalb der Grenzen des
+            Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen Autors
+            bzw. Erstellers. Downloads und Kopien dieser Seite sind nur für den privaten,
+            nicht kommerziellen Gebrauch gestattet.
+          </p>
+
+          <p>
+            Soweit die Inhalte auf dieser Seite nicht vom Betreiber erstellt wurden,
+            werden die Urheberrechte Dritter beachtet und entsprechende Inhalte
+            gekennzeichnet. Sollten Sie trotzdem auf eine Urheberrechtsverletzung
+            aufmerksam werden, bitte ich um einen entsprechenden Hinweis. Bei
+            Bekanntwerden von Rechtsverletzungen werde ich derartige Inhalte umgehend
+            entfernen.
+          </p>
+        </section>
+
+        <p class="updated">Zuletzt aktualisiert: 05.2026</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: white;
+  }
+
+  .legal-page {
+    background: white;
+    color: #17181d;
+    padding: 150px 20px 120px;
+  }
+
+  .legal-inner {
+    width: min(920px, 100%);
+    margin: 0 auto;
+  }
+
+  .kicker {
+    margin: 0 0 18px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  h1 {
+    margin: 0 0 58px;
+    color: #17181d;
+    font-size: clamp(48px, 6vw, 82px);
+    font-weight: 300;
+    letter-spacing: -0.065em;
+    line-height: 1.02;
+  }
+
+  .legal-content {
+    display: grid;
+    gap: 34px;
+  }
+
+  section {
+    padding-bottom: 4px;
+  }
+
+  h2 {
+    margin: 0 0 10px;
+    color: #17181d;
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    margin: 0 0 14px;
+    color: #4f5058;
+    font-size: 18px;
+    line-height: 1.68;
+  }
+
+  a {
+    color: #df7b00;
+    text-decoration: none;
+    font-weight: 600;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  strong {
+    color: #17181d;
+    font-weight: 800;
+  }
+
+  .updated {
+    margin-top: 28px;
+    color: #9a9ba3;
+    font-size: 15px;
+  }
+
+  @media (max-width: 620px) {
+    .legal-page {
+      padding: 130px 16px 80px;
+    }
+
+    h1 {
+      margin-bottom: 42px;
+    }
+
+    p {
+      font-size: 16px;
+    }
+
+    h2 {
+      font-size: 18px;
+    }
+  }
+</style>

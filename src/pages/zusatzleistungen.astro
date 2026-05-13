@@ -1,0 +1,708 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const icons = {
+  drone: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="5" cy="5" r="2.4"></circle>
+    <circle cx="19" cy="5" r="2.4"></circle>
+    <circle cx="5" cy="19" r="2.4"></circle>
+    <circle cx="19" cy="19" r="2.4"></circle>
+    <path d="M7 7l3.1 3.1"></path>
+    <path d="M17 7l-3.1 3.1"></path>
+    <path d="M7 17l3.1-3.1"></path>
+    <path d="M17 17l-3.1-3.1"></path>
+    <rect x="9.7" y="9.7" width="4.6" height="4.6" rx="1.1"></rect>
+    <path d="M12 9.7V7.8"></path>
+    <path d="M12 14.3v1.9"></path>
+    <path d="M9.7 12H7.8"></path>
+    <path d="M14.3 12h1.9"></path>
+  </svg>`,
+
+  lightning: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M13 2 4 14h7l-1 8 10-14h-7V2Z"></path>
+  </svg>`,
+
+  film: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="4" y="4" width="16" height="16" rx="1.5"></rect>
+    <path d="M8 4v16"></path>
+    <path d="M16 4v16"></path>
+    <path d="M4 8h4"></path>
+    <path d="M4 12h4"></path>
+    <path d="M4 16h4"></path>
+    <path d="M16 8h4"></path>
+    <path d="M16 12h4"></path>
+    <path d="M16 16h4"></path>
+  </svg>`,
+};
+
+const extraCards = [
+  {
+    icon: "lightning",
+    title: "Express-Lieferung",
+    text: "Lieferung innerhalb von 3 Wochen statt regulärer Lieferzeit.",
+    price: "260 €",
+    button: "Anfragen",
+  },
+  {
+    icon: "film",
+    title: "Social Media Reels",
+    text: "Ein zusätzlicher vertikaler Kurzclip im Reel Format, perfekt für Instagram und TikTok. Emotional, schnell geschnitten und so abgestimmt, dass man ihn sofort teilen kann.",
+    price: "190 €",
+    button: "Anfragen",
+  },
+];
+---
+
+<BaseLayout
+  title="Zusatzleistungen | Hochzeitsvideograf Witten & NRW | VJ Production"
+  description="Zusatzleistungen für euren Hochzeitsfilm: Drohnenaufnahmen, Express-Lieferung und Social Media Reels von VJ Production."
+>
+  <section class="extras-page">
+    <section class="extras-head">
+      <p>Extras</p>
+      <h1>Zusatzleistungen</h1>
+      <span>Erweitere dein Paket mit besonderen Extras</span>
+    </section>
+
+    <section class="discount-box">
+      <div class="discount-icon">✧</div>
+
+      <div class="discount-content">
+        <strong>Portfolio-Angebot: 10% Rabatt</strong>
+        <p>
+          Spart 10% auf euer Paket, wenn ihr der Veröffentlichung eures Films auf meiner Website zustimmt.
+        </p>
+
+        <button
+          class="offer-toggle"
+          type="button"
+          onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden; this.querySelector('span').textContent = this.nextElementSibling.hidden ? 'Mehr erfahren' : 'Weniger anzeigen';"
+        >
+          <span>Mehr erfahren</span>
+        </button>
+
+        <div class="offer-details" hidden>
+          Die Veröffentlichung eures Films ist selbstverständlich freiwillig. Ihr entscheidet selbst,
+          ob euer Hochzeitsfilm im Portfolio gezeigt werden darf. Die Einwilligung kann jederzeit
+          widerrufen werden – dann entferne ich den Film wieder von meiner Website.
+        </div>
+      </div>
+    </section>
+
+    <section class="drone-card">
+      <div class="drone-main">
+        <div class="feature-icon" set:html={icons.drone}></div>
+
+        <h2>Drohnenaufnahmen</h2>
+        <p>
+          Cineastische Luftaufnahmen, die eure Location und Stimmung aus einer einzigartigen
+          Perspektive zeigen und dem Film mehr Tiefe geben.
+        </p>
+
+        <strong>350 €</strong>
+
+        <a href="/kontakt">Drohne anfragen <span>→</span></a>
+      </div>
+
+      <div class="drone-note">
+        <h3>Wichtige Hinweise</h3>
+        <p>
+          Wetterabhängig, nicht bei starkem Wind oder Regen. Beachtung von Flugverbotszonen.
+          EU-Drohnenführerschein und Haftpflichtversicherung vorhanden.
+        </p>
+      </div>
+    </section>
+
+    <section class="more-extras">
+      <h2>Weitere Extras</h2>
+
+      <div class="extra-grid">
+        {extraCards.map((item) => (
+          <article class="extra-card">
+            <div class="small-icon" set:html={icons[item.icon]}></div>
+
+            <h3>{item.title}</h3>
+            <p>{item.text}</p>
+
+            <strong>{item.price}</strong>
+
+            <a href="/kontakt">{item.button} <span>→</span></a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Bereit für euren Film?</h2>
+        <p>
+          Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag
+          am besten festhalte.
+        </p>
+        <a href="/kontakt">Verfügbarkeit anfragen <span>→</span></a>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: white;
+  }
+
+  .extras-page {
+    background: white;
+    color: #17181d;
+    padding: 150px 20px 120px;
+  }
+
+  .extras-head {
+    text-align: center;
+    width: min(980px, 100%);
+    margin: 0 auto 90px;
+  }
+
+  .extras-head p {
+    margin: 0 0 18px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .extras-head h1 {
+    margin: 0;
+    font-size: clamp(46px, 6vw, 82px);
+    font-weight: 300;
+    letter-spacing: -0.065em;
+    line-height: 1.02;
+  }
+
+  .extras-head span {
+    display: block;
+    margin-top: 26px;
+    color: #777984;
+    font-size: 18px;
+    line-height: 1.7;
+  }
+
+  .discount-box {
+    width: min(960px, 100%);
+    margin: 0 auto 72px;
+    padding: 28px 34px;
+    display: flex;
+    gap: 24px;
+    text-align: left;
+    align-items: flex-start;
+    border-radius: 18px;
+    border: 1px solid #f5c755;
+    background: linear-gradient(90deg, rgba(255, 243, 194, 0.7), rgba(255, 251, 236, 0.95));
+  }
+
+  .discount-icon {
+    flex: 0 0 48px;
+    width: 48px;
+    height: 48px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #fff0ba;
+    color: #df7b00;
+    font-size: 24px;
+  }
+
+  .discount-content {
+    flex: 1;
+  }
+
+  .discount-box strong {
+    color: #17181d;
+    font-size: 19px;
+  }
+
+  .discount-box p {
+    margin: 9px 0 0;
+    color: #5c5d65;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .offer-toggle {
+    margin-top: 12px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    color: #b95700;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font: inherit;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+  }
+
+  .offer-toggle::before {
+    content: "i";
+    width: 20px;
+    height: 20px;
+    border: 2px solid #b95700;
+    border-radius: 999px;
+    display: inline-grid;
+    place-items: center;
+    color: #b95700;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1;
+  }
+
+  .offer-details {
+    margin-top: 18px;
+    padding: 22px 26px;
+    border-radius: 14px;
+    background: rgba(255, 255, 255, 0.72);
+    color: #5f626d;
+    font-size: 16px;
+    line-height: 1.55;
+    font-weight: 400;
+  }
+
+  .drone-card {
+    width: min(1280px, 100%);
+    margin: 0 auto 120px;
+    border-radius: 28px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1.05fr 1fr;
+    background: #17181d;
+    color: white;
+  }
+
+  .drone-main {
+    padding: 72px 70px;
+    background: #17181d;
+  }
+
+  .drone-note {
+    padding: 72px 70px;
+    background: #24252a;
+  }
+
+  .feature-icon {
+    width: 62px;
+    height: 62px;
+    margin-bottom: 38px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: rgba(255, 194, 29, 0.16);
+    color: #ffc21d;
+  }
+
+  :global(.feature-icon svg) {
+    width: 34px !important;
+    height: 34px !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  :global(.feature-icon svg path),
+  :global(.feature-icon svg rect),
+  :global(.feature-icon svg circle) {
+    fill: none !important;
+    stroke: #ffc21d !important;
+    stroke-width: 1.9 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  .drone-main h2 {
+    margin: 0 0 26px;
+    color: white;
+    font-size: clamp(32px, 3.4vw, 44px);
+    font-weight: 300;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+  }
+
+  .drone-main p,
+  .drone-note p {
+    margin: 0;
+    max-width: 520px;
+    color: rgba(255, 255, 255, 0.62);
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .drone-main strong {
+    display: block;
+    margin-top: 42px;
+    color: #ffc21d;
+    font-size: 34px;
+    font-weight: 300;
+    letter-spacing: -0.035em;
+  }
+
+  .drone-main a {
+    margin-top: 38px;
+    display: inline-flex;
+    height: 44px;
+    padding: 0 24px;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .drone-note h3 {
+    margin: 0 0 26px;
+    color: white;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+  }
+
+  .more-extras {
+    width: min(840px, 100%);
+    margin: 0 auto 100px;
+  }
+
+  .more-extras > h2 {
+    margin: 0 0 46px;
+    text-align: center;
+    color: #17181d;
+    font-size: 28px;
+    font-weight: 300;
+    letter-spacing: -0.045em;
+  }
+
+  .extra-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 34px;
+  }
+
+  .extra-card {
+    min-height: 360px;
+    padding: 34px;
+    border-radius: 16px;
+    background: white;
+    border: 1px solid #dedfe3;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .small-icon {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 34px;
+    border-radius: 10px;
+    display: grid;
+    place-items: center;
+    background: #f4f4f6;
+    color: #5f6068;
+  }
+
+  :global(.small-icon svg) {
+    width: 22px !important;
+    height: 22px !important;
+    display: block !important;
+    overflow: visible !important;
+  }
+
+  :global(.small-icon svg path),
+  :global(.small-icon svg rect),
+  :global(.small-icon svg circle) {
+    fill: none !important;
+    stroke: #5f6068 !important;
+    stroke-width: 1.9 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  .extra-card h3 {
+    margin: 0 0 30px;
+    color: #17181d;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -0.035em;
+  }
+
+  .extra-card p {
+    margin: 0;
+    color: #5f6068;
+    font-size: 16px;
+    line-height: 1.62;
+  }
+
+  .extra-card strong {
+    display: block;
+    margin-top: auto;
+    padding-top: 32px;
+    color: #17181d;
+    font-size: 25px;
+    font-weight: 300;
+    letter-spacing: -0.03em;
+  }
+
+  .extra-card a {
+    margin-top: 22px;
+    height: 42px;
+    border-radius: 7px;
+    border: 1px solid #dedfe3;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    color: #17181d;
+    font-size: 14px;
+    font-weight: 800;
+    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.035);
+  }
+
+  .cta {
+    width: min(1220px, 100%);
+    margin: 0 auto;
+  }
+
+  .cta > div {
+    padding: 74px 30px;
+    border-radius: 28px;
+    background: #17181d;
+    color: white;
+    text-align: center;
+  }
+
+  .cta h2 {
+    margin: 0;
+    color: white;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.045em;
+  }
+
+  .cta p {
+    max-width: 760px;
+    margin: 26px auto 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 20px;
+    line-height: 1.62;
+  }
+
+  .cta a {
+    margin-top: 40px;
+    display: inline-flex;
+    height: 56px;
+    padding: 0 38px;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    align-items: center;
+    gap: 18px;
+    font-size: 17px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 900px) {
+    .drone-card,
+    .extra-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .drone-main,
+    .drone-note {
+      padding: 46px 32px;
+    }
+
+    .more-extras {
+      width: min(520px, 100%);
+    }
+  }
+
+  @media (max-width: 620px) {
+    .extras-page {
+      padding: 130px 14px 80px;
+    }
+
+    .discount-box {
+      padding: 26px;
+      flex-direction: column;
+    }
+
+    .extra-card {
+      padding: 30px;
+    }
+
+    .drone-main p,
+    .drone-note p,
+    .cta p {
+      font-size: 18px;
+    }
+  }
+/* ============================= */
+/* Feinschliff Zusatzleistungen */
+/* Nur Größen / Abstände */
+/* ============================= */
+
+.extras-page {
+  padding: 135px 20px 108px;
+}
+
+.extras-head {
+  margin-bottom: 72px;
+}
+
+.extras-head p {
+  font-size: 12px;
+}
+
+.extras-head h1 {
+  font-size: clamp(40px, 5.2vw, 70px);
+  line-height: 1.05;
+}
+
+.extras-head span {
+  margin-top: 22px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.discount-box {
+  margin-bottom: 66px;
+}
+
+.discount-box strong {
+  font-size: 18px;
+}
+
+.discount-box p,
+.offer-details {
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+.offer-toggle {
+  font-size: 15px;
+}
+
+.drone-card {
+  margin-bottom: 96px;
+}
+
+.drone-main,
+.drone-note {
+  padding: 60px 58px;
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin-bottom: 34px;
+}
+
+.drone-main h2 {
+  font-size: clamp(34px, 3.8vw, 48px);
+  line-height: 1.08;
+}
+
+.drone-main p,
+.drone-note p {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.drone-main strong {
+  margin-top: 34px;
+  font-size: 34px;
+}
+
+.drone-main a {
+  margin-top: 34px;
+  height: 50px;
+  font-size: 15px;
+}
+
+.drone-note h3 {
+  font-size: 22px;
+}
+
+.more-extras {
+  margin-bottom: 90px;
+}
+
+.more-extras > h2 {
+  margin-bottom: 46px;
+  font-size: clamp(32px, 3.5vw, 44px);
+}
+
+.extra-card {
+  min-height: 330px;
+  padding: 34px;
+}
+
+.small-icon {
+  width: 48px;
+  height: 48px;
+  margin-bottom: 30px;
+}
+
+.extra-card h3 {
+  margin-bottom: 24px;
+  font-size: 22px;
+}
+
+.extra-card p {
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.extra-card strong {
+  font-size: 24px;
+}
+
+.extra-card a {
+  height: 42px;
+  font-size: 15px;
+}
+
+.cta > div {
+  padding: 62px 28px;
+}
+
+.cta h2 {
+  font-size: clamp(32px, 3.5vw, 44px);
+}
+
+.cta p {
+  font-size: 17px;
+  line-height: 1.6;
+}
+
+.cta a {
+  height: 50px;
+  font-size: 15px;
+}
+
+@media (max-width: 900px) {
+  .drone-main,
+  .drone-note {
+    padding: 42px 30px;
+  }
+
+  .drone-main p,
+  .drone-note p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 620px) {
+  .extras-page {
+    padding: 120px 14px 80px;
+  }
+}</style>

@@ -1,0 +1,241 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const videos = [
+  {
+    title: "Paarshooting",
+    text: "Ein ruhiger Moment vor dem großen Tag – nur ihr zwei, eure Nähe und das Gefühl, dass alles beginnt.",
+    src: "https://galleries.vidflow.co/videos/b2ayyew1",
+  },
+  {
+    title: "Kompletter Hochzeitsfilm",
+    text: "Die ganze Geschichte eures Tages: vom ersten Blick bis zur letzten Umarmung, liebevoll und zeitlos erzählt.",
+    src: "https://galleries.vidflow.co/videos/kx680fsh",
+  },
+  {
+    title: "Highlightfilm",
+    text: "Die emotionalsten Augenblicke eures Hochzeitstags in einem cineastischen Film zusammengefasst.",
+    src: "https://galleries.vidflow.co/videos/ci2k0ber",
+  },
+  {
+    title: "Instagram Reel",
+    text: "Kurz, emotional und perfekt zum Teilen – ein vertikaler Film für Social Media mit euren schönsten Momenten.",
+    src: "https://galleries.vidflow.co/videos/ur4ex89k",
+  },
+];
+---
+
+<BaseLayout
+  title="Portfolio | Hochzeitsvideograf Witten & NRW | VJ Production"
+  description="Portfolio von VJ Production: Hochzeitsfilme, Highlightfilme, Paarshootings und Instagram Reels von einem Hochzeitsvideografen aus Witten für NRW und deutschlandweit."
+>
+  <section class="portfolio-page">
+    <section class="portfolio-head">
+      <p>Portfolio</p>
+      <h1>Ausgewählte Hochzeitsfilme</h1>
+      <span>Echte Momente. Ruhig begleitet. Cineastisch erzählt.</span>
+    </section>
+
+    <section class="video-grid">
+      {videos.map((video) => (
+        <article class="video-item">
+          <div class="video-frame">
+            <iframe
+              src={video.src}
+              title={video.title}
+              frameborder="0"
+              allowfullscreen
+              webkitallowfullscreen
+              mozallowfullscreen
+            ></iframe>
+          </div>
+
+          <div class="video-text">
+            <h2>{video.title}</h2>
+            <p>{video.text}</p>
+          </div>
+        </article>
+      ))}
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Bereit für euren Film?</h2>
+        <p>
+          Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag
+          am besten festhalte.
+        </p>
+        <a href="/kontakt">Verfügbarkeit anfragen <span>→</span></a>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: white;
+  }
+
+  .portfolio-page {
+    background: white;
+    color: #17181d;
+    padding: 150px 20px 120px;
+  }
+
+  .portfolio-head {
+    width: min(1180px, 100%);
+    margin: 0 auto 82px;
+    text-align: center;
+  }
+
+  .portfolio-head p {
+    margin: 0 0 26px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .portfolio-head h1 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(44px, 6vw, 72px);
+    font-weight: 300;
+    letter-spacing: -0.085em;
+    line-height: 0.93;
+  }
+
+  .portfolio-head span {
+    display: block;
+    margin-top: 34px;
+    color: #777984;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .video-grid {
+    width: min(1320px, 100%);
+    margin: 0 auto 120px;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 72px 58px;
+  }
+
+  .video-item {
+    min-width: 0;
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 30px;
+    background: #f3f3f4;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 26px 70px rgba(23, 24, 29, 0.12);
+  }
+
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .video-text {
+    padding-top: 30px;
+  }
+
+  .video-text h2 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(20px, 2vw, 24px);
+    font-weight: 300;
+    letter-spacing: -0.04em;
+    line-height: 0.98;
+  }
+
+  .video-text p {
+    margin: 20px 0 0;
+    max-width: 640px;
+    color: #5f626d;
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  .cta {
+    width: min(1220px, 100%);
+    margin: 0 auto;
+  }
+
+  .cta > div {
+    padding: 74px 30px;
+    border-radius: 28px;
+    background: #17181d;
+    color: white;
+    text-align: center;
+  }
+
+  .cta h2 {
+    margin: 0;
+    font-size: clamp(36px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.045em;
+  }
+
+  .cta p {
+    max-width: 760px;
+    margin: 26px auto 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 20px;
+    line-height: 1.62;
+  }
+
+  .cta a {
+    margin-top: 40px;
+    display: inline-flex;
+    height: 56px;
+    padding: 0 38px;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    align-items: center;
+    gap: 18px;
+    font-size: 17px;
+    font-weight: 800;
+  }
+
+  @media (max-width: 900px) {
+    .video-grid {
+      grid-template-columns: 1fr;
+      gap: 62px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .portfolio-page {
+      padding: 130px 14px 80px;
+    }
+
+    .portfolio-head {
+      margin-bottom: 56px;
+    }
+
+    .portfolio-head span,
+    .video-text p,
+    .cta p {
+      font-size: 18px;
+    }
+
+    .video-frame {
+      border-radius: 22px;
+    }
+
+    .video-text {
+      padding-top: 24px;
+    }
+  }
+</style>
