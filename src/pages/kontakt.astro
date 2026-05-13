@@ -38,8 +38,8 @@ const icons = {
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_template" value="table" />
 
-      <fieldset>
-        <legend>Was ist der Anlass? *</legend>
+      <fieldset class="choice-section">
+        <legend>Was ist der Anlass? <span>*</span></legend>
 
         <label class="option-card">
           <input type="radio" name="Anlass" value="Hochzeit" required />
@@ -53,7 +53,7 @@ const icons = {
               <path d="M10.2 13.2 12 15l1.8-1.8"></path>
             </svg>
           </span>
-          Hochzeit
+          <span class="option-text">Hochzeit</span>
         </label>
 
         <label class="option-card">
@@ -71,7 +71,7 @@ const icons = {
               <path d="M16 16h4"></path>
             </svg>
           </span>
-          Nachträgliches Hochzeitsvideoshooting
+          <span class="option-text">Nachträgliches Hochzeitsvideoshooting</span>
         </label>
 
         <label class="option-card">
@@ -81,7 +81,7 @@ const icons = {
               <path d="M12 2 14.4 9.2 22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2Z"></path>
             </svg>
           </span>
-          Sonstiges
+          <span class="option-text">Sonstiges</span>
         </label>
       </fieldset>
 
@@ -109,13 +109,13 @@ const icons = {
         </select>
       </label>
 
-      <fieldset>
+      <fieldset class="choice-section">
         <legend>Zusatzleistungen optional</legend>
 
         <label class="check-card">
           <input type="checkbox" name="Zusatzleistungen" value="Drohnenaufnahmen" />
           <span class="line-icon drone-icon" set:html={icons.drone}></span>
-          Drohnenaufnahmen
+          <span class="option-text">Drohnenaufnahmen</span>
         </label>
 
         <label class="check-card">
@@ -125,7 +125,7 @@ const icons = {
               <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"></path>
             </svg>
           </span>
-          Express-Lieferung
+          <span class="option-text">Express-Lieferung</span>
         </label>
 
         <label class="check-card">
@@ -136,7 +136,7 @@ const icons = {
               <path d="M10 9.5v5l5-2.5-5-2.5Z"></path>
             </svg>
           </span>
-          Social Media Reel
+          <span class="option-text">Social Media Reel</span>
         </label>
       </fieldset>
 
@@ -261,12 +261,12 @@ const icons = {
   .kontakt-page {
     background: white;
     color: #17181d;
-    padding: 150px 20px 120px;
+    padding: 135px 20px 108px;
   }
 
   .kontakt-head {
     width: min(900px, 100%);
-    margin: 0 auto 70px;
+    margin: 0 auto 60px;
     text-align: center;
   }
 
@@ -275,23 +275,23 @@ const icons = {
     color: #df7b00;
     text-transform: uppercase;
     letter-spacing: 0.34em;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
   }
 
   .kontakt-head h1 {
     margin: 0;
-    font-size: clamp(52px, 7vw, 92px);
+    font-size: clamp(40px, 5.4vw, 72px);
     font-weight: 300;
     letter-spacing: -0.07em;
-    line-height: 1;
+    line-height: 1.05;
   }
 
   .kontakt-head span {
     display: block;
-    margin-top: 28px;
+    margin-top: 22px;
     color: #777984;
-    font-size: 22px;
+    font-size: 17px;
     line-height: 1.6;
   }
 
@@ -299,63 +299,92 @@ const icons = {
     width: min(900px, 100%);
     margin: 0 auto;
     display: grid;
-    gap: 30px;
+    gap: 26px;
   }
 
   fieldset {
+    min-width: 0;
     margin: 0;
     padding: 0;
     border: 0;
-    display: grid;
-    gap: 18px;
   }
 
-  legend,
-  label > span {
+  .choice-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  legend {
     display: block;
-    margin-bottom: 14px;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0 0 12px;
+    padding: 0;
     color: #17181d;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
+    line-height: 1.35;
+    white-space: normal;
+  }
+
+  legend span {
+    color: inherit;
+  }
+
+  label > span:not(.line-icon):not(.option-text) {
+    display: block;
+    margin-bottom: 12px;
+    color: #17181d;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
   }
 
   .option-card,
   .check-card {
-    min-height: 86px;
-    padding: 18px 24px;
+    min-height: 76px;
+    padding: 16px 22px;
     border-radius: 14px;
     border: 2px solid #e1e2e6;
     background: white;
     display: flex;
     align-items: center;
-    gap: 22px;
+    gap: 20px;
     color: #17181d;
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 700;
+    line-height: 1.25;
     cursor: pointer;
+  }
+
+  .option-text {
+    display: block;
+    min-width: 0;
   }
 
   .option-card input,
   .check-card input,
   .consent input {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     accent-color: #df7b00;
     flex: 0 0 auto;
   }
 
   .line-icon {
-    width: 36px;
-    height: 36px;
-    flex: 0 0 36px;
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
     display: grid;
     place-items: center;
     color: #df7b00;
   }
 
   .line-icon svg {
-    width: 30px;
-    height: 30px;
+    width: 28px;
+    height: 28px;
     display: block;
   }
 
@@ -375,8 +404,8 @@ const icons = {
   }
 
   :global(.drone-icon svg) {
-    width: 30px !important;
-    height: 30px !important;
+    width: 28px !important;
+    height: 28px !important;
     display: block !important;
     overflow: visible !important;
   }
@@ -394,7 +423,7 @@ const icons = {
   .form-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 22px;
+    gap: 20px;
   }
 
   input,
@@ -406,13 +435,13 @@ const icons = {
     background: white;
     color: #17181d;
     font: inherit;
-    font-size: 18px;
+    font-size: 16px;
     outline: none;
   }
 
   input,
   select {
-    height: 52px;
+    height: 50px;
     padding: 0 18px;
   }
 
@@ -433,10 +462,12 @@ const icons = {
   .contact-way {
     display: flex;
     flex-wrap: wrap;
-    gap: 24px;
+    align-items: center;
+    gap: 22px;
   }
 
   .contact-way legend {
+    flex: 0 0 100%;
     width: 100%;
     margin-bottom: 0;
   }
@@ -445,12 +476,14 @@ const icons = {
     display: inline-flex;
     align-items: center;
     gap: 12px;
-    font-size: 22px;
+    font-size: 18px;
+    line-height: 1.35;
+    cursor: pointer;
   }
 
   .contact-way input {
-    width: 22px;
-    height: 22px;
+    width: 20px;
+    height: 20px;
     accent-color: #17181d;
   }
 
@@ -462,15 +495,15 @@ const icons = {
 
   .consent {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 16px;
-    font-size: 18px;
-    line-height: 1.5;
+    font-size: 16px;
+    line-height: 1.55;
   }
 
   .consent span {
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 500;
   }
 
@@ -482,7 +515,7 @@ const icons = {
   .submit-button {
     justify-self: end;
     margin-top: 20px;
-    height: 56px;
+    height: 52px;
     padding: 0 34px;
     border: 0;
     border-radius: 7px;
@@ -492,7 +525,7 @@ const icons = {
     align-items: center;
     gap: 18px;
     font: inherit;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 800;
     cursor: pointer;
   }
@@ -505,13 +538,17 @@ const icons = {
   .form-error {
     margin: 0;
     color: #b42318;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
   }
 
   @media (max-width: 700px) {
     .kontakt-page {
-      padding: 130px 14px 80px;
+      padding: 120px 14px 80px;
+    }
+
+    .kontakt-head {
+      margin-bottom: 46px;
     }
 
     .form-grid {
@@ -520,9 +557,10 @@ const icons = {
 
     .option-card,
     .check-card {
-      min-height: 78px;
-      padding: 18px;
-      font-size: 18px;
+      min-height: 72px;
+      padding: 16px;
+      gap: 16px;
+      font-size: 16px;
     }
 
     .line-icon {
@@ -537,8 +575,12 @@ const icons = {
       height: 26px;
     }
 
+    .contact-way {
+      gap: 16px 22px;
+    }
+
     .contact-way label {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .submit-button {
@@ -546,141 +588,4 @@ const icons = {
       justify-content: center;
     }
   }
-/* ============================= */
-/* Feinschliff Kontakt */
-/* Nur Größen / Abstände */
-/* ============================= */
-
-.kontakt-page {
-  padding: 135px 20px 108px;
-}
-
-.kontakt-head {
-  margin-bottom: 60px;
-}
-
-.kontakt-head p {
-  font-size: 12px;
-}
-
-.kontakt-head h1 {
-  font-size: clamp(40px, 5.4vw, 72px);
-  line-height: 1.05;
-}
-
-.kontakt-head span {
-  margin-top: 22px;
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.kontakt-form {
-  gap: 26px;
-}
-
-fieldset {
-  gap: 16px;
-}
-
-legend,
-label > span {
-  margin-bottom: 12px;
-  font-size: 17px;
-}
-
-.option-card,
-.check-card {
-  min-height: 76px;
-  padding: 16px 22px;
-  gap: 20px;
-  font-size: 18px;
-}
-
-.option-card input,
-.check-card input,
-.consent input {
-  width: 20px;
-  height: 20px;
-}
-
-.line-icon {
-  width: 34px;
-  height: 34px;
-  flex-basis: 34px;
-}
-
-.line-icon svg {
-  width: 28px;
-  height: 28px;
-}
-
-.form-grid {
-  gap: 20px;
-}
-
-input,
-select,
-textarea {
-  font-size: 16px;
-}
-
-input,
-select {
-  height: 50px;
-}
-
-.contact-way {
-  gap: 22px;
-}
-
-.contact-way label {
-  font-size: 18px;
-}
-
-.contact-way input {
-  width: 20px;
-  height: 20px;
-}
-
-.consent {
-  font-size: 16px;
-  line-height: 1.55;
-}
-
-.consent span {
-  font-size: 16px;
-}
-
-.submit-button {
-  height: 52px;
-  font-size: 16px;
-}
-
-.form-error {
-  font-size: 15px;
-}
-
-@media (max-width: 700px) {
-  .kontakt-page {
-    padding: 120px 14px 80px;
-  }
-
-  .option-card,
-  .check-card {
-    min-height: 72px;
-    padding: 16px;
-    font-size: 16px;
-  }
-
-  .contact-way label {
-    font-size: 16px;
-  }
-}legend {
-  width: 100% !important;
-  max-width: none !important;
-  white-space: normal !important;
-}
-
-.contact-form fieldset {
-  display: block;
-}</style>
+</style>
