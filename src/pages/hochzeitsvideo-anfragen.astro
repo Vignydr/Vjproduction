@@ -302,6 +302,7 @@ const reviews = [
 
     submitButton.disabled = true;
     submitButton.innerHTML = "Wird gesendet...";
+    leadFormError.hidden = true;
 
     try {
       const formData = new FormData(leadForm);
@@ -314,12 +315,21 @@ const reviews = [
         },
       });
 
+      const resultText = await response.text();
+      console.log("FormSubmit Status:", response.status);
+      console.log("FormSubmit Antwort:", resultText);
+
       if (!response.ok) {
-        throw new Error("FormSubmit error");
+        throw new Error(resultText || "FormSubmit error");
       }
 
       window.location.href = "/danke";
     } catch (error) {
+      console.error("Fehler beim Senden:", error);
+
+      leadFormError.textContent =
+        "Die Anfrage konnte gerade nicht gesendet werden. Bitte prüfe deine Eingaben oder schreibe direkt an info@vjproduction.de.";
+
       leadFormError.hidden = false;
       submitButton.disabled = false;
       submitButton.innerHTML = 'Anfrage absenden <span>→</span>';
