@@ -169,6 +169,12 @@ const reviews = [
           </article>
         ))}
       </div>
+
+      <div class="more-reviews">
+        <a href="/bewertungen">
+          Weitere Bewertungen ansehen <span>→</span>
+        </a>
+      </div>
     </section>
 
     <section class="lead-form-section" id="anfrage">
@@ -611,6 +617,32 @@ const reviews = [
     font-size: 14px;
   }
 
+  .more-reviews {
+    margin-top: 34px;
+    text-align: center;
+  }
+
+  .more-reviews a {
+    min-height: 48px;
+    padding: 0 28px;
+    border-radius: 7px;
+    background: #17181d;
+    color: white;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 14px 34px rgba(23, 24, 29, 0.14);
+  }
+
+  .more-reviews a span {
+    font-size: 18px;
+    line-height: 1;
+  }
+
   .lead-form-section {
     margin-bottom: 0;
     padding: 58px;
@@ -794,6 +826,10 @@ const reviews = [
     .submit-button {
       width: 100%;
       justify-content: center;
+    }
+
+    .more-reviews a {
+      width: 100%;
     }
   }
 </style>
