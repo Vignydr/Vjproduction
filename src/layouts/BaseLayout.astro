@@ -21,6 +21,23 @@ const {
 
     <title>{title}</title>
 
+    <!-- Google tag (gtag.js) -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17951138748"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "AW-17951138748");
+    </script>
+    <!-- End Google tag -->
+
     <!-- Meta Pixel Code -->
     <script is:inline>
       !(function (f, b, e, v, n, t, s) {
