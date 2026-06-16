@@ -3,11 +3,25 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const reviews = [
   {
+    name: "Rüweyda & Eyüp",
+    date: "31.05.2026",
+    location: "Jülich",
+    stars: 5,
+    image: "",
+    initials: "R & E",
+    text: `Du hast eine klasse, tolle Arbeit geleistet. Wirklich wow – jeder war sehr beeindruckt von deiner Arbeit. Allein der Trailer war schon der Hammer und auch der Film war wunderschön.
+
+Ich würde dich zu 100 % weiterempfehlen. Danke, dass du an unserer Hochzeit teilgenommen hast und danke für die wunderschöne Arbeit, die du geleistet hast.
+
+Wir sind wirklich sehr, sehr zufrieden. 🙈`,
+  },
+  {
     name: "Melisa & Adis",
     date: "11.04.2026",
     location: "Herne",
     stars: 5,
     image: "/images/melisa-adis.webp",
+    initials: "M & A",
     text: `Vigny, wir möchten uns von Herzen bei dir bedanken, dass du unsere Hochzeit vom Anfang bis zum Ende begleitet hast. Deine ruhige, professionelle und gleichzeitig sympathische Art hat uns sofort ein gutes Gefühl gegeben. Man hat gemerkt, mit wie viel Leidenschaft und Liebe du deine Arbeit machst.
 
 Auch ein großes Dankeschön an Julia, deine Partnerin, die uns fotografisch begleitet hat – ehrlich gesagt hätten wir nie gedacht, dass dabei so professionelle und wunderschöne Bilder entstehen. Wir waren wirklich begeistert!
@@ -22,6 +36,7 @@ Vielen Dank für alles – ihr habt unsere Hochzeit auf eine ganz besondere Weis
     location: "Westoverledingen",
     stars: 5,
     image: "/images/jana-stefan.jpg",
+    initials: "J & S",
     text: `Wie fangen wir an... Während unserer Hochzeitsplanung haben wir erst gesagt, einen Videografen brauchen wir nicht, wir haben doch unsere Fotos und unsere Erinnerungen. Mehr daneben hätten wir nicht liegen können 😅
 
 Unsere Hochzeit war ein unvergesslicher Tag, ABER er ist so schnell vorbei gewesen und man selber schwebt nur durch diesen Tag. Im Anschluss steht man da und denkt sich: Das war es jetzt! Lange Planung, ein wunderbarer Tag, unglaubliche Emotionen und man hofft sich für immer zu erinnern.
@@ -36,6 +51,7 @@ Wir können nur jedem empfehlen VJ Production für seine Hochzeit zu engagieren.
     location: "Soest / Möhnesee",
     stars: 5,
     image: "/images/jasmin-jose.jpeg",
+    initials: "J & J",
     text: `Wir haben 2024 geheiratet und uns ziemlich spontan für einen Videografen entschieden. Jetzt wäre es das Erste, was wir buchen würden!!! Ein Videograf wie Vigny ist unglaublich wertvoll. Das Video haben wir uns bereits unzählige Male angeschaut. Die Emotionen, die Stimmung, der ganze Tag kommt einfach nochmal ganz ganz anders rüber als auf Fotos.
 
 Die gesamte Kommunikation, ob im Vorfeld oder im Nachgang war mit Vigny unkompliziert - er ist super engagiert, absolut perfektionistisch und brennt für die Videografie, was sich auch daran widerspiegelte, dass wir bereits wenige Tage nach unserer Hochzeit das Video bekommen haben.
@@ -83,20 +99,26 @@ const reviewCount = reviews.length;
           <p class="review-text">"{review.text}"</p>
 
           <div class="review-author">
-            <a
-              class="avatar-link"
-              href={review.image}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={`Foto von ${review.name} öffnen`}
-            >
-              <img
-                class="avatar"
-                src={review.image}
-                alt={`Foto von ${review.name}`}
-                loading="lazy"
-              />
-            </a>
+            {review.image ? (
+              <a
+                class="avatar-link"
+                href={review.image}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={`Foto von ${review.name} öffnen`}
+              >
+                <img
+                  class="avatar"
+                  src={review.image}
+                  alt={`Foto von ${review.name}`}
+                  loading="lazy"
+                />
+              </a>
+            ) : (
+              <div class="avatar-fallback" aria-hidden="true">
+                {review.initials}
+              </div>
+            )}
 
             <div>
               <strong>{review.name}</strong>
@@ -369,17 +391,31 @@ const reviewCount = reviews.length;
     gap: 14px;
   }
 
-  .avatar-link {
+  .avatar-link,
+  .avatar-fallback {
     width: 48px;
     height: 48px;
     flex: 0 0 48px;
     border-radius: 999px;
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     overflow: hidden;
     background: #e1e2e6;
     box-shadow: 0 10px 28px rgba(0, 0, 0, 0.08);
-    cursor: zoom-in;
     text-decoration: none;
+  }
+
+  .avatar-link {
+    cursor: zoom-in;
+  }
+
+  .avatar-fallback {
+    background: #17181d;
+    color: white;
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 
   .avatar {
