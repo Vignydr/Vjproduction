@@ -1,0 +1,721 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+
+const benefitIcons = {
+  heart: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M20.8 5.6a5.1 5.1 0 0 0-7.2 0L12 7.2l-1.6-1.6a5.1 5.1 0 0 0-7.2 7.2L12 21.5l8.8-8.7a5.1 5.1 0 0 0 0-7.2Z"></path>
+  </svg>`,
+
+  camera: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <path d="M7 7h2l1.3-2h3.4L15 7h2a3 3 0 0 1 3 3v7a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3v-7a3 3 0 0 1 3-3Z"></path>
+    <circle cx="12" cy="13.5" r="3.2"></circle>
+  </svg>`,
+
+  film: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="4" y="4" width="16" height="16" rx="1.5"></rect>
+    <path d="M8 4v16"></path>
+    <path d="M16 4v16"></path>
+    <path d="M4 8h4"></path>
+    <path d="M4 12h4"></path>
+    <path d="M4 16h4"></path>
+    <path d="M16 8h4"></path>
+    <path d="M16 12h4"></path>
+    <path d="M16 16h4"></path>
+  </svg>`,
+};
+
+const benefits = [
+  {
+    icon: "heart",
+    title: "Euer Antrag als Erinnerung",
+    text: "Der Moment der Verlobung ist einmalig. Ich halte ihn so fest, dass ihr ihn immer wieder fühlen könnt.",
+  },
+  {
+    icon: "camera",
+    title: "Natürlich & unauffällig",
+    text: "Ob heimlicher Antrag oder geplantes Paarshooting danach – ich begleite euch ruhig, diskret und ohne Druck.",
+  },
+  {
+    icon: "film",
+    title: "Cineastischer Verlobungsfilm",
+    text: "Aus echten Emotionen, Blicken, Nähe und kleinen Details entsteht ein hochwertiger Film eurer Verlobung.",
+  },
+];
+
+const steps = [
+  {
+    number: "1",
+    title: "Idee & Planung",
+    text: "Wir besprechen eure Vorstellung: Soll der Antrag heimlich gefilmt werden? Gibt es eine besondere Location? Welche Stimmung passt zu euch?",
+  },
+  {
+    number: "2",
+    title: "Ablauf & Vorbereitung",
+    text: "Gemeinsam planen wir den Ablauf so, dass der Moment natürlich bleibt. Ich helfe euch bei Timing, Location, Licht und kleinen Details.",
+  },
+  {
+    number: "3",
+    title: "Der Verlobungsmoment",
+    text: "Ich halte den Antrag diskret und emotional fest. Danach können zusätzlich natürliche Paaraufnahmen entstehen, ohne dass es gestellt wirkt.",
+  },
+  {
+    number: "4",
+    title: "Euer Verlobungsfilm",
+    text: "Aus dem Material entsteht ein kurzer, emotionaler Film, den ihr privat behalten, mit Familie teilen oder später sogar in eure Hochzeit einbauen könnt.",
+  },
+];
+
+const faqs = [
+  {
+    question: "Was ist ein Verlobungsvideo?",
+    answer:
+      "Ein Verlobungsvideo hält euren Antrag oder ein Verlobungsshooting in bewegten Bildern fest. Dabei entsteht ein emotionaler Kurzfilm, der diesen besonderen Moment cineastisch erzählt.",
+  },
+  {
+    question: "Kann der Antrag heimlich gefilmt werden?",
+    answer:
+      "Ja. Genau dafür eignet sich ein Verlobungsvideo besonders gut. Wir planen vorher gemeinsam Location, Timing und Ablauf, damit der Moment echt bleibt und nicht gestellt wirkt.",
+  },
+  {
+    question: "Kann man danach noch Paaraufnahmen machen?",
+    answer:
+      "Ja. Nach dem Antrag können wir in entspannter Atmosphäre ein kleines Paarshooting für den Film machen. So entsteht nicht nur die Reaktion, sondern auch ein emotionaler Film über euch beide.",
+  },
+  {
+    question: "Für wen eignet sich ein Verlobungsvideo?",
+    answer:
+      "Es eignet sich für alle, die den Antrag nicht nur als Erinnerung im Kopf behalten möchten, sondern als echten Film mit Emotionen, Stimme, Bewegung und Atmosphäre.",
+  },
+  {
+    question: "Kann das Video später bei der Hochzeit genutzt werden?",
+    answer:
+      "Ja. Viele Paare nutzen solche Aufnahmen später für ihre Hochzeit, zum Beispiel als Teil eines Hochzeitsfilms, für Social Media oder als persönliche Erinnerung.",
+  },
+  {
+    question: "Was kostet ein Verlobungsvideo?",
+    answer:
+      "Der Preis hängt davon ab, ob nur der Antrag begleitet wird, ob zusätzlich ein Paarshooting entsteht und welche Location geplant ist. Nach einem kurzen Gespräch erstelle ich euch ein individuelles Angebot.",
+  },
+];
+---
+
+<BaseLayout
+  title="Verlobungsvideo | Hochzeitsvideograf Witten & NRW | VJ Production"
+  description="Verlobungsvideo von VJ Production: Emotionale und cineastische Begleitung eures Heiratsantrags oder Verlobungsshootings in NRW und deutschlandweit."
+>
+  <section class="late-page">
+    <section class="late-hero">
+      <div class="hero-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M20.8 5.6a5.1 5.1 0 0 0-7.2 0L12 7.2l-1.6-1.6a5.1 5.1 0 0 0-7.2 7.2L12 21.5l8.8-8.7a5.1 5.1 0 0 0 0-7.2Z"></path>
+        </svg>
+      </div>
+
+      <p class="kicker">Verlobung</p>
+      <h1>Ein Verlobungsvideo für den Moment, in dem alles beginnt.</h1>
+      <p class="hero-text">
+        Der Antrag ist einer der emotionalsten Momente eurer gemeinsamen Geschichte.
+        Ich halte eure Verlobung cineastisch, unaufdringlich und mit Gefühl fest –
+        ob als heimlich gefilmter Antrag oder als bewusst geplantes Verlobungsshooting.
+      </p>
+    </section>
+
+    <section class="benefit-grid">
+      {benefits.map((benefit) => (
+        <article class="benefit-card">
+          <div class="benefit-icon" set:html={benefitIcons[benefit.icon]}></div>
+          <h2>{benefit.title}</h2>
+          <p>{benefit.text}</p>
+        </article>
+      ))}
+    </section>
+
+    <section class="process-box">
+      <h2>So läuft's ab</h2>
+
+      <div class="process-list">
+        {steps.map((step) => (
+          <article class="process-item">
+            <div class="process-number">{step.number}</div>
+            <div>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <section class="important-box">
+      <div class="important-title">
+        <span>✓</span>
+        <h2>Wichtig zu wissen</h2>
+      </div>
+
+      <p>
+        Ein Verlobungsvideo muss sich nicht gestellt anfühlen. Gerade die echten Reaktionen,
+        die Nervosität, der Blick danach und die kleinen Momente machen den Film besonders.
+        Es geht nicht um perfekte Inszenierung, sondern um eine emotionale Erinnerung an den Anfang
+        eures nächsten gemeinsamen Kapitels.
+      </p>
+    </section>
+
+    <section class="faq-section">
+      <h2>Häufige Fragen</h2>
+
+      <div class="faq-list">
+        {faqs.map((faq) => (
+          <details>
+            <summary>{faq.question}</summary>
+            <p>{faq.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <section class="cta">
+      <div>
+        <h2>Plant ihr euren Antrag oder ein Verlobungsshooting?</h2>
+        <p>
+          Lasst uns unverbindlich sprechen und gemeinsam überlegen, wie dieser besondere Moment
+          filmisch festgehalten werden kann.
+        </p>
+        <a href="/kontakt">Verlobungsvideo anfragen <span>→</span></a>
+      </div>
+    </section>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: white;
+  }
+
+  .late-page {
+    background: white;
+    color: #17181d;
+    padding: 150px 20px 120px;
+  }
+
+  .late-hero {
+    width: min(1120px, 100%);
+    margin: 0 auto 90px;
+    text-align: center;
+  }
+
+  .hero-icon {
+    width: 86px;
+    height: 86px;
+    margin: 0 auto 38px;
+    border-radius: 20px;
+    display: grid;
+    place-items: center;
+    background: #fbf0e8;
+    color: #df7b00;
+  }
+
+  .hero-icon svg {
+    width: 38px;
+    height: 38px;
+    display: block;
+  }
+
+  .hero-icon svg path {
+    fill: none;
+    stroke: #df7b00;
+    stroke-width: 1.9;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .kicker {
+    margin: 0 0 28px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.34em;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .late-hero h1 {
+    max-width: 980px;
+    margin: 0 auto;
+    font-size: clamp(52px, 7vw, 96px);
+    font-weight: 300;
+    letter-spacing: -0.07em;
+    line-height: 1.02;
+  }
+
+  .hero-text {
+    max-width: 1080px;
+    margin: 42px auto 0;
+    color: #5f6068;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.62;
+  }
+
+  .benefit-grid {
+    width: min(1420px, 100%);
+    margin: 0 auto 120px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 42px;
+  }
+
+  .benefit-card {
+    min-height: 300px;
+    padding: 44px 34px;
+    border-radius: 18px;
+    background: #f8f8f9;
+    text-align: center;
+    display: grid;
+    align-content: center;
+    justify-items: center;
+  }
+
+  .benefit-icon {
+    width: 66px;
+    height: 66px;
+    margin-bottom: 28px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: #fbf0e8;
+    color: #df7b00;
+  }
+
+  :global(.benefit-icon svg) {
+    width: 34px !important;
+    height: 34px !important;
+    display: block !important;
+  }
+
+  :global(.benefit-icon svg path),
+  :global(.benefit-icon svg rect),
+  :global(.benefit-icon svg circle) {
+    fill: none !important;
+    stroke: #df7b00 !important;
+    stroke-width: 1.9 !important;
+    stroke-linecap: round !important;
+    stroke-linejoin: round !important;
+  }
+
+  .benefit-card h2 {
+    margin: 0 0 22px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .benefit-card p {
+    max-width: 350px;
+    margin: 0;
+    color: #5f6068;
+    font-size: 18px;
+    line-height: 1.55;
+  }
+
+  .process-box {
+    width: min(1360px, 100%);
+    margin: 0 auto 115px;
+    padding: 70px 110px;
+    border-radius: 24px;
+    background: #fff9e8;
+  }
+
+  .process-box > h2 {
+    margin: 0 0 70px;
+    text-align: center;
+    font-size: clamp(38px, 4.4vw, 58px);
+    font-weight: 300;
+    letter-spacing: -0.055em;
+  }
+
+  .process-list {
+    display: grid;
+    gap: 54px;
+  }
+
+  .process-item {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 42px;
+    align-items: start;
+  }
+
+  .process-number {
+    width: 64px;
+    height: 64px;
+    border-radius: 999px;
+    display: grid;
+    place-items: center;
+    background: #df7b00;
+    color: white;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  .process-item h3 {
+    margin: 0 0 16px;
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  .process-item p {
+    margin: 0;
+    color: #5f6068;
+    font-size: 22px;
+    line-height: 1.58;
+  }
+
+  .important-box {
+    width: min(1420px, 100%);
+    margin: 0 auto 110px;
+    padding: 44px 50px;
+    border-radius: 8px;
+    border-left: 6px solid #df7b00;
+    border-right: 1px solid #f0d4b3;
+    background: #f8f8f9;
+  }
+
+  .important-title {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin-bottom: 22px;
+  }
+
+  .important-title span {
+    color: #df7b00;
+    font-size: 28px;
+  }
+
+  .important-title h2 {
+    margin: 0;
+    font-size: 24px;
+  }
+
+  .important-box p {
+    margin: 0;
+    color: #5f6068;
+    font-size: 22px;
+    line-height: 1.6;
+  }
+
+  .faq-section {
+    width: min(1040px, 100%);
+    margin: 0 auto 105px;
+  }
+
+  .faq-section > h2 {
+    margin: 0 0 50px;
+    text-align: center;
+    font-size: clamp(38px, 4vw, 54px);
+    font-weight: 300;
+    letter-spacing: -0.055em;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 22px;
+  }
+
+  details {
+    border: 1px solid #dedfe3;
+    border-radius: 16px;
+    background: white;
+    overflow: hidden;
+  }
+
+  summary {
+    cursor: pointer;
+    list-style: none;
+    padding: 30px 34px;
+    font-size: 22px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+  }
+
+  summary::after {
+    content: "⌄";
+    color: #9a9ba3;
+    font-size: 26px;
+  }
+
+  details[open] summary::after {
+    transform: rotate(180deg);
+  }
+
+  summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details p {
+    margin: 0;
+    padding: 0 34px 32px;
+    color: #5f6068;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  .cta {
+    width: min(1440px, 100%);
+    margin: 0 auto;
+  }
+
+  .cta > div {
+    padding: 78px 30px;
+    border-radius: 28px;
+    background: #17181d;
+    color: white;
+    text-align: center;
+  }
+
+  .cta h2 {
+    margin: 0;
+    font-size: clamp(36px, 4vw, 54px);
+    font-weight: 300;
+    letter-spacing: -0.045em;
+  }
+
+  .cta p {
+    max-width: 760px;
+    margin: 28px auto 0;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 22px;
+    line-height: 1.62;
+  }
+
+  .cta a {
+    margin-top: 42px;
+    display: inline-flex;
+    height: 58px;
+    padding: 0 42px;
+    border-radius: 7px;
+    background: #df7b00;
+    color: white;
+    align-items: center;
+    gap: 18px;
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  @media (max-width: 950px) {
+    .benefit-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .process-box {
+      padding: 46px 28px;
+    }
+
+    .process-item {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .late-page {
+      padding: 130px 14px 80px;
+    }
+
+    .hero-icon {
+      width: 72px;
+      height: 72px;
+    }
+
+    .hero-icon svg {
+      width: 34px;
+      height: 34px;
+    }
+
+    .hero-text,
+    .process-item p,
+    .important-box p,
+    .cta p {
+      font-size: 18px;
+    }
+
+    .important-box {
+      padding: 30px 24px;
+    }
+
+    summary {
+      padding: 24px;
+      font-size: 18px;
+    }
+  }
+
+  /* ============================= */
+  /* Feinschliff Verlobung */
+  /* Nur Größen / Abstände */
+  /* ============================= */
+
+  .late-page {
+    padding: 135px 20px 108px;
+  }
+
+  .late-hero {
+    margin-bottom: 76px;
+  }
+
+  .hero-icon {
+    width: 76px;
+    height: 76px;
+    margin-bottom: 32px;
+  }
+
+  .kicker {
+    font-size: 12px;
+    margin-bottom: 22px;
+  }
+
+  .late-hero h1 {
+    font-size: clamp(40px, 5.4vw, 72px);
+    line-height: 1.06;
+  }
+
+  .hero-text {
+    margin-top: 34px;
+    font-size: clamp(18px, 1.8vw, 24px);
+    line-height: 1.62;
+  }
+
+  .benefit-grid {
+    margin-bottom: 96px;
+    gap: 34px;
+  }
+
+  .benefit-card {
+    min-height: 280px;
+    padding: 38px 30px;
+  }
+
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 24px;
+  }
+
+  .benefit-card h2 {
+    margin-bottom: 18px;
+    font-size: 22px;
+  }
+
+  .benefit-card p {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .process-box {
+    margin-bottom: 96px;
+    padding: 58px 82px;
+  }
+
+  .process-box > h2 {
+    margin-bottom: 56px;
+    font-size: clamp(34px, 3.8vw, 50px);
+  }
+
+  .process-list {
+    gap: 44px;
+  }
+
+  .process-item {
+    gap: 34px;
+  }
+
+  .process-number {
+    width: 58px;
+    height: 58px;
+    font-size: 22px;
+  }
+
+  .process-item h3 {
+    font-size: 22px;
+  }
+
+  .process-item p {
+    font-size: 18px;
+    line-height: 1.62;
+  }
+
+  .important-box {
+    margin-bottom: 92px;
+    padding: 40px 46px;
+  }
+
+  .important-title h2 {
+    font-size: 22px;
+  }
+
+  .important-box p {
+    font-size: 18px;
+    line-height: 1.65;
+  }
+
+  .faq-section {
+    margin-bottom: 92px;
+  }
+
+  .faq-section > h2 {
+    margin-bottom: 42px;
+    font-size: clamp(34px, 3.8vw, 48px);
+  }
+
+  summary {
+    padding: 26px 30px;
+    font-size: 18px;
+  }
+
+  details p {
+    padding: 0 30px 30px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .cta > div {
+    padding: 64px 28px;
+  }
+
+  .cta h2 {
+    font-size: clamp(32px, 3.5vw, 44px);
+  }
+
+  .cta p {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+
+  .cta a {
+    height: 50px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 950px) {
+    .process-box {
+      padding: 44px 28px;
+    }
+
+    .process-item {
+      gap: 16px;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .late-page {
+      padding: 120px 14px 80px;
+    }
+
+    .hero-text,
+    .process-item p,
+    .important-box p,
+    .cta p {
+      font-size: 16px;
+    }
+  }
+</style>
