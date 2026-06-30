@@ -128,31 +128,6 @@ const faqs = [
       <small>Preise gemäß § 19 UStG ohne Ausweis der MwSt.</small>
     </div>
 
-    <div class="discount-box">
-      <div class="discount-icon">✧</div>
-
-      <div class="discount-content">
-        <strong>Portfolio-Angebot: 10% Rabatt</strong>
-        <p>
-          Spart 10% auf euer Paket, wenn ihr der Veröffentlichung eures Films auf meiner Website zustimmt.
-        </p>
-
-        <button
-          class="offer-toggle"
-          type="button"
-          onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden; this.querySelector('span').textContent = this.nextElementSibling.hidden ? 'Mehr erfahren' : 'Weniger anzeigen';"
-        >
-          <span>Mehr erfahren</span>
-        </button>
-
-        <div class="offer-details" hidden>
-          Die Veröffentlichung eures Films ist selbstverständlich freiwillig. Ihr entscheidet selbst,
-          ob euer Hochzeitsfilm im Portfolio gezeigt werden darf. Die Einwilligung kann jederzeit
-          widerrufen werden – dann entferne ich den Film wieder von meiner Website.
-        </div>
-      </div>
-    </div>
-
     <div class="package-grid">
       {packages.map((item) => (
         <article class={`package-card ${item.popular ? "popular" : ""}`}>
@@ -270,13 +245,13 @@ const faqs = [
   .prices-page {
     background: white;
     color: #17181d;
-    padding: 150px 20px 120px;
+    padding: 135px 20px 108px;
   }
 
   .prices-head {
     text-align: center;
     width: min(980px, 100%);
-    margin: 0 auto 72px;
+    margin: 0 auto 62px;
   }
 
   .prices-head p {
@@ -290,22 +265,22 @@ const faqs = [
 
   .prices-head h1 {
     margin: 0;
-    font-size: clamp(46px, 6vw, 82px);
+    font-size: clamp(40px, 5.2vw, 70px);
     font-weight: 300;
     letter-spacing: -0.065em;
-    line-height: 1.02;
+    line-height: 1.05;
   }
 
   .prices-head span,
   .prices-head small {
     display: block;
     color: #777984;
-    font-size: 18px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.6;
   }
 
   .prices-head span {
-    margin-top: 26px;
+    margin-top: 22px;
   }
 
   .prices-head small {
@@ -313,100 +288,19 @@ const faqs = [
     color: #9a9ba3;
   }
 
-  .discount-box {
-    width: min(880px, 100%);
-    margin: 0 auto 70px;
-    padding: 28px 34px;
-    display: flex;
-    gap: 24px;
-    text-align: left;
-    align-items: flex-start;
-    border-radius: 18px;
-    border: 1px solid #f5c755;
-    background: linear-gradient(90deg, rgba(255, 243, 194, 0.7), rgba(255, 251, 236, 0.95));
-  }
-
-  .discount-icon {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    background: #fff0ba;
-    color: #df7b00;
-    font-size: 24px;
-  }
-
-  .discount-content {
-    flex: 1;
-  }
-
-  .discount-box strong {
-    color: #17181d;
-    font-size: 19px;
-  }
-
-  .discount-box p {
-    margin: 9px 0 0;
-    color: #5c5d65;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .offer-toggle {
-    margin-top: 12px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: #b95700;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font: inherit;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
-  }
-
-  .offer-toggle::before {
-    content: "i";
-    width: 20px;
-    height: 20px;
-    border: 2px solid #b95700;
-    border-radius: 999px;
-    display: inline-grid;
-    place-items: center;
-    color: #b95700;
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .offer-details {
-    margin-top: 18px;
-    padding: 22px 26px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.72);
-    color: #5f626d;
-    font-size: 16px;
-    line-height: 1.55;
-    font-weight: 400;
-  }
-
   .package-grid {
     width: min(1320px, 100%);
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 36px;
+    gap: 32px;
     align-items: start;
   }
 
   .package-card {
     position: relative;
-    min-height: 690px;
-    padding: 42px 46px;
+    min-height: 640px;
+    padding: 38px 40px;
     border-radius: 22px;
     background: #f8f8f9;
     text-align: left;
@@ -438,7 +332,7 @@ const faqs = [
     margin: 0;
     text-align: center;
     color: inherit;
-    font-size: 30px;
+    font-size: 26px;
     font-weight: 700;
   }
 
@@ -447,7 +341,7 @@ const faqs = [
     min-height: 48px;
     text-align: center;
     color: #767882;
-    font-size: 16px;
+    font-size: 15px;
     line-height: 1.5;
   }
 
@@ -456,26 +350,26 @@ const faqs = [
   }
 
   .price {
-    margin: 22px 0 36px;
+    margin: 20px 0 32px;
     text-align: center;
     color: inherit;
-    font-size: 56px;
+    font-size: 48px;
     font-weight: 300;
     letter-spacing: -0.05em;
   }
 
   .price span {
     margin-left: 8px;
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .price.request {
-    font-size: 50px;
+    font-size: 42px;
   }
 
   .meta-row {
-    padding: 22px 0;
-    margin-bottom: 28px;
+    padding: 20px 0;
+    margin-bottom: 26px;
     border-top: 1px solid rgba(23, 24, 29, 0.1);
     border-bottom: 1px solid rgba(23, 24, 29, 0.1);
     display: grid;
@@ -527,7 +421,7 @@ const faqs = [
   }
 
   .meta-row strong {
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
   }
 
@@ -536,13 +430,13 @@ const faqs = [
     padding: 0;
     list-style: none;
     display: grid;
-    gap: 18px;
+    gap: 16px;
   }
 
   .package-card li {
     color: #5f6068;
-    line-height: 1.45;
-    font-size: 16px;
+    line-height: 1.5;
+    font-size: 15px;
   }
 
   .popular li {
@@ -562,7 +456,7 @@ const faqs = [
 
   .package-button {
     margin-top: 38px;
-    height: 52px;
+    height: 50px;
     border-radius: 7px;
     background: #df7b00;
     color: white;
@@ -570,6 +464,7 @@ const faqs = [
     align-items: center;
     justify-content: center;
     gap: 16px;
+    font-size: 15px;
     font-weight: 800;
   }
 
@@ -579,8 +474,8 @@ const faqs = [
 
   .notes-box {
     width: min(1320px, 100%);
-    margin: 95px auto 90px;
-    padding: 44px 48px;
+    margin: 84px auto 80px;
+    padding: 40px 44px;
     border-radius: 18px;
     border: 1px solid #f5d36d;
     background: #fffaf0;
@@ -588,25 +483,25 @@ const faqs = [
 
   .notes-box h2 {
     margin: 0 0 22px;
-    font-size: 24px;
+    font-size: 22px;
   }
 
   .notes-box p {
     margin: 12px 0;
     color: #5f6068;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.6;
   }
 
   .faq-section {
     width: min(960px, 100%);
-    margin: 0 auto 105px;
+    margin: 0 auto 92px;
   }
 
   .faq-section > h2 {
-    margin: 0 0 50px;
+    margin: 0 0 42px;
     text-align: center;
-    font-size: clamp(36px, 4vw, 50px);
+    font-size: clamp(34px, 3.6vw, 46px);
     font-weight: 300;
     letter-spacing: -0.05em;
   }
@@ -624,9 +519,9 @@ const faqs = [
 
   summary {
     cursor: pointer;
-    padding: 26px 32px;
+    padding: 24px 30px;
     list-style: none;
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 700;
     display: flex;
     align-items: center;
@@ -655,16 +550,16 @@ const faqs = [
 
   details p {
     margin: 0;
-    padding: 0 32px 30px;
+    padding: 0 30px 28px;
     color: #5f6068;
-    font-size: 18px;
+    font-size: 16px;
     line-height: 1.7;
   }
 
   .late-video-card {
     width: min(940px, 100%);
-    margin: 0 auto 90px;
-    padding: 44px;
+    margin: 0 auto 84px;
+    padding: 40px;
     border: 3px solid #e5e5e8;
     border-radius: 24px;
     display: flex;
@@ -685,20 +580,20 @@ const faqs = [
 
   .late-video-card h2 {
     margin: 0 0 12px;
-    font-size: 28px;
+    font-size: 26px;
     letter-spacing: -0.03em;
   }
 
   .late-video-card p {
     margin: 0 0 26px;
     color: #5f6068;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1.65;
   }
 
   .late-video-card a {
     display: inline-flex;
-    height: 46px;
+    height: 44px;
     padding: 0 24px;
     align-items: center;
     gap: 14px;
@@ -706,6 +601,7 @@ const faqs = [
     background: white;
     border: 1px solid #d9d9dd;
     color: #17181d;
+    font-size: 15px;
     font-weight: 800;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   }
@@ -716,7 +612,7 @@ const faqs = [
   }
 
   .cta > div {
-    padding: 70px 30px;
+    padding: 62px 28px;
     border-radius: 28px;
     background: #17181d;
     color: white;
@@ -725,7 +621,7 @@ const faqs = [
 
   .cta h2 {
     margin: 0;
-    font-size: clamp(34px, 4vw, 48px);
+    font-size: clamp(32px, 3.5vw, 44px);
     font-weight: 300;
     letter-spacing: -0.04em;
   }
@@ -734,20 +630,21 @@ const faqs = [
     max-width: 620px;
     margin: 24px auto 0;
     color: rgba(255, 255, 255, 0.68);
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 16px;
+    line-height: 1.65;
   }
 
   .cta a {
     margin-top: 38px;
     display: inline-flex;
-    height: 52px;
+    height: 50px;
     padding: 0 34px;
     border-radius: 7px;
     background: #df7b00;
     color: white;
     align-items: center;
     gap: 14px;
+    font-size: 15px;
     font-weight: 800;
   }
 
@@ -767,221 +664,25 @@ const faqs = [
 
   @media (max-width: 620px) {
     .prices-page {
-      padding: 130px 14px 80px;
+      padding: 120px 14px 80px;
     }
 
-    .discount-box,
     .notes-box,
     .late-video-card {
       padding: 26px;
     }
 
     .package-card {
-      padding: 34px 26px;
+      min-height: auto;
+      padding: 32px 24px;
     }
 
     .price {
-      font-size: 46px;
+      font-size: 42px;
+    }
+
+    .price.request {
+      font-size: 36px;
     }
   }
-/* ============================= */
-/* Feinschliff Pakete & Preise */
-/* Nur Größen / Abstände */
-/* ============================= */
-
-.prices-page {
-  padding: 135px 20px 108px;
-}
-
-.prices-head {
-  margin-bottom: 62px;
-}
-
-.prices-head p {
-  font-size: 12px;
-}
-
-.prices-head h1 {
-  font-size: clamp(40px, 5.2vw, 70px);
-  line-height: 1.05;
-}
-
-.prices-head span,
-.prices-head small {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.prices-head span {
-  margin-top: 22px;
-}
-
-.discount-box {
-  margin-bottom: 64px;
-}
-
-.discount-box strong {
-  font-size: 18px;
-}
-
-.discount-box p {
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.offer-toggle {
-  font-size: 15px;
-}
-
-.offer-details {
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.package-grid {
-  gap: 32px;
-}
-
-.package-card {
-  min-height: 640px;
-  padding: 38px 40px;
-}
-
-.package-card h2 {
-  font-size: 26px;
-}
-
-.package-subtitle {
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.price {
-  font-size: 48px;
-  margin: 20px 0 32px;
-}
-
-.price span {
-  font-size: 16px;
-}
-
-.price.request {
-  font-size: 42px;
-}
-
-.meta-row {
-  padding: 20px 0;
-  margin-bottom: 26px;
-}
-
-.meta-icon {
-  font-size: 22px;
-}
-
-.meta-row strong {
-  font-size: 13px;
-}
-
-.package-card ul {
-  gap: 16px;
-}
-
-.package-card li {
-  font-size: 15px;
-  line-height: 1.5;
-}
-
-.package-button {
-  height: 50px;
-  font-size: 15px;
-}
-
-.notes-box {
-  margin: 84px auto 80px;
-  padding: 40px 44px;
-}
-
-.notes-box h2 {
-  font-size: 22px;
-}
-
-.notes-box p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.faq-section {
-  margin-bottom: 92px;
-}
-
-.faq-section > h2 {
-  font-size: clamp(34px, 3.6vw, 46px);
-  margin-bottom: 42px;
-}
-
-summary {
-  padding: 24px 30px;
-  font-size: 18px;
-}
-
-details p {
-  padding: 0 30px 28px;
-  font-size: 16px;
-  line-height: 1.7;
-}
-
-.late-video-card {
-  margin-bottom: 84px;
-  padding: 40px;
-}
-
-.late-video-card h2 {
-  font-size: 26px;
-}
-
-.late-video-card p {
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.late-video-card a {
-  height: 44px;
-  font-size: 15px;
-}
-
-.cta > div {
-  padding: 62px 28px;
-}
-
-.cta h2 {
-  font-size: clamp(32px, 3.5vw, 44px);
-}
-
-.cta p {
-  font-size: 16px;
-  line-height: 1.65;
-}
-
-.cta a {
-  height: 50px;
-  font-size: 15px;
-}
-
-@media (max-width: 620px) {
-  .prices-page {
-    padding: 120px 14px 80px;
-  }
-
-  .package-card {
-    min-height: auto;
-    padding: 32px 24px;
-  }
-
-  .price {
-    font-size: 42px;
-  }
-
-  .price.request {
-    font-size: 36px;
-  }
-}</style>
+</style>
