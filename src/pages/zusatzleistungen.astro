@@ -64,31 +64,6 @@ const extraCards = [
       <span>Erweitere dein Paket mit besonderen Extras</span>
     </section>
 
-    <section class="discount-box">
-      <div class="discount-icon">✧</div>
-
-      <div class="discount-content">
-        <strong>Portfolio-Angebot: 10% Rabatt</strong>
-        <p>
-          Spart 10% auf euer Paket, wenn ihr der Veröffentlichung eures Films auf meiner Website zustimmt.
-        </p>
-
-        <button
-          class="offer-toggle"
-          type="button"
-          onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden; this.querySelector('span').textContent = this.nextElementSibling.hidden ? 'Mehr erfahren' : 'Weniger anzeigen';"
-        >
-          <span>Mehr erfahren</span>
-        </button>
-
-        <div class="offer-details" hidden>
-          Die Veröffentlichung eures Films ist selbstverständlich freiwillig. Ihr entscheidet selbst,
-          ob euer Hochzeitsfilm im Portfolio gezeigt werden darf. Die Einwilligung kann jederzeit
-          widerrufen werden – dann entferne ich den Film wieder von meiner Website.
-        </div>
-      </div>
-    </section>
-
     <section class="drone-card">
       <div class="drone-main">
         <div class="feature-icon" set:html={icons.drone}></div>
@@ -153,13 +128,13 @@ const extraCards = [
   .extras-page {
     background: white;
     color: #17181d;
-    padding: 150px 20px 120px;
+    padding: 135px 20px 108px;
   }
 
   .extras-head {
     text-align: center;
     width: min(980px, 100%);
-    margin: 0 auto 90px;
+    margin: 0 auto 72px;
   }
 
   .extras-head p {
@@ -173,104 +148,23 @@ const extraCards = [
 
   .extras-head h1 {
     margin: 0;
-    font-size: clamp(46px, 6vw, 82px);
+    font-size: clamp(40px, 5.2vw, 70px);
     font-weight: 300;
     letter-spacing: -0.065em;
-    line-height: 1.02;
+    line-height: 1.05;
   }
 
   .extras-head span {
     display: block;
-    margin-top: 26px;
+    margin-top: 22px;
     color: #777984;
-    font-size: 18px;
-    line-height: 1.7;
-  }
-
-  .discount-box {
-    width: min(960px, 100%);
-    margin: 0 auto 72px;
-    padding: 28px 34px;
-    display: flex;
-    gap: 24px;
-    text-align: left;
-    align-items: flex-start;
-    border-radius: 18px;
-    border: 1px solid #f5c755;
-    background: linear-gradient(90deg, rgba(255, 243, 194, 0.7), rgba(255, 251, 236, 0.95));
-  }
-
-  .discount-icon {
-    flex: 0 0 48px;
-    width: 48px;
-    height: 48px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    background: #fff0ba;
-    color: #df7b00;
-    font-size: 24px;
-  }
-
-  .discount-content {
-    flex: 1;
-  }
-
-  .discount-box strong {
-    color: #17181d;
-    font-size: 19px;
-  }
-
-  .discount-box p {
-    margin: 9px 0 0;
-    color: #5c5d65;
     font-size: 16px;
     line-height: 1.6;
   }
 
-  .offer-toggle {
-    margin-top: 12px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: #b95700;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font: inherit;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
-  }
-
-  .offer-toggle::before {
-    content: "i";
-    width: 20px;
-    height: 20px;
-    border: 2px solid #b95700;
-    border-radius: 999px;
-    display: inline-grid;
-    place-items: center;
-    color: #b95700;
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .offer-details {
-    margin-top: 18px;
-    padding: 22px 26px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.72);
-    color: #5f626d;
-    font-size: 16px;
-    line-height: 1.55;
-    font-weight: 400;
-  }
-
   .drone-card {
     width: min(1280px, 100%);
-    margin: 0 auto 120px;
+    margin: 0 auto 96px;
     border-radius: 28px;
     overflow: hidden;
     display: grid;
@@ -280,19 +174,19 @@ const extraCards = [
   }
 
   .drone-main {
-    padding: 72px 70px;
+    padding: 60px 58px;
     background: #17181d;
   }
 
   .drone-note {
-    padding: 72px 70px;
+    padding: 60px 58px;
     background: #24252a;
   }
 
   .feature-icon {
-    width: 62px;
-    height: 62px;
-    margin-bottom: 38px;
+    width: 64px;
+    height: 64px;
+    margin-bottom: 34px;
     border-radius: 16px;
     display: grid;
     place-items: center;
@@ -320,7 +214,7 @@ const extraCards = [
   .drone-main h2 {
     margin: 0 0 26px;
     color: white;
-    font-size: clamp(32px, 3.4vw, 44px);
+    font-size: clamp(34px, 3.8vw, 48px);
     font-weight: 300;
     letter-spacing: -0.055em;
     line-height: 1.08;
@@ -332,12 +226,12 @@ const extraCards = [
     max-width: 520px;
     color: rgba(255, 255, 255, 0.62);
     font-size: 18px;
-    line-height: 1.65;
+    line-height: 1.6;
   }
 
   .drone-main strong {
     display: block;
-    margin-top: 42px;
+    margin-top: 34px;
     color: #ffc21d;
     font-size: 34px;
     font-weight: 300;
@@ -345,9 +239,9 @@ const extraCards = [
   }
 
   .drone-main a {
-    margin-top: 38px;
+    margin-top: 34px;
     display: inline-flex;
-    height: 44px;
+    height: 50px;
     padding: 0 24px;
     align-items: center;
     justify-content: center;
@@ -355,28 +249,28 @@ const extraCards = [
     border-radius: 7px;
     background: #df7b00;
     color: white;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
   }
 
   .drone-note h3 {
     margin: 0 0 26px;
     color: white;
-    font-size: 18px;
+    font-size: 22px;
     font-weight: 800;
     letter-spacing: -0.02em;
   }
 
   .more-extras {
     width: min(840px, 100%);
-    margin: 0 auto 100px;
+    margin: 0 auto 90px;
   }
 
   .more-extras > h2 {
     margin: 0 0 46px;
     text-align: center;
     color: #17181d;
-    font-size: 28px;
+    font-size: clamp(32px, 3.5vw, 44px);
     font-weight: 300;
     letter-spacing: -0.045em;
   }
@@ -388,7 +282,7 @@ const extraCards = [
   }
 
   .extra-card {
-    min-height: 360px;
+    min-height: 330px;
     padding: 34px;
     border-radius: 16px;
     background: white;
@@ -399,9 +293,9 @@ const extraCards = [
   }
 
   .small-icon {
-    width: 44px;
-    height: 44px;
-    margin-bottom: 34px;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 30px;
     border-radius: 10px;
     display: grid;
     place-items: center;
@@ -427,7 +321,7 @@ const extraCards = [
   }
 
   .extra-card h3 {
-    margin: 0 0 30px;
+    margin: 0 0 24px;
     color: #17181d;
     font-size: 22px;
     font-weight: 800;
@@ -438,7 +332,7 @@ const extraCards = [
     margin: 0;
     color: #5f6068;
     font-size: 16px;
-    line-height: 1.62;
+    line-height: 1.6;
   }
 
   .extra-card strong {
@@ -446,7 +340,7 @@ const extraCards = [
     margin-top: auto;
     padding-top: 32px;
     color: #17181d;
-    font-size: 25px;
+    font-size: 24px;
     font-weight: 300;
     letter-spacing: -0.03em;
   }
@@ -461,7 +355,7 @@ const extraCards = [
     justify-content: center;
     gap: 16px;
     color: #17181d;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 800;
     box-shadow: 0 5px 14px rgba(0, 0, 0, 0.035);
   }
@@ -472,7 +366,7 @@ const extraCards = [
   }
 
   .cta > div {
-    padding: 74px 30px;
+    padding: 62px 28px;
     border-radius: 28px;
     background: #17181d;
     color: white;
@@ -482,7 +376,7 @@ const extraCards = [
   .cta h2 {
     margin: 0;
     color: white;
-    font-size: clamp(36px, 4vw, 52px);
+    font-size: clamp(32px, 3.5vw, 44px);
     font-weight: 300;
     letter-spacing: -0.045em;
   }
@@ -491,21 +385,21 @@ const extraCards = [
     max-width: 760px;
     margin: 26px auto 0;
     color: rgba(255, 255, 255, 0.68);
-    font-size: 20px;
-    line-height: 1.62;
+    font-size: 17px;
+    line-height: 1.6;
   }
 
   .cta a {
     margin-top: 40px;
     display: inline-flex;
-    height: 56px;
+    height: 50px;
     padding: 0 38px;
     border-radius: 7px;
     background: #df7b00;
     color: white;
     align-items: center;
     gap: 18px;
-    font-size: 17px;
+    font-size: 15px;
     font-weight: 800;
   }
 
@@ -517,7 +411,12 @@ const extraCards = [
 
     .drone-main,
     .drone-note {
-      padding: 46px 32px;
+      padding: 42px 30px;
+    }
+
+    .drone-main p,
+    .drone-note p {
+      font-size: 16px;
     }
 
     .more-extras {
@@ -527,182 +426,11 @@ const extraCards = [
 
   @media (max-width: 620px) {
     .extras-page {
-      padding: 130px 14px 80px;
-    }
-
-    .discount-box {
-      padding: 26px;
-      flex-direction: column;
+      padding: 120px 14px 80px;
     }
 
     .extra-card {
       padding: 30px;
     }
-
-    .drone-main p,
-    .drone-note p,
-    .cta p {
-      font-size: 18px;
-    }
   }
-/* ============================= */
-/* Feinschliff Zusatzleistungen */
-/* Nur Größen / Abstände */
-/* ============================= */
-
-.extras-page {
-  padding: 135px 20px 108px;
-}
-
-.extras-head {
-  margin-bottom: 72px;
-}
-
-.extras-head p {
-  font-size: 12px;
-}
-
-.extras-head h1 {
-  font-size: clamp(40px, 5.2vw, 70px);
-  line-height: 1.05;
-}
-
-.extras-head span {
-  margin-top: 22px;
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.discount-box {
-  margin-bottom: 66px;
-}
-
-.discount-box strong {
-  font-size: 18px;
-}
-
-.discount-box p,
-.offer-details {
-  font-size: 15px;
-  line-height: 1.6;
-}
-
-.offer-toggle {
-  font-size: 15px;
-}
-
-.drone-card {
-  margin-bottom: 96px;
-}
-
-.drone-main,
-.drone-note {
-  padding: 60px 58px;
-}
-
-.feature-icon {
-  width: 64px;
-  height: 64px;
-  margin-bottom: 34px;
-}
-
-.drone-main h2 {
-  font-size: clamp(34px, 3.8vw, 48px);
-  line-height: 1.08;
-}
-
-.drone-main p,
-.drone-note p {
-  font-size: 18px;
-  line-height: 1.6;
-}
-
-.drone-main strong {
-  margin-top: 34px;
-  font-size: 34px;
-}
-
-.drone-main a {
-  margin-top: 34px;
-  height: 50px;
-  font-size: 15px;
-}
-
-.drone-note h3 {
-  font-size: 22px;
-}
-
-.more-extras {
-  margin-bottom: 90px;
-}
-
-.more-extras > h2 {
-  margin-bottom: 46px;
-  font-size: clamp(32px, 3.5vw, 44px);
-}
-
-.extra-card {
-  min-height: 330px;
-  padding: 34px;
-}
-
-.small-icon {
-  width: 48px;
-  height: 48px;
-  margin-bottom: 30px;
-}
-
-.extra-card h3 {
-  margin-bottom: 24px;
-  font-size: 22px;
-}
-
-.extra-card p {
-  font-size: 16px;
-  line-height: 1.6;
-}
-
-.extra-card strong {
-  font-size: 24px;
-}
-
-.extra-card a {
-  height: 42px;
-  font-size: 15px;
-}
-
-.cta > div {
-  padding: 62px 28px;
-}
-
-.cta h2 {
-  font-size: clamp(32px, 3.5vw, 44px);
-}
-
-.cta p {
-  font-size: 17px;
-  line-height: 1.6;
-}
-
-.cta a {
-  height: 50px;
-  font-size: 15px;
-}
-
-@media (max-width: 900px) {
-  .drone-main,
-  .drone-note {
-    padding: 42px 30px;
-  }
-
-  .drone-main p,
-  .drone-note p {
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 620px) {
-  .extras-page {
-    padding: 120px 14px 80px;
-  }
-}</style>
+</style>
