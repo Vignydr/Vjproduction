@@ -235,31 +235,6 @@ const reviews = [
     <h2>Transparente Preise</h2>
     <p class="subtitle">Wählt das Paket, das zu eurer Vision passt</p>
 
-    <div class="discount-box">
-      <div class="discount-icon">✧</div>
-
-      <div class="discount-content">
-        <strong>Portfolio-Angebot: 10% Rabatt</strong>
-        <p>
-          Spart 10% auf euer Paket, wenn ihr der Veröffentlichung eures Films auf meiner Website zustimmt.
-        </p>
-
-        <button
-          class="offer-toggle"
-          type="button"
-          onclick="this.nextElementSibling.hidden = !this.nextElementSibling.hidden; this.querySelector('span').textContent = this.nextElementSibling.hidden ? 'Mehr erfahren' : 'Weniger anzeigen';"
-        >
-          <span>Mehr erfahren</span>
-        </button>
-
-        <div class="offer-details" hidden>
-          Die Veröffentlichung eures Films ist selbstverständlich freiwillig. Ihr entscheidet selbst,
-          ob euer Hochzeitsfilm im Portfolio gezeigt werden darf. Die Einwilligung kann jederzeit
-          widerrufen werden – dann entferne ich den Film wieder von meiner Website.
-        </div>
-      </div>
-    </div>
-
     <div class="package-grid">
       {packages.map((item) => (
         <article class={`package-card ${item.popular ? "popular" : ""}`}>
@@ -712,90 +687,9 @@ const reviews = [
   }
 
   .subtitle {
-    margin: 14px 0 0;
+    margin: 14px 0 54px;
     color: #777984;
     font-size: 15px;
-  }
-
-  .discount-box {
-    width: min(800px, 100%);
-    margin: 52px auto 54px;
-    padding: 26px 32px;
-    display: flex;
-    gap: 22px;
-    text-align: left;
-    align-items: flex-start;
-    border-radius: 18px;
-    border: 1px solid #f5c755;
-    background: linear-gradient(90deg, rgba(255, 243, 194, 0.66), rgba(255, 251, 236, 0.92));
-  }
-
-  .discount-icon {
-    flex: 0 0 44px;
-    width: 44px;
-    height: 44px;
-    border-radius: 999px;
-    display: grid;
-    place-items: center;
-    background: #fff0ba;
-    color: #df7b00;
-    font-size: 22px;
-  }
-
-  .discount-content {
-    flex: 1;
-  }
-
-  .discount-box strong {
-    color: #17181d;
-    font-size: 17px;
-  }
-
-  .discount-box p {
-    margin: 8px 0 0;
-    color: #5c5d65;
-    font-size: 15px;
-    line-height: 1.6;
-  }
-
-  .offer-toggle {
-    margin-top: 8px;
-    padding: 0;
-    border: 0;
-    background: transparent;
-    color: #b95700;
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font: inherit;
-    font-size: 15px;
-    font-weight: 800;
-    cursor: pointer;
-  }
-
-  .offer-toggle::before {
-    content: "i";
-    width: 20px;
-    height: 20px;
-    border: 2px solid #b95700;
-    border-radius: 999px;
-    display: inline-grid;
-    place-items: center;
-    color: #b95700;
-    font-size: 12px;
-    font-weight: 800;
-    line-height: 1;
-  }
-
-  .offer-details {
-    margin-top: 18px;
-    padding: 22px 26px;
-    border-radius: 14px;
-    background: rgba(255, 255, 255, 0.72);
-    color: #5f626d;
-    font-size: 15px;
-    line-height: 1.6;
-    font-weight: 400;
   }
 
   .package-grid {
@@ -1275,10 +1169,6 @@ const reviews = [
     .late-card {
       flex-direction: column;
       padding: 30px;
-    }
-
-    .discount-box {
-      flex-direction: column;
     }
 
     .reviews-grid {
