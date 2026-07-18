@@ -3,23 +3,23 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const videos = [
   {
-    title: "Wedding Teaser",
-    text: "Ein kurzer, cineastischer Vorgeschmack auf den Hochzeitstag – emotional, kompakt und mit den stärksten Momenten eures Tages erzählt.",
+    title: "Wedding Teaser | Phelina & Mert",
+    text: "Ein emotionaler Vorgeschmack auf ihren Hochzeitstag – kompakt, cineastisch und voller echter Momente.",
     src: "https://galleries.vidflow.co/videos/mxd73jvr",
   },
   {
-    title: "Full Wedding Film",
-    text: "Die ausführliche Erinnerung an euren Tag – mit mehr Story, echten Momenten, Reden, Atmosphäre und all den kleinen Augenblicken dazwischen.",
+    title: "Wedding Film | Jana & Stefan",
+    text: "Eine ausführliche Erinnerung an ihren Hochzeitstag – mit Atmosphäre, Reden und all den kleinen Momenten dazwischen.",
     src: "https://galleries.vidflow.co/videos/kx680fsh",
   },
   {
-    title: "Verlobungsfilm",
-    text: "Der Beginn eurer gemeinsamen Reise – emotional, natürlich und cineastisch als Erinnerung an eure Verlobung festgehalten.",
+    title: "Verlobungsfilm | Aleyna & Güven",
+    text: "Ein emotionaler Film über ihren besonderen Moment – natürlich, persönlich und cineastisch festgehalten.",
     src: "https://galleries.vidflow.co/videos/r29jufq6",
   },
   {
-    title: "Paarshooting",
-    text: "Ruhige, intime Aufnahmen von euch als Paar – natürlich, ästhetisch und ohne Zeitdruck.",
+    title: "Paarshooting | Melisa & Adis",
+    text: "Ruhige und natürliche Paaraufnahmen mit viel Nähe, Bewegung und Atmosphäre.",
     src: "https://galleries.vidflow.co/videos/b2ayyew1",
   },
 ];
@@ -27,7 +27,7 @@ const videos = [
 
 <BaseLayout
   title="Portfolio | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Portfolio von VJ Production: Wedding Teaser, Full Wedding Film, Verlobungsfilm und Paarshooting von einem Hochzeitsvideografen aus Witten für NRW und deutschlandweit."
+  description="Ausgewählte Hochzeitsfilme, Wedding Teaser, Verlobungsfilme und Paarshootings von VJ Production – Hochzeitsvideograf aus Witten für NRW und deutschlandweit."
 >
   <section class="portfolio-page">
     <section class="portfolio-head">
@@ -47,6 +47,7 @@ const videos = [
               allowfullscreen
               webkitallowfullscreen
               mozallowfullscreen
+              loading="lazy"
             ></iframe>
           </div>
 
@@ -58,17 +59,15 @@ const videos = [
       ))}
     </section>
 
-    <section class="private-note">
-      <div>
-        <p class="note-kicker">Weitere Arbeiten</p>
-        <h2>Nicht jeder Film darf öffentlich gezeigt werden.</h2>
-        <p>
-          Einige Hochzeiten bleiben aus Rücksicht auf die Privatsphäre der Paare bewusst
-          geschützt und werden nicht frei auf der Website veröffentlicht. In einem persönlichen
-          Gespräch kann ich interessierten Paaren gerne weitere ausgewählte Filme zeigen,
-          darunter auch Arbeiten, die nicht öffentlich sichtbar sind.
-        </p>
-      </div>
+    <section class="more-films">
+      <p>
+        Weitere ausgewählte Arbeiten zeige ich euch gerne im persönlichen Gespräch.
+      </p>
+
+      <a href="/kontakt">
+        Weitere Filme ansehen
+        <span>→</span>
+      </a>
     </section>
 
     <section class="cta">
@@ -78,7 +77,11 @@ const videos = [
           Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag
           am besten festhalte.
         </p>
-        <a href="/kontakt">Verfügbarkeit anfragen <span>→</span></a>
+
+        <a href="/kontakt">
+          Verfügbarkeit anfragen
+          <span>→</span>
+        </a>
       </div>
     </section>
   </section>
@@ -90,9 +93,9 @@ const videos = [
   }
 
   .portfolio-page {
+    padding: 150px 20px 120px;
     background: white;
     color: #17181d;
-    padding: 150px 20px 120px;
   }
 
   .portfolio-head {
@@ -115,8 +118,8 @@ const videos = [
     color: #17181d;
     font-size: clamp(44px, 6vw, 72px);
     font-weight: 300;
-    letter-spacing: -0.085em;
-    line-height: 0.93;
+    letter-spacing: -0.075em;
+    line-height: 0.98;
   }
 
   .portfolio-head span {
@@ -165,56 +168,58 @@ const videos = [
   .video-text h2 {
     margin: 0;
     color: #17181d;
-    font-size: clamp(20px, 2vw, 24px);
-    font-weight: 300;
+    font-size: clamp(21px, 2vw, 26px);
+    font-weight: 400;
     letter-spacing: -0.04em;
-    line-height: 0.98;
-  }
-
-  .video-text p {
-    margin: 20px 0 0;
-    max-width: 640px;
-    color: #5f626d;
-    font-size: 14px;
-    line-height: 1.55;
-  }
-
-  .private-note {
-    width: min(1120px, 100%);
-    margin: 0 auto 96px;
-  }
-
-  .private-note > div {
-    padding: 46px 52px;
-    border-radius: 24px;
-    background: #f8f8f9;
-    border-left: 5px solid #df7b00;
-  }
-
-  .note-kicker {
-    margin: 0 0 18px;
-    color: #df7b00;
-    text-transform: uppercase;
-    letter-spacing: 0.3em;
-    font-size: 12px;
-    font-weight: 800;
-  }
-
-  .private-note h2 {
-    margin: 0;
-    color: #17181d;
-    font-size: clamp(28px, 3vw, 40px);
-    font-weight: 300;
-    letter-spacing: -0.05em;
     line-height: 1.1;
   }
 
-  .private-note p:last-child {
-    margin: 24px 0 0;
-    max-width: 900px;
+  .video-text p {
+    max-width: 620px;
+    margin: 18px 0 0;
     color: #5f626d;
-    font-size: 17px;
-    line-height: 1.7;
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .more-films {
+    width: min(920px, 100%);
+    margin: 0 auto 82px;
+    padding: 25px 0;
+    border-top: 1px solid #e4e4e7;
+    border-bottom: 1px solid #e4e4e7;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+  }
+
+  .more-films p {
+    margin: 0;
+    color: #5f626d;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  .more-films a {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: #df7b00;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .more-films a span {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .more-films a:hover span {
+    transform: translateX(4px);
   }
 
   .cta {
@@ -241,7 +246,7 @@ const videos = [
     max-width: 760px;
     margin: 26px auto 0;
     color: rgba(255, 255, 255, 0.68);
-    font-size: 20px;
+    font-size: 18px;
     line-height: 1.62;
   }
 
@@ -255,35 +260,52 @@ const videos = [
     color: white;
     align-items: center;
     gap: 18px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 800;
+    text-decoration: none;
+  }
+
+  .cta a span {
+    font-size: 18px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .cta a:hover span {
+    transform: translateX(4px);
   }
 
   @media (max-width: 900px) {
     .video-grid {
       grid-template-columns: 1fr;
       gap: 62px;
-    }
-
-    .private-note > div {
-      padding: 38px 34px;
+      width: min(720px, 100%);
     }
   }
 
   @media (max-width: 620px) {
     .portfolio-page {
-      padding: 130px 14px 80px;
+      padding: 120px 14px 80px;
     }
 
     .portfolio-head {
       margin-bottom: 56px;
     }
 
-    .portfolio-head span,
-    .video-text p,
-    .private-note p:last-child,
-    .cta p {
+    .portfolio-head h1 {
+      font-size: clamp(38px, 12vw, 52px);
+      letter-spacing: -0.06em;
+      line-height: 1.02;
+    }
+
+    .portfolio-head span {
+      margin-top: 26px;
       font-size: 16px;
+    }
+
+    .video-grid {
+      margin-bottom: 68px;
+      gap: 54px;
     }
 
     .video-frame {
@@ -291,24 +313,47 @@ const videos = [
     }
 
     .video-text {
-      padding-top: 24px;
+      padding-top: 22px;
     }
 
-    .video-grid {
-      margin-bottom: 72px;
+    .video-text h2 {
+      font-size: 21px;
+      line-height: 1.2;
     }
 
-    .private-note {
-      margin-bottom: 72px;
+    .video-text p {
+      margin-top: 14px;
+      font-size: 15px;
+      line-height: 1.6;
     }
 
-    .private-note > div {
-      padding: 32px 24px;
-      border-radius: 20px;
+    .more-films {
+      margin-bottom: 64px;
+      padding: 22px 0;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 14px;
     }
 
-    .note-kicker {
-      letter-spacing: 0.24em;
+    .more-films p {
+      font-size: 15px;
+    }
+
+    .cta > div {
+      padding: 54px 22px;
+      border-radius: 22px;
+    }
+
+    .cta p {
+      font-size: 16px;
+    }
+
+    .cta a {
+      width: 100%;
+      height: 52px;
+      padding: 0 22px;
+      justify-content: center;
+      font-size: 15px;
     }
   }
 </style>
