@@ -3,36 +3,31 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const videos = [
   {
-    title: "Paarshooting",
-    text: "Ein ruhiger Moment vor dem großen Tag – nur ihr zwei, eure Nähe und das Gefühl, dass alles beginnt.",
-    src: "https://galleries.vidflow.co/videos/b2ayyew1",
+    title: "Wedding Teaser",
+    text: "Ein kurzer, cineastischer Vorgeschmack auf den Hochzeitstag – emotional, kompakt und mit den stärksten Momenten eures Tages erzählt.",
+    src: "https://galleries.vidflow.co/videos/mxd73jvr",
   },
   {
-    title: "Verlobungsshooting",
-    text: "Der Moment, in dem alles beginnt – emotional, natürlich und cineastisch als Erinnerung an eure Verlobung festgehalten.",
-    src: "https://galleries.vidflow.co/videos/r29jufq6",
-  },
-  {
-    title: "Kompletter Hochzeitsfilm",
-    text: "Die ganze Geschichte eures Tages: vom ersten Blick bis zur letzten Umarmung, liebevoll und zeitlos erzählt.",
+    title: "Full Wedding Film",
+    text: "Die ausführliche Erinnerung an euren Tag – mit mehr Story, echten Momenten, Reden, Atmosphäre und all den kleinen Augenblicken dazwischen.",
     src: "https://galleries.vidflow.co/videos/kx680fsh",
   },
   {
-    title: "Highlightfilm",
-    text: "Die emotionalsten Augenblicke eures Hochzeitstags in einem cineastischen Film zusammengefasst.",
-    src: "https://galleries.vidflow.co/videos/ci2k0ber",
+    title: "Verlobungsfilm",
+    text: "Der Beginn eurer gemeinsamen Reise – emotional, natürlich und cineastisch als Erinnerung an eure Verlobung festgehalten.",
+    src: "https://galleries.vidflow.co/videos/r29jufq6",
   },
   {
-    title: "Instagram Reel",
-    text: "Kurz, emotional und perfekt zum Teilen – ein vertikaler Film für Social Media mit euren schönsten Momenten.",
-    src: "https://galleries.vidflow.co/videos/ur4ex89k",
+    title: "Paarshooting",
+    text: "Ruhige, intime Aufnahmen von euch als Paar – natürlich, ästhetisch und ohne Zeitdruck.",
+    src: "https://galleries.vidflow.co/videos/b2ayyew1",
   },
 ];
 ---
 
 <BaseLayout
   title="Portfolio | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Portfolio von VJ Production: Hochzeitsfilme, Highlightfilme, Paarshootings, Verlobungsshootings und Instagram Reels von einem Hochzeitsvideografen aus Witten für NRW und deutschlandweit."
+  description="Portfolio von VJ Production: Wedding Teaser, Full Wedding Film, Verlobungsfilm und Paarshooting von einem Hochzeitsvideografen aus Witten für NRW und deutschlandweit."
 >
   <section class="portfolio-page">
     <section class="portfolio-head">
@@ -61,6 +56,19 @@ const videos = [
           </div>
         </article>
       ))}
+    </section>
+
+    <section class="private-note">
+      <div>
+        <p class="note-kicker">Weitere Arbeiten</p>
+        <h2>Nicht jeder Film darf öffentlich gezeigt werden.</h2>
+        <p>
+          Einige Hochzeiten bleiben aus Rücksicht auf die Privatsphäre der Paare bewusst
+          geschützt und werden nicht frei auf der Website veröffentlicht. In einem persönlichen
+          Gespräch kann ich interessierten Paaren gerne weitere ausgewählte Filme zeigen,
+          darunter auch Arbeiten, die nicht öffentlich sichtbar sind.
+        </p>
+      </div>
     </section>
 
     <section class="cta">
@@ -121,7 +129,7 @@ const videos = [
 
   .video-grid {
     width: min(1320px, 100%);
-    margin: 0 auto 120px;
+    margin: 0 auto 96px;
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 72px 58px;
@@ -171,6 +179,44 @@ const videos = [
     line-height: 1.55;
   }
 
+  .private-note {
+    width: min(1120px, 100%);
+    margin: 0 auto 96px;
+  }
+
+  .private-note > div {
+    padding: 46px 52px;
+    border-radius: 24px;
+    background: #f8f8f9;
+    border-left: 5px solid #df7b00;
+  }
+
+  .note-kicker {
+    margin: 0 0 18px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .private-note h2 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+
+  .private-note p:last-child {
+    margin: 24px 0 0;
+    max-width: 900px;
+    color: #5f626d;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
   .cta {
     width: min(1220px, 100%);
     margin: 0 auto;
@@ -218,6 +264,10 @@ const videos = [
       grid-template-columns: 1fr;
       gap: 62px;
     }
+
+    .private-note > div {
+      padding: 38px 34px;
+    }
   }
 
   @media (max-width: 620px) {
@@ -231,8 +281,9 @@ const videos = [
 
     .portfolio-head span,
     .video-text p,
+    .private-note p:last-child,
     .cta p {
-      font-size: 18px;
+      font-size: 16px;
     }
 
     .video-frame {
@@ -241,6 +292,23 @@ const videos = [
 
     .video-text {
       padding-top: 24px;
+    }
+
+    .video-grid {
+      margin-bottom: 72px;
+    }
+
+    .private-note {
+      margin-bottom: 72px;
+    }
+
+    .private-note > div {
+      padding: 32px 24px;
+      border-radius: 20px;
+    }
+
+    .note-kicker {
+      letter-spacing: 0.24em;
     }
   }
 </style>
