@@ -1,20 +1,21 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const featuredVideo = {
+  title: "Wedding Teaser | Phelina & Mert",
+  text: "Ein emotionaler Vorgeschmack auf ihren Hochzeitstag, kompakt, cineastisch und voller echter Momente.",
+  src: "https://galleries.vidflow.co/videos/mxd73jvr",
+};
+
 const videos = [
   {
-    title: "Wedding Teaser | Phelina & Mert",
-    text: "Ein emotionaler Vorgeschmack auf ihren Hochzeitstag – kompakt, cineastisch und voller echter Momente.",
-    src: "https://galleries.vidflow.co/videos/mxd73jvr",
-  },
-  {
     title: "Wedding Film | Jana & Stefan",
-    text: "Eine ausführliche Erinnerung an ihren Hochzeitstag – mit Atmosphäre, Reden und all den kleinen Momenten dazwischen.",
+    text: "Eine ausführliche Erinnerung an ihren Hochzeitstag mit Atmosphäre, Reden und all den kleinen Momenten dazwischen.",
     src: "https://galleries.vidflow.co/videos/kx680fsh",
   },
   {
     title: "Verlobungsfilm | Aleyna & Güven",
-    text: "Ein emotionaler Film über ihren besonderen Moment – natürlich, persönlich und cineastisch festgehalten.",
+    text: "Ein emotionaler Film über ihren besonderen Moment, natürlich, persönlich und cineastisch festgehalten.",
     src: "https://galleries.vidflow.co/videos/r29jufq6",
   },
   {
@@ -27,13 +28,33 @@ const videos = [
 
 <BaseLayout
   title="Portfolio | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Ausgewählte Hochzeitsfilme, Wedding Teaser, Verlobungsfilme und Paarshootings von VJ Production – Hochzeitsvideograf aus Witten für NRW und deutschlandweit."
+  description="Ausgewählte Hochzeitsfilme, Wedding Teaser, Verlobungsfilme und Paarshootings von VJ Production. Hochzeitsvideograf aus Witten für NRW und deutschlandweit."
 >
   <section class="portfolio-page">
     <section class="portfolio-head">
       <p>Portfolio</p>
       <h1>Ausgewählte Hochzeitsfilme</h1>
       <span>Echte Momente. Ruhig begleitet. Cineastisch erzählt.</span>
+    </section>
+
+    <section class="featured-project">
+      <div class="featured-label">Ausgewählter Film</div>
+
+      <div class="featured-frame">
+        <iframe
+          src={featuredVideo.src}
+          title={featuredVideo.title}
+          frameborder="0"
+          allowfullscreen
+          webkitallowfullscreen
+          mozallowfullscreen
+        ></iframe>
+      </div>
+
+      <div class="featured-text">
+        <h2>{featuredVideo.title}</h2>
+        <p>{featuredVideo.text}</p>
+      </div>
     </section>
 
     <section class="video-grid">
@@ -130,12 +151,74 @@ const videos = [
     line-height: 1.5;
   }
 
+  .featured-project {
+    position: relative;
+    width: min(1320px, 100%);
+    margin: 0 auto 90px;
+  }
+
+  .featured-label {
+    position: absolute;
+    top: 22px;
+    left: 22px;
+    z-index: 2;
+    padding: 9px 16px;
+    border-radius: 999px;
+    background: rgba(23, 24, 29, 0.86);
+    color: white;
+    backdrop-filter: blur(10px);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .featured-frame {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 32px;
+    background: #f3f3f4;
+    aspect-ratio: 16 / 9;
+    box-shadow: 0 32px 90px rgba(23, 24, 29, 0.15);
+  }
+
+  .featured-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .featured-text {
+    padding-top: 32px;
+  }
+
+  .featured-text h2 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(28px, 3vw, 40px);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1.1;
+  }
+
+  .featured-text p {
+    max-width: 820px;
+    margin: 18px 0 0;
+    color: #5f626d;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
   .video-grid {
     width: min(1320px, 100%);
     margin: 0 auto 96px;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 72px 58px;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 58px 34px;
   }
 
   .video-item {
@@ -146,10 +229,10 @@ const videos = [
     position: relative;
     width: 100%;
     overflow: hidden;
-    border-radius: 30px;
+    border-radius: 24px;
     background: #f3f3f4;
     aspect-ratio: 16 / 9;
-    box-shadow: 0 26px 70px rgba(23, 24, 29, 0.12);
+    box-shadow: 0 22px 60px rgba(23, 24, 29, 0.1);
   }
 
   .video-frame iframe {
@@ -162,21 +245,21 @@ const videos = [
   }
 
   .video-text {
-    padding-top: 30px;
+    padding-top: 24px;
   }
 
   .video-text h2 {
     margin: 0;
     color: #17181d;
-    font-size: clamp(21px, 2vw, 26px);
+    font-size: clamp(20px, 1.8vw, 24px);
     font-weight: 400;
     letter-spacing: -0.04em;
-    line-height: 1.1;
+    line-height: 1.15;
   }
 
   .video-text p {
     max-width: 620px;
-    margin: 18px 0 0;
+    margin: 16px 0 0;
     color: #5f626d;
     font-size: 15px;
     line-height: 1.6;
@@ -275,11 +358,28 @@ const videos = [
     transform: translateX(4px);
   }
 
-  @media (max-width: 900px) {
+  @media (max-width: 1050px) {
+    .video-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .video-item:last-child {
+      grid-column: 1 / -1;
+      width: min(640px, 100%);
+      justify-self: center;
+    }
+  }
+
+  @media (max-width: 720px) {
     .video-grid {
       grid-template-columns: 1fr;
-      gap: 62px;
+      gap: 54px;
       width: min(720px, 100%);
+    }
+
+    .video-item:last-child {
+      grid-column: auto;
+      width: 100%;
     }
   }
 
@@ -303,17 +403,46 @@ const videos = [
       font-size: 16px;
     }
 
-    .video-grid {
-      margin-bottom: 68px;
-      gap: 54px;
+    .featured-project {
+      margin-bottom: 66px;
     }
 
-    .video-frame {
+    .featured-label {
+      top: 14px;
+      left: 14px;
+      padding: 8px 12px;
+      font-size: 10px;
+    }
+
+    .featured-frame {
       border-radius: 22px;
     }
 
-    .video-text {
+    .featured-text {
       padding-top: 22px;
+    }
+
+    .featured-text h2 {
+      font-size: 24px;
+    }
+
+    .featured-text p {
+      margin-top: 14px;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+
+    .video-grid {
+      margin-bottom: 68px;
+      gap: 52px;
+    }
+
+    .video-frame {
+      border-radius: 20px;
+    }
+
+    .video-text {
+      padding-top: 20px;
     }
 
     .video-text h2 {
