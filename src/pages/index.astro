@@ -189,8 +189,13 @@ const reviews = [
       <p>NRW und deutschlandweit. Echte Momente, cineastisch erzählt.</p>
 
       <div class="hero-actions">
-        <a href="/kontakt" class="btn-main">Verfügbarkeit anfragen <span>→</span></a>
-        <a href="/portfolio" class="btn-ghost"><span>▷</span> Portfolio ansehen</a>
+        <a href="/kontakt" class="btn-main">
+          Verfügbarkeit anfragen <span>→</span>
+        </a>
+
+        <a href="/portfolio" class="btn-ghost">
+          <span>▷</span> Portfolio ansehen
+        </a>
       </div>
     </div>
 
@@ -200,17 +205,54 @@ const reviews = [
   <section class="intro">
     <div class="intro-inner">
       <h2>Hochzeitsvideograf in Nordrhein-Westfalen</h2>
+
       <p>
         Als <strong>Hochzeitsvideograf aus Witten</strong> begleite ich Hochzeiten in
         <strong>NRW</strong> und deutschlandweit – besonders rund um
-        <strong>Dortmund, Bochum, Essen, Hagen und Witten</strong>. Ich filme unaufdringlich
-        und halte echte Momente fest, damit ihr den Tag genießen könnt.
+        <strong>Dortmund, Bochum, Essen, Hagen und Witten</strong>. Ich filme
+        unaufdringlich und halte echte Momente fest, damit ihr den Tag genießen könnt.
       </p>
+
       <p>
-        Aus dem Material entsteht ein <strong>Hochzeitsfilm</strong>, der emotional ist,
-        hochwertig geschnitten und zeitlos erzählt. Ob klassische Hochzeit, moderne Zeremonie
-        oder nachträgliches Hochzeitsvideo – ich fange eure Geschichte ein.
+        Aus dem Material entsteht ein <strong>Hochzeitsfilm</strong>, der emotional
+        ist, hochwertig geschnitten und zeitlos erzählt. Ob klassische Hochzeit,
+        moderne Zeremonie oder nachträgliches Hochzeitsvideo – ich fange eure
+        Geschichte ein.
       </p>
+    </div>
+  </section>
+
+  <section class="about-preview">
+    <div class="about-preview-inner">
+      <div class="about-preview-image-wrap">
+        <img
+          class="about-preview-image"
+          src="/images/vigny.png"
+          alt="Vigny, Hochzeitsvideograf und Gründer von VJ Production"
+          loading="lazy"
+        />
+      </div>
+
+      <div class="about-preview-content">
+        <p class="about-preview-kicker">Persönlich für euch da</p>
+
+        <h2>Hallo, ich bin Vigny.</h2>
+
+        <p>
+          Ich glaube, die schönsten Hochzeitsfilme entstehen dann, wenn ihr euren
+          Hochzeitstag einfach genießen könnt. Deshalb begleite ich euch unauffällig
+          im Hintergrund und halte die echten Momente fest, statt sie zu inszenieren.
+        </p>
+
+        <p>
+          Mein Ziel ist nicht nur ein schöner Film, sondern eine Erinnerung, die euch
+          auch in vielen Jahren wieder genau dieses Gefühl zurückbringt.
+        </p>
+
+        <a class="about-preview-button" href="/ueber-mich">
+          Mehr über mich <span>→</span>
+        </a>
+      </div>
     </div>
   </section>
 
@@ -241,7 +283,10 @@ const reviews = [
           {item.popular && <div class="popular-badge">✤ Beliebt</div>}
 
           <h3>{item.name}</h3>
-          <div class="price">{item.price}<span>€</span></div>
+
+          <div class="price">
+            {item.price}<span>€</span>
+          </div>
 
           <ul>
             {item.features.map((feature) => (
@@ -249,13 +294,17 @@ const reviews = [
             ))}
           </ul>
 
-          <a class="package-button" href="/kontakt">Paket anfragen <span>→</span></a>
+          <a class="package-button" href="/kontakt">
+            Paket anfragen <span>→</span>
+          </a>
         </article>
       ))}
 
       <article class="package-card individual">
         <div class="flex-badge">✤ Flexibel</div>
+
         <h3>Individuell</h3>
+
         <div class="price request">Auf Anfrage</div>
 
         <ul>
@@ -265,7 +314,9 @@ const reviews = [
           <li>Flexibel auf euren Tag abgestimmt</li>
         </ul>
 
-        <a class="package-button" href="/kontakt">Individuell anfragen <span>→</span></a>
+        <a class="package-button" href="/kontakt">
+          Individuell anfragen <span>→</span>
+        </a>
       </article>
     </div>
   </section>
@@ -288,10 +339,15 @@ const reviews = [
 
       <div>
         <h2>Nachträgliches Hochzeitsvideo</h2>
+
         <p>
-          Für Paare, die am Hochzeitstag keinen Videografen hatten. Ein professionelles Shooting nach der Hochzeit.
+          Für Paare, die am Hochzeitstag keinen Videografen hatten. Ein
+          professionelles Shooting nach der Hochzeit.
         </p>
-        <a href="/nachtraegliches-hochzeitsvideo">Mehr erfahren <span>→</span></a>
+
+        <a href="/nachtraegliches-hochzeitsvideo">
+          Mehr erfahren <span>→</span>
+        </a>
       </div>
     </div>
   </section>
@@ -311,7 +367,9 @@ const reviews = [
       ))}
     </div>
 
-    <a class="details-button" href="/zusatzleistungen">Alle Details <span>→</span></a>
+    <a class="details-button" href="/zusatzleistungen">
+      Alle Details <span>→</span>
+    </a>
   </section>
 
   <section class="reviews">
@@ -326,6 +384,7 @@ const reviews = [
           </div>
 
           <p>"{review.text}"</p>
+
           <a href="/bewertungen">Mehr lesen →</a>
 
           <div class="review-person">
@@ -345,14 +404,23 @@ const reviews = [
       ))}
     </div>
 
-    <a class="all-reviews" href="/bewertungen">Alle Bewertungen lesen <span>→</span></a>
+    <a class="all-reviews" href="/bewertungen">
+      Alle Bewertungen lesen <span>→</span>
+    </a>
   </section>
 
   <section class="cta">
     <div class="cta-inner">
       <h2>Bereit für euren Film?</h2>
-      <p>Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag am besten festhalte.</p>
-      <a href="/kontakt">Verfügbarkeit anfragen <span>→</span></a>
+
+      <p>
+        Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag am
+        besten festhalte.
+      </p>
+
+      <a href="/kontakt">
+        Verfügbarkeit anfragen <span>→</span>
+      </a>
     </div>
   </section>
 </BaseLayout>
@@ -568,6 +636,115 @@ const reviews = [
     font-weight: 800;
   }
 
+  .about-preview {
+    padding: 0 20px 108px;
+    background: white;
+  }
+
+  .about-preview-inner {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    border-radius: 28px;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+    background: #17181d;
+    box-shadow: 0 28px 70px rgba(23, 24, 29, 0.16);
+  }
+
+  .about-preview-image-wrap {
+    position: relative;
+    min-height: 590px;
+    overflow: hidden;
+    background: #24252a;
+  }
+
+  .about-preview-image-wrap::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background:
+      linear-gradient(to right, transparent 68%, rgba(23, 24, 29, 0.28) 100%),
+      linear-gradient(to top, rgba(0, 0, 0, 0.18), transparent 42%);
+  }
+
+  .about-preview-image {
+    width: 100%;
+    height: 100%;
+    min-height: 590px;
+    display: block;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .about-preview-content {
+    padding: 76px 72px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .about-preview-kicker {
+    margin: 0 0 22px;
+    color: #ffc21d;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .about-preview-content h2 {
+    margin: 0 0 30px;
+    color: white;
+    font-size: clamp(38px, 4vw, 54px);
+    font-weight: 300;
+    letter-spacing: -0.055em;
+    line-height: 1.08;
+  }
+
+  .about-preview-content > p:not(.about-preview-kicker) {
+    margin: 0 0 22px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .about-preview-button {
+    width: fit-content;
+    min-height: 48px;
+    margin-top: 16px;
+    padding: 0 26px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    background: #df7b00;
+    color: white;
+    font-size: 15px;
+    font-weight: 800;
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .about-preview-button:hover {
+    transform: translateY(-2px);
+    background: #ef8500;
+    box-shadow: 0 12px 28px rgba(223, 123, 0, 0.24);
+  }
+
+  .about-preview-button span {
+    transition: transform 180ms ease;
+  }
+
+  .about-preview-button:hover span {
+    transform: translateX(4px);
+  }
+
   .process {
     padding: 96px 20px 108px;
     background: #f6f6f7;
@@ -610,7 +787,12 @@ const reviews = [
     left: 8%;
     right: 8%;
     height: 1px;
-    background: linear-gradient(to right, transparent, rgba(230, 188, 99, 0.55), transparent);
+    background: linear-gradient(
+      to right,
+      transparent,
+      rgba(230, 188, 99, 0.55),
+      transparent
+    );
   }
 
   .timeline-item {
@@ -1133,6 +1315,32 @@ const reviews = [
   }
 
   @media (max-width: 900px) {
+    .about-preview {
+      padding: 0 20px 84px;
+    }
+
+    .about-preview-inner {
+      width: min(680px, 100%);
+      grid-template-columns: 1fr;
+    }
+
+    .about-preview-image-wrap,
+    .about-preview-image {
+      min-height: 520px;
+    }
+
+    .about-preview-image-wrap::after {
+      background: linear-gradient(
+        to top,
+        rgba(23, 24, 29, 0.4),
+        transparent 38%
+      );
+    }
+
+    .about-preview-content {
+      padding: 58px 48px;
+    }
+
     .timeline,
     .package-grid,
     .extras-grid,
@@ -1177,6 +1385,44 @@ const reviews = [
   }
 
   @media (max-width: 620px) {
+    .about-preview {
+      padding: 0 14px 78px;
+    }
+
+    .about-preview-inner {
+      border-radius: 22px;
+    }
+
+    .about-preview-image-wrap,
+    .about-preview-image {
+      min-height: 420px;
+    }
+
+    .about-preview-content {
+      padding: 42px 26px 46px;
+    }
+
+    .about-preview-kicker {
+      margin-bottom: 18px;
+      font-size: 10px;
+      letter-spacing: 0.24em;
+    }
+
+    .about-preview-content h2 {
+      margin-bottom: 24px;
+      font-size: 36px;
+    }
+
+    .about-preview-content > p:not(.about-preview-kicker) {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .about-preview-button {
+      width: 100%;
+      margin-top: 12px;
+    }
+
     .hero {
       min-height: 640px;
     }
