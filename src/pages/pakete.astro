@@ -1,239 +1,366 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const metaIcons = {
-  time: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <circle cx="12" cy="12" r="8"></circle>
-    <path d="M12 7v5l3 2"></path>
-  </svg>`,
+const today = new Date().toISOString().split("T")[0];
 
-  film: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <rect x="4" y="4" width="16" height="16" rx="1.5"></rect>
-    <path d="M8 4v16"></path>
-    <path d="M16 4v16"></path>
-    <path d="M4 8h4"></path>
-    <path d="M4 12h4"></path>
-    <path d="M4 16h4"></path>
-    <path d="M16 8h4"></path>
-    <path d="M16 12h4"></path>
-    <path d="M16 16h4"></path>
-  </svg>`,
-
-  revision: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M20 7v5h-5"></path>
-    <path d="M4 17v-5h5"></path>
-    <path d="M18.1 9A7 7 0 0 0 6.2 6.8L4 9"></path>
-    <path d="M5.9 15A7 7 0 0 0 17.8 17.2L20 15"></path>
+const icons = {
+  drone: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <circle cx="5" cy="5" r="2.4"></circle>
+    <circle cx="19" cy="5" r="2.4"></circle>
+    <circle cx="5" cy="19" r="2.4"></circle>
+    <circle cx="19" cy="19" r="2.4"></circle>
+    <path d="M7 7l3.1 3.1"></path>
+    <path d="M17 7l-3.1 3.1"></path>
+    <path d="M7 17l3.1-3.1"></path>
+    <path d="M17 17l-3.1-3.1"></path>
+    <rect x="9.7" y="9.7" width="4.6" height="4.6" rx="1.1"></rect>
+    <path d="M12 9.7V7.8"></path>
+    <path d="M12 14.3v1.9"></path>
+    <path d="M9.7 12H7.8"></path>
+    <path d="M14.3 12h1.9"></path>
   </svg>`,
 };
-
-const packages = [
-  {
-    name: "Basic",
-    subtitle: "Perfekt für intime Hochzeiten",
-    price: "1.290",
-    meta: [
-      { icon: "time", label: "4h" },
-      { icon: "film", label: "1 Film" },
-      { icon: "revision", label: "1x Revision" },
-    ],
-    features: [
-      "4 Stunden Begleitung",
-      "Highlightfilm (3–5 Min.)",
-      "Professioneller Schnitt",
-      "Lizenzierte Musik",
-      "Lieferung innerhalb 8 Wochen",
-      "1 Korrekturschleife",
-    ],
-  },
-  {
-    name: "Classic",
-    subtitle: "Mein beliebtestes Paket",
-    price: "1.990",
-    popular: true,
-    meta: [
-      { icon: "time", label: "7h" },
-      { icon: "film", label: "2 Filme" },
-      { icon: "revision", label: "2x Revision" },
-    ],
-    features: [
-      "7 Stunden Begleitung",
-      "Highlightfilm (5–8 Min.)",
-      "Kurzfilm für Social Media",
-      "Erweiterte Farbkorrektur",
-      "Lizenzierte Musik",
-      "Lieferung innerhalb 8 Wochen",
-      "2 Korrekturschleifen",
-    ],
-  },
-  {
-    name: "Premium",
-    subtitle: "Das komplette Kinoerlebnis",
-    price: "2.790",
-    meta: [
-      { icon: "time", label: "10h" },
-      { icon: "film", label: "2 Filme" },
-      { icon: "revision", label: "3x Revision" },
-    ],
-    features: [
-      "Ganztägige Begleitung (bis zu 10h)",
-      "Cinematic Highlightfilm (8–12 Min.)",
-      "Kurzfilm für Social Media",
-      "Erweiterte Farbkorrektur",
-      "Drohnenaufnahmen inklusive",
-      "Lieferung innerhalb 6 Wochen",
-      "3 Korrekturschleifen",
-    ],
-  },
-];
-
-const faqs = [
-  {
-    question: "Welche Musik wird verwendet?",
-    answer:
-      "Ich verwende ausschließlich lizenzierte Musik aus professionellen Musikbibliotheken. Wenn ihr euch einen bestimmten Song wünscht, prüfen wir gemeinsam, ob eine rechtssichere Nutzung möglich ist. Falls dafür zusätzliche Lizenzkosten anfallen, sage ich euch das vorher transparent.",
-  },
-  {
-    question: "Wie funktioniert die Anzahlung?",
-    answer:
-      "Nach der Buchung wird eine Anzahlung fällig. Erst nach Eingang der Anzahlung ist euer Termin verbindlich reserviert.",
-  },
-  {
-    question: "Kann ich Änderungen am fertigen Film vornehmen?",
-    answer:
-      "Ja. Je nach Paket sind eine oder mehrere Korrekturschleifen enthalten. Kleinere Anpassungen können wir gemeinsam besprechen.",
-  },
-  {
-    question: "Wie lange dauert die Lieferung?",
-    answer:
-      "Je nach Paket liegt die reguläre Lieferzeit meist zwischen 6 und 8 Wochen. Bei Expresslieferung kann der Film schneller fertiggestellt werden.",
-  },
-  {
-    question: "Darf ich meinen Film auf Social Media teilen?",
-    answer:
-      "Ja, natürlich. Dafür eignet sich besonders ein zusätzlicher Kurzfilm oder ein Social-Media-Reel.",
-  },
-];
 ---
 
 <BaseLayout
-  title="Pakete & Preise | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Hochzeitsvideo Pakete und Preise von VJ Production. Transparente Preise für Hochzeitsfilme in Witten, NRW und deutschlandweit."
+  title="Kontakt | Hochzeitsvideograf Witten & NRW | VJ Production"
+  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, Verlobungsvideo, nachträgliches Hochzeitsvideoshooting oder Zusatzleistungen."
 >
-  <section class="prices-page">
-    <div class="prices-head">
-      <p>Preise</p>
-      <h1>Hochzeitsvideo Pakete & Preise</h1>
-      <span>Transparente Preise, keine versteckten Kosten</span>
-      <small>Preise gemäß § 19 UStG ohne Ausweis der MwSt.</small>
-    </div>
-
-    <div class="package-grid">
-      {packages.map((item) => (
-        <article class={`package-card ${item.popular ? "popular" : ""}`}>
-          {item.popular && <div class="badge">✤ Beliebt</div>}
-
-          <h2>{item.name}</h2>
-          <p class="package-subtitle">{item.subtitle}</p>
-
-          <div class="price">{item.price}<span>€</span></div>
-
-          <div class="meta-row">
-            {item.meta.map((metaItem) => (
-              <div>
-                <span class="meta-icon" set:html={metaIcons[metaItem.icon]}></span>
-                <strong>{metaItem.label}</strong>
-              </div>
-            ))}
-          </div>
-
-          <ul>
-            {item.features.map((feature) => (
-              <li>{feature}</li>
-            ))}
-          </ul>
-
-          <a class="package-button" href="/kontakt">Paket anfragen <span>→</span></a>
-        </article>
-      ))}
-
-      <article class="package-card individual">
-        <div class="badge flexible">✤ Flexibel</div>
-
-        <h2>Individuell</h2>
-        <p class="package-subtitle">Stellt euch euer Paket so zusammen, wie es zu eurem Tag passt</p>
-
-        <div class="price request">Auf Anfrage</div>
-
-        <ul>
-          <li>Film-Länge frei wählbar, z. B. 30–45 Min.</li>
-          <li>Begleitungsdauer nach Wunsch</li>
-          <li>Optional: Drohnenaufnahmen</li>
-          <li>Standesamt / freie Trauung / Feier</li>
-          <li>Optional: Social Media Clip</li>
-          <li>Optional: Rohmaterial oder extra Versionen</li>
-        </ul>
-
-        <a class="package-button" href="/kontakt">Individuell anfragen <span>→</span></a>
-      </article>
-    </div>
-
-    <div class="notes-box">
-      <h2>Wichtige Hinweise</h2>
-      <p>• Reisekosten ab 50 km: 0,50 € pro km Hin- und Rückfahrt</p>
-      <p>• Der Termin ist nach Eingang der Anzahlung verbindlich reserviert</p>
-      <p>• Add-ons wie Drohne, Extra-Reels oder Express-Lieferung findet ihr unter „Zusatzleistungen“</p>
-    </div>
-
-    <section class="faq-section">
-      <h2>Häufige Fragen</h2>
-
-      <div class="faq-list">
-        {faqs.map((faq, index) => (
-          <details open={index === 0}>
-            <summary>
-              <span>{faq.question}</span>
-              <span class="faq-arrow" aria-hidden="true">⌄</span>
-            </summary>
-            <p>{faq.answer}</p>
-          </details>
-        ))}
-      </div>
+  <section class="kontakt-page">
+    <section class="kontakt-head">
+      <p>Anfrage</p>
+      <h1>Kontakt</h1>
+      <span>Erzählt mir von eurem Tag</span>
     </section>
 
-    <section class="late-video-card">
-      <div class="late-icon">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="4" y="4" width="16" height="16" rx="1.5" stroke="#df7b00" stroke-width="1.8"></rect>
-          <path d="M8 4v16" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 4v16" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M4 8h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M4 12h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M4 16h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 8h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 12h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 16h4" stroke="#df7b00" stroke-width="1.8"></path>
-        </svg>
+    <form
+      class="kontakt-form"
+      id="kontaktForm"
+      action="https://api.web3forms.com/submit"
+      method="POST"
+    >
+      <input
+        type="hidden"
+        name="access_key"
+        value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
+      />
+      <input
+        type="hidden"
+        name="subject"
+        value="Neue Anfrage über vjproduction.de"
+      />
+      <input
+        type="hidden"
+        name="from_name"
+        value="VJ Production Website"
+      />
+      <input
+        type="hidden"
+        name="redirect"
+        value="https://vjproduction.de/danke"
+      />
+
+      <fieldset class="choice-section">
+        <legend>Was ist der Anlass? <span>*</span></legend>
+
+        <label class="option-card">
+          <input
+            type="radio"
+            name="Anlass"
+            value="Hochzeit"
+            required
+          />
+
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="8" cy="7" r="3"></circle>
+              <circle cx="16" cy="7" r="3"></circle>
+              <path d="M4.5 20v-2.2A5.5 5.5 0 0 1 10 12.3"></path>
+              <path d="M19.5 20v-2.2A5.5 5.5 0 0 0 14 12.3"></path>
+              <path d="M8.8 14.5c1.7 1.6 4.7 1.6 6.4 0"></path>
+              <path d="M10.2 13.2 12 15l1.8-1.8"></path>
+            </svg>
+          </span>
+
+          <span class="option-text">Hochzeit</span>
+        </label>
+
+        <label class="option-card">
+          <input
+            type="radio"
+            name="Anlass"
+            value="Verlobung"
+          />
+
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M9 8h6l2 3-5 8-5-8 2-3Z"></path>
+              <path d="M9 8 12 4l3 4"></path>
+              <path d="M7 11h10"></path>
+              <circle cx="12" cy="15.5" r="4.5"></circle>
+            </svg>
+          </span>
+
+          <span class="option-text">Verlobung</span>
+        </label>
+
+        <label class="option-card">
+          <input
+            type="radio"
+            name="Anlass"
+            value="Nachträgliches Hochzeitsvideoshooting"
+          />
+
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 4h16v16H4z"></path>
+              <path d="M8 4v16"></path>
+              <path d="M16 4v16"></path>
+              <path d="M4 8h4"></path>
+              <path d="M4 12h4"></path>
+              <path d="M4 16h4"></path>
+              <path d="M16 8h4"></path>
+              <path d="M16 12h4"></path>
+              <path d="M16 16h4"></path>
+            </svg>
+          </span>
+
+          <span class="option-text">
+            Nachträgliches Hochzeitsvideoshooting
+          </span>
+        </label>
+      </fieldset>
+
+      <div class="form-grid">
+        <label>
+          <span>Datum</span>
+
+          <input
+            type="date"
+            name="Datum"
+            value={today}
+          />
+        </label>
+
+        <label>
+          <span>Location / Ort</span>
+
+          <input
+            type="text"
+            name="Location"
+            placeholder="z. B. Witten, Dortmund, Essen..."
+          />
+        </label>
       </div>
 
-      <div>
-        <h2>Nachträgliches Hochzeitsvideo</h2>
-        <p>
-          Für Paare, die am Hochzeitstag keinen Videografen hatten. Ein professionelles Shooting nach der Hochzeit.
-        </p>
-        <a href="/nachtraegliches-hochzeitsvideo">Mehr erfahren <span>→</span></a>
-      </div>
-    </section>
+      <label>
+        <span>Paket *</span>
 
-    <section class="cta">
-      <div>
-        <h2>Bereit für euren Film?</h2>
-        <p>
-          Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag am besten festhalte.
-        </p>
-        <a href="/kontakt">Verfügbarkeit anfragen <span>→</span></a>
+        <select name="Paket" required>
+          <option value="" disabled selected>
+            Paket auswählen...
+          </option>
+
+          <option value="Basic">Basic</option>
+          <option value="Classic">Classic</option>
+          <option value="Premium">Premium</option>
+          <option value="Individuell">Individuell</option>
+        </select>
+      </label>
+
+      <label>
+        <span>Investitionsrahmen *</span>
+
+        <select name="Investitionsrahmen" required>
+          <option value="" disabled selected>
+            Investitionsrahmen auswählen...
+          </option>
+
+          <option value="Ab 1.290 Euro">
+            ab 1.290 € – Basic
+          </option>
+
+          <option value="Ab 1.990 Euro">
+            ab 1.990 € – Classic
+          </option>
+
+          <option value="Ab 2.790 Euro">
+            ab 2.790 € – Premium
+          </option>
+
+          <option value="3.000 Euro oder mehr">
+            3.000 €+
+          </option>
+        </select>
+      </label>
+
+      <fieldset class="choice-section">
+        <legend>Zusatzleistungen optional</legend>
+
+        <label class="check-card">
+          <input
+            type="checkbox"
+            name="Zusatzleistungen"
+            value="Drohnenaufnahmen"
+          />
+
+          <span
+            class="line-icon drone-icon"
+            set:html={icons.drone}
+          ></span>
+
+          <span class="option-text">Drohnenaufnahmen</span>
+        </label>
+
+        <label class="check-card">
+          <input
+            type="checkbox"
+            name="Zusatzleistungen"
+            value="Express-Lieferung"
+          />
+
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"></path>
+            </svg>
+          </span>
+
+          <span class="option-text">Express-Lieferung</span>
+        </label>
+
+        <label class="check-card">
+          <input
+            type="checkbox"
+            name="Zusatzleistungen"
+            value="Social Media Reel"
+          />
+
+          <span class="line-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path>
+              <path d="M10 9.5v5l5-2.5-5-2.5Z"></path>
+            </svg>
+          </span>
+
+          <span class="option-text">Social Media Reel</span>
+        </label>
+      </fieldset>
+
+      <div class="separator"></div>
+
+      <label>
+        <span>Ihr Name *</span>
+
+        <input
+          type="text"
+          name="Name"
+          placeholder="Anna & Max Mustermann"
+          required
+        />
+      </label>
+
+      <div class="form-grid">
+        <label>
+          <span>E-Mail</span>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="ihre@email.de"
+            autocomplete="email"
+          />
+        </label>
+
+        <label>
+          <span>Telefon *</span>
+
+          <input
+            type="tel"
+            name="Telefon"
+            placeholder="+49 123 456789"
+            autocomplete="tel"
+            required
+          />
+        </label>
       </div>
-    </section>
+
+      <fieldset class="contact-way">
+        <legend>Bevorzugter Kontaktweg</legend>
+
+        <label>
+          <input
+            type="radio"
+            name="Bevorzugter Kontaktweg"
+            value="E-Mail"
+          />
+          E-Mail
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="Bevorzugter Kontaktweg"
+            value="Telefon"
+            checked
+          />
+          Telefon
+        </label>
+
+        <label>
+          <input
+            type="radio"
+            name="Bevorzugter Kontaktweg"
+            value="WhatsApp"
+          />
+          WhatsApp
+        </label>
+      </fieldset>
+
+      <label>
+        <span>Nachricht</span>
+
+        <textarea
+          name="Nachricht"
+          rows="7"
+          placeholder="Erzählt mir kurz von euch, eurem Anlass und was euch wichtig ist..."
+        ></textarea>
+      </label>
+
+      <div class="separator"></div>
+
+      <label class="consent">
+        <input
+          type="checkbox"
+          name="Datenschutz akzeptiert"
+          value="Ja"
+          required
+        />
+
+        <span>
+          Ich habe die
+          <a href="/datenschutz">Datenschutzerklärung</a>
+          gelesen und akzeptiere sie. *
+        </span>
+      </label>
+
+      <label class="consent">
+        <input
+          type="checkbox"
+          name="Kontakt erlaubt"
+          value="Ja"
+          required
+        />
+
+        <span>
+          Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *
+        </span>
+      </label>
+
+      <button class="submit-button" type="submit">
+        Anfrage absenden
+        <span>→</span>
+      </button>
+    </form>
   </section>
 </BaseLayout>
 
@@ -242,19 +369,19 @@ const faqs = [
     background: white;
   }
 
-  .prices-page {
+  .kontakt-page {
     background: white;
     color: #17181d;
     padding: 135px 20px 108px;
   }
 
-  .prices-head {
+  .kontakt-head {
+    width: min(900px, 100%);
+    margin: 0 auto 60px;
     text-align: center;
-    width: min(980px, 100%);
-    margin: 0 auto 62px;
   }
 
-  .prices-head p {
+  .kontakt-head p {
     margin: 0 0 18px;
     color: #df7b00;
     text-transform: uppercase;
@@ -263,426 +390,301 @@ const faqs = [
     font-weight: 700;
   }
 
-  .prices-head h1 {
+  .kontakt-head h1 {
     margin: 0;
-    font-size: clamp(40px, 5.2vw, 70px);
+    font-size: clamp(40px, 5.4vw, 72px);
     font-weight: 300;
-    letter-spacing: -0.065em;
+    letter-spacing: -0.07em;
     line-height: 1.05;
   }
 
-  .prices-head span,
-  .prices-head small {
+  .kontakt-head span {
     display: block;
+    margin-top: 22px;
     color: #777984;
-    font-size: 16px;
+    font-size: 17px;
     line-height: 1.6;
   }
 
-  .prices-head span {
-    margin-top: 22px;
-  }
-
-  .prices-head small {
-    margin-top: 6px;
-    color: #9a9ba3;
-  }
-
-  .package-grid {
-    width: min(1320px, 100%);
+  .kontakt-form {
+    width: min(900px, 100%);
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    align-items: start;
+    gap: 26px;
   }
 
-  .package-card {
-    position: relative;
-    min-height: 640px;
-    padding: 38px 40px;
-    border-radius: 22px;
-    background: #f8f8f9;
-    text-align: left;
-    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.035);
-  }
-
-  .package-card.popular {
-    background: #17181d;
-    color: white;
-    transform: translateY(-16px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
-  }
-
-  .badge {
-    position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 9px 26px;
-    border-radius: 8px;
-    background: #ffc21d;
-    color: #17181d;
-    font-size: 14px;
-    font-weight: 800;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
-  }
-
-  .package-card h2 {
+  fieldset {
+    min-width: 0;
     margin: 0;
-    text-align: center;
-    color: inherit;
-    font-size: 26px;
+    padding: 0;
+    border: 0;
+  }
+
+  .choice-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  legend {
+    display: block;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0 0 12px;
+    padding: 0;
+    color: #17181d;
+    font-size: 17px;
     font-weight: 700;
+    line-height: 1.35;
+    white-space: normal;
   }
 
-  .package-subtitle {
-    margin: 16px auto 0;
-    min-height: 48px;
-    text-align: center;
-    color: #767882;
-    font-size: 15px;
-    line-height: 1.5;
-  }
-
-  .popular .package-subtitle {
-    color: rgba(255, 255, 255, 0.56);
-  }
-
-  .price {
-    margin: 20px 0 32px;
-    text-align: center;
-    color: inherit;
-    font-size: 48px;
-    font-weight: 300;
-    letter-spacing: -0.05em;
-  }
-
-  .price span {
-    margin-left: 8px;
-    font-size: 16px;
-  }
-
-  .price.request {
-    font-size: 42px;
-  }
-
-  .meta-row {
-    padding: 20px 0;
-    margin-bottom: 26px;
-    border-top: 1px solid rgba(23, 24, 29, 0.1);
-    border-bottom: 1px solid rgba(23, 24, 29, 0.1);
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    text-align: center;
-  }
-
-  .popular .meta-row {
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-
-  .meta-row div {
-    display: grid;
-    gap: 8px;
-    justify-items: center;
+  legend span {
     color: inherit;
   }
 
-  .meta-icon {
-    width: 22px;
-    height: 22px;
-    color: #df7b00;
+  label > span:not(.line-icon):not(.option-text) {
+    display: block;
+    margin-bottom: 12px;
+    color: #17181d;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+  }
+
+  .option-card,
+  .check-card {
+    min-height: 76px;
+    padding: 16px 22px;
+    border-radius: 14px;
+    border: 2px solid #e1e2e6;
+    background: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: #17181d;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.25;
+    cursor: pointer;
+  }
+
+  .option-text {
+    display: block;
+    min-width: 0;
+  }
+
+  .option-card input,
+  .check-card input,
+  .consent input {
+    width: 20px;
+    height: 20px;
+    accent-color: #df7b00;
+    flex: 0 0 auto;
+  }
+
+  .line-icon {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
     display: grid;
     place-items: center;
+    color: #df7b00;
   }
 
-  :global(.meta-icon svg) {
-    width: 18px !important;
-    height: 18px !important;
+  .line-icon svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+  }
+
+  .line-icon svg path,
+  .line-icon svg circle,
+  .line-icon svg rect {
+    fill: none;
+    stroke: #df7b00;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .drone-icon {
+    background: transparent;
+    border-radius: 0;
+  }
+
+  :global(.drone-icon svg) {
+    width: 28px !important;
+    height: 28px !important;
     display: block !important;
     overflow: visible !important;
   }
 
-  :global(.meta-icon svg circle),
-  :global(.meta-icon svg rect),
-  :global(.meta-icon svg path) {
+  :global(.drone-icon svg path),
+  :global(.drone-icon svg rect),
+  :global(.drone-icon svg circle) {
     fill: none !important;
     stroke: #df7b00 !important;
-    stroke-width: 1.9 !important;
+    stroke-width: 1.8 !important;
     stroke-linecap: round !important;
     stroke-linejoin: round !important;
   }
 
-  :global(.package-card.popular .meta-icon svg circle),
-  :global(.package-card.popular .meta-icon svg rect),
-  :global(.package-card.popular .meta-icon svg path) {
-    stroke: #ffc21d !important;
-  }
-
-  .meta-row strong {
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-  .package-card ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  .form-grid {
     display: grid;
-    gap: 16px;
-  }
-
-  .package-card li {
-    color: #5f6068;
-    line-height: 1.5;
-    font-size: 15px;
-  }
-
-  .popular li {
-    color: rgba(255, 255, 255, 0.76);
-  }
-
-  .package-card li::before {
-    content: "✓";
-    margin-right: 16px;
-    color: #df7b00;
-    font-weight: 800;
-  }
-
-  .popular li::before {
-    color: #ffc21d;
-  }
-
-  .package-button {
-    margin-top: 38px;
-    height: 50px;
-    border-radius: 7px;
-    background: #df7b00;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    font-size: 15px;
-    font-weight: 800;
-  }
-
-  .individual {
-    margin-top: 34px;
-  }
-
-  .notes-box {
-    width: min(1320px, 100%);
-    margin: 84px auto 80px;
-    padding: 40px 44px;
-    border-radius: 18px;
-    border: 1px solid #f5d36d;
-    background: #fffaf0;
-  }
-
-  .notes-box h2 {
-    margin: 0 0 22px;
-    font-size: 22px;
-  }
-
-  .notes-box p {
-    margin: 12px 0;
-    color: #5f6068;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .faq-section {
-    width: min(960px, 100%);
-    margin: 0 auto 92px;
-  }
-
-  .faq-section > h2 {
-    margin: 0 0 42px;
-    text-align: center;
-    font-size: clamp(34px, 3.6vw, 46px);
-    font-weight: 300;
-    letter-spacing: -0.05em;
-  }
-
-  .faq-list {
-    display: grid;
+    grid-template-columns: 1fr 1fr;
     gap: 20px;
   }
 
-  details {
-    border-radius: 16px;
-    background: #f8f8f9;
-    overflow: hidden;
-  }
-
-  summary {
-    cursor: pointer;
-    padding: 24px 30px;
-    list-style: none;
-    font-size: 18px;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-  }
-
-  summary span:first-child {
-    flex: 1;
-  }
-
-  .faq-arrow {
-    color: #9a9ca4;
-    font-size: 24px;
-    line-height: 1;
-    transition: transform 0.2s ease;
-  }
-
-  details[open] .faq-arrow {
-    transform: rotate(180deg);
-  }
-
-  summary::-webkit-details-marker {
-    display: none;
-  }
-
-  details p {
-    margin: 0;
-    padding: 0 30px 28px;
-    color: #5f6068;
+  input,
+  select,
+  textarea {
+    width: 100%;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: white;
+    color: #17181d;
+    font: inherit;
     font-size: 16px;
-    line-height: 1.7;
+    outline: none;
   }
 
-  .late-video-card {
-    width: min(940px, 100%);
-    margin: 0 auto 84px;
-    padding: 40px;
-    border: 3px solid #e5e5e8;
-    border-radius: 24px;
+  input,
+  select {
+    height: 50px;
+    padding: 0 18px;
+  }
+
+  textarea {
+    padding: 18px;
+    resize: vertical;
+  }
+
+  input:focus,
+  select:focus,
+  textarea:focus,
+  .option-card:has(input:checked),
+  .check-card:has(input:checked) {
+    border-color: #df7b00;
+    box-shadow: 0 0 0 4px rgba(223, 123, 0, 0.08);
+  }
+
+  .contact-way {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 22px;
+  }
+
+  .contact-way legend {
+    flex: 0 0 100%;
+    width: 100%;
+    margin-bottom: 0;
+  }
+
+  .contact-way label {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 18px;
+    line-height: 1.35;
+    cursor: pointer;
+  }
+
+  .contact-way input {
+    width: 20px;
+    height: 20px;
+    accent-color: #17181d;
+  }
+
+  .separator {
+    margin: 14px 0 0;
+    height: 1px;
+    background: #dedfe3;
+  }
+
+  .consent {
     display: flex;
     align-items: flex-start;
-    gap: 32px;
-  }
-
-  .late-icon {
-    width: 64px;
-    height: 64px;
-    flex: 0 0 64px;
-    border-radius: 16px;
-    display: grid;
-    place-items: center;
-    background: #fff0ba;
-    color: #df7b00;
-  }
-
-  .late-video-card h2 {
-    margin: 0 0 12px;
-    font-size: 26px;
-    letter-spacing: -0.03em;
-  }
-
-  .late-video-card p {
-    margin: 0 0 26px;
-    color: #5f6068;
+    gap: 16px;
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.55;
   }
 
-  .late-video-card a {
-    display: inline-flex;
-    height: 44px;
-    padding: 0 24px;
-    align-items: center;
-    gap: 14px;
-    border-radius: 7px;
-    background: white;
-    border: 1px solid #d9d9dd;
-    color: #17181d;
-    font-size: 15px;
-    font-weight: 800;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  }
-
-  .cta {
-    width: min(1320px, 100%);
-    margin: 0 auto;
-  }
-
-  .cta > div {
-    padding: 62px 28px;
-    border-radius: 28px;
-    background: #17181d;
-    color: white;
-    text-align: center;
-  }
-
-  .cta h2 {
+  .consent span {
     margin: 0;
-    font-size: clamp(32px, 3.5vw, 44px);
-    font-weight: 300;
-    letter-spacing: -0.04em;
-  }
-
-  .cta p {
-    max-width: 620px;
-    margin: 24px auto 0;
-    color: rgba(255, 255, 255, 0.68);
     font-size: 16px;
-    line-height: 1.65;
+    font-weight: 500;
   }
 
-  .cta a {
-    margin-top: 38px;
-    display: inline-flex;
-    height: 50px;
+  .consent a {
+    color: #df7b00;
+    text-decoration: underline;
+  }
+
+  .submit-button {
+    justify-self: end;
+    margin-top: 20px;
+    height: 52px;
     padding: 0 34px;
+    border: 0;
     border-radius: 7px;
     background: #df7b00;
     color: white;
+    display: inline-flex;
     align-items: center;
-    gap: 14px;
-    font-size: 15px;
+    gap: 18px;
+    font: inherit;
+    font-size: 16px;
     font-weight: 800;
+    cursor: pointer;
   }
 
-  @media (max-width: 980px) {
-    .package-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .package-card.popular {
-      transform: none;
-    }
-
-    .late-video-card {
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 620px) {
-    .prices-page {
+  @media (max-width: 700px) {
+    .kontakt-page {
       padding: 120px 14px 80px;
     }
 
-    .notes-box,
-    .late-video-card {
-      padding: 26px;
+    .kontakt-head {
+      margin-bottom: 46px;
     }
 
-    .package-card {
-      min-height: auto;
-      padding: 32px 24px;
+    .form-grid {
+      grid-template-columns: 1fr;
     }
 
-    .price {
-      font-size: 42px;
+    .option-card,
+    .check-card {
+      min-height: 72px;
+      padding: 16px;
+      gap: 16px;
+      font-size: 16px;
     }
 
-    .price.request {
-      font-size: 36px;
+    .line-icon {
+      width: 32px;
+      height: 32px;
+      flex-basis: 32px;
+    }
+
+    .line-icon svg,
+    .drone-icon svg {
+      width: 26px;
+      height: 26px;
+    }
+
+    .contact-way {
+      gap: 16px 22px;
+    }
+
+    .contact-way label {
+      font-size: 16px;
+    }
+
+    .submit-button {
+      width: 100%;
+      justify-content: center;
     }
   }
 </style>
