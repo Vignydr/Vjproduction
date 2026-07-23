@@ -21,18 +21,18 @@ const benefits = [
 const packages = [
   {
     name: "Basic",
-    price: "ab 1.090 €",
+    price: "ab 1.290 €",
     text: "Für kurze Begleitungen und emotionale Highlights.",
   },
   {
     name: "Classic",
-    price: "ab 1.690 €",
+    price: "ab 1.990 €",
     text: "Der beliebte Mittelweg mit mehr Zeit und Social-Media-Kurzfilm.",
     popular: true,
   },
   {
     name: "Premium",
-    price: "ab 2.290 €",
+    price: "ab 2.790 €",
     text: "Für eine ganztägige Begleitung mit besonders umfangreichem Film.",
   },
 ];
@@ -64,29 +64,38 @@ const reviews = [
       <h1>Euer Hochzeitstag als Film, den ihr immer wieder fühlen könnt.</h1>
 
       <p class="hero-text">
-        Ich begleite Hochzeiten in NRW und deutschlandweit – ruhig, unaufdringlich und mit
-        dem Blick für echte Emotionen. Aus eurem Tag entsteht ein cineastischer Hochzeitsfilm,
-        der nicht nur schön aussieht, sondern sich nach euch anfühlt.
+        Ich begleite Hochzeiten in NRW und deutschlandweit, ruhig, unaufdringlich
+        und mit dem Blick für echte Emotionen. Aus eurem Tag entsteht ein
+        cineastischer Hochzeitsfilm, der nicht nur schön aussieht, sondern sich
+        nach euch anfühlt.
       </p>
 
       <div class="hero-actions">
-        <a href="#anfrage" class="primary-button">Anfrage starten <span>→</span></a>
-        <a href="#video" class="secondary-button">Film ansehen</a>
+        <a href="#anfrage" class="primary-button">
+          Anfrage starten <span>→</span>
+        </a>
+
+        <a href="#video" class="secondary-button">
+          Film ansehen
+        </a>
       </div>
 
       <div class="trust-row">
         <span>Hochzeitsvideograf aus Witten</span>
         <span>NRW & deutschlandweit</span>
-        <span>Pakete ab 1.090 €</span>
+        <span>Pakete ab 1.290 €</span>
       </div>
     </section>
 
     <section class="video-section" id="video">
       <div class="section-head">
         <p>Einblick</p>
+
         <h2>So kann sich euer Film anfühlen</h2>
+
         <span>
-          Ein Beispiel aus meinem Portfolio – ruhig, emotional und cineastisch erzählt.
+          Ein Beispiel aus meinem Portfolio, ruhig, emotional und cineastisch
+          erzählt.
         </span>
       </div>
 
@@ -104,14 +113,16 @@ const reviews = [
     <section class="emotion-section">
       <div>
         <p class="kicker">Warum Video?</p>
+
         <h2>Fotos zeigen den Moment. Ein Film bringt ihn zurück.</h2>
       </div>
 
       <p>
-        Viele Paare merken erst nach der Hochzeit, wie schnell der Tag vergangen ist. Ein Film
-        hält nicht nur Bilder fest, sondern Stimmen, Bewegung, Atmosphäre und die kleinen
-        Augenblicke dazwischen: ein Blick vor der Trauung, Tränen bei einer Rede, Lachen beim
-        Feiern und all die Momente, die man am Tag selbst kaum bewusst wahrnimmt.
+        Viele Paare merken erst nach der Hochzeit, wie schnell der Tag vergangen
+        ist. Ein Film hält nicht nur Bilder fest, sondern Stimmen, Bewegung,
+        Atmosphäre und die kleinen Augenblicke dazwischen: ein Blick vor der
+        Trauung, Tränen bei einer Rede, Lachen beim Feiern und all die Momente,
+        die man am Tag selbst kaum bewusst wahrnimmt.
       </p>
     </section>
 
@@ -128,10 +139,12 @@ const reviews = [
     <section class="packages-section">
       <div class="section-head">
         <p>Pakete</p>
+
         <h2>Klare Orientierung für eure Planung</h2>
+
         <span>
-          Ihr müsst euch noch nicht final entscheiden. Im Gespräch finden wir gemeinsam heraus,
-          welcher Umfang zu euch passt.
+          Wählt im Anfrageformular das Paket, das aktuell am besten zu euren
+          Vorstellungen passt. Die Details besprechen wir anschließend gemeinsam.
         </span>
       </div>
 
@@ -139,6 +152,7 @@ const reviews = [
         {packages.map((item) => (
           <article class={`package-card ${item.popular ? "popular" : ""}`}>
             {item.popular && <div class="popular-badge">Beliebt</div>}
+
             <h3>{item.name}</h3>
             <strong>{item.price}</strong>
             <p>{item.text}</p>
@@ -157,10 +171,16 @@ const reviews = [
         {reviews.map((review) => (
           <article class="review-card">
             <div class="stars">★★★★★</div>
+
             <p>"{review.text}"</p>
 
             <div class="review-person">
-              <img src={review.image} alt={`Foto von ${review.name}`} loading="lazy" />
+              <img
+                src={review.image}
+                alt={`Foto von ${review.name}`}
+                loading="lazy"
+              />
+
               <div>
                 <strong>{review.name}</strong>
                 <span>{review.place}</span>
@@ -180,10 +200,12 @@ const reviews = [
     <section class="lead-form-section" id="anfrage">
       <div class="form-intro">
         <p class="kicker">Unverbindlich anfragen</p>
+
         <h2>Erzählt mir kurz von eurem Tag</h2>
+
         <span>
-          Ich melde mich persönlich bei euch zurück und wir schauen gemeinsam, ob euer Datum
-          noch verfügbar ist.
+          Ich melde mich persönlich bei euch zurück und wir schauen gemeinsam,
+          ob euer Datum noch verfügbar ist.
         </span>
       </div>
 
@@ -193,80 +215,170 @@ const reviews = [
         action="https://api.web3forms.com/submit"
         method="POST"
       >
-        <input type="hidden" name="access_key" value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972" />
-        <input type="hidden" name="subject" value="Neue Hochzeitsvideo-Anfrage über Landingpage" />
-        <input type="hidden" name="from_name" value="VJ Production Website" />
-        <input type="hidden" name="redirect" value="https://vjproduction.de/danke" />
-        <input type="hidden" name="Quelle" value="Landingpage Hochzeitsvideo anfragen" />
+        <input
+          type="hidden"
+          name="access_key"
+          value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
+        />
+
+        <input
+          type="hidden"
+          name="subject"
+          value="Neue Hochzeitsvideo-Anfrage über Landingpage"
+        />
+
+        <input
+          type="hidden"
+          name="from_name"
+          value="VJ Production Website"
+        />
+
+        <input
+          type="hidden"
+          name="redirect"
+          value="https://vjproduction.de/danke"
+        />
+
+        <input
+          type="hidden"
+          name="Quelle"
+          value="Landingpage Hochzeitsvideo anfragen"
+        />
 
         <label>
           <span>Art der Anfrage *</span>
+
           <select name="Art der Anfrage" required>
-            <option value="">Bitte auswählen...</option>
-            <option>Hochzeit</option>
-            <option>Nachträgliches Hochzeitsvideoshooting</option>
-            <option>Sonstiges</option>
+            <option value="" disabled selected>
+              Bitte auswählen...
+            </option>
+
+            <option value="Hochzeit">
+              Hochzeit
+            </option>
+
+            <option value="Nachträgliches Hochzeitsvideoshooting">
+              Nachträgliches Hochzeitsvideoshooting
+            </option>
           </select>
         </label>
 
         <div class="form-grid">
           <label>
             <span>Ihr Name *</span>
-            <input type="text" name="Name" placeholder="Anna & Max Mustermann" required />
+
+            <input
+              type="text"
+              name="Name"
+              placeholder="Anna & Max Mustermann"
+              autocomplete="name"
+              required
+            />
           </label>
 
           <label>
-            <span>E-Mail *</span>
-            <input type="email" name="email" placeholder="ihre@email.de" required />
+            <span>E-Mail</span>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="ihre@email.de"
+              autocomplete="email"
+            />
           </label>
         </div>
 
         <div class="form-grid">
           <label>
             <span>Telefon *</span>
-            <input type="tel" name="Telefon" placeholder="+49 123 456789" required />
+
+            <input
+              type="tel"
+              name="Telefon"
+              placeholder="+49 123 456789"
+              autocomplete="tel"
+              required
+            />
           </label>
 
           <label>
             <span>Hochzeitsdatum</span>
-            <input type="date" name="Datum" value={today} />
+
+            <input
+              type="date"
+              name="Datum"
+              value={today}
+            />
           </label>
         </div>
 
         <label>
           <span>Location / Ort</span>
-          <input type="text" name="Location" placeholder="z. B. Witten, Dortmund, Essen..." />
+
+          <input
+            type="text"
+            name="Location"
+            placeholder="z. B. Witten, Dortmund, Essen..."
+          />
         </label>
 
         <div class="form-grid">
           <label>
-            <span>Paket optional</span>
-            <select name="Paket">
-              <option value="">Paket auswählen...</option>
-              <option>Basic</option>
-              <option>Classic</option>
-              <option>Premium</option>
-              <option>Individuell</option>
-              <option>Noch unsicher</option>
+            <span>Paket *</span>
+
+            <select name="Paket" required>
+              <option value="" disabled selected>
+                Paket auswählen...
+              </option>
+
+              <option value="Basic">
+                Basic
+              </option>
+
+              <option value="Classic">
+                Classic
+              </option>
+
+              <option value="Premium">
+                Premium
+              </option>
+
+              <option value="Individuell">
+                Individuell
+              </option>
             </select>
           </label>
 
           <label>
-            <span>Investitionsrahmen optional</span>
-            <select name="Investitionsrahmen">
-              <option value="">Investitionsrahmen auswählen...</option>
-              <option>Noch unsicher</option>
-              <option>ab 1.090 € – Basic</option>
-              <option>ab 1.690 € – Classic</option>
-              <option>ab 2.290 € – Premium</option>
-              <option>2.500 €+</option>
-              <option>Individuelles Angebot gewünscht</option>
+            <span>Investitionsrahmen *</span>
+
+            <select name="Investitionsrahmen" required>
+              <option value="" disabled selected>
+                Investitionsrahmen auswählen...
+              </option>
+
+              <option value="Ab 1.290 Euro">
+                ab 1.290 € – Basic
+              </option>
+
+              <option value="Ab 1.990 Euro">
+                ab 1.990 € – Classic
+              </option>
+
+              <option value="Ab 2.790 Euro">
+                ab 2.790 € – Premium
+              </option>
+
+              <option value="3.000 Euro oder mehr">
+                3.000 €+
+              </option>
             </select>
           </label>
         </div>
 
         <label>
           <span>Nachricht</span>
+
           <textarea
             name="Nachricht"
             rows="6"
@@ -275,15 +387,31 @@ const reviews = [
         </label>
 
         <label class="consent">
-          <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required />
+          <input
+            type="checkbox"
+            name="Datenschutz akzeptiert"
+            value="Ja"
+            required
+          />
+
           <span>
-            Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. *
+            Ich habe die
+            <a href="/datenschutz">Datenschutzerklärung</a>
+            gelesen und akzeptiere sie. *
           </span>
         </label>
 
         <label class="consent">
-          <input type="checkbox" name="Kontakt erlaubt" value="Ja" required />
-          <span>Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *</span>
+          <input
+            type="checkbox"
+            name="Kontakt erlaubt"
+            value="Ja"
+            required
+          />
+
+          <span>
+            Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *
+          </span>
         </label>
 
         <button class="submit-button" type="submit">
@@ -296,6 +424,10 @@ const reviews = [
 </BaseLayout>
 
 <style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
   :global(body) {
     background: white;
   }
@@ -669,9 +801,17 @@ const reviews = [
   }
 
   .form-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 20px;
+  }
+
+  .lead-form > label,
+  .form-grid > label {
+    display: block;
+    width: 100%;
+    min-width: 0;
   }
 
   label > span:not(.consent span) {
@@ -687,6 +827,8 @@ const reviews = [
   select,
   textarea {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     border: 1px solid #dedfe3;
     border-radius: 8px;
     background: white;
@@ -699,12 +841,53 @@ const reviews = [
   input,
   select {
     height: 50px;
+    min-height: 50px;
     padding: 0 16px;
   }
 
   textarea {
     padding: 16px;
     resize: vertical;
+  }
+
+  input[type="date"] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 50px;
+    min-height: 50px;
+    padding: 0 16px;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: white;
+    color: #17181d;
+    font-size: 16px;
+    line-height: normal;
+    text-align: left;
+    appearance: none;
+    -webkit-appearance: none;
+  }
+
+  input[type="date"]::-webkit-date-and-time-value {
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-datetime-edit {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-left: auto;
+    cursor: pointer;
   }
 
   input:focus,
@@ -820,7 +1003,26 @@ const reviews = [
     }
 
     .form-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 22px;
+    }
+
+    input,
+    select,
+    textarea,
+    input[type="date"] {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input,
+    select,
+    input[type="date"] {
+      height: 50px;
+      min-height: 50px;
     }
 
     .submit-button {
