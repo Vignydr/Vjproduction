@@ -3,148 +3,314 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const today = new Date().toISOString().split("T")[0];
 
-const icons = {
-  drone: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="5" cy="5" r="2.4"></circle>
-    <circle cx="19" cy="5" r="2.4"></circle>
-    <circle cx="5" cy="19" r="2.4"></circle>
-    <circle cx="19" cy="19" r="2.4"></circle>
-    <path d="M7 7l3.1 3.1"></path>
-    <path d="M17 7l-3.1 3.1"></path>
-    <path d="M7 17l3.1-3.1"></path>
-    <path d="M17 17l-3.1-3.1"></path>
-    <rect x="9.7" y="9.7" width="4.6" height="4.6" rx="1.1"></rect>
-    <path d="M12 9.7V7.8"></path>
-    <path d="M12 14.3v1.9"></path>
-    <path d="M9.7 12H7.8"></path>
-    <path d="M14.3 12h1.9"></path>
-  </svg>`,
-};
+const benefits = [
+  {
+    title: "Unaufdringlich begleitet",
+    text: "Ich halte echte Momente fest, ohne euren Tag zu stören oder euch dauerhaft zu inszenieren.",
+  },
+  {
+    title: "Cineastisch erzählt",
+    text: "Aus Blicken, Stimmen, Musik und kleinen Details entsteht ein Film, der sich nach euch anfühlt.",
+  },
+  {
+    title: "Sicher geliefert",
+    text: "Ihr erhaltet euren Film über eine private Videogalerie zum Anschauen, Herunterladen und Teilen.",
+  },
+];
+
+const packages = [
+  {
+    name: "Basic",
+    price: "ab 1.290 €",
+    text: "Für kurze Begleitungen und emotionale Highlights.",
+  },
+  {
+    name: "Classic",
+    price: "ab 1.990 €",
+    text: "Der beliebte Mittelweg mit mehr Zeit und Social-Media-Kurzfilm.",
+    popular: true,
+  },
+  {
+    name: "Premium",
+    price: "ab 2.790 €",
+    text: "Für eine ganztägige Begleitung mit besonders umfangreichem Film.",
+  },
+];
+
+const reviews = [
+  {
+    text: "Jetzt wäre ein Videograf das Erste, was wir buchen würden. Das Video haben wir uns bereits unzählige Male angeschaut.",
+    name: "Jasmin & José Luis",
+    place: "Soest / Möhnesee",
+    image: "/images/jasmin-jose.jpeg",
+  },
+  {
+    text: "Unsere Hochzeit war ein unvergesslicher Tag, aber er ist so schnell vorbei gewesen. Das Video bringt all diese Emotionen zurück.",
+    name: "Jana & Stefan",
+    place: "Westoverledingen",
+    image: "/images/jana-stefan.jpg",
+  },
+];
 ---
 
 <BaseLayout
-  title="Kontakt | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, Verlobungsvideo oder nachträgliches Hochzeitsvideoshooting."
+  title="Hochzeitsvideo anfragen | Hochzeitsvideograf NRW | VJ Production"
+  description="Hochzeitsvideo in NRW anfragen: Emotionale Hochzeitsfilme von VJ Production. Hochzeitsvideograf aus Witten für Dortmund, Bochum, Essen, Hagen und ganz NRW."
 >
-  <section class="kontakt-page">
-    <section class="kontakt-head">
-      <p>Anfrage</p>
-      <h1>Kontakt</h1>
-      <span>Erzählt mir von eurem Tag</span>
+  <section class="lead-page">
+    <section class="lead-hero">
+      <p class="kicker">Hochzeitsvideo anfragen</p>
+
+      <h1>Euer Hochzeitstag als Film, den ihr immer wieder fühlen könnt.</h1>
+
+      <p class="hero-text">
+        Ich begleite Hochzeiten in NRW und deutschlandweit, ruhig, unaufdringlich
+        und mit dem Blick für echte Emotionen. Aus eurem Tag entsteht ein
+        cineastischer Hochzeitsfilm, der nicht nur schön aussieht, sondern sich
+        nach euch anfühlt.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#anfrage" class="primary-button">
+          Anfrage starten <span>→</span>
+        </a>
+
+        <a href="#video" class="secondary-button">
+          Film ansehen
+        </a>
+      </div>
+
+      <div class="trust-row">
+        <span>Hochzeitsvideograf aus Witten</span>
+        <span>NRW & deutschlandweit</span>
+        <span>Pakete ab 1.290 €</span>
+      </div>
     </section>
 
-    <form
-      class="kontakt-form"
-      id="kontaktForm"
-      action="https://api.web3forms.com/submit"
-      method="POST"
-    >
-      <input
-        type="hidden"
-        name="access_key"
-        value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
-      />
+    <section class="video-section" id="video">
+      <div class="section-head">
+        <p>Einblick</p>
 
-      <input
-        type="hidden"
-        name="subject"
-        value="Neue Anfrage über vjproduction.de"
-      />
+        <h2>So kann sich euer Film anfühlen</h2>
 
-      <input
-        type="hidden"
-        name="from_name"
-        value="VJ Production Website"
-      />
+        <span>
+          Ein Beispiel aus meinem Portfolio, ruhig, emotional und cineastisch
+          erzählt.
+        </span>
+      </div>
 
-      <input
-        type="hidden"
-        name="redirect"
-        value="https://vjproduction.de/danke"
-      />
+      <div class="video-frame">
+        <iframe
+          src="https://galleries.vidflow.co/videos/b2ayyew1"
+          title="Paarshooting Hochzeitsvideo von VJ Production"
+          loading="lazy"
+          allow="fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
 
-      <fieldset class="choice-section">
-        <legend>Was ist der Anlass? <span>*</span></legend>
+    <section class="emotion-section">
+      <div>
+        <p class="kicker">Warum Video?</p>
 
-        <label class="option-card">
-          <input
-            type="radio"
-            name="Anlass"
-            value="Hochzeit"
-            required
-          />
+        <h2>Fotos zeigen den Moment. Ein Film bringt ihn zurück.</h2>
+      </div>
 
-          <span class="line-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <circle cx="8" cy="7" r="3"></circle>
-              <circle cx="16" cy="7" r="3"></circle>
-              <path d="M4.5 20v-2.2A5.5 5.5 0 0 1 10 12.3"></path>
-              <path d="M19.5 20v-2.2A5.5 5.5 0 0 0 14 12.3"></path>
-              <path d="M8.8 14.5c1.7 1.6 4.7 1.6 6.4 0"></path>
-              <path d="M10.2 13.2 12 15l1.8-1.8"></path>
-            </svg>
-          </span>
+      <p>
+        Viele Paare merken erst nach der Hochzeit, wie schnell der Tag vergangen
+        ist. Ein Film hält nicht nur Bilder fest, sondern Stimmen, Bewegung,
+        Atmosphäre und die kleinen Augenblicke dazwischen: ein Blick vor der
+        Trauung, Tränen bei einer Rede, Lachen beim Feiern und all die Momente,
+        die man am Tag selbst kaum bewusst wahrnimmt.
+      </p>
+    </section>
 
-          <span class="option-text">Hochzeit</span>
-        </label>
+    <section class="benefits-grid">
+      {benefits.map((benefit) => (
+        <article class="benefit-card">
+          <div class="benefit-dot"></div>
+          <h3>{benefit.title}</h3>
+          <p>{benefit.text}</p>
+        </article>
+      ))}
+    </section>
 
-        <label class="option-card">
-          <input
-            type="radio"
-            name="Anlass"
-            value="Verlobung"
-          />
+    <section class="packages-section">
+      <div class="section-head">
+        <p>Pakete</p>
 
-          <span class="line-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M9 8h6l2 3-5 8-5-8 2-3Z"></path>
-              <path d="M9 8 12 4l3 4"></path>
-              <path d="M7 11h10"></path>
-              <circle cx="12" cy="15.5" r="4.5"></circle>
-            </svg>
-          </span>
+        <h2>Klare Orientierung für eure Planung</h2>
 
-          <span class="option-text">Verlobung</span>
-        </label>
+        <span>
+          Wählt im Anfrageformular das Paket, das aktuell am besten zu euren
+          Vorstellungen passt. Die Details besprechen wir anschließend gemeinsam.
+        </span>
+      </div>
 
-        <label class="option-card">
-          <input
-            type="radio"
-            name="Anlass"
-            value="Nachträgliches Hochzeitsvideoshooting"
-          />
+      <div class="package-grid">
+        {packages.map((item) => (
+          <article class={`package-card ${item.popular ? "popular" : ""}`}>
+            {item.popular && <div class="popular-badge">Beliebt</div>}
 
-          <span class="line-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M4 4h16v16H4z"></path>
-              <path d="M8 4v16"></path>
-              <path d="M16 4v16"></path>
-              <path d="M4 8h4"></path>
-              <path d="M4 12h4"></path>
-              <path d="M4 16h4"></path>
-              <path d="M16 8h4"></path>
-              <path d="M16 12h4"></path>
-              <path d="M16 16h4"></path>
-            </svg>
-          </span>
+            <h3>{item.name}</h3>
+            <strong>{item.price}</strong>
+            <p>{item.text}</p>
+          </article>
+        ))}
+      </div>
+    </section>
 
-          <span class="option-text">
-            Nachträgliches Hochzeitsvideoshooting
-          </span>
-        </label>
-      </fieldset>
+    <section class="reviews-section">
+      <div class="section-head">
+        <p>Bewertungen</p>
+        <h2>Was Paare sagen</h2>
+      </div>
 
-      <div class="form-grid">
+      <div class="review-grid">
+        {reviews.map((review) => (
+          <article class="review-card">
+            <div class="stars">★★★★★</div>
+
+            <p>"{review.text}"</p>
+
+            <div class="review-person">
+              <img
+                src={review.image}
+                alt={`Foto von ${review.name}`}
+                loading="lazy"
+              />
+
+              <div>
+                <strong>{review.name}</strong>
+                <span>{review.place}</span>
+              </div>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="more-reviews">
+        <a href="/bewertungen">
+          Weitere Bewertungen ansehen <span>→</span>
+        </a>
+      </div>
+    </section>
+
+    <section class="lead-form-section" id="anfrage">
+      <div class="form-intro">
+        <p class="kicker">Unverbindlich anfragen</p>
+
+        <h2>Erzählt mir kurz von eurem Tag</h2>
+
+        <span>
+          Ich melde mich persönlich bei euch zurück und wir schauen gemeinsam,
+          ob euer Datum noch verfügbar ist.
+        </span>
+      </div>
+
+      <form
+        class="lead-form"
+        id="leadForm"
+        action="https://api.web3forms.com/submit"
+        method="POST"
+      >
+        <input
+          type="hidden"
+          name="access_key"
+          value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
+        />
+
+        <input
+          type="hidden"
+          name="subject"
+          value="Neue Hochzeitsvideo-Anfrage über Landingpage"
+        />
+
+        <input
+          type="hidden"
+          name="from_name"
+          value="VJ Production Website"
+        />
+
+        <input
+          type="hidden"
+          name="redirect"
+          value="https://vjproduction.de/danke"
+        />
+
+        <input
+          type="hidden"
+          name="Quelle"
+          value="Landingpage Hochzeitsvideo anfragen"
+        />
+
         <label>
-          <span>Datum</span>
+          <span>Art der Anfrage *</span>
 
-          <input
-            class="date-input"
-            type="date"
-            name="Datum"
-            value={today}
-          />
+          <select name="Art der Anfrage" required>
+            <option value="" disabled selected>
+              Bitte auswählen...
+            </option>
+
+            <option value="Hochzeit">
+              Hochzeit
+            </option>
+
+            <option value="Nachträgliches Hochzeitsvideoshooting">
+              Nachträgliches Hochzeitsvideoshooting
+            </option>
+          </select>
         </label>
+
+        <div class="form-grid">
+          <label>
+            <span>Ihr Name *</span>
+
+            <input
+              type="text"
+              name="Name"
+              placeholder="Anna & Max Mustermann"
+              autocomplete="name"
+              required
+            />
+          </label>
+
+          <label>
+            <span>E-Mail</span>
+
+            <input
+              type="email"
+              name="email"
+              placeholder="ihre@email.de"
+              autocomplete="email"
+            />
+          </label>
+        </div>
+
+        <div class="form-grid">
+          <label>
+            <span>Telefon *</span>
+
+            <input
+              type="tel"
+              name="Telefon"
+              placeholder="+49 123 456789"
+              autocomplete="tel"
+              required
+            />
+          </label>
+
+          <label>
+            <span>Hochzeitsdatum</span>
+
+            <input
+              type="date"
+              name="Datum"
+              value={today}
+            />
+          </label>
+        </div>
 
         <label>
           <span>Location / Ort</span>
@@ -155,220 +321,105 @@ const icons = {
             placeholder="z. B. Witten, Dortmund, Essen..."
           />
         </label>
-      </div>
 
-      <label>
-        <span>Paket *</span>
+        <div class="form-grid">
+          <label>
+            <span>Paket *</span>
 
-        <select name="Paket" required>
-          <option value="" disabled selected>
-            Paket auswählen...
-          </option>
+            <select name="Paket" required>
+              <option value="" disabled selected>
+                Paket auswählen...
+              </option>
 
-          <option value="Basic">Basic</option>
-          <option value="Classic">Classic</option>
-          <option value="Premium">Premium</option>
-          <option value="Individuell">Individuell</option>
-        </select>
-      </label>
+              <option value="Basic">
+                Basic
+              </option>
 
-      <label>
-        <span>Investitionsrahmen *</span>
+              <option value="Classic">
+                Classic
+              </option>
 
-        <select name="Investitionsrahmen" required>
-          <option value="" disabled selected>
-            Investitionsrahmen auswählen...
-          </option>
+              <option value="Premium">
+                Premium
+              </option>
 
-          <option value="Ab 1.290 Euro">
-            ab 1.290 € – Basic
-          </option>
+              <option value="Individuell">
+                Individuell
+              </option>
+            </select>
+          </label>
 
-          <option value="Ab 1.990 Euro">
-            ab 1.990 € – Classic
-          </option>
+          <label>
+            <span>Investitionsrahmen *</span>
 
-          <option value="Ab 2.790 Euro">
-            ab 2.790 € – Premium
-          </option>
+            <select name="Investitionsrahmen" required>
+              <option value="" disabled selected>
+                Investitionsrahmen auswählen...
+              </option>
 
-          <option value="3.000 Euro oder mehr">
-            3.000 €+
-          </option>
-        </select>
-      </label>
+              <option value="Ab 1.290 Euro">
+                ab 1.290 € – Basic
+              </option>
 
-      <fieldset class="choice-section">
-        <legend>Zusatzleistungen optional</legend>
+              <option value="Ab 1.990 Euro">
+                ab 1.990 € – Classic
+              </option>
 
-        <label class="check-card">
-          <input
-            type="checkbox"
-            name="Zusatzleistungen"
-            value="Drohnenaufnahmen"
-          />
+              <option value="Ab 2.790 Euro">
+                ab 2.790 € – Premium
+              </option>
 
-          <span
-            class="line-icon drone-icon"
-            set:html={icons.drone}
-          ></span>
-
-          <span class="option-text">Drohnenaufnahmen</span>
-        </label>
-
-        <label class="check-card">
-          <input
-            type="checkbox"
-            name="Zusatzleistungen"
-            value="Express-Lieferung"
-          />
-
-          <span class="line-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"></path>
-            </svg>
-          </span>
-
-          <span class="option-text">Express-Lieferung</span>
-        </label>
-
-        <label class="check-card">
-          <input
-            type="checkbox"
-            name="Zusatzleistungen"
-            value="Social Media Reel"
-          />
-
-          <span class="line-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path>
-              <path d="M10 9.5v5l5-2.5-5-2.5Z"></path>
-            </svg>
-          </span>
-
-          <span class="option-text">Social Media Reel</span>
-        </label>
-      </fieldset>
-
-      <div class="separator"></div>
-
-      <label>
-        <span>Ihr Name *</span>
-
-        <input
-          type="text"
-          name="Name"
-          placeholder="Anna & Max Mustermann"
-          autocomplete="name"
-          required
-        />
-      </label>
-
-      <div class="form-grid">
-        <label>
-          <span>E-Mail</span>
-
-          <input
-            type="email"
-            name="email"
-            placeholder="ihre@email.de"
-            autocomplete="email"
-          />
-        </label>
+              <option value="3.000 Euro oder mehr">
+                3.000 €+
+              </option>
+            </select>
+          </label>
+        </div>
 
         <label>
-          <span>Telefon *</span>
+          <span>Nachricht</span>
 
+          <textarea
+            name="Nachricht"
+            rows="6"
+            placeholder="Erzählt mir kurz von euch, eurer Hochzeit und was euch wichtig ist..."
+          ></textarea>
+        </label>
+
+        <label class="consent">
           <input
-            type="tel"
-            name="Telefon"
-            placeholder="+49 123 456789"
-            autocomplete="tel"
+            type="checkbox"
+            name="Datenschutz akzeptiert"
+            value="Ja"
             required
           />
+
+          <span>
+            Ich habe die
+            <a href="/datenschutz">Datenschutzerklärung</a>
+            gelesen und akzeptiere sie. *
+          </span>
         </label>
-      </div>
 
-      <fieldset class="contact-way">
-        <legend>Bevorzugter Kontaktweg</legend>
-
-        <label>
+        <label class="consent">
           <input
-            type="radio"
-            name="Bevorzugter Kontaktweg"
-            value="E-Mail"
+            type="checkbox"
+            name="Kontakt erlaubt"
+            value="Ja"
+            required
           />
 
-          E-Mail
+          <span>
+            Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *
+          </span>
         </label>
 
-        <label>
-          <input
-            type="radio"
-            name="Bevorzugter Kontaktweg"
-            value="Telefon"
-            checked
-          />
-
-          Telefon
-        </label>
-
-        <label>
-          <input
-            type="radio"
-            name="Bevorzugter Kontaktweg"
-            value="WhatsApp"
-          />
-
-          WhatsApp
-        </label>
-      </fieldset>
-
-      <label>
-        <span>Nachricht</span>
-
-        <textarea
-          name="Nachricht"
-          rows="7"
-          placeholder="Erzählt mir kurz von euch, eurem Anlass und was euch wichtig ist..."
-        ></textarea>
-      </label>
-
-      <div class="separator"></div>
-
-      <label class="consent">
-        <input
-          type="checkbox"
-          name="Datenschutz akzeptiert"
-          value="Ja"
-          required
-        />
-
-        <span>
-          Ich habe die
-          <a href="/datenschutz">Datenschutzerklärung</a>
-          gelesen und akzeptiere sie. *
-        </span>
-      </label>
-
-      <label class="consent">
-        <input
-          type="checkbox"
-          name="Kontakt erlaubt"
-          value="Ja"
-          required
-        />
-
-        <span>
-          Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *
-        </span>
-      </label>
-
-      <button class="submit-button" type="submit">
-        Anfrage absenden
-        <span>→</span>
-      </button>
-    </form>
+        <button class="submit-button" type="submit">
+          Anfrage absenden
+          <span>→</span>
+        </button>
+      </form>
+    </section>
   </section>
 </BaseLayout>
 
@@ -381,19 +432,20 @@ const icons = {
     background: white;
   }
 
-  .kontakt-page {
+  .lead-page {
     background: white;
     color: #17181d;
     padding: 135px 20px 108px;
   }
 
-  .kontakt-head {
-    width: min(900px, 100%);
-    margin: 0 auto 60px;
+  .lead-hero {
+    width: min(1040px, 100%);
+    margin: 0 auto 92px;
     text-align: center;
   }
 
-  .kontakt-head p {
+  .kicker,
+  .section-head p {
     margin: 0 0 18px;
     color: #df7b00;
     text-transform: uppercase;
@@ -402,152 +454,350 @@ const icons = {
     font-weight: 700;
   }
 
-  .kontakt-head h1 {
-    margin: 0;
-    font-size: clamp(40px, 5.4vw, 72px);
+  .lead-hero h1 {
+    max-width: 980px;
+    margin: 0 auto;
+    font-size: clamp(40px, 5.6vw, 74px);
     font-weight: 300;
     letter-spacing: -0.07em;
     line-height: 1.05;
   }
 
-  .kontakt-head span {
-    display: block;
-    margin-top: 22px;
-    color: #777984;
-    font-size: 17px;
-    line-height: 1.6;
+  .hero-text {
+    max-width: 850px;
+    margin: 30px auto 0;
+    color: #5f6068;
+    font-size: clamp(17px, 1.7vw, 22px);
+    line-height: 1.72;
   }
 
-  .kontakt-form {
-    width: min(900px, 100%);
-    margin: 0 auto;
-    display: grid;
-    gap: 26px;
+  .hero-actions {
+    margin-top: 38px;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
   }
 
-  .kontakt-form > label,
-  .form-grid > label {
-    display: block;
-    min-width: 0;
-    width: 100%;
+  .primary-button,
+  .secondary-button {
+    height: 52px;
+    padding: 0 30px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
   }
 
-  fieldset {
-    min-width: 0;
+  .primary-button {
+    background: #df7b00;
+    color: white;
+  }
+
+  .secondary-button {
+    border: 1px solid #dedfe3;
+    background: white;
+    color: #17181d;
+  }
+
+  .trust-row {
+    margin: 42px auto 0;
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .trust-row span {
+    padding: 10px 16px;
+    border-radius: 999px;
+    background: #f8f8f9;
+    color: #5f6068;
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .video-section,
+  .packages-section,
+  .reviews-section,
+  .lead-form-section {
+    width: min(1120px, 100%);
+    margin: 0 auto 96px;
+  }
+
+  .section-head {
+    margin: 0 auto 46px;
+    text-align: center;
+  }
+
+  .section-head h2,
+  .emotion-section h2,
+  .form-intro h2 {
     margin: 0;
-    padding: 0;
+    color: #17181d;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.06em;
+    line-height: 1.08;
+  }
+
+  .section-head span,
+  .form-intro span {
+    display: block;
+    max-width: 720px;
+    margin: 20px auto 0;
+    color: #777984;
+    font-size: 16px;
+    line-height: 1.65;
+  }
+
+  .video-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 24px;
+    background: #17181d;
+    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.16);
+  }
+
+  .video-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
     border: 0;
   }
 
-  .choice-section {
+  .emotion-section {
+    width: min(1120px, 100%);
+    margin: 0 auto 96px;
+    padding: 58px 60px;
+    border-radius: 28px;
+    background: #f8f8f9;
     display: grid;
-    grid-template-columns: 1fr;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 54px;
+    align-items: center;
+  }
+
+  .emotion-section p:last-child {
+    margin: 0;
+    color: #5f6068;
+    font-size: 17px;
+    line-height: 1.78;
+  }
+
+  .benefits-grid {
+    width: min(1120px, 100%);
+    margin: 0 auto 96px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .benefit-card {
+    padding: 34px;
+    border-radius: 20px;
+    background: white;
+    border: 1px solid #dedfe3;
+    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.035);
+  }
+
+  .benefit-dot {
+    width: 12px;
+    height: 12px;
+    margin-bottom: 26px;
+    border-radius: 999px;
+    background: #df7b00;
+  }
+
+  .benefit-card h3 {
+    margin: 0 0 16px;
+    color: #17181d;
+    font-size: 21px;
+    letter-spacing: -0.035em;
+  }
+
+  .benefit-card p {
+    margin: 0;
+    color: #5f6068;
+    font-size: 15.5px;
+    line-height: 1.68;
+  }
+
+  .package-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .package-card {
+    position: relative;
+    padding: 34px;
+    border-radius: 20px;
+    background: #f8f8f9;
+    text-align: center;
+  }
+
+  .package-card.popular {
+    background: #17181d;
+    color: white;
+    transform: translateY(-10px);
+    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.18);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 7px 18px;
+    border-radius: 999px;
+    background: #ffc21d;
+    color: #17181d;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .package-card h3 {
+    margin: 0;
+    font-size: 23px;
+    font-weight: 600;
+  }
+
+  .package-card strong {
+    display: block;
+    margin-top: 18px;
+    color: #df7b00;
+    font-size: 28px;
+    font-weight: 300;
+  }
+
+  .package-card.popular strong {
+    color: #ffc21d;
+  }
+
+  .package-card p {
+    margin: 20px 0 0;
+    color: #5f6068;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+
+  .package-card.popular p {
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .review-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 28px;
+  }
+
+  .review-card {
+    padding: 34px;
+    border-radius: 20px;
+    background: #f8f8f9;
+  }
+
+  .stars {
+    color: #ffc21d;
+    letter-spacing: 0.08em;
+    font-size: 16px;
+  }
+
+  .review-card > p {
+    margin: 24px 0 0;
+    color: #4c4d55;
+    font-size: 17px;
+    line-height: 1.68;
+  }
+
+  .review-person {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
     gap: 16px;
   }
 
-  legend {
+  .review-person img {
+    width: 58px;
+    height: 58px;
+    border-radius: 999px;
+    object-fit: cover;
+    background: #dedfe3;
+  }
+
+  .review-person strong,
+  .review-person span {
     display: block;
-    width: 100%;
-    max-width: none;
-    min-width: 0;
-    margin: 0 0 12px;
-    padding: 0;
+  }
+
+  .review-person strong {
     color: #17181d;
     font-size: 17px;
-    font-weight: 700;
-    line-height: 1.35;
-    white-space: normal;
   }
 
-  legend span {
-    color: inherit;
+  .review-person span {
+    margin-top: 4px;
+    color: #777984;
+    font-size: 14px;
   }
 
-  label > span:not(.line-icon):not(.option-text) {
-    display: block;
-    margin-bottom: 12px;
-    color: #17181d;
-    font-size: 17px;
-    font-weight: 700;
-    line-height: 1.35;
+  .more-reviews {
+    margin-top: 34px;
+    text-align: center;
   }
 
-  .option-card,
-  .check-card {
-    min-height: 76px;
-    padding: 16px 22px;
-    border-radius: 14px;
-    border: 2px solid #e1e2e6;
-    background: white;
-    display: flex;
+  .more-reviews a {
+    min-height: 48px;
+    padding: 0 28px;
+    border-radius: 7px;
+    background: #17181d;
+    color: white;
+    display: inline-flex;
     align-items: center;
-    gap: 20px;
-    color: #17181d;
+    justify-content: center;
+    gap: 14px;
+    font-size: 15px;
+    font-weight: 800;
+    text-decoration: none;
+    box-shadow: 0 14px 34px rgba(23, 24, 29, 0.14);
+  }
+
+  .more-reviews a span {
     font-size: 18px;
-    font-weight: 700;
-    line-height: 1.25;
-    cursor: pointer;
+    line-height: 1;
   }
 
-  .option-text {
-    display: block;
-    min-width: 0;
-  }
-
-  .option-card input,
-  .check-card input,
-  .consent input {
-    width: 20px;
-    height: 20px;
-    accent-color: #df7b00;
-    flex: 0 0 auto;
-  }
-
-  .line-icon {
-    width: 34px;
-    height: 34px;
-    flex: 0 0 34px;
+  .lead-form-section {
+    margin-bottom: 0;
+    padding: 58px;
+    border-radius: 28px;
+    background: #f8f8f9;
     display: grid;
-    place-items: center;
-    color: #df7b00;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 58px;
+    align-items: start;
   }
 
-  .line-icon svg {
-    width: 28px;
-    height: 28px;
-    display: block;
+  .form-intro {
+    position: sticky;
+    top: 110px;
   }
 
-  .line-icon svg path,
-  .line-icon svg circle,
-  .line-icon svg rect {
-    fill: none;
-    stroke: #df7b00;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
-
-  .drone-icon {
-    background: transparent;
-    border-radius: 0;
-  }
-
-  :global(.drone-icon svg) {
-    width: 28px !important;
-    height: 28px !important;
-    display: block !important;
-    overflow: visible !important;
-  }
-
-  :global(.drone-icon svg path),
-  :global(.drone-icon svg rect),
-  :global(.drone-icon svg circle) {
-    fill: none !important;
-    stroke: #df7b00 !important;
-    stroke-width: 1.8 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
+  .lead-form {
+    display: grid;
+    gap: 22px;
+    padding: 34px;
+    border-radius: 22px;
+    background: white;
+    border: 1px solid #dedfe3;
   }
 
   .form-grid {
@@ -555,6 +805,22 @@ const icons = {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 20px;
+  }
+
+  .lead-form > label,
+  .form-grid > label {
+    display: block;
+    width: 100%;
+    min-width: 0;
+  }
+
+  label > span:not(.consent span) {
+    display: block;
+    margin-bottom: 10px;
+    color: #17181d;
+    font-size: 16px;
+    font-weight: 700;
+    line-height: 1.35;
   }
 
   input,
@@ -576,11 +842,11 @@ const icons = {
   select {
     height: 50px;
     min-height: 50px;
-    padding: 0 18px;
+    padding: 0 16px;
   }
 
   textarea {
-    padding: 18px;
+    padding: 16px;
     resize: vertical;
   }
 
@@ -591,13 +857,16 @@ const icons = {
     max-width: 100%;
     height: 50px;
     min-height: 50px;
-    padding: 0 18px;
+    padding: 0 16px;
     border: 1px solid #dedfe3;
     border-radius: 8px;
     background: white;
     color: #17181d;
     font-size: 16px;
+    line-height: normal;
     text-align: left;
+    appearance: none;
+    -webkit-appearance: none;
   }
 
   input[type="date"]::-webkit-date-and-time-value {
@@ -623,59 +892,30 @@ const icons = {
 
   input:focus,
   select:focus,
-  textarea:focus,
-  .option-card:has(input:checked),
-  .check-card:has(input:checked) {
+  textarea:focus {
     border-color: #df7b00;
     box-shadow: 0 0 0 4px rgba(223, 123, 0, 0.08);
-  }
-
-  .contact-way {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 22px;
-  }
-
-  .contact-way legend {
-    flex: 0 0 100%;
-    width: 100%;
-    margin-bottom: 0;
-  }
-
-  .contact-way label {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-size: 18px;
-    line-height: 1.35;
-    cursor: pointer;
-  }
-
-  .contact-way input {
-    width: 20px;
-    height: 20px;
-    accent-color: #17181d;
-  }
-
-  .separator {
-    margin: 14px 0 0;
-    height: 1px;
-    background: #dedfe3;
   }
 
   .consent {
     display: flex;
     align-items: flex-start;
-    gap: 16px;
-    font-size: 16px;
+    gap: 14px;
+    color: #5f6068;
+    font-size: 15px;
     line-height: 1.55;
+  }
+
+  .consent input {
+    width: 19px;
+    height: 19px;
+    margin-top: 2px;
+    flex: 0 0 auto;
+    accent-color: #df7b00;
   }
 
   .consent span {
     margin: 0;
-    font-size: 16px;
-    font-weight: 500;
   }
 
   .consent a {
@@ -685,7 +925,6 @@ const icons = {
 
   .submit-button {
     justify-self: end;
-    margin-top: 20px;
     height: 52px;
     padding: 0 34px;
     border: 0;
@@ -701,18 +940,71 @@ const icons = {
     cursor: pointer;
   }
 
-  @media (max-width: 700px) {
-    .kontakt-page {
+  @media (max-width: 950px) {
+    .emotion-section,
+    .lead-form-section {
+      grid-template-columns: 1fr;
+    }
+
+    .form-intro {
+      position: static;
+    }
+
+    .benefits-grid,
+    .package-grid,
+    .review-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .package-card.popular {
+      transform: none;
+    }
+  }
+
+  @media (max-width: 620px) {
+    .lead-page {
       padding: 120px 14px 80px;
     }
 
-    .kontakt-head {
-      margin-bottom: 46px;
+    .lead-hero {
+      margin-bottom: 72px;
+    }
+
+    .lead-hero h1 {
+      font-size: clamp(38px, 10vw, 54px);
+    }
+
+    .hero-text {
+      font-size: 16px;
+    }
+
+    .primary-button,
+    .secondary-button {
+      width: 100%;
+    }
+
+    .video-section,
+    .emotion-section,
+    .packages-section,
+    .reviews-section,
+    .lead-form-section,
+    .benefits-grid {
+      margin-bottom: 76px;
+    }
+
+    .emotion-section,
+    .lead-form-section {
+      padding: 34px 22px;
+      border-radius: 22px;
+    }
+
+    .lead-form {
+      padding: 24px;
     }
 
     .form-grid {
       grid-template-columns: minmax(0, 1fr);
-      gap: 26px;
+      gap: 22px;
     }
 
     input,
@@ -733,49 +1025,13 @@ const icons = {
       min-height: 50px;
     }
 
-    input[type="date"] {
-      padding: 0 18px;
-      text-align: left;
-    }
-
-    input[type="date"]::-webkit-date-and-time-value {
-      min-height: 50px;
-      display: flex;
-      align-items: center;
-      text-align: left;
-    }
-
-    .option-card,
-    .check-card {
-      min-height: 72px;
-      padding: 16px;
-      gap: 16px;
-      font-size: 16px;
-    }
-
-    .line-icon {
-      width: 32px;
-      height: 32px;
-      flex-basis: 32px;
-    }
-
-    .line-icon svg,
-    .drone-icon svg {
-      width: 26px;
-      height: 26px;
-    }
-
-    .contact-way {
-      gap: 16px 22px;
-    }
-
-    .contact-way label {
-      font-size: 16px;
-    }
-
     .submit-button {
       width: 100%;
       justify-content: center;
+    }
+
+    .more-reviews a {
+      width: 100%;
     }
   }
 </style>

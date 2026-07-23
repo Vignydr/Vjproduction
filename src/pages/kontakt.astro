@@ -24,7 +24,7 @@ const icons = {
 
 <BaseLayout
   title="Kontakt | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, Verlobungsvideo, nachträgliches Hochzeitsvideoshooting oder Zusatzleistungen."
+  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, Verlobungsvideo oder nachträgliches Hochzeitsvideoshooting."
 >
   <section class="kontakt-page">
     <section class="kontakt-head">
@@ -39,16 +39,41 @@ const icons = {
       action="https://api.web3forms.com/submit"
       method="POST"
     >
-      <input type="hidden" name="access_key" value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972" />
-      <input type="hidden" name="subject" value="Neue Anfrage über vjproduction.de" />
-      <input type="hidden" name="from_name" value="VJ Production Website" />
-      <input type="hidden" name="redirect" value="https://vjproduction.de/danke" />
+      <input
+        type="hidden"
+        name="access_key"
+        value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
+      />
+
+      <input
+        type="hidden"
+        name="subject"
+        value="Neue Anfrage über vjproduction.de"
+      />
+
+      <input
+        type="hidden"
+        name="from_name"
+        value="VJ Production Website"
+      />
+
+      <input
+        type="hidden"
+        name="redirect"
+        value="https://vjproduction.de/danke"
+      />
 
       <fieldset class="choice-section">
         <legend>Was ist der Anlass? <span>*</span></legend>
 
         <label class="option-card">
-          <input type="radio" name="Anlass" value="Hochzeit" required />
+          <input
+            type="radio"
+            name="Anlass"
+            value="Hochzeit"
+            required
+          />
+
           <span class="line-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <circle cx="8" cy="7" r="3"></circle>
@@ -59,11 +84,17 @@ const icons = {
               <path d="M10.2 13.2 12 15l1.8-1.8"></path>
             </svg>
           </span>
+
           <span class="option-text">Hochzeit</span>
         </label>
 
         <label class="option-card">
-          <input type="radio" name="Anlass" value="Verlobung" />
+          <input
+            type="radio"
+            name="Anlass"
+            value="Verlobung"
+          />
+
           <span class="line-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M9 8h6l2 3-5 8-5-8 2-3Z"></path>
@@ -72,11 +103,17 @@ const icons = {
               <circle cx="12" cy="15.5" r="4.5"></circle>
             </svg>
           </span>
+
           <span class="option-text">Verlobung</span>
         </label>
 
         <label class="option-card">
-          <input type="radio" name="Anlass" value="Nachträgliches Hochzeitsvideoshooting" />
+          <input
+            type="radio"
+            name="Anlass"
+            value="Nachträgliches Hochzeitsvideoshooting"
+          />
+
           <span class="line-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M4 4h16v16H4z"></path>
@@ -90,54 +127,74 @@ const icons = {
               <path d="M16 16h4"></path>
             </svg>
           </span>
-          <span class="option-text">Nachträgliches Hochzeitsvideoshooting</span>
-        </label>
 
-        <label class="option-card">
-          <input type="radio" name="Anlass" value="Sonstiges" />
-          <span class="line-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-              <path d="M12 2 14.4 9.2 22 12l-7.6 2.8L12 22l-2.4-7.2L2 12l7.6-2.8L12 2Z"></path>
-            </svg>
+          <span class="option-text">
+            Nachträgliches Hochzeitsvideoshooting
           </span>
-          <span class="option-text">Sonstiges</span>
         </label>
       </fieldset>
 
       <div class="form-grid">
         <label>
           <span>Datum</span>
-          <input type="date" name="Datum" value={today} />
+
+          <input
+            class="date-input"
+            type="date"
+            name="Datum"
+            value={today}
+          />
         </label>
 
         <label>
           <span>Location / Ort</span>
-          <input type="text" name="Location" placeholder="z. B. Witten, Dortmund, Essen..." />
+
+          <input
+            type="text"
+            name="Location"
+            placeholder="z. B. Witten, Dortmund, Essen..."
+          />
         </label>
       </div>
 
       <label>
-        <span>Paket optional</span>
-        <select name="Paket">
-          <option value="">Paket auswählen...</option>
-          <option>Basic</option>
-          <option>Classic</option>
-          <option>Premium</option>
-          <option>Individuell</option>
-          <option>Noch unsicher</option>
+        <span>Paket *</span>
+
+        <select name="Paket" required>
+          <option value="" disabled selected>
+            Paket auswählen...
+          </option>
+
+          <option value="Basic">Basic</option>
+          <option value="Classic">Classic</option>
+          <option value="Premium">Premium</option>
+          <option value="Individuell">Individuell</option>
         </select>
       </label>
 
       <label>
-        <span>Investitionsrahmen optional</span>
-        <select name="Investitionsrahmen">
-          <option value="">Investitionsrahmen auswählen...</option>
-          <option>Noch unsicher</option>
-          <option>ab 1.090 € – Basic</option>
-          <option>ab 1.690 € – Classic</option>
-          <option>ab 2.290 € – Premium</option>
-          <option>2.500 €+</option>
-          <option>Individuelles Angebot gewünscht</option>
+        <span>Investitionsrahmen *</span>
+
+        <select name="Investitionsrahmen" required>
+          <option value="" disabled selected>
+            Investitionsrahmen auswählen...
+          </option>
+
+          <option value="Ab 1.290 Euro">
+            ab 1.290 € – Basic
+          </option>
+
+          <option value="Ab 1.990 Euro">
+            ab 1.990 € – Classic
+          </option>
+
+          <option value="Ab 2.790 Euro">
+            ab 2.790 € – Premium
+          </option>
+
+          <option value="3.000 Euro oder mehr">
+            3.000 €+
+          </option>
         </select>
       </label>
 
@@ -145,29 +202,50 @@ const icons = {
         <legend>Zusatzleistungen optional</legend>
 
         <label class="check-card">
-          <input type="checkbox" name="Zusatzleistungen" value="Drohnenaufnahmen" />
-          <span class="line-icon drone-icon" set:html={icons.drone}></span>
+          <input
+            type="checkbox"
+            name="Zusatzleistungen"
+            value="Drohnenaufnahmen"
+          />
+
+          <span
+            class="line-icon drone-icon"
+            set:html={icons.drone}
+          ></span>
+
           <span class="option-text">Drohnenaufnahmen</span>
         </label>
 
         <label class="check-card">
-          <input type="checkbox" name="Zusatzleistungen" value="Express-Lieferung" />
+          <input
+            type="checkbox"
+            name="Zusatzleistungen"
+            value="Express-Lieferung"
+          />
+
           <span class="line-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M13 2 4 14h7l-1 8 10-13h-7l0-7Z"></path>
             </svg>
           </span>
+
           <span class="option-text">Express-Lieferung</span>
         </label>
 
         <label class="check-card">
-          <input type="checkbox" name="Zusatzleistungen" value="Social Media Reel" />
+          <input
+            type="checkbox"
+            name="Zusatzleistungen"
+            value="Social Media Reel"
+          />
+
           <span class="line-icon">
             <svg viewBox="0 0 24 24" aria-hidden="true">
               <path d="M7 3h10a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"></path>
               <path d="M10 9.5v5l5-2.5-5-2.5Z"></path>
             </svg>
           </span>
+
           <span class="option-text">Social Media Reel</span>
         </label>
       </fieldset>
@@ -176,18 +254,38 @@ const icons = {
 
       <label>
         <span>Ihr Name *</span>
-        <input type="text" name="Name" placeholder="Anna & Max Mustermann" required />
+
+        <input
+          type="text"
+          name="Name"
+          placeholder="Anna & Max Mustermann"
+          autocomplete="name"
+          required
+        />
       </label>
 
       <div class="form-grid">
         <label>
-          <span>E-Mail *</span>
-          <input type="email" name="email" placeholder="ihre@email.de" required />
+          <span>E-Mail</span>
+
+          <input
+            type="email"
+            name="email"
+            placeholder="ihre@email.de"
+            autocomplete="email"
+          />
         </label>
 
         <label>
-          <span>Telefon</span>
-          <input type="tel" name="Telefon" placeholder="+49 123 456789" />
+          <span>Telefon *</span>
+
+          <input
+            type="tel"
+            name="Telefon"
+            placeholder="+49 123 456789"
+            autocomplete="tel"
+            required
+          />
         </label>
       </div>
 
@@ -195,23 +293,40 @@ const icons = {
         <legend>Bevorzugter Kontaktweg</legend>
 
         <label>
-          <input type="radio" name="Bevorzugter Kontaktweg" value="E-Mail" checked />
+          <input
+            type="radio"
+            name="Bevorzugter Kontaktweg"
+            value="E-Mail"
+          />
+
           E-Mail
         </label>
 
         <label>
-          <input type="radio" name="Bevorzugter Kontaktweg" value="Telefon" />
+          <input
+            type="radio"
+            name="Bevorzugter Kontaktweg"
+            value="Telefon"
+            checked
+          />
+
           Telefon
         </label>
 
         <label>
-          <input type="radio" name="Bevorzugter Kontaktweg" value="WhatsApp" />
+          <input
+            type="radio"
+            name="Bevorzugter Kontaktweg"
+            value="WhatsApp"
+          />
+
           WhatsApp
         </label>
       </fieldset>
 
       <label>
         <span>Nachricht</span>
+
         <textarea
           name="Nachricht"
           rows="7"
@@ -222,15 +337,31 @@ const icons = {
       <div class="separator"></div>
 
       <label class="consent">
-        <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required />
+        <input
+          type="checkbox"
+          name="Datenschutz akzeptiert"
+          value="Ja"
+          required
+        />
+
         <span>
-          Ich habe die <a href="/datenschutz">Datenschutzerklärung</a> gelesen und akzeptiere sie. *
+          Ich habe die
+          <a href="/datenschutz">Datenschutzerklärung</a>
+          gelesen und akzeptiere sie. *
         </span>
       </label>
 
       <label class="consent">
-        <input type="checkbox" name="Kontakt erlaubt" value="Ja" required />
-        <span>Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *</span>
+        <input
+          type="checkbox"
+          name="Kontakt erlaubt"
+          value="Ja"
+          required
+        />
+
+        <span>
+          Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *
+        </span>
       </label>
 
       <button class="submit-button" type="submit">
@@ -242,6 +373,10 @@ const icons = {
 </BaseLayout>
 
 <style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
   :global(body) {
     background: white;
   }
@@ -288,6 +423,13 @@ const icons = {
     margin: 0 auto;
     display: grid;
     gap: 26px;
+  }
+
+  .kontakt-form > label,
+  .form-grid > label {
+    display: block;
+    min-width: 0;
+    width: 100%;
   }
 
   fieldset {
@@ -409,8 +551,9 @@ const icons = {
   }
 
   .form-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 20px;
   }
 
@@ -418,6 +561,8 @@ const icons = {
   select,
   textarea {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     border: 1px solid #dedfe3;
     border-radius: 8px;
     background: white;
@@ -430,12 +575,50 @@ const icons = {
   input,
   select {
     height: 50px;
+    min-height: 50px;
     padding: 0 18px;
   }
 
   textarea {
     padding: 18px;
     resize: vertical;
+  }
+
+  input[type="date"] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 50px;
+    min-height: 50px;
+    padding: 0 18px;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: white;
+    color: #17181d;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-date-and-time-value {
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-datetime-edit {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-left: auto;
+    cursor: pointer;
   }
 
   input:focus,
@@ -528,7 +711,38 @@ const icons = {
     }
 
     .form-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 26px;
+    }
+
+    input,
+    select,
+    textarea,
+    input[type="date"] {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input,
+    select,
+    input[type="date"] {
+      height: 50px;
+      min-height: 50px;
+    }
+
+    input[type="date"] {
+      padding: 0 18px;
+      text-align: left;
+    }
+
+    input[type="date"]::-webkit-date-and-time-value {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      text-align: left;
     }
 
     .option-card,
