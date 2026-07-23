@@ -1,22 +1,20 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const featuredVideos = [
-  {
-    couple: "Phelina & Mert",
-    type: "Wedding Teaser",
-    text: "Ein emotionaler Vorgeschmack auf ihren Hochzeitstag, kompakt, cineastisch und voller echter Momente.",
-    src: "https://galleries.vidflow.co/videos/mxd73jvr",
-  },
+const featuredVideo = {
+  couple: "Phelina & Mert",
+  type: "Highlightfilm · 8 Minuten",
+  text: "Eine emotionale und cineastische Zusammenfassung ihres Hochzeitstages mit echten Momenten, persönlichen Worten und der besonderen Atmosphäre des gesamten Tages.",
+  src: "https://galleries.vidflow.co/videos/h7wkezfr",
+};
+
+const videos = [
   {
     couple: "Melisa & Adis",
     type: "Wedding Teaser",
     text: "Ein lebendiger Einblick in ihren Hochzeitstag mit echten Emotionen, besonderen Augenblicken und ausgelassener Stimmung.",
     src: "https://galleries.vidflow.co/videos/ci2k0ber",
   },
-];
-
-const videos = [
   {
     couple: "Jana & Stefan",
     type: "Wedding Film",
@@ -42,74 +40,89 @@ const videos = [
   title="Portfolio | Hochzeitsvideograf Witten & NRW | VJ Production"
   description="Ausgewählte Hochzeitsfilme, Wedding Teaser, Verlobungsfilme und Paarshootings von VJ Production. Hochzeitsvideograf aus Witten für NRW und deutschlandweit."
 >
-  <section class="portfolio-page">
+  <main class="portfolio-page">
     <section class="portfolio-head">
       <p>Portfolio</p>
+
       <h1>Ausgewählte Hochzeitsfilme</h1>
-      <span>Echte Momente. Ruhig begleitet. Cineastisch erzählt.</span>
+
+      <span>
+        Echte Momente. Ruhig begleitet. Cineastisch erzählt.
+      </span>
     </section>
 
-    <section class="featured-grid">
-      {featuredVideos.map((video, index) => (
-        <article class="featured-project">
-          <div class="featured-frame">
-            <iframe
-              src={video.src}
-              title={`${video.type} | ${video.couple}`}
-              frameborder="0"
-              allowfullscreen
-              webkitallowfullscreen
-              mozallowfullscreen
-              loading={index === 0 ? "eager" : "lazy"}
-            ></iframe>
-          </div>
+    <section class="featured-section">
+      <article class="featured-project">
+        <div class="featured-frame">
+          <iframe
+            src={featuredVideo.src}
+            title={`${featuredVideo.type} | ${featuredVideo.couple}`}
+            frameborder="0"
+            allowfullscreen
+            webkitallowfullscreen
+            mozallowfullscreen
+            allow="autoplay; fullscreen; picture-in-picture"
+          ></iframe>
+        </div>
 
-          <div class="featured-text">
-            <span class="video-type">{video.type}</span>
-            <h2>{video.couple}</h2>
-            <p>{video.text}</p>
-          </div>
-        </article>
-      ))}
+        <div class="featured-text">
+          <span class="video-type">{featuredVideo.type}</span>
+
+          <h2>{featuredVideo.couple}</h2>
+
+          <p>{featuredVideo.text}</p>
+        </div>
+      </article>
     </section>
 
-    <section class="video-grid">
-      {videos.map((video) => (
-        <article class="video-item">
-          <div class="video-frame">
-            <iframe
-              src={video.src}
-              title={`${video.type} | ${video.couple}`}
-              frameborder="0"
-              allowfullscreen
-              webkitallowfullscreen
-              mozallowfullscreen
-              loading="lazy"
-            ></iframe>
-          </div>
+    <section class="more-work">
+      <div class="more-work-head">
+        <p>Weitere Arbeiten</p>
 
-          <div class="video-text">
-            <span class="video-type">{video.type}</span>
-            <h2>{video.couple}</h2>
-            <p>{video.text}</p>
-          </div>
-        </article>
-      ))}
+        <h2>Mehr echte Geschichten</h2>
+      </div>
+
+      <div class="video-grid">
+        {videos.map((video) => (
+          <article class="video-item">
+            <div class="video-frame">
+              <iframe
+                src={video.src}
+                title={`${video.type} | ${video.couple}`}
+                frameborder="0"
+                allowfullscreen
+                webkitallowfullscreen
+                mozallowfullscreen
+                allow="autoplay; fullscreen; picture-in-picture"
+                loading="lazy"
+              ></iframe>
+            </div>
+
+            <div class="video-text">
+              <span class="video-type">{video.type}</span>
+
+              <h3>{video.couple}</h3>
+
+              <p>{video.text}</p>
+            </div>
+          </article>
+        ))}
+      </div>
     </section>
 
-    <section class="more-films">
+    <section class="personal-films">
       <p>
         Weitere ausgewählte Arbeiten zeige ich euch gerne im persönlichen Gespräch.
       </p>
 
       <a href="/kontakt">
-        Weitere Filme ansehen
+        Persönlich kennenlernen
         <span>→</span>
       </a>
     </section>
 
     <section class="cta">
-      <div>
+      <div class="cta-inner">
         <h2>Bereit für euren Film?</h2>
 
         <p>
@@ -123,7 +136,7 @@ const videos = [
         </a>
       </div>
     </section>
-  </section>
+  </main>
 </BaseLayout>
 
 <style>
@@ -169,12 +182,9 @@ const videos = [
     line-height: 1.5;
   }
 
-  .featured-grid {
-    width: min(1320px, 100%);
-    margin: 0 auto 110px;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 44px;
+  .featured-section {
+    width: min(1180px, 100%);
+    margin: 0 auto 118px;
   }
 
   .featured-project {
@@ -185,10 +195,10 @@ const videos = [
     position: relative;
     width: 100%;
     overflow: hidden;
-    border-radius: 28px;
-    background: #f3f3f4;
+    border-radius: 30px;
+    background: #111216;
     aspect-ratio: 16 / 9;
-    box-shadow: 0 30px 80px rgba(23, 24, 29, 0.14);
+    box-shadow: 0 34px 90px rgba(23, 24, 29, 0.18);
   }
 
   .featured-frame iframe {
@@ -201,45 +211,72 @@ const videos = [
   }
 
   .featured-text {
-    padding-top: 28px;
+    width: min(850px, 100%);
+    padding-top: 38px;
   }
 
   .video-type {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
     color: #df7b00;
     text-transform: uppercase;
-    letter-spacing: 0.18em;
+    letter-spacing: 0.19em;
     font-size: 11px;
     font-weight: 800;
-    line-height: 1.3;
+    line-height: 1.4;
   }
 
   .featured-text h2 {
     margin: 0;
     color: #17181d;
-    font-size: clamp(30px, 3vw, 42px);
-    font-weight: 400;
-    letter-spacing: -0.05em;
-    line-height: 1.08;
+    font-size: clamp(38px, 4.2vw, 56px);
+    font-weight: 300;
+    letter-spacing: -0.06em;
+    line-height: 1.04;
   }
 
   .featured-text p {
-    max-width: 600px;
-    margin: 18px 0 0;
+    max-width: 780px;
+    margin: 22px 0 0;
     color: #5f626d;
-    font-size: 16px;
-    line-height: 1.65;
+    font-size: 17px;
+    line-height: 1.72;
+  }
+
+  .more-work {
+    width: min(1180px, 100%);
+    margin: 0 auto 104px;
+    padding-top: 92px;
+    border-top: 1px solid #e4e4e7;
+  }
+
+  .more-work-head {
+    margin-bottom: 54px;
+    text-align: center;
+  }
+
+  .more-work-head p {
+    margin: 0 0 18px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .more-work-head h2 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 300;
+    letter-spacing: -0.06em;
+    line-height: 1.05;
   }
 
   .video-grid {
-    width: min(1320px, 100%);
-    margin: 0 auto 96px;
-    padding-top: 84px;
-    border-top: 1px solid #e4e4e7;
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 58px 34px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 72px 42px;
   }
 
   .video-item {
@@ -251,9 +288,9 @@ const videos = [
     width: 100%;
     overflow: hidden;
     border-radius: 24px;
-    background: #f3f3f4;
+    background: #111216;
     aspect-ratio: 16 / 9;
-    box-shadow: 0 22px 60px rgba(23, 24, 29, 0.1);
+    box-shadow: 0 24px 65px rgba(23, 24, 29, 0.12);
   }
 
   .video-frame iframe {
@@ -266,63 +303,63 @@ const videos = [
   }
 
   .video-text {
-    padding-top: 24px;
+    padding-top: 26px;
   }
 
-  .video-text h2 {
+  .video-text h3 {
     margin: 0;
     color: #17181d;
-    font-size: clamp(22px, 2vw, 28px);
+    font-size: clamp(27px, 2.8vw, 36px);
     font-weight: 400;
-    letter-spacing: -0.045em;
-    line-height: 1.15;
+    letter-spacing: -0.05em;
+    line-height: 1.08;
   }
 
   .video-text p {
-    max-width: 620px;
-    margin: 16px 0 0;
+    max-width: 560px;
+    margin: 17px 0 0;
     color: #5f626d;
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.66;
   }
 
-  .more-films {
+  .personal-films {
     width: min(920px, 100%);
-    margin: 0 auto 82px;
-    padding: 25px 0;
+    margin: 0 auto 86px;
+    padding: 27px 0;
     border-top: 1px solid #e4e4e7;
     border-bottom: 1px solid #e4e4e7;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 32px;
   }
 
-  .more-films p {
+  .personal-films p {
     margin: 0;
     color: #5f626d;
     font-size: 16px;
     line-height: 1.6;
   }
 
-  .more-films a {
+  .personal-films a {
     flex: 0 0 auto;
     display: inline-flex;
     align-items: center;
-    gap: 12px;
+    gap: 13px;
     color: #df7b00;
     font-size: 15px;
     font-weight: 800;
     text-decoration: none;
   }
 
-  .more-films a span {
+  .personal-films a span {
     font-size: 18px;
     line-height: 1;
-    transition: transform 0.2s ease;
+    transition: transform 180ms ease;
   }
 
-  .more-films a:hover span {
+  .personal-films a:hover span {
     transform: translateX(4px);
   }
 
@@ -331,7 +368,7 @@ const videos = [
     margin: 0 auto;
   }
 
-  .cta > div {
+  .cta-inner {
     padding: 74px 30px;
     border-radius: 28px;
     background: #17181d;
@@ -363,58 +400,83 @@ const videos = [
     background: #df7b00;
     color: white;
     align-items: center;
+    justify-content: center;
     gap: 18px;
     font-size: 16px;
     font-weight: 800;
     text-decoration: none;
+    transition:
+      transform 180ms ease,
+      background 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .cta a:hover {
+    transform: translateY(-2px);
+    background: #ef8500;
+    box-shadow: 0 14px 32px rgba(223, 123, 0, 0.24);
   }
 
   .cta a span {
     font-size: 18px;
     line-height: 1;
-    transition: transform 0.2s ease;
+    transition: transform 180ms ease;
   }
 
   .cta a:hover span {
     transform: translateX(4px);
   }
 
-  @media (max-width: 1050px) {
-    .featured-grid {
-      gap: 30px;
+  @media (max-width: 900px) {
+    .portfolio-page {
+      padding-top: 135px;
+    }
+
+    .featured-section,
+    .more-work {
+      width: min(760px, 100%);
+    }
+
+    .featured-text {
+      width: 100%;
     }
 
     .video-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .video-item:last-child {
-      grid-column: 1 / -1;
-      width: min(640px, 100%);
-      justify-self: center;
+      gap: 60px 30px;
     }
   }
 
   @media (max-width: 780px) {
-    .featured-grid {
-      grid-template-columns: 1fr;
-      width: min(720px, 100%);
-      gap: 72px;
+    .portfolio-head {
+      margin-bottom: 66px;
     }
 
-    .featured-text p {
-      max-width: 680px;
+    .featured-section {
+      margin-bottom: 92px;
+    }
+
+    .featured-text {
+      padding-top: 30px;
+    }
+
+    .more-work {
+      margin-bottom: 84px;
+      padding-top: 74px;
+    }
+
+    .more-work-head {
+      margin-bottom: 46px;
     }
 
     .video-grid {
       grid-template-columns: 1fr;
-      gap: 54px;
+      gap: 64px;
       width: min(720px, 100%);
+      margin: 0 auto;
     }
 
-    .video-item:last-child {
-      grid-column: auto;
-      width: 100%;
+    .video-text p {
+      max-width: 680px;
     }
   }
 
@@ -424,7 +486,13 @@ const videos = [
     }
 
     .portfolio-head {
-      margin-bottom: 58px;
+      margin-bottom: 54px;
+    }
+
+    .portfolio-head p {
+      margin-bottom: 21px;
+      font-size: 10px;
+      letter-spacing: 0.3em;
     }
 
     .portfolio-head h1 {
@@ -434,107 +502,117 @@ const videos = [
     }
 
     .portfolio-head span {
-      margin-top: 26px;
-      font-size: 16px;
+      margin-top: 25px;
+      font-size: 15px;
+      line-height: 1.55;
     }
 
-    .featured-grid {
-      margin-bottom: 78px;
-      gap: 68px;
-    }
-
-    .featured-project {
-      position: relative;
-    }
-
-    .featured-project + .featured-project::before {
-      content: "";
-      position: absolute;
-      top: -34px;
-      left: 50%;
-      width: 46px;
-      height: 1px;
-      background: #dedfe3;
-      transform: translateX(-50%);
+    .featured-section {
+      margin-bottom: 76px;
     }
 
     .featured-frame {
-      border-radius: 22px;
-      box-shadow: 0 24px 60px rgba(23, 24, 29, 0.13);
+      border-radius: 20px;
+      box-shadow: 0 22px 58px rgba(23, 24, 29, 0.15);
     }
 
     .featured-text {
-      padding-top: 24px;
+      padding-top: 25px;
     }
 
     .video-type {
       margin-bottom: 9px;
       font-size: 10px;
-      letter-spacing: 0.17em;
+      letter-spacing: 0.16em;
     }
 
     .featured-text h2 {
-      font-size: 30px;
-      line-height: 1.08;
+      font-size: 34px;
+      line-height: 1.06;
     }
 
     .featured-text p {
-      margin-top: 15px;
+      margin-top: 17px;
       font-size: 15px;
-      line-height: 1.65;
+      line-height: 1.68;
+    }
+
+    .more-work {
+      margin-bottom: 70px;
+      padding-top: 62px;
+    }
+
+    .more-work-head {
+      margin-bottom: 40px;
+    }
+
+    .more-work-head p {
+      margin-bottom: 15px;
+      font-size: 10px;
+      letter-spacing: 0.26em;
+    }
+
+    .more-work-head h2 {
+      font-size: 36px;
     }
 
     .video-grid {
-      margin-bottom: 68px;
-      padding-top: 64px;
       gap: 56px;
     }
 
     .video-frame {
-      border-radius: 20px;
+      border-radius: 18px;
+      box-shadow: 0 20px 52px rgba(23, 24, 29, 0.11);
     }
 
     .video-text {
-      padding-top: 20px;
+      padding-top: 21px;
     }
 
-    .video-text h2 {
-      font-size: 24px;
-      line-height: 1.15;
+    .video-text h3 {
+      font-size: 27px;
+      line-height: 1.1;
     }
 
     .video-text p {
       margin-top: 14px;
       font-size: 15px;
-      line-height: 1.6;
+      line-height: 1.62;
     }
 
-    .more-films {
+    .personal-films {
       margin-bottom: 64px;
-      padding: 22px 0;
+      padding: 23px 0;
       flex-direction: column;
       align-items: flex-start;
-      gap: 14px;
+      gap: 15px;
     }
 
-    .more-films p {
+    .personal-films p {
       font-size: 15px;
     }
 
-    .cta > div {
+    .cta-inner {
       padding: 54px 22px;
       border-radius: 22px;
     }
 
+    .cta h2 {
+      font-size: 36px;
+      line-height: 1.08;
+    }
+
     .cta p {
+      margin-top: 22px;
       font-size: 16px;
+      line-height: 1.6;
     }
 
     .cta a {
       width: 100%;
       height: 52px;
+      margin-top: 34px;
       padding: 0 22px;
-      justify-content: center;
       font-size: 15px;
     }
   }
