@@ -24,7 +24,7 @@ const icons = {
 
 <BaseLayout
   title="Kontakt | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, Verlobungsvideo, nachträgliches Hochzeitsvideoshooting oder Zusatzleistungen."
+  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, Verlobungsvideo oder nachträgliches Hochzeitsvideoshooting."
 >
   <section class="kontakt-page">
     <section class="kontakt-head">
@@ -44,16 +44,19 @@ const icons = {
         name="access_key"
         value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
       />
+
       <input
         type="hidden"
         name="subject"
         value="Neue Anfrage über vjproduction.de"
       />
+
       <input
         type="hidden"
         name="from_name"
         value="VJ Production Website"
       />
+
       <input
         type="hidden"
         name="redirect"
@@ -136,6 +139,7 @@ const icons = {
           <span>Datum</span>
 
           <input
+            class="date-input"
             type="date"
             name="Datum"
             value={today}
@@ -255,6 +259,7 @@ const icons = {
           type="text"
           name="Name"
           placeholder="Anna & Max Mustermann"
+          autocomplete="name"
           required
         />
       </label>
@@ -293,6 +298,7 @@ const icons = {
             name="Bevorzugter Kontaktweg"
             value="E-Mail"
           />
+
           E-Mail
         </label>
 
@@ -303,6 +309,7 @@ const icons = {
             value="Telefon"
             checked
           />
+
           Telefon
         </label>
 
@@ -312,6 +319,7 @@ const icons = {
             name="Bevorzugter Kontaktweg"
             value="WhatsApp"
           />
+
           WhatsApp
         </label>
       </fieldset>
@@ -365,6 +373,10 @@ const icons = {
 </BaseLayout>
 
 <style>
+  :global(*) {
+    box-sizing: border-box;
+  }
+
   :global(body) {
     background: white;
   }
@@ -411,6 +423,13 @@ const icons = {
     margin: 0 auto;
     display: grid;
     gap: 26px;
+  }
+
+  .kontakt-form > label,
+  .form-grid > label {
+    display: block;
+    min-width: 0;
+    width: 100%;
   }
 
   fieldset {
@@ -532,8 +551,9 @@ const icons = {
   }
 
   .form-grid {
+    width: 100%;
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
     gap: 20px;
   }
 
@@ -541,6 +561,8 @@ const icons = {
   select,
   textarea {
     width: 100%;
+    min-width: 0;
+    max-width: 100%;
     border: 1px solid #dedfe3;
     border-radius: 8px;
     background: white;
@@ -553,12 +575,50 @@ const icons = {
   input,
   select {
     height: 50px;
+    min-height: 50px;
     padding: 0 18px;
   }
 
   textarea {
     padding: 18px;
     resize: vertical;
+  }
+
+  input[type="date"] {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    height: 50px;
+    min-height: 50px;
+    padding: 0 18px;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: white;
+    color: #17181d;
+    font-size: 16px;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-date-and-time-value {
+    width: 100%;
+    min-height: 50px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-datetime-edit {
+    width: 100%;
+    padding: 0;
+    text-align: left;
+  }
+
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    margin-left: auto;
+    cursor: pointer;
   }
 
   input:focus,
@@ -651,7 +711,38 @@ const icons = {
     }
 
     .form-grid {
-      grid-template-columns: 1fr;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 26px;
+    }
+
+    input,
+    select,
+    textarea,
+    input[type="date"] {
+      width: 100%;
+      min-width: 0;
+      max-width: 100%;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    input,
+    select,
+    input[type="date"] {
+      height: 50px;
+      min-height: 50px;
+    }
+
+    input[type="date"] {
+      padding: 0 18px;
+      text-align: left;
+    }
+
+    input[type="date"]::-webkit-date-and-time-value {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      text-align: left;
     }
 
     .option-card,
