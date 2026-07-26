@@ -1,65 +1,218 @@
-<div class="vj-cookie-banner" id="vjCookieBanner">
-  <button class="vj-cookie-close" id="vjCookieClose" type="button" aria-label="Cookie Hinweis schließen">
+<div
+  class="vj-cookie-banner"
+  id="vjCookieBanner"
+  role="dialog"
+  aria-modal="true"
+  aria-labelledby="vjCookieTitle"
+  aria-describedby="vjCookieDescription"
+  hidden
+>
+  <button
+    class="vj-cookie-close"
+    id="vjCookieClose"
+    type="button"
+    aria-label="Nur notwendige Cookies verwenden und Hinweis schließen"
+  >
     ×
   </button>
 
-  <h2>Cookie & Datenschutz</h2>
+  <h2 id="vjCookieTitle">Cookie & Datenschutz</h2>
 
-  <p>
-    Diese Website nutzt technisch notwendige Cookies sowie ggf. optionale Dienste.
-    Du kannst selbst entscheiden, ob du optionale Cookies akzeptierst.
-    Weitere Informationen findest du in der
+  <p id="vjCookieDescription">
+    Diese Website nutzt technisch notwendige Funktionen. Mit deiner
+    Zustimmung verwende ich außerdem Google Ads zur Erfolgsmessung und
+    den Meta Pixel für Werbe- und Analysezwecke. Deine Auswahl kannst du
+    jederzeit wieder ändern. Weitere Informationen findest du in der
     <a href="/datenschutz">Datenschutzerklärung</a>.
   </p>
 
   <div class="vj-cookie-actions">
-    <button class="vj-cookie-button secondary" id="vjCookieReject" type="button">
-      Ablehnen
+    <button
+      class="vj-cookie-button secondary"
+      id="vjCookieReject"
+      type="button"
+    >
+      Nur notwendige
     </button>
 
-    <button class="vj-cookie-button primary" id="vjCookieAccept" type="button">
-      Akzeptieren
+    <button
+      class="vj-cookie-button primary"
+      id="vjCookieAccept"
+      type="button"
+    >
+      Alle akzeptieren
     </button>
   </div>
 </div>
 
+<button
+  class="vj-cookie-settings"
+  id="vjCookieSettings"
+  type="button"
+  hidden
+>
+  Cookie-Einstellungen
+</button>
+
 <script is:inline>
   (() => {
     const STORAGE_KEY = "vj-cookie-consent";
+    const CONSENT_VERSION = 2;
+
     const banner = document.getElementById("vjCookieBanner");
-    const acceptButton = document.getElementById("vjCookieAccept");
-    const rejectButton = document.getElementById("vjCookieReject");
-    const closeButton = document.getElementById("vjCookieClose");
+    const settingsButton =
+      document.getElementById("vjCookieSettings");
+    const acceptButton =
+      document.getElementById("vjCookieAccept");
+    const rejectButton =
+      document.getElementById("vjCookieReject");
+    const closeButton =
+      document.getElementById("vjCookieClose");
 
-    if (!banner) return;
+    if (!(banner instanceof HTMLElement)) {
+      return;
+    }
 
-    const savedConsent = localStorage.getItem(STORAGE_KEY);
+    function readStoredConsent() {
+      try {
+        const rawValue = localStorage.getItem(STORAGE_KEY);
 
-    if (savedConsent) {
-      banner.style.display = "none";
-    } else {
-      banner.style.display = "block";
+        if (!rawValue) {
+          return null;
+        }
+
+        const parsedValue = JSON.parse(rawValue);
+
+        if (
+          parsedValue?.value !== "accepted" &&
+          parsedValue?.value !== "rejected"
+        ) {
+          return null;
+        }
+
+        return parsedValue;
+      } catch (error) {
+        console.warn(
+          "Cookie-Auswahl konnte nicht gelesen werden:",
+          error
+        );
+
+        return null;
+      }
+    }
+
+    function updateGoogleConsent(value) {
+      if (typeof window.gtag !== "function") {
+        return;
+      }
+
+      const consentState =
+        value === "accepted" ? "granted" : "denied";
+
+      window.gtag("consent", "update", {
+        ad_storage: consentState,
+        analytics_storage: consentState,
+        ad_user_data: consentState,
+        ad_personalization: consentState,
+      });
+    }
+
+    function applyConsent(value) {
+      updateGoogleConsent(value);
+
+      if (
+        value === "accepted" &&
+        typeof window.vjLoadMetaPixel === "function"
+      ) {
+        window.vjLoadMetaPixel();
+      }
+    }
+
+    function showBanner() {
+      banner.hidden = false;
+
+      if (settingsButton instanceof HTMLElement) {
+        settingsButton.hidden = true;
+      }
+    }
+
+    function hideBanner() {
+      banner.hidden = true;
+
+      if (settingsButton instanceof HTMLElement) {
+        settingsButton.hidden = false;
+      }
     }
 
     function saveConsent(value) {
-      localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify({
-          value,
-          date: new Date().toISOString(),
-        })
-      );
+      const metaPixelWasLoaded =
+        window.__vjMetaPixelLoaded === true;
 
-      banner.style.display = "none";
+      try {
+        localStorage.setItem(
+          STORAGE_KEY,
+          JSON.stringify({
+            value,
+            version: CONSENT_VERSION,
+            date: new Date().toISOString(),
+          })
+        );
+      } catch (error) {
+        console.warn(
+          "Cookie-Auswahl konnte nicht gespeichert werden:",
+          error
+        );
+      }
+
+      applyConsent(value);
+      hideBanner();
+
+      /*
+       * Wurde Meta zuvor geladen und anschließend abgelehnt,
+       * wird die Seite neu geladen. Dadurch wird Meta auf dieser
+       * Seite nicht erneut eingebunden.
+       */
+      if (value === "rejected" && metaPixelWasLoaded) {
+        window.location.reload();
+      }
     }
 
-    acceptButton?.addEventListener("click", () => saveConsent("accepted"));
-    rejectButton?.addEventListener("click", () => saveConsent("rejected"));
-    closeButton?.addEventListener("click", () => saveConsent("rejected"));
+    acceptButton?.addEventListener("click", () => {
+      saveConsent("accepted");
+    });
+
+    rejectButton?.addEventListener("click", () => {
+      saveConsent("rejected");
+    });
+
+    closeButton?.addEventListener("click", () => {
+      saveConsent("rejected");
+    });
+
+    settingsButton?.addEventListener("click", () => {
+      showBanner();
+    });
+
+    const storedConsent = readStoredConsent();
+
+    if (
+      storedConsent?.value === "accepted" ||
+      storedConsent?.value === "rejected"
+    ) {
+      applyConsent(storedConsent.value);
+      hideBanner();
+    } else {
+      showBanner();
+    }
   })();
 </script>
 
 <style>
+  .vj-cookie-banner[hidden],
+  .vj-cookie-settings[hidden] {
+    display: none !important;
+  }
+
   .vj-cookie-banner {
     position: fixed;
     left: 24px;
@@ -71,7 +224,6 @@
     background: #17181d;
     color: white;
     box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
-    display: block;
   }
 
   .vj-cookie-close {
@@ -88,7 +240,8 @@
     cursor: pointer;
   }
 
-  .vj-cookie-close:hover {
+  .vj-cookie-close:hover,
+  .vj-cookie-close:focus-visible {
     color: white;
   }
 
@@ -104,9 +257,9 @@
   .vj-cookie-banner p {
     margin: 0;
     max-width: 520px;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 22px;
-    line-height: 1.45;
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 18px;
+    line-height: 1.55;
   }
 
   .vj-cookie-banner a {
@@ -124,11 +277,11 @@
   }
 
   .vj-cookie-button {
-    height: 52px;
+    min-height: 52px;
     padding: 0 30px;
     border-radius: 10px;
     font: inherit;
-    font-size: 20px;
+    font-size: 17px;
     font-weight: 700;
     cursor: pointer;
   }
@@ -136,13 +289,36 @@
   .vj-cookie-button.secondary {
     background: white;
     color: #17181d;
-    border: 2px solid rgba(255, 255, 255, 0.72);
+    border: 2px solid white;
   }
 
   .vj-cookie-button.primary {
     background: #df7b00;
     color: white;
     border: 2px solid #df7b00;
+  }
+
+  .vj-cookie-settings {
+    position: fixed;
+    left: 18px;
+    bottom: 18px;
+    z-index: 999998;
+    min-height: 40px;
+    padding: 0 16px;
+    border: 1px solid #dedfe3;
+    border-radius: 8px;
+    background: white;
+    color: #17181d;
+    box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+    font: inherit;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+  }
+
+  .vj-cookie-settings:hover,
+  .vj-cookie-settings:focus-visible {
+    border-color: #df7b00;
   }
 
   @media (max-width: 620px) {
@@ -156,8 +332,8 @@
     }
 
     .vj-cookie-banner h2 {
-      font-size: 22px;
       margin-right: 40px;
+      font-size: 22px;
     }
 
     .vj-cookie-banner p {
@@ -174,8 +350,14 @@
 
     .vj-cookie-button {
       width: 100%;
-      height: 48px;
+      min-height: 48px;
       font-size: 16px;
+    }
+
+    .vj-cookie-settings {
+      left: 12px;
+      bottom: 12px;
+      font-size: 12px;
     }
   }
 </style>

@@ -21,22 +21,70 @@ const {
 
     <title>{title}</title>
 
-    <!-- Google tag (gtag.js) -->
-    <script
-      is:inline
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=AW-17951138748"
-    ></script>
-
+        <!-- Google Consent Mode, Google Ads und Meta Pixel -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
 
-      function gtag() {
-        dataLayer.push(arguments);
+      window.gtag =
+        window.gtag ||
+        function () {
+          window.dataLayer.push(arguments);
+        };
+
+      function readVjCookieConsent() {
+        try {
+          const rawValue = localStorage.getItem(
+            "vj-cookie-consent"
+          );
+
+          if (!rawValue) {
+            return null;
+          }
+
+          const parsedValue = JSON.parse(rawValue);
+
+          if (
+            parsedValue?.value !== "accepted" &&
+            parsedValue?.value !== "rejected"
+          ) {
+            return null;
+          }
+
+          return parsedValue.value;
+        } catch (error) {
+          console.warn(
+            "Cookie-Auswahl konnte nicht gelesen werden:",
+            error
+          );
+
+          return null;
+        }
       }
 
-      gtag("js", new Date());
-      gtag("config", "AW-17951138748");
+      const storedCookieConsent =
+        readVjCookieConsent();
+
+      const hasAdvertisingConsent =
+        storedCookieConsent === "accepted";
+
+      const initialConsentState =
+        hasAdvertisingConsent ? "granted" : "denied";
+
+      /*
+       * Der Standardzustand wird vor dem Laden des
+       * Google-Tags gesetzt.
+       */
+      window.gtag("consent", "default", {
+        ad_storage: initialConsentState,
+        analytics_storage: initialConsentState,
+        ad_user_data: initialConsentState,
+        ad_personalization: initialConsentState,
+        wait_for_update: 500,
+      });
+
+      window.gtag("js", new Date());
+
+      window.gtag("config", "AW-17951138748");
 
       const isProductionWebsite =
         window.location.hostname === "vjproduction.de" ||
@@ -46,9 +94,20 @@ const {
         window.location.pathname === "/danke" ||
         window.location.pathname === "/danke/";
 
-      const contactSubmissionTimestamp = Number(
-        sessionStorage.getItem("vjContactFormSubmittedAt")
-      );
+      let contactSubmissionTimestamp = 0;
+
+      try {
+        contactSubmissionTimestamp = Number(
+          sessionStorage.getItem(
+            "vjContactFormSubmittedAt"
+          )
+        );
+      } catch (error) {
+        console.warn(
+          "Formularstatus konnte nicht gelesen werden:",
+          error
+        );
+      }
 
       const contactSubmissionAge =
         Date.now() - contactSubmissionTimestamp;
@@ -65,14 +124,107 @@ const {
         isRecentContactSubmission;
 
       if (window.__vjValidContactSubmission) {
-        gtag("event", "conversion", {
-          send_to: "AW-17951138748/bJpgCK2RyNYcELzH4u9C",
+        window.gtag("event", "conversion", {
+          send_to:
+            "AW-17951138748/bJpgCK2RyNYcELzH4u9C",
         });
+
+        try {
+          sessionStorage.removeItem(
+            "vjContactFormSubmittedAt"
+          );
+        } catch (error) {
+          console.warn(
+            "Formularstatus konnte nicht entfernt werden:",
+            error
+          );
+        }
+      }
+
+      window.__vjMetaPixelLoaded = false;
+      window.__vjMetaLeadSent = false;
+
+      window.vjLoadMetaPixel = function () {
+        if (window.__vjMetaPixelLoaded) {
+          return;
+        }
+
+        window.__vjMetaPixelLoaded = true;
+
+        !(function (f, b, e, v, n, t, s) {
+          if (f.fbq) {
+            return;
+          }
+
+          n = f.fbq = function () {
+            n.callMethod
+              ? n.callMethod.apply(n, arguments)
+              : n.queue.push(arguments);
+          };
+
+          if (!f._fbq) {
+            f._fbq = n;
+          }
+
+          n.push = n;
+          n.loaded = true;
+          n.version = "2.0";
+          n.queue = [];
+
+          t = b.createElement(e);
+          t.async = true;
+          t.src = v;
+
+          s = b.getElementsByTagName(e)[0];
+          s.parentNode.insertBefore(t, s);
+        })(
+          window,
+          document,
+          "script",
+          "https://connect.facebook.net/en_US/fbevents.js"
+        );
+
+        window.fbq("init", "1495532265309971");
+        window.fbq("track", "PageView");
+
+        if (
+          window.__vjValidContactSubmission &&
+          !window.__vjMetaLeadSent
+        ) {
+          window.__vjMetaLeadSent = true;
+          window.fbq("track", "Lead");
+        }
+
+        if (
+          window.location.pathname ===
+            "/danke-bewertung" ||
+          window.location.pathname ===
+            "/danke-bewertung/"
+        ) {
+          window.fbq(
+            "track",
+            "SubmitApplication"
+          );
+        }
+      };
+
+      /*
+       * Meta wird ausschließlich geladen, wenn bereits
+       * eine gespeicherte Zustimmung vorhanden ist.
+       * Bei einer neuen Zustimmung ruft der Cookie-Banner
+       * dieselbe Funktion auf.
+       */
+      if (hasAdvertisingConsent) {
+        window.vjLoadMetaPixel();
       }
     </script>
-    <!-- End Google tag -->
 
-    <!-- Meta Pixel Code -->
+    <script
+      is:inline
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=AW-17951138748"
+    ></script>
+    <!-- Ende Google Consent Mode, Google Ads und Meta Pixel -->
     <script is:inline>
       !(function (f, b, e, v, n, t, s) {
         if (f.fbq) return;
