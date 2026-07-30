@@ -3,6 +3,17 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 
 const reviews = [
   {
+    name: "Phelina & Mert",
+    date: "Juli 2026",
+    location: "",
+    stars: 5,
+    image: "/images/Phelina & Mert .jpg",
+    initials: "P & M",
+    text: `Wir sind unendlich dankbar, dass Vigny unseren großen Tag so wunderschön und emotional festgehalten hat! Die Videos sind einfach traumhaft geworden und wir könnten nicht glücklicher damit sein. Durch seine lockere, lustige und gleichzeitig unglaublich professionelle Art hat er eine so angenehme Atmosphäre geschaffen, dass man sich vor der Kamera sofort wohlfühlt.
+
+Zusammen mit seiner Freundin Julia, die unsere wunderschönen Fotos gemacht hat, sind die beiden einfach ein unglaublich tolles Team. Alles war perfekt und wir würden Vigny von Herzen jedem weiterempfehlen! 🤍`,
+  },
+  {
     name: "Aleyna & Güven",
     date: "20.06.2026",
     location: "Dortmund",
@@ -195,7 +206,12 @@ const reviewCount = reviews.length;
 
               <div>
                 <strong>{review.name}</strong>
-                <span>{review.date} · {review.location}</span>
+
+                <span>
+                  {review.location
+                    ? `${review.date} · ${review.location}`
+                    : review.date}
+                </span>
               </div>
             </div>
           </article>
@@ -291,6 +307,7 @@ const reviewCount = reviews.length;
 
         <label>
           <span>Ihr Name *</span>
+
           <input
             type="text"
             name="Name"
@@ -302,6 +319,7 @@ const reviewCount = reviews.length;
         <div class="form-grid">
           <label>
             <span>Datum / Monat *</span>
+
             <input
               type="text"
               name="Datum"
@@ -312,6 +330,7 @@ const reviewCount = reviews.length;
 
           <label>
             <span>Ort *</span>
+
             <input
               type="text"
               name="Location"
