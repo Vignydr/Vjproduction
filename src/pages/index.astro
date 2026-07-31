@@ -1,6 +1,13 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
+const featuredTeaser = {
+  couple: "Phelina & Mert",
+  type: "Wedding Teaser",
+  text: "Echte Emotionen, persönliche Momente und die besondere Atmosphäre ihres Hochzeitstages.",
+  src: "https://galleries.vidflow.co/videos/mxd73jvr",
+};
+
 const processSteps = [
   {
     number: "1",
@@ -147,18 +154,69 @@ const extras = [
 
 const reviews = [
   {
-    text: "Wir haben 2024 geheiratet und uns ziemlich spontan für einen Videografen entschieden...",
-    name: "Jasmin & José Luis",
-    place: "Soest / Möhnesee",
-    image: "/images/jasmin-jose.jpeg",
+    sortDate: "2026-06-26",
+    date: "26.06.2026",
+    text: "Wir sind unendlich dankbar, dass Vigny unseren großen Tag so wunderschön und emotional festgehalten hat! Die Videos sind einfach traumhaft geworden und wir könnten nicht glücklicher damit sein.",
+    name: "Phelina & Mert",
+    place: "Dortmund",
+    image: "/images/Phelina & Mert .jpg",
   },
   {
-    text: "Wie fangen wir an... Während unserer Hochzeitsplanung haben wir erst gesagt, einen Videografen brauchen wir nicht...",
+    sortDate: "2026-06-20",
+    date: "20.06.2026",
+    text: "Wir wünschen, wir könnten mehr Sterne geben für deine Arbeit. Besser hätte man unser Verlobungsvideo nicht filmen und schneiden können. Alles daran ist perfekt.",
+    name: "Aleyna & Güven",
+    place: "Dortmund",
+    image: "/images/A&G.jpg.webp",
+  },
+  {
+    sortDate: "2026-06-06",
+    date: "06.06.2026",
+    text: "Auf Vigny sind wir durch eine Instagram-Werbung aufmerksam geworden. Besonders die Übersicht, die transparente Preisgestaltung und seine Arbeiten haben bei uns einen positiven ersten Eindruck hinterlassen.",
+    name: "Thahn & Pascal",
+    place: "Heinsberg-Dremmen",
+    image: "",
+  },
+  {
+    sortDate: "2026-05-31",
+    date: "31.05.2026",
+    text: "Du hast eine klasse, tolle Arbeit geleistet. Wirklich wow, jeder war sehr beeindruckt von deiner Arbeit. Allein der Trailer war schon der Hammer und auch der Film war wunderschön.",
+    name: "Rüweyda & Eyüp",
+    place: "Jülich",
+    image: "",
+  },
+  {
+    sortDate: "2026-04-11",
+    date: "11.04.2026",
+    text: "Vigny, wir möchten uns von Herzen bei dir bedanken, dass du unsere Hochzeit vom Anfang bis zum Ende begleitet hast. Deine ruhige, professionelle und sympathische Art hat uns sofort ein gutes Gefühl gegeben.",
+    name: "Melisa & Adis",
+    place: "Herne",
+    image: "/images/melisa-adis.webp",
+  },
+  {
+    sortDate: "2025-09-01",
+    date: "Sept. 2025",
+    text: "Wie fangen wir an... Während unserer Hochzeitsplanung haben wir erst gesagt, einen Videografen brauchen wir nicht. Mehr daneben hätten wir nicht liegen können.",
     name: "Jana & Stefan",
     place: "Westoverledingen",
     image: "/images/jana-stefan.jpg",
   },
+  {
+    sortDate: "2024-08-01",
+    date: "Aug. 2024",
+    text: "Wir haben 2024 geheiratet und uns ziemlich spontan für einen Videografen entschieden. Jetzt wäre es das Erste, was wir buchen würden. Ein Videograf wie Vigny ist unglaublich wertvoll.",
+    name: "Jasmin & José Luis",
+    place: "Soest / Möhnesee",
+    image: "/images/jasmin-jose.jpeg",
+  },
 ];
+
+const latestReviews = [...reviews]
+  .sort(
+    (a, b) =>
+      new Date(b.sortDate).getTime() - new Date(a.sortDate).getTime()
+  )
+  .slice(0, 2);
 ---
 
 <BaseLayout
@@ -237,30 +295,58 @@ const reviews = [
         <p class="about-preview-kicker">Persönlich für euch da</p>
 
         <h2>Hallo, ich bin Vigny.</h2>
-<p>
-  Ich bin davon überzeugt, dass die schönsten Hochzeitsfilme dann entstehen, wenn ihr euren
-  Hochzeitstag einfach genießen könnt. Deshalb begleite ich euch unauffällig
-  im Hintergrund und halte die echten Momente fest, statt sie zu inszenieren.
-</p>
 
-<p>
-  Dabei arbeite ich bewusst nicht nach einer festen Schablone. Ob modern und
-  elegant, Vintage, Editorial, dokumentarisch oder mit italienischem Flair:
-  Bildsprache, Musik, Schnitt und Tempo werden individuell auf euch und die
-  Atmosphäre eures Tages abgestimmt.
-</p>
+        <p>
+          Ich bin davon überzeugt, dass die schönsten Hochzeitsfilme dann entstehen,
+          wenn ihr euren Hochzeitstag einfach genießen könnt. Deshalb begleite ich
+          euch unauffällig im Hintergrund und halte die echten Momente fest, statt sie
+          zu inszenieren.
+        </p>
 
-<p>
-  Mein Ziel ist nicht nur ein schöner Film, sondern eine Erinnerung, die euren
-  Tag authentisch widerspiegelt, sich wirklich nach euch anfühlt und euch auch
-  in vielen Jahren genau dieses Gefühl zurückbringt. So wenig gestellt wie
-  möglich und nur so viel inszeniert, wie ihr es euch wünscht.
-</p>
+        <p>
+          Dabei arbeite ich bewusst nicht nach einer festen Schablone. Ob modern und
+          elegant, Vintage, Editorial, dokumentarisch oder mit italienischem Flair:
+          Bildsprache, Musik, Schnitt und Tempo werden individuell auf euch und die
+          Atmosphäre eures Tages abgestimmt.
+        </p>
+
+        <p>
+          Mein Ziel ist nicht nur ein schöner Film, sondern eine Erinnerung, die euren
+          Tag authentisch widerspiegelt, sich wirklich nach euch anfühlt und euch auch
+          in vielen Jahren genau dieses Gefühl zurückbringt. So wenig gestellt wie
+          möglich und nur so viel inszeniert, wie ihr es euch wünscht.
+        </p>
 
         <a class="about-preview-button" href="/ueber-mich">
           Mehr über mich <span>→</span>
         </a>
       </div>
+    </div>
+  </section>
+
+  <section class="featured-story">
+    <div class="featured-story-inner">
+      <div class="featured-story-head">
+        <p class="kicker">Ein Einblick in meine Arbeit</p>
+        <h2>{featuredTeaser.couple}</h2>
+        <p>{featuredTeaser.text}</p>
+      </div>
+
+      <div class="featured-story-frame">
+        <iframe
+          src={featuredTeaser.src}
+          title={`${featuredTeaser.type} | ${featuredTeaser.couple}`}
+          frameborder="0"
+          allow="autoplay; fullscreen; picture-in-picture"
+          allowfullscreen
+          webkitallowfullscreen
+          mozallowfullscreen
+        ></iframe>
+      </div>
+
+      <a class="featured-story-link" href="/portfolio">
+        Weitere Filme ansehen <span>→</span>
+      </a>
     </div>
   </section>
 
@@ -278,6 +364,52 @@ const reviews = [
         </article>
       ))}
     </div>
+  </section>
+
+  <section class="reviews">
+    <p class="kicker">Bewertungen</p>
+
+    <div class="reviews-grid">
+      {latestReviews.map((review) => (
+        <article class="review-card">
+          <div class="review-top">
+            <span class="stars">★★★★★</span>
+            <span class="quote">”</span>
+          </div>
+
+          <p>"{review.text}"</p>
+
+          <a href="/bewertungen">Mehr lesen →</a>
+
+          <div class="review-person">
+            {review.image ? (
+              <img
+                class="review-thumb"
+                src={review.image}
+                alt={`Foto von ${review.name}`}
+                loading="lazy"
+              />
+            ) : (
+              <div class="review-thumb review-thumb-fallback" aria-hidden="true">
+                {review.name
+                  .split("&")
+                  .map((part) => part.trim().charAt(0))
+                  .join(" & ")}
+              </div>
+            )}
+
+            <div>
+              <strong>{review.name}</strong>
+              <span>{review.date} · {review.place}</span>
+            </div>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <a class="all-reviews" href="/bewertungen">
+      Alle Bewertungen lesen <span>→</span>
+    </a>
   </section>
 
   <section class="packages">
@@ -377,43 +509,6 @@ const reviews = [
 
     <a class="details-button" href="/zusatzleistungen">
       Alle Details <span>→</span>
-    </a>
-  </section>
-
-  <section class="reviews">
-    <p class="kicker">Bewertungen</p>
-
-    <div class="reviews-grid">
-      {reviews.map((review) => (
-        <article class="review-card">
-          <div class="review-top">
-            <span class="stars">★★★★★</span>
-            <span class="quote">”</span>
-          </div>
-
-          <p>"{review.text}"</p>
-
-          <a href="/bewertungen">Mehr lesen →</a>
-
-          <div class="review-person">
-            <img
-              class="review-thumb"
-              src={review.image}
-              alt={`Foto von ${review.name}`}
-              loading="lazy"
-            />
-
-            <div>
-              <strong>{review.name}</strong>
-              <span>{review.place}</span>
-            </div>
-          </div>
-        </article>
-      ))}
-    </div>
-
-    <a class="all-reviews" href="/bewertungen">
-      Alle Bewertungen lesen <span>→</span>
     </a>
   </section>
 
@@ -750,6 +845,80 @@ const reviews = [
   }
 
   .about-preview-button:hover span {
+    transform: translateX(4px);
+  }
+
+  .featured-story {
+    padding: 0 20px 108px;
+    background: white;
+    text-align: center;
+  }
+
+  .featured-story-inner {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+  }
+
+  .featured-story-head {
+    width: min(760px, 100%);
+    margin: 0 auto 46px;
+  }
+
+  .featured-story-head .kicker {
+    margin-bottom: 18px;
+  }
+
+  .featured-story-head h2 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(38px, 4.4vw, 58px);
+    font-weight: 300;
+    letter-spacing: -0.06em;
+    line-height: 1.06;
+  }
+
+  .featured-story-head > p:not(.kicker) {
+    max-width: 680px;
+    margin: 20px auto 0;
+    color: #62636d;
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  .featured-story-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 28px;
+    background: #111216;
+    box-shadow: 0 30px 80px rgba(23, 24, 29, 0.17);
+  }
+
+  .featured-story-frame iframe {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
+  }
+
+  .featured-story-link {
+    margin-top: 34px;
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    color: #df7b00;
+    font-size: 16px;
+    font-weight: 800;
+  }
+
+  .featured-story-link span {
+    transition: transform 180ms ease;
+  }
+
+  .featured-story-link:hover span {
     transform: translateX(4px);
   }
 
@@ -1250,6 +1419,15 @@ const reviews = [
     background: #e1e2e6;
   }
 
+  .review-thumb-fallback {
+    display: grid;
+    place-items: center;
+    background: #17181d;
+    color: white;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
   .review-person strong,
   .review-person span {
     display: block;
@@ -1327,6 +1505,14 @@ const reviews = [
       padding: 0 20px 84px;
     }
 
+    .featured-story {
+      padding: 0 20px 84px;
+    }
+
+    .featured-story-inner {
+      width: min(760px, 100%);
+    }
+
     .about-preview-inner {
       width: min(680px, 100%);
       grid-template-columns: 1fr;
@@ -1395,6 +1581,34 @@ const reviews = [
   @media (max-width: 620px) {
     .about-preview {
       padding: 0 14px 78px;
+    }
+
+    .featured-story {
+      padding: 0 14px 78px;
+    }
+
+    .featured-story-head {
+      margin-bottom: 32px;
+    }
+
+    .featured-story-head h2 {
+      font-size: 36px;
+    }
+
+    .featured-story-head > p:not(.kicker) {
+      margin-top: 16px;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+
+    .featured-story-frame {
+      border-radius: 18px;
+      box-shadow: 0 22px 58px rgba(23, 24, 29, 0.14);
+    }
+
+    .featured-story-link {
+      margin-top: 26px;
+      font-size: 15px;
     }
 
     .about-preview-inner {
