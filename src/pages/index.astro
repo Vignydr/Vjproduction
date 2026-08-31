@@ -434,9 +434,12 @@ const latestReviews = [...reviews]
             ))}
           </ul>
 
-          <p class="second-videographer-option">
-            Zweiter Videograf optional · ab 350 €
-          </p>
+          <div class="second-videographer-option">
+            <span>Zweiter Videograf optional · ab 350 €</span>
+            <a href="/pakete">
+              Mehr erfahren <span>→</span>
+            </a>
+          </div>
 
           <a class="package-button" href="/kontakt">
             Paket anfragen <span>→</span>
@@ -458,35 +461,17 @@ const latestReviews = [...reviews]
           <li>Flexibel auf euren Tag abgestimmt</li>
         </ul>
 
-        <p class="second-videographer-option">
-          Zweiter Videograf optional · ab 350 €
-        </p>
+        <div class="second-videographer-option">
+          <span>Zweiter Videograf optional · ab 350 €</span>
+          <a href="/pakete">
+            Mehr erfahren <span>→</span>
+          </a>
+        </div>
 
         <a class="package-button" href="/kontakt">
           Individuell anfragen <span>→</span>
         </a>
       </article>
-    </div>
-
-    <div class="second-videographer-info">
-      <div class="second-videographer-heading">
-        <span>Optionale Erweiterung</span>
-        <h3>Zwei Perspektiven. Noch mehr echte Momente.</h3>
-      </div>
-
-      <div class="second-videographer-copy">
-        <p>
-          Auf Wunsch kann eure Hochzeit von einem zweiten Videografen begleitet
-          werden. Besonders bei getrennten Getting Readys, größeren Hochzeiten oder
-          Momenten, die gleichzeitig stattfinden, entstehen dadurch noch mehr
-          Perspektiven und Reaktionen, ohne dass der natürliche Ablauf des Tages
-          gestört wird.
-        </p>
-
-        <strong>
-          Zweiter Videograf ab 350 € · abhängig von Dauer und Umfang der Begleitung.
-        </strong>
-      </div>
     </div>
   </section>
 
@@ -1174,18 +1159,50 @@ const latestReviews = [...reviews]
   }
 
   .second-videographer-option {
-    margin: 26px 0 0;
+    margin-top: 26px;
     padding-top: 18px;
     border-top: 1px solid #dedfe3;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .second-videographer-option > span {
     color: #777984;
     font-size: 13px;
     font-weight: 600;
     line-height: 1.55;
   }
 
+  .second-videographer-option a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #df7b00;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.4;
+  }
+
+  .second-videographer-option a span {
+    transition: transform 180ms ease;
+  }
+
+  .second-videographer-option a:hover span {
+    transform: translateX(3px);
+  }
+
   .package-card.popular .second-videographer-option {
     border-top-color: rgba(255, 255, 255, 0.13);
+  }
+
+  .package-card.popular .second-videographer-option > span {
     color: rgba(255, 255, 255, 0.58);
+  }
+
+  .package-card.popular .second-videographer-option a {
+    color: #ffc21d;
   }
 
   .package-button {
@@ -1204,52 +1221,6 @@ const latestReviews = [...reviews]
 
   .individual {
     margin-top: 18px;
-  }
-
-  .second-videographer-info {
-    width: min(920px, 100%);
-    margin: 68px auto 0;
-    padding-top: 36px;
-    border-top: 1px solid #e4e4e7;
-    display: grid;
-    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
-    gap: 52px;
-    text-align: left;
-  }
-
-  .second-videographer-heading span {
-    display: block;
-    margin-bottom: 12px;
-    color: #df7b00;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 10px;
-    font-weight: 800;
-  }
-
-  .second-videographer-heading h3 {
-    margin: 0;
-    color: #17181d;
-    font-size: clamp(25px, 2.7vw, 34px);
-    font-weight: 400;
-    letter-spacing: -0.045em;
-    line-height: 1.14;
-  }
-
-  .second-videographer-copy p {
-    margin: 0;
-    color: #5f6068;
-    font-size: 15px;
-    line-height: 1.7;
-  }
-
-  .second-videographer-copy strong {
-    display: block;
-    margin-top: 17px;
-    color: #777984;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.55;
   }
 
   .late-video {
@@ -1658,13 +1629,6 @@ const latestReviews = [...reviews]
       transform: none;
     }
 
-    .second-videographer-info {
-      width: min(620px, 100%);
-      grid-template-columns: 1fr;
-      gap: 22px;
-      margin-top: 58px;
-    }
-
     .late-card {
       flex-direction: column;
       padding: 30px;
@@ -1759,25 +1723,14 @@ const latestReviews = [...reviews]
     .second-videographer-option {
       margin-top: 22px;
       padding-top: 16px;
+    }
+
+    .second-videographer-option > span {
       font-size: 12.5px;
     }
 
-    .second-videographer-info {
-      margin-top: 48px;
-      padding-top: 30px;
-    }
-
-    .second-videographer-heading h3 {
-      font-size: 28px;
-    }
-
-    .second-videographer-copy p {
-      font-size: 14px;
-      line-height: 1.68;
-    }
-
-    .second-videographer-copy strong {
-      font-size: 12.5px;
+    .second-videographer-option a {
+      font-size: 11.5px;
     }
 
     .reviews {
