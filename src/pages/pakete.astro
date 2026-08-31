@@ -136,12 +136,17 @@ const faqs = [
           <h2>{item.name}</h2>
           <p class="package-subtitle">{item.subtitle}</p>
 
-          <div class="price">{item.price}<span>€</span></div>
+          <div class="price">
+            {item.price}<span>€</span>
+          </div>
 
           <div class="meta-row">
             {item.meta.map((metaItem) => (
               <div>
-                <span class="meta-icon" set:html={metaIcons[metaItem.icon]}></span>
+                <span
+                  class="meta-icon"
+                  set:html={metaIcons[metaItem.icon]}
+                ></span>
                 <strong>{metaItem.label}</strong>
               </div>
             ))}
@@ -153,9 +158,40 @@ const faqs = [
             ))}
           </ul>
 
-          <p class="second-videographer-option">
-            Zweiter Videograf optional · ab 350 €
-          </p>
+          <details class="package-extra-details">
+            <summary>
+              <div class="package-extra-summary">
+                <strong>Zweiter Videograf optional · ab 350 €</strong>
+                <span>Mehr erfahren</span>
+              </div>
+
+              <span class="package-extra-arrow" aria-hidden="true">⌄</span>
+            </summary>
+
+            <div class="package-extra-content">
+              <h3>Noch mehr Perspektiven auf euren Tag</h3>
+
+              <p>
+                Auch mit einem Videografen lässt sich euer Hochzeitstag umfassend und
+                authentisch begleiten. Ein zweiter Videograf ist eine optionale
+                Erweiterung für Paare, die sich bewusst noch mehr Blickwinkel und
+                parallel eingefangene Momente wünschen.
+              </p>
+
+              <p>
+                Während ich euren Tag wie gewohnt begleite, können zusätzlich weitere
+                Reaktionen, Details und Perspektiven festgehalten werden. So entsteht
+                noch mehr vielseitiges Material für euren Hochzeitsfilm, besonders bei
+                Momenten, die gleichzeitig stattfinden oder aus mehreren Blickwinkeln
+                besonders schön wirken.
+              </p>
+
+              <small>
+                Der genaue Preis richtet sich nach Dauer und Umfang der zusätzlichen
+                Begleitung.
+              </small>
+            </div>
+          </details>
 
           <a class="package-button" href="/kontakt">
             Paket anfragen <span>→</span>
@@ -167,6 +203,7 @@ const faqs = [
         <div class="badge flexible">✤ Flexibel</div>
 
         <h2>Individuell</h2>
+
         <p class="package-subtitle">
           Stellt euch euer Paket so zusammen, wie es zu eurem Tag passt
         </p>
@@ -182,51 +219,46 @@ const faqs = [
           <li>Optional: Rohmaterial oder extra Versionen</li>
         </ul>
 
-        <p class="second-videographer-option">
-          Zweiter Videograf optional · ab 350 €
-        </p>
+        <details class="package-extra-details">
+          <summary>
+            <div class="package-extra-summary">
+              <strong>Zweiter Videograf optional · ab 350 €</strong>
+              <span>Mehr erfahren</span>
+            </div>
+
+            <span class="package-extra-arrow" aria-hidden="true">⌄</span>
+          </summary>
+
+          <div class="package-extra-content">
+            <h3>Noch mehr Perspektiven auf euren Tag</h3>
+
+            <p>
+              Auch mit einem Videografen lässt sich euer Hochzeitstag umfassend und
+              authentisch begleiten. Ein zweiter Videograf ist eine optionale
+              Erweiterung für Paare, die sich bewusst noch mehr Blickwinkel und
+              parallel eingefangene Momente wünschen.
+            </p>
+
+            <p>
+              Während ich euren Tag wie gewohnt begleite, können zusätzlich weitere
+              Reaktionen, Details und Perspektiven festgehalten werden. So entsteht
+              noch mehr vielseitiges Material für euren Hochzeitsfilm, besonders bei
+              Momenten, die gleichzeitig stattfinden oder aus mehreren Blickwinkeln
+              besonders schön wirken.
+            </p>
+
+            <small>
+              Der genaue Preis richtet sich nach Dauer und Umfang der zusätzlichen
+              Begleitung.
+            </small>
+          </div>
+        </details>
 
         <a class="package-button" href="/kontakt">
           Individuell anfragen <span>→</span>
         </a>
       </article>
     </div>
-
-    <details class="second-videographer-details">
-      <summary>
-        <div class="second-videographer-summary">
-          <span class="second-videographer-kicker">Optionale Erweiterung</span>
-          <strong>Zweiter Videograf · ab 350 €</strong>
-          <small>Zusätzliche Perspektiven für besondere Momente</small>
-        </div>
-
-        <span class="second-videographer-arrow" aria-hidden="true">⌄</span>
-      </summary>
-
-      <div class="second-videographer-content">
-        <h2>Zwei Perspektiven. Noch mehr echte Momente.</h2>
-
-        <p>
-          Auf Wunsch kann eure Hochzeit von einem zweiten Videografen begleitet
-          werden. Besonders bei getrennten Getting Readys, größeren Hochzeiten oder
-          Momenten, die gleichzeitig stattfinden, entstehen dadurch noch mehr
-          Perspektiven und Reaktionen, ohne dass der natürliche Ablauf des Tages
-          gestört wird.
-        </p>
-
-        <ul>
-          <li>Getrennte Getting Readys gleichzeitig begleiten</li>
-          <li>Reaktionen aus unterschiedlichen Perspektiven festhalten</li>
-          <li>Mehr Abdeckung bei größeren Hochzeiten</li>
-          <li>Gleichzeitig stattfindende Momente besser einfangen</li>
-        </ul>
-
-        <p class="second-videographer-price">
-          Zweiter Videograf ab 350 € · der genaue Preis richtet sich nach Dauer und
-          Umfang der zusätzlichen Begleitung.
-        </p>
-      </div>
-    </details>
 
     <div class="notes-box">
       <h2>Wichtige Hinweise</h2>
@@ -248,6 +280,7 @@ const faqs = [
               <span>{faq.question}</span>
               <span class="faq-arrow" aria-hidden="true">⌄</span>
             </summary>
+
             <p>{faq.answer}</p>
           </details>
         ))}
@@ -256,7 +289,13 @@ const faqs = [
 
     <section class="late-video-card">
       <div class="late-icon">
-        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+        <svg
+          width="30"
+          height="30"
+          viewBox="0 0 24 24"
+          fill="none"
+          aria-hidden="true"
+        >
           <rect
             x="4"
             y="4"
@@ -279,10 +318,12 @@ const faqs = [
 
       <div>
         <h2>Nachträgliches Hochzeitsvideo</h2>
+
         <p>
           Für Paare, die am Hochzeitstag keinen Videografen hatten. Ein
           professionelles Shooting nach der Hochzeit.
         </p>
+
         <a href="/nachtraegliches-hochzeitsvideo">
           Mehr erfahren <span>→</span>
         </a>
@@ -292,10 +333,12 @@ const faqs = [
     <section class="cta">
       <div>
         <h2>Bereit für euren Film?</h2>
+
         <p>
           Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag
           am besten festhalte.
         </p>
+
         <a href="/kontakt">
           Verfügbarkeit anfragen <span>→</span>
         </a>
@@ -521,19 +564,119 @@ const faqs = [
     color: #ffc21d;
   }
 
-  .second-videographer-option {
-    margin: 28px 0 0;
+  .package-extra-details {
+    margin-top: 28px;
     padding-top: 18px;
     border-top: 1px solid rgba(23, 24, 29, 0.1);
-    color: #777984;
+  }
+
+  .popular .package-extra-details {
+    border-top-color: rgba(255, 255, 255, 0.12);
+  }
+
+  .package-extra-details > summary {
+    cursor: pointer;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .package-extra-details > summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .package-extra-summary {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  .package-extra-summary strong {
+    color: #5f6068;
     font-size: 13px;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  .package-extra-summary span {
+    color: #df7b00;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+
+  .popular .package-extra-summary strong {
+    color: rgba(255, 255, 255, 0.68);
+  }
+
+  .popular .package-extra-summary span {
+    color: #ffc21d;
+  }
+
+  .package-extra-arrow {
+    flex: 0 0 auto;
+    color: #9a9ca4;
+    font-size: 21px;
+    line-height: 1;
+    transition: transform 0.2s ease;
+  }
+
+  .popular .package-extra-arrow {
+    color: rgba(255, 255, 255, 0.42);
+  }
+
+  .package-extra-details[open] .package-extra-arrow {
+    transform: rotate(180deg);
+  }
+
+  .package-extra-content {
+    margin-top: 18px;
+    padding-top: 18px;
+    border-top: 1px solid rgba(23, 24, 29, 0.08);
+  }
+
+  .popular .package-extra-content {
+    border-top-color: rgba(255, 255, 255, 0.09);
+  }
+
+  .package-extra-content h3 {
+    margin: 0 0 12px;
+    color: #17181d;
+    font-size: 17px;
+    font-weight: 700;
+    line-height: 1.35;
+    letter-spacing: -0.02em;
+  }
+
+  .popular .package-extra-content h3 {
+    color: white;
+  }
+
+  .package-extra-content p {
+    margin: 0 0 13px;
+    color: #686a73;
+    font-size: 13px;
+    line-height: 1.65;
+  }
+
+  .popular .package-extra-content p {
+    color: rgba(255, 255, 255, 0.62);
+  }
+
+  .package-extra-content small {
+    display: block;
+    margin-top: 17px;
+    color: #8a8c94;
+    font-size: 12px;
     font-weight: 600;
     line-height: 1.55;
   }
 
-  .popular .second-videographer-option {
-    border-top-color: rgba(255, 255, 255, 0.12);
-    color: rgba(255, 255, 255, 0.58);
+  .popular .package-extra-content small {
+    color: rgba(255, 255, 255, 0.48);
   }
 
   .package-button {
@@ -554,130 +697,9 @@ const faqs = [
     margin-top: 34px;
   }
 
-  .second-videographer-details {
-    width: min(1040px, 100%);
-    margin: 76px auto 0;
-    border: 1px solid #e4e4e7;
-    border-radius: 20px;
-    background: #fafafa;
-    overflow: hidden;
-  }
-
-  .second-videographer-details summary {
-    cursor: pointer;
-    list-style: none;
-    padding: 28px 34px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 28px;
-  }
-
-  .second-videographer-details summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .second-videographer-summary {
-    min-width: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .second-videographer-kicker {
-    margin-bottom: 8px;
-    color: #df7b00;
-    text-transform: uppercase;
-    letter-spacing: 0.22em;
-    font-size: 10px;
-    font-weight: 800;
-  }
-
-  .second-videographer-summary strong {
-    color: #17181d;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1.3;
-  }
-
-  .second-videographer-summary small {
-    margin-top: 6px;
-    color: #777984;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-
-  .second-videographer-arrow {
-    flex: 0 0 auto;
-    color: #9a9ca4;
-    font-size: 26px;
-    line-height: 1;
-    transition: transform 0.2s ease;
-  }
-
-  .second-videographer-details[open] .second-videographer-arrow {
-    transform: rotate(180deg);
-  }
-
-  .second-videographer-content {
-    padding: 0 34px 34px;
-    border-top: 1px solid #e8e8eb;
-  }
-
-  .second-videographer-content h2 {
-    margin: 30px 0 16px;
-    color: #17181d;
-    font-size: clamp(26px, 3vw, 34px);
-    font-weight: 400;
-    letter-spacing: -0.045em;
-    line-height: 1.15;
-  }
-
-  .second-videographer-content > p {
-    max-width: 840px;
-    margin: 0;
-    color: #5f6068;
-    font-size: 16px;
-    line-height: 1.7;
-  }
-
-  .second-videographer-content ul {
-    margin: 26px 0 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 13px 28px;
-  }
-
-  .second-videographer-content li {
-    position: relative;
-    padding-left: 24px;
-    color: #5f6068;
-    font-size: 15px;
-    line-height: 1.55;
-  }
-
-  .second-videographer-content li::before {
-    content: "✓";
-    position: absolute;
-    left: 0;
-    color: #df7b00;
-    font-weight: 800;
-  }
-
-  .second-videographer-content .second-videographer-price {
-    margin-top: 28px;
-    padding-top: 20px;
-    border-top: 1px solid #e4e4e7;
-    color: #17181d;
-    font-size: 14px;
-    font-weight: 700;
-  }
-
   .notes-box {
     width: min(1320px, 100%);
-    margin: 54px auto 80px;
+    margin: 84px auto 80px;
     padding: 40px 44px;
     border-radius: 18px;
     border: 1px solid #f5d36d;
@@ -860,10 +882,6 @@ const faqs = [
       transform: none;
     }
 
-    .second-videographer-content ul {
-      grid-template-columns: 1fr;
-    }
-
     .late-video-card {
       flex-direction: column;
     }
@@ -887,58 +905,34 @@ const faqs = [
       font-size: 36px;
     }
 
-    .second-videographer-option {
+    .package-extra-details {
       margin-top: 24px;
       padding-top: 16px;
+    }
+
+    .package-extra-summary strong {
       font-size: 12.5px;
     }
 
-    .second-videographer-details {
-      margin-top: 56px;
-      border-radius: 16px;
+    .package-extra-summary span {
+      font-size: 11.5px;
     }
 
-    .second-videographer-details summary {
-      padding: 23px 22px;
-      gap: 18px;
+    .package-extra-content h3 {
+      font-size: 16px;
     }
 
-    .second-videographer-summary strong {
-      font-size: 18px;
+    .package-extra-content p {
+      font-size: 12.5px;
     }
 
-    .second-videographer-summary small {
-      font-size: 13px;
-    }
-
-    .second-videographer-content {
-      padding: 0 22px 26px;
-    }
-
-    .second-videographer-content h2 {
-      margin-top: 24px;
-      font-size: 27px;
-    }
-
-    .second-videographer-content > p {
-      font-size: 15px;
-    }
-
-    .second-videographer-content li {
-      font-size: 14px;
-    }
-
-    .second-videographer-content .second-videographer-price {
-      font-size: 13px;
+    .package-extra-content small {
+      font-size: 11.5px;
     }
 
     .notes-box,
     .late-video-card {
       padding: 26px;
-    }
-
-    .notes-box {
-      margin-top: 42px;
     }
   }
 </style>
