@@ -19,6 +19,14 @@ const icons = {
     <path d="M9.7 12H7.8"></path>
     <path d="M14.3 12h1.9"></path>
   </svg>`,
+
+  secondVideographer: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+    <rect x="3" y="7" width="11" height="9" rx="2"></rect>
+    <path d="m14 10 5-3v9l-5-3"></path>
+    <circle cx="7" cy="11.5" r="1.7"></circle>
+    <path d="M18.5 4.5v4"></path>
+    <path d="M16.5 6.5h4"></path>
+  </svg>`,
 };
 ---
 
@@ -200,6 +208,26 @@ const icons = {
 
       <fieldset class="choice-section">
         <legend>Zusatzleistungen optional</legend>
+
+        <label class="check-card second-videographer-card">
+          <input
+            type="checkbox"
+            name="Zweiter Videograf"
+            value="Interesse"
+          />
+
+          <span
+            class="line-icon second-videographer-icon"
+            set:html={icons.secondVideographer}
+          ></span>
+
+          <span class="option-copy">
+            <strong>Zweiter Videograf · ab 350 €</strong>
+            <small>
+              Für zusätzliche Perspektiven und parallel eingefangene Momente.
+            </small>
+          </span>
+        </label>
 
         <label class="check-card">
           <input
@@ -533,7 +561,7 @@ const icons = {
     color: inherit;
   }
 
-  label > span:not(.line-icon):not(.option-text) {
+  label > span:not(.line-icon):not(.option-text):not(.option-copy) {
     display: block;
     margin-bottom: 12px;
     color: #17181d;
@@ -562,6 +590,30 @@ const icons = {
   .option-text {
     display: block;
     min-width: 0;
+  }
+
+  .option-copy {
+    display: flex;
+    min-width: 0;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin: 0;
+  }
+
+  .option-copy strong {
+    color: #17181d;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.3;
+  }
+
+  .option-copy small {
+    color: #777984;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.45;
   }
 
   .option-card input,
@@ -598,12 +650,14 @@ const icons = {
     stroke-linejoin: round;
   }
 
-  .drone-icon {
+  .drone-icon,
+  .second-videographer-icon {
     background: transparent;
     border-radius: 0;
   }
 
-  :global(.drone-icon svg) {
+  :global(.drone-icon svg),
+  :global(.second-videographer-icon svg) {
     width: 28px !important;
     height: 28px !important;
     display: block !important;
@@ -612,7 +666,10 @@ const icons = {
 
   :global(.drone-icon svg path),
   :global(.drone-icon svg rect),
-  :global(.drone-icon svg circle) {
+  :global(.drone-icon svg circle),
+  :global(.second-videographer-icon svg path),
+  :global(.second-videographer-icon svg rect),
+  :global(.second-videographer-icon svg circle) {
     fill: none !important;
     stroke: #df7b00 !important;
     stroke-width: 1.8 !important;
@@ -846,9 +903,19 @@ const icons = {
     }
 
     .line-icon svg,
-    .drone-icon svg {
+    .drone-icon svg,
+    .second-videographer-icon svg {
       width: 26px;
       height: 26px;
+    }
+
+    .option-copy strong {
+      font-size: 16px;
+    }
+
+    .option-copy small {
+      font-size: 13px;
+      line-height: 1.4;
     }
 
     .contact-way {
