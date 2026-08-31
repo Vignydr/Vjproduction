@@ -32,6 +32,7 @@ const packages = [
     name: "Basic",
     subtitle: "Perfekt für intime Hochzeiten",
     price: "1.290",
+    secondVideographerTarget: "zweiter-videograf-basic",
     meta: [
       { icon: "time", label: "4h" },
       { icon: "film", label: "1 Film" },
@@ -51,6 +52,7 @@ const packages = [
     subtitle: "Mein beliebtestes Paket",
     price: "1.990",
     popular: true,
+    secondVideographerTarget: "zweiter-videograf-classic",
     meta: [
       { icon: "time", label: "7h" },
       { icon: "film", label: "2 Filme" },
@@ -70,6 +72,7 @@ const packages = [
     name: "Premium",
     subtitle: "Das komplette Kinoerlebnis",
     price: "2.390",
+    secondVideographerTarget: "zweiter-videograf-premium",
     meta: [
       { icon: "time", label: "12h" },
       { icon: "film", label: "2 Filme" },
@@ -158,7 +161,10 @@ const faqs = [
             ))}
           </ul>
 
-          <details class="package-extra-details">
+          <details
+            class="package-extra-details"
+            id={item.secondVideographerTarget}
+          >
             <summary>
               <div class="package-extra-summary">
                 <strong>Zweiter Videograf optional · ab 350 €</strong>
@@ -219,7 +225,10 @@ const faqs = [
           <li>Optional: Rohmaterial oder extra Versionen</li>
         </ul>
 
-        <details class="package-extra-details">
+        <details
+          class="package-extra-details"
+          id="zweiter-videograf-individuell"
+        >
           <summary>
             <div class="package-extra-summary">
               <strong>Zweiter Videograf optional · ab 350 €</strong>
@@ -305,6 +314,7 @@ const faqs = [
             stroke="#df7b00"
             stroke-width="1.8"
           ></rect>
+
           <path d="M8 4v16" stroke="#df7b00" stroke-width="1.8"></path>
           <path d="M16 4v16" stroke="#df7b00" stroke-width="1.8"></path>
           <path d="M4 8h4" stroke="#df7b00" stroke-width="1.8"></path>
@@ -346,6 +356,38 @@ const faqs = [
     </section>
   </section>
 </BaseLayout>
+
+<script is:inline>
+  const openSecondVideographerFromHash = () => {
+    const hash = window.location.hash;
+
+    if (!hash || !hash.startsWith("#zweiter-videograf-")) {
+      return;
+    }
+
+    const targetId = hash.slice(1);
+    const target = document.getElementById(targetId);
+
+    if (!(target instanceof HTMLDetailsElement)) {
+      return;
+    }
+
+    target.open = true;
+
+    requestAnimationFrame(() => {
+      setTimeout(() => {
+        target.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }, 80);
+    });
+  };
+
+  window.addEventListener("DOMContentLoaded", openSecondVideographerFromHash);
+  window.addEventListener("hashchange", openSecondVideographerFromHash);
+  window.addEventListener("pageshow", openSecondVideographerFromHash);
+</script>
 
 <style>
   :global(body) {
@@ -568,6 +610,7 @@ const faqs = [
     margin-top: 28px;
     padding-top: 18px;
     border-top: 1px solid rgba(23, 24, 29, 0.1);
+    scroll-margin-top: 125px;
   }
 
   .popular .package-extra-details {
@@ -908,6 +951,7 @@ const faqs = [
     .package-extra-details {
       margin-top: 24px;
       padding-top: 16px;
+      scroll-margin-top: 105px;
     }
 
     .package-extra-summary strong {
