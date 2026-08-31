@@ -434,6 +434,10 @@ const latestReviews = [...reviews]
             ))}
           </ul>
 
+          <p class="second-videographer-option">
+            Optional mit zweitem Videografen buchbar – ab 590 €
+          </p>
+
           <a class="package-button" href="/kontakt">
             Paket anfragen <span>→</span>
           </a>
@@ -454,10 +458,35 @@ const latestReviews = [...reviews]
           <li>Flexibel auf euren Tag abgestimmt</li>
         </ul>
 
+        <p class="second-videographer-option">
+          Optional mit zweitem Videografen buchbar – ab 590 €
+        </p>
+
         <a class="package-button" href="/kontakt">
           Individuell anfragen <span>→</span>
         </a>
       </article>
+    </div>
+
+    <div class="second-videographer-info">
+      <div class="second-videographer-heading">
+        <span>Optionale Erweiterung</span>
+        <h3>Zwei Perspektiven. Noch mehr echte Momente.</h3>
+      </div>
+
+      <div class="second-videographer-copy">
+        <p>
+          Auf Wunsch kann eure Hochzeit von einem zweiten Videografen begleitet
+          werden. Besonders bei getrennten Getting Readys, größeren Hochzeiten oder
+          Momenten, die gleichzeitig stattfinden, entstehen dadurch noch mehr
+          Perspektiven und Reaktionen, ohne dass der natürliche Ablauf des Tages
+          gestört wird.
+        </p>
+
+        <strong>
+          Zweiter Videograf ab 590 € – abhängig von Dauer und Umfang der Begleitung.
+        </strong>
+      </div>
     </div>
   </section>
 
@@ -1144,8 +1173,23 @@ const latestReviews = [...reviews]
     color: #ffc21d;
   }
 
+  .second-videographer-option {
+    margin: 26px 0 0;
+    padding-top: 18px;
+    border-top: 1px solid #dedfe3;
+    color: #777984;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.55;
+  }
+
+  .package-card.popular .second-videographer-option {
+    border-top-color: rgba(255, 255, 255, 0.13);
+    color: rgba(255, 255, 255, 0.58);
+  }
+
   .package-button {
-    margin-top: 34px;
+    margin-top: 28px;
     height: 46px;
     border-radius: 7px;
     background: #df7b00;
@@ -1160,6 +1204,52 @@ const latestReviews = [...reviews]
 
   .individual {
     margin-top: 18px;
+  }
+
+  .second-videographer-info {
+    width: min(920px, 100%);
+    margin: 68px auto 0;
+    padding-top: 36px;
+    border-top: 1px solid #e4e4e7;
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    gap: 52px;
+    text-align: left;
+  }
+
+  .second-videographer-heading span {
+    display: block;
+    margin-bottom: 12px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .second-videographer-heading h3 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(25px, 2.7vw, 34px);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1.14;
+  }
+
+  .second-videographer-copy p {
+    margin: 0;
+    color: #5f6068;
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .second-videographer-copy strong {
+    display: block;
+    margin-top: 17px;
+    color: #777984;
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.55;
   }
 
   .late-video {
@@ -1568,6 +1658,13 @@ const latestReviews = [...reviews]
       transform: none;
     }
 
+    .second-videographer-info {
+      width: min(620px, 100%);
+      grid-template-columns: 1fr;
+      gap: 22px;
+      margin-top: 58px;
+    }
+
     .late-card {
       flex-direction: column;
       padding: 30px;
@@ -1657,6 +1754,30 @@ const latestReviews = [...reviews]
     .btn-ghost {
       width: 100%;
       min-width: 0;
+    }
+
+    .second-videographer-option {
+      margin-top: 22px;
+      padding-top: 16px;
+      font-size: 12.5px;
+    }
+
+    .second-videographer-info {
+      margin-top: 48px;
+      padding-top: 30px;
+    }
+
+    .second-videographer-heading h3 {
+      font-size: 28px;
+    }
+
+    .second-videographer-copy p {
+      font-size: 14px;
+      line-height: 1.68;
+    }
+
+    .second-videographer-copy strong {
+      font-size: 12.5px;
     }
 
     .reviews {
