@@ -159,6 +159,39 @@ const reasons = [
       </aside>
     </section>
 
+    <section class="photo-partner">
+      <div class="photo-partner-card">
+        <div class="photo-partner-content">
+          <p class="photo-partner-kicker">Foto & Video als Team</p>
+
+          <h2>Gemeinsam mit Julia von Junique Photography</h2>
+
+          <p>
+            Meine Partnerin Julia ist Hochzeitsfotografin und bei vielen Hochzeiten
+            arbeiten wir gemeinsam als eingespieltes Foto- und Videoteam. Dadurch kennen
+            wir die Arbeitsweise des anderen genau, können uns am Hochzeitstag optimal
+            abstimmen und uns gegenseitig den Raum geben, den wir für natürliche Aufnahmen
+            brauchen.
+          </p>
+
+          <p>
+            Für euch bedeutet das vor allem einen entspannten Ablauf und Foto und Video,
+            die harmonisch miteinander entstehen, ohne dass ihr euch ständig neu auf
+            unterschiedliche Arbeitsweisen einstellen müsst.
+          </p>
+        </div>
+
+        <a
+          class="photo-partner-link"
+          href="https://juniquephotography.de"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Junique Photography ansehen <span>→</span>
+        </a>
+      </div>
+    </section>
+
     <section class="cta">
       <div>
         <h2>Bereit für euren Film?</h2>
@@ -320,6 +353,88 @@ const reasons = [
     line-height: 1.58;
   }
 
+  .photo-partner {
+    width: min(1180px, 100%);
+    margin: 0 auto 84px;
+  }
+
+  .photo-partner-card {
+    padding: 48px 52px;
+    border-radius: 22px;
+    border: 1px solid #e3e3e6;
+    background: #f8f8f7;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 56px;
+  }
+
+  .photo-partner-content {
+    max-width: 790px;
+  }
+
+  .photo-partner-kicker {
+    margin: 0 0 16px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .photo-partner-content h2 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(30px, 3.3vw, 42px);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+
+  .photo-partner-content > p:not(.photo-partner-kicker) {
+    margin: 20px 0 0;
+    color: #5f6068;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .photo-partner-link {
+    display: inline-flex;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 7px;
+    border: 1px solid #d9d9dd;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #17181d;
+    font-size: 14px;
+    font-weight: 800;
+    text-decoration: none;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .photo-partner-link:hover {
+    transform: translateY(-2px);
+    border-color: #df7b00;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+  }
+
+  .photo-partner-link span {
+    color: #df7b00;
+    transition: transform 180ms ease;
+  }
+
+  .photo-partner-link:hover span {
+    transform: translateX(3px);
+  }
+
   .cta {
     width: min(1180px, 100%);
     margin: 0 auto;
@@ -374,6 +489,15 @@ const reasons = [
     .why {
       text-align: left;
     }
+
+    .photo-partner-card {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .photo-partner-link {
+      width: fit-content;
+    }
   }
 
   @media (max-width: 620px) {
@@ -425,6 +549,37 @@ const reasons = [
     .reason-item p,
     .cta p {
       font-size: 16px;
+    }
+
+    .photo-partner {
+      margin-bottom: 64px;
+    }
+
+    .photo-partner-card {
+      padding: 32px 26px;
+      border-radius: 18px;
+      gap: 26px;
+    }
+
+    .photo-partner-kicker {
+      font-size: 9.5px;
+      letter-spacing: 0.24em;
+    }
+
+    .photo-partner-content h2 {
+      font-size: 30px;
+    }
+
+    .photo-partner-content > p:not(.photo-partner-kicker) {
+      margin-top: 17px;
+      font-size: 14.5px;
+      line-height: 1.68;
+    }
+
+    .photo-partner-link {
+      width: 100%;
+      white-space: normal;
+      text-align: center;
     }
   }
 </style>
