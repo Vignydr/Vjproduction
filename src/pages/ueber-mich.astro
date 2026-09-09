@@ -248,15 +248,9 @@ const reasons = [
 
 <script is:inline>
   const photoVideoHint = document.getElementById("photoVideoHint");
-  const photoVideoHintClose = document.getElementById(
-    "photoVideoHintClose"
-  );
-  const photoVideoHintLink = document.getElementById(
-    "photoVideoHintLink"
-  );
-  const photoVideoPartnerSection = document.getElementById(
-    "foto-video-team"
-  );
+  const photoVideoHintClose = document.getElementById("photoVideoHintClose");
+  const photoVideoHintLink = document.getElementById("photoVideoHintLink");
+  const photoVideoPartnerSection = document.getElementById("foto-video-team");
 
   if (
     photoVideoHint instanceof HTMLElement &&
@@ -265,29 +259,50 @@ const reasons = [
     let dismissed = false;
     let partnerVisible = false;
     let partnerOpened = false;
+    let autoHidden = false;
+    let autoHideTimer = null;
 
     try {
       dismissed =
-        sessionStorage.getItem(
-          "vjPhotoVideoHintDismissed:about"
-        ) === "1";
+        sessionStorage.getItem("vjPhotoVideoHintDismissed:about") === "1";
     } catch {
       dismissed = false;
     }
 
     const setHintVisible = (visible) => {
       photoVideoHint.classList.toggle("is-visible", visible);
-
       photoVideoHint.setAttribute(
         "aria-hidden",
         visible ? "false" : "true"
       );
     };
 
+    const clearAutoHideTimer = () => {
+      if (autoHideTimer !== null) {
+        window.clearTimeout(autoHideTimer);
+        autoHideTimer = null;
+      }
+    };
+
+    const startAutoHideTimer = () => {
+      if (
+        autoHideTimer !== null ||
+        autoHidden ||
+        dismissed ||
+        partnerOpened
+      ) {
+        return;
+      }
+
+      autoHideTimer = window.setTimeout(() => {
+        autoHidden = true;
+        setHintVisible(false);
+      }, 8000);
+    };
+
     const updatePhotoVideoHint = () => {
       const pageScrollableHeight =
-        document.documentElement.scrollHeight -
-        window.innerHeight;
+        document.documentElement.scrollHeight - window.innerHeight;
 
       const scrollProgress =
         pageScrollableHeight > 0
@@ -296,28 +311,29 @@ const reasons = [
 
       const shouldShow =
         !dismissed &&
+        !autoHidden &&
         !partnerVisible &&
         !partnerOpened &&
         scrollProgress >= 0.28;
 
       setHintVisible(shouldShow);
+
+      if (shouldShow) {
+        startAutoHideTimer();
+      }
     };
 
     if (photoVideoHintClose instanceof HTMLButtonElement) {
       photoVideoHintClose.addEventListener("click", () => {
         dismissed = true;
+        clearAutoHideTimer();
 
         try {
           sessionStorage.setItem(
             "vjPhotoVideoHintDismissed:about",
             "1"
           );
-        } catch {
-          /*
-            Falls Session Storage blockiert ist,
-            wird der Hinweis zumindest auf dieser Seite geschlossen.
-          */
-        }
+        } catch {}
 
         setHintVisible(false);
       });
@@ -328,6 +344,7 @@ const reasons = [
         event.preventDefault();
 
         partnerOpened = true;
+        clearAutoHideTimer();
         setHintVisible(false);
 
         const reduceMotion = window.matchMedia(
@@ -351,7 +368,12 @@ const reasons = [
           }
 
           partnerVisible = entry.isIntersecting;
-          updatePhotoVideoHint();
+
+          if (partnerVisible) {
+            setHintVisible(false);
+          } else {
+            updatePhotoVideoHint();
+          }
         },
         {
           threshold: 0.18,
@@ -361,22 +383,15 @@ const reasons = [
       partnerObserver.observe(photoVideoPartnerSection);
     }
 
-    window.addEventListener(
-      "scroll",
-      updatePhotoVideoHint,
-      { passive: true }
-    );
+    window.addEventListener("scroll", updatePhotoVideoHint, {
+      passive: true,
+    });
 
-    window.addEventListener(
-      "resize",
-      updatePhotoVideoHint,
-      { passive: true }
-    );
+    window.addEventListener("resize", updatePhotoVideoHint, {
+      passive: true,
+    });
 
-    window.addEventListener(
-      "pageshow",
-      updatePhotoVideoHint
-    );
+    window.addEventListener("pageshow", updatePhotoVideoHint);
 
     updatePhotoVideoHint();
   }
@@ -622,12 +637,10 @@ const reasons = [
     box-shadow: 0 18px 46px rgba(23, 24, 29, 0.16);
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
-
     opacity: 0;
     visibility: hidden;
     pointer-events: none;
     transform: translateY(18px);
-
     transition:
       opacity 220ms ease,
       transform 220ms ease,
@@ -670,9 +683,6 @@ const reasons = [
     font-weight: 300;
     line-height: 1;
     cursor: pointer;
-    transition:
-      color 160ms ease,
-      background 160ms ease;
   }
 
   .photo-video-hint-close:hover {
@@ -879,7 +889,7 @@ const reasons = [
     .photo-video-hint {
       left: 14px;
       right: 14px;
-      bottom: 14px;
+      bottom: calc(130px + env(safe-area-inset-bottom));
       width: auto;
       border-radius: 14px;
     }
