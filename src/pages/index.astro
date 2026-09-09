@@ -531,6 +531,32 @@ const latestReviews = [...reviews]
     </a>
   </section>
 
+  <section class="partner-recommendation">
+    <div class="partner-card">
+      <div class="partner-content">
+        <p class="partner-kicker">Partnerempfehlung</p>
+
+        <h2>Eure Geschichte auch in Bildern</h2>
+
+        <p>
+          Gemeinsam mit Julia von <strong>Junique Photography</strong> arbeite ich
+          bei vielen Hochzeiten als eingespieltes Foto- und Videoteam zusammen.
+          So entstehen Bilder und Filme, die stilistisch und im Ablauf besonders
+          gut aufeinander abgestimmt sind.
+        </p>
+      </div>
+
+      <a
+        class="partner-link"
+        href="https://juniquephotography.de"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Junique Photography ansehen <span>→</span>
+      </a>
+    </div>
+  </section>
+
   <section class="cta">
     <div class="cta-inner">
       <h2>Bereit für euren Film?</h2>
@@ -1400,6 +1426,95 @@ const latestReviews = [...reviews]
     box-shadow: 0 8px 22px rgba(0, 0, 0, 0.12);
   }
 
+  .partner-recommendation {
+    padding: 84px 20px 76px;
+    background: white;
+  }
+
+  .partner-card {
+    width: min(1120px, 100%);
+    margin: 0 auto;
+    padding: 44px 48px;
+    border: 1px solid #e3e3e6;
+    border-radius: 22px;
+    background: #f8f8f7;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 54px;
+  }
+
+  .partner-content {
+    max-width: 760px;
+  }
+
+  .partner-kicker {
+    margin: 0 0 15px;
+    color: #df7b00;
+    text-transform: uppercase;
+    letter-spacing: 0.28em;
+    font-size: 10px;
+    font-weight: 800;
+  }
+
+  .partner-content h2 {
+    margin: 0;
+    color: #17181d;
+    font-size: clamp(30px, 3.4vw, 42px);
+    font-weight: 300;
+    letter-spacing: -0.05em;
+    line-height: 1.1;
+  }
+
+  .partner-content > p:not(.partner-kicker) {
+    max-width: 720px;
+    margin: 20px 0 0;
+    color: #5f6068;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  .partner-content strong {
+    color: #3f4048;
+    font-weight: 800;
+  }
+
+  .partner-link {
+    display: inline-flex;
+    min-height: 46px;
+    padding: 0 22px;
+    border-radius: 7px;
+    border: 1px solid #d9d9dd;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    color: #17181d;
+    font-size: 14px;
+    font-weight: 800;
+    white-space: nowrap;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    transition:
+      transform 180ms ease,
+      border-color 180ms ease,
+      box-shadow 180ms ease;
+  }
+
+  .partner-link:hover {
+    transform: translateY(-2px);
+    border-color: #df7b00;
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.07);
+  }
+
+  .partner-link span {
+    color: #df7b00;
+    transition: transform 180ms ease;
+  }
+
+  .partner-link:hover span {
+    transform: translateX(3px);
+  }
+
   .reviews {
     padding: 92px 20px 120px;
     background: white;
@@ -1642,6 +1757,16 @@ const latestReviews = [...reviews]
     .reviews-grid {
       width: min(620px, 100%);
     }
+
+    .partner-card {
+      width: min(680px, 100%);
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+
+    .partner-link {
+      width: fit-content;
+    }
   }
 
   @media (max-width: 620px) {
@@ -1736,6 +1861,37 @@ const latestReviews = [...reviews]
 
     .second-videographer-option a {
       font-size: 11.5px;
+    }
+
+    .partner-recommendation {
+      padding: 64px 14px 64px;
+    }
+
+    .partner-card {
+      padding: 32px 26px;
+      border-radius: 18px;
+      gap: 26px;
+    }
+
+    .partner-kicker {
+      font-size: 9.5px;
+      letter-spacing: 0.24em;
+    }
+
+    .partner-content h2 {
+      font-size: 30px;
+    }
+
+    .partner-content > p:not(.partner-kicker) {
+      margin-top: 17px;
+      font-size: 14.5px;
+      line-height: 1.68;
+    }
+
+    .partner-link {
+      width: 100%;
+      white-space: normal;
+      text-align: center;
     }
 
     .reviews {
