@@ -2,27 +2,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const additionalServices = [
-  {
-    name: "Zweiter Videograf",
-    value: "Interesse",
-    label: "Zweiter Videograf",
-  },
-  {
-    name: "Zusatzleistungen",
-    value: "Drohnenaufnahmen",
-    label: "Drohnenaufnahmen",
-  },
-  {
-    name: "Zusatzleistungen",
-    value: "Express-Lieferung",
-    label: "Express-Lieferung",
-  },
-  {
-    name: "Zusatzleistungen",
-    value: "Social Media Reel",
-    label: "Social Media Reel",
-  },
+const extras = [
+  { name: "Zweiter Videograf", value: "Interesse", label: "Zweiter Videograf" },
+  { name: "Zusatzleistungen", value: "Drohnenaufnahmen", label: "Drohnenaufnahmen" },
+  { name: "Zusatzleistungen", value: "Express-Lieferung", label: "Express-Lieferung" },
+  { name: "Zusatzleistungen", value: "Social Media Reel", label: "Social Media Reel" },
 ];
 
 const sources = [
@@ -31,14 +15,8 @@ const sources = [
   { value: "Instagram", label: "Instagram" },
   { value: "Facebook", label: "Facebook" },
   { value: "Bark.com", label: "Bark.com" },
-  {
-    value: "Empfehlung von Freunden/Bekannten",
-    label: "Empfehlung von Freunden/Bekannten",
-  },
-  {
-    value: "Empfehlung durch Fotografen oder Dienstleister",
-    label: "Empfehlung durch Fotografen oder Dienstleister",
-  },
+  { value: "Empfehlung von Freunden/Bekannten", label: "Empfehlung von Freunden/Bekannten" },
+  { value: "Empfehlung durch Fotografen oder Dienstleister", label: "Empfehlung durch Fotografen oder Dienstleister" },
   { value: "TikTok", label: "TikTok" },
   { value: "Sonstiges", label: "Sonstiges" },
 ];
@@ -46,58 +24,86 @@ const sources = [
 
 <BaseLayout
   title="Hochzeit anfragen | Hochzeitsvideograf NRW | VJ Production"
-  description="Fragt VJ Production unverbindlich für eure Hochzeit an. Hochzeitsvideograf aus Witten für emotionale Hochzeitsfilme in NRW und deutschlandweit."
+  description="Fragt VJ Production unverbindlich für eure Hochzeit an. Persönliche Hochzeitsfilme in NRW und deutschlandweit."
 >
-  <section class="kontakt-page">
-    <header class="kontakt-head">
-      <p class="eyebrow">VJ Production · Hochzeit anfragen</p>
+  <div class="vj-contact-page" id="vjContactPage">
+
+    <header class="vj-contact-intro">
+      <p class="vj-contact-eyebrow">VJ Production · Hochzeit anfragen</p>
       <h1>Erzählt mir von eurem Tag.</h1>
-      <p class="head-description">
-        Ich freue mich auf eure Pläne. Füllt das Formular aus und
-        ich melde mich persönlich bei euch. Eure Anfrage ist unverbindlich.
+      <p>
+        Ich freue mich auf eure Pläne. Füllt das Formular aus
+        und ich melde mich persönlich bei euch.
+        Eure Anfrage ist unverbindlich.
       </p>
     </header>
 
     <form
-      class="kontakt-form"
       id="kontaktForm"
+      class="vj-contact-form"
       action="https://api.web3forms.com/submit"
       method="POST"
     >
-      <input type="hidden" name="access_key" value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972" />
-      <input type="hidden" name="subject" value="Neue Hochzeitsanfrage über vjproduction.de" />
-      <input type="hidden" name="from_name" value="VJ Production Website" />
-      <input type="hidden" name="redirect" value="https://vjproduction.de/danke" />
-      <input type="hidden" name="Anlass" value="Hochzeit" />
+      <!-- WEB3FORMS -->
+      <input
+        type="hidden"
+        name="access_key"
+        value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
+      />
+      <input
+        type="hidden"
+        name="subject"
+        value="Neue Hochzeitsanfrage über vjproduction.de"
+      />
+      <input
+        type="hidden"
+        name="from_name"
+        value="VJ Production Website"
+      />
+      <input
+        type="hidden"
+        name="redirect"
+        value="https://vjproduction.de/danke"
+      />
+      <input
+        type="hidden"
+        name="Anlass"
+        value="Hochzeit"
+      />
 
       <input
+        class="vj-honeypot"
         type="checkbox"
         name="botcheck"
         tabindex="-1"
         autocomplete="off"
-        class="honeypot"
+        style="display:none"
       />
 
-      <!-- 01 / EURE HOCHZEIT -->
-      <section class="form-section" aria-labelledby="event-heading">
-        <div class="section-heading">
-          <span class="section-number" aria-hidden="true">01</span>
+      <!-- ABSCHNITT 01 -->
+      <section class="vj-form-section" aria-labelledby="vjEventTitle">
+        <div class="vj-section-heading">
+          <span class="vj-section-number">01</span>
           <div>
-            <h2 id="event-heading">Eure Hochzeit</h2>
+            <h2 id="vjEventTitle">Eure Hochzeit</h2>
             <p>Wann und wo feiert ihr?</p>
           </div>
         </div>
 
-        <div class="form-grid">
-          <label class="field">
+        <div class="vj-form-grid">
+          <label class="vj-field">
             <span>Hochzeitsdatum</span>
-            <input type="date" name="Datum" aria-describedby="date-note" />
-            <small id="date-note">
+            <input
+              type="date"
+              name="Datum"
+              aria-describedby="vjDateHelp"
+            />
+            <small id="vjDateHelp">
               Falls noch nicht bekannt, einfach freilassen.
             </small>
           </label>
 
-          <label class="field">
+          <label class="vj-field">
             <span>Location / Ort</span>
             <input
               type="text"
@@ -107,11 +113,13 @@ const sources = [
           </label>
         </div>
 
-        <div class="form-grid">
-          <label class="field">
-            <span>Paket <span class="required">*</span></span>
+        <div class="vj-form-grid">
+          <label class="vj-field">
+            <span>Paket <b>*</b></span>
             <select name="Paket" required>
-              <option value="" disabled selected>Paket auswählen …</option>
+              <option value="" disabled selected>
+                Paket auswählen …
+              </option>
               <option value="Basic">Basic</option>
               <option value="Classic">Classic</option>
               <option value="Premium">Premium</option>
@@ -119,8 +127,8 @@ const sources = [
             </select>
           </label>
 
-          <label class="field">
-            <span>Investitionsrahmen <span class="required">*</span></span>
+          <label class="vj-field">
+            <span>Investitionsrahmen <b>*</b></span>
             <select name="Investitionsrahmen" required>
               <option value="" disabled selected>
                 Investitionsrahmen auswählen …
@@ -133,43 +141,43 @@ const sources = [
           </label>
         </div>
 
-        <p class="form-note">
+        <p class="vj-budget-note">
           Die Paket- und Budgetauswahl hilft mir,
           eure Anfrage passend einzuschätzen.
         </p>
 
-        <fieldset>
+        <fieldset class="vj-extras-fieldset">
           <legend>
-            Zusatzleistungen <span class="optional">(optional)</span>
+            Zusatzleistungen <span>(optional)</span>
           </legend>
 
-          <div class="choice-grid extras-grid">
-            {additionalServices.map((service) => (
-              <label class="choice-card">
+          <div class="vj-extras-grid">
+            {extras.map((extra) => (
+              <label class="vj-checkbox-card">
                 <input
                   type="checkbox"
-                  name={service.name}
-                  value={service.value}
+                  name={extra.name}
+                  value={extra.value}
                 />
-                <span>{service.label}</span>
+                <span>{extra.label}</span>
               </label>
             ))}
           </div>
         </fieldset>
       </section>
 
-      <!-- 02 / KONTAKT -->
-      <section class="form-section" aria-labelledby="contact-heading">
-        <div class="section-heading">
-          <span class="section-number" aria-hidden="true">02</span>
+      <!-- ABSCHNITT 02 -->
+      <section class="vj-form-section" aria-labelledby="vjContactTitle">
+        <div class="vj-section-heading">
+          <span class="vj-section-number">02</span>
           <div>
-            <h2 id="contact-heading">So erreiche ich euch</h2>
+            <h2 id="vjContactTitle">So erreiche ich euch</h2>
             <p>Damit ich persönlich auf eure Anfrage antworten kann.</p>
           </div>
         </div>
 
-        <label class="field">
-          <span>Euer Name <span class="required">*</span></span>
+        <label class="vj-field">
+          <span>Euer Name <b>*</b></span>
           <input
             type="text"
             name="Name"
@@ -179,8 +187,8 @@ const sources = [
           />
         </label>
 
-        <div class="form-grid">
-          <label class="field">
+        <div class="vj-form-grid">
+          <label class="vj-field">
             <span>E-Mail</span>
             <input
               id="kontaktEmail"
@@ -188,15 +196,15 @@ const sources = [
               name="email"
               placeholder="eure@email.de"
               autocomplete="email"
-              aria-describedby="email-note"
+              aria-describedby="vjEmailHelp"
             />
-            <small id="email-note">
+            <small id="vjEmailHelp">
               Pflichtfeld, wenn ihr E-Mail als Kontaktweg auswählt.
             </small>
           </label>
 
-          <label class="field">
-            <span>Telefon <span class="required">*</span></span>
+          <label class="vj-field">
+            <span>Telefon <b>*</b></span>
             <input
               type="tel"
               name="Telefon"
@@ -204,4 +212,742 @@ const sources = [
               autocomplete="tel"
               required
             />
-          </label
+          </label>
+        </div>
+
+        <fieldset class="vj-contact-method">
+          <legend>Bevorzugter Kontaktweg</legend>
+
+          <div class="vj-method-options">
+            <label>
+              <input
+                type="radio"
+                name="Bevorzugter Kontaktweg"
+                value="E-Mail"
+              />
+              E-Mail
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="Bevorzugter Kontaktweg"
+                value="Telefon"
+                checked
+              />
+              Telefon
+            </label>
+
+            <label>
+              <input
+                type="radio"
+                name="Bevorzugter Kontaktweg"
+                value="WhatsApp"
+              />
+              WhatsApp
+            </label>
+          </div>
+        </fieldset>
+      </section>
+
+      <!-- ABSCHNITT 03 -->
+      <section class="vj-form-section" aria-labelledby="vjStoryTitle">
+        <div class="vj-section-heading">
+          <span class="vj-section-number">03</span>
+          <div>
+            <h2 id="vjStoryTitle">Eure Geschichte</h2>
+            <p>Erzählt mir noch etwas über eure Wünsche.</p>
+          </div>
+        </div>
+
+        <label class="vj-field">
+          <span>
+            Wie seid ihr auf VJ Production aufmerksam geworden?
+            <b>*</b>
+          </span>
+
+          <select
+            id="kontaktQuelle"
+            name="Wie auf uns aufmerksam geworden"
+            required
+          >
+            <option value="" disabled selected>
+              Bitte auswählen …
+            </option>
+
+            {sources.map((source) => (
+              <option value={source.value}>
+                {source.label}
+              </option>
+            ))}
+          </select>
+        </label>
+
+        <label
+          id="quelleSonstiges"
+          class="vj-field vj-other-source"
+          hidden
+        >
+          <span>Wo genau habt ihr mich gefunden? <b>*</b></span>
+
+          <input
+            id="quelleDetails"
+            type="text"
+            name="Andere Herkunft (Details)"
+            placeholder="Bitte kurz beschreiben …"
+            disabled
+          />
+        </label>
+
+        <label class="vj-field">
+          <span>Nachricht <em>(optional)</em></span>
+
+          <textarea
+            name="Nachricht"
+            rows="6"
+            placeholder="Erzählt mir von euch, eurer Hochzeit und was euch wichtig ist …"
+          ></textarea>
+        </label>
+      </section>
+
+      <!-- ABSENDEN -->
+      <div class="vj-form-finish">
+        <label class="vj-consent">
+          <input
+            type="checkbox"
+            name="Datenschutz akzeptiert"
+            value="Ja"
+            required
+          />
+          <span>
+            Ich habe die
+            <a href="/datenschutz">Datenschutzerklärung</a>
+            gelesen und akzeptiere sie. <b>*</b>
+          </span>
+        </label>
+
+        <label class="vj-consent">
+          <input
+            type="checkbox"
+            name="Kontakt erlaubt"
+            value="Ja"
+            required
+          />
+          <span>
+            Ich willige ein, dass du mich zur Anfrage
+            kontaktieren darfst. <b>*</b>
+          </span>
+        </label>
+
+        <p
+          id="kontaktStatus"
+          class="vj-form-status"
+          role="status"
+          aria-live="polite"
+          hidden
+        ></p>
+
+        <button
+          id="kontaktSubmit"
+          class="vj-submit-button"
+          type="submit"
+        >
+          Anfrage absenden
+          <span aria-hidden="true">→</span>
+        </button>
+
+        <p class="vj-submit-note">
+          Unverbindlich anfragen – ich melde mich persönlich bei euch.
+        </p>
+      </div>
+    </form>
+  </div>
+</BaseLayout>
+
+<script is:inline>
+  (() => {
+    const form = document.getElementById("kontaktForm");
+    if (!(form instanceof HTMLFormElement)) return;
+
+    const button = document.getElementById("kontaktSubmit");
+    const status = document.getElementById("kontaktStatus");
+    const email = document.getElementById("kontaktEmail");
+    const source = document.getElementById("kontaktQuelle");
+    const otherWrapper = document.getElementById("quelleSonstiges");
+    const otherInput = document.getElementById("quelleDetails");
+
+    // Alte Conversion-Markierung entfernen
+    try {
+      sessionStorage.removeItem("vjContactFormSubmittedAt");
+    } catch {}
+
+    function updateEmailRequirement() {
+      if (!(email instanceof HTMLInputElement)) return;
+
+      const selected = form.querySelector(
+        'input[name="Bevorzugter Kontaktweg"]:checked'
+      );
+
+      email.required =
+        selected instanceof HTMLInputElement &&
+        selected.value === "E-Mail";
+    }
+
+    form.querySelectorAll(
+      'input[name="Bevorzugter Kontaktweg"]'
+    ).forEach((radio) => {
+      radio.addEventListener("change", updateEmailRequirement);
+    });
+
+    updateEmailRequirement();
+
+    function updateOtherSource() {
+      if (
+        !(source instanceof HTMLSelectElement) ||
+        !(otherWrapper instanceof HTMLElement) ||
+        !(otherInput instanceof HTMLInputElement)
+      ) return;
+
+      const isOther = source.value === "Sonstiges";
+
+      otherWrapper.hidden = !isOther;
+      otherInput.disabled = !isOther;
+      otherInput.required = isOther;
+
+      if (!isOther) otherInput.value = "";
+    }
+
+    source?.addEventListener("change", updateOtherSource);
+    updateOtherSource();
+
+    form.addEventListener("submit", async (event) => {
+      event.preventDefault();
+
+      if (!(button instanceof HTMLButtonElement)) return;
+      if (!form.reportValidity()) return;
+
+      button.disabled = true;
+      button.textContent = "Anfrage wird gesendet …";
+
+      if (status instanceof HTMLElement) {
+        status.hidden = true;
+        status.textContent = "";
+      }
+
+      try {
+        const data = new FormData(form);
+
+        // Weiterleitung kontrolliert erst nach Erfolg
+        data.delete("redirect");
+
+        const response = await fetch(
+          "https://api.web3forms.com/submit",
+          {
+            method: "POST",
+            body: data,
+            headers: {
+              Accept: "application/json",
+            },
+          }
+        );
+
+        const result = await response.json();
+
+        if (!response.ok || result.success !== true) {
+          throw new Error(
+            result.message || "Formularversand fehlgeschlagen"
+          );
+        }
+
+        try {
+          sessionStorage.setItem(
+            "vjContactFormSubmittedAt",
+            String(Date.now())
+          );
+        } catch {}
+
+        window.location.assign("/danke");
+      } catch (error) {
+        console.error("Kontaktformular:", error);
+
+        if (status instanceof HTMLElement) {
+          status.textContent =
+            "Die Anfrage konnte nicht gesendet werden. " +
+            "Bitte versucht es erneut oder kontaktiert mich telefonisch.";
+
+          status.hidden = false;
+        }
+
+        button.disabled = false;
+        button.innerHTML =
+          'Anfrage absenden <span aria-hidden="true">→</span>';
+      }
+    });
+  })();
+</script>
+
+<style is:global>
+  /* =============================== */
+  /* VJ PRODUCTION KONTAKTFORMULAR */
+  /* =============================== */
+
+  #vjContactPage {
+    --contact-accent: #b46300;
+    --contact-accent-hover: #965000;
+    --contact-ink: #17181d;
+    --contact-muted: #696b73;
+    --contact-line: #e3e3e6;
+
+    display: block;
+    width: 100%;
+    min-height: 800px;
+    padding: 145px 20px 105px;
+    margin: 0;
+    color: var(--contact-ink);
+    background: #ffffff;
+  }
+
+  #vjContactPage *,
+  #vjContactPage *::before,
+  #vjContactPage *::after {
+    box-sizing: border-box;
+  }
+
+  #vjContactPage .vj-honeypot,
+  #vjContactPage .vj-other-source[hidden],
+  #vjContactPage .vj-form-status[hidden] {
+    display: none !important;
+  }
+
+  /* KOPFBEREICH */
+
+  #vjContactPage .vj-contact-intro {
+    display: block;
+    max-width: 840px;
+    margin: 0 auto 56px;
+    padding: 0;
+    text-align: center;
+  }
+
+  #vjContactPage .vj-contact-eyebrow {
+    margin: 0 0 18px;
+    color: var(--contact-accent);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .23em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  #vjContactPage .vj-contact-intro h1 {
+    margin: 0;
+    color: var(--contact-ink);
+    font-size: clamp(40px, 5.5vw, 70px);
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -.06em;
+    text-wrap: balance;
+  }
+
+  #vjContactPage .vj-contact-intro > p:last-child {
+    max-width: 610px;
+    margin: 24px auto 0;
+    color: var(--contact-muted);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  /* FORMULARGRUNDLAGE */
+
+  #vjContactPage .vj-contact-form {
+    display: block;
+    width: min(840px, 100%);
+    margin: 0 auto;
+    padding: 0;
+  }
+
+  #vjContactPage .vj-form-section {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 25px;
+    width: 100%;
+    margin: 0;
+    padding: 40px 0 44px;
+    border-top: 1px solid var(--contact-line);
+  }
+
+  #vjContactPage .vj-section-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    width: 100%;
+    margin: 0 0 7px;
+  }
+
+  #vjContactPage .vj-section-number {
+    display: inline-block;
+    flex: 0 0 40px;
+    padding-top: 7px;
+    color: var(--contact-accent);
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  #vjContactPage .vj-section-heading h2 {
+    margin: 0;
+    color: var(--contact-ink);
+    font-size: clamp(27px, 3vw, 37px);
+    font-weight: 400;
+    line-height: 1.18;
+    letter-spacing: -.04em;
+  }
+
+  #vjContactPage .vj-section-heading p {
+    margin: 8px 0 0;
+    color: var(--contact-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  /* ZWEISPALTIGE FELDER */
+
+  #vjContactPage .vj-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    width: 100%;
+  }
+
+  #vjContactPage .vj-field {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    margin: 0;
+  }
+
+  #vjContactPage .vj-field > span {
+    display: block;
+    width: 100%;
+    margin: 0 0 11px;
+    padding: 0;
+    color: var(--contact-ink);
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.45;
+  }
+
+  #vjContactPage .vj-field b,
+  #vjContactPage .vj-consent b {
+    color: var(--contact-accent);
+    font-weight: 800;
+  }
+
+  #vjContactPage .vj-field em {
+    color: var(--contact-muted);
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  /* EINGABEFELDER */
+
+  #vjContactPage .vj-field > input,
+  #vjContactPage .vj-field > select,
+  #vjContactPage .vj-field > textarea {
+    display: block;
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    margin: 0;
+    border: 1px solid #d8d9de;
+    border-radius: 8px;
+    background: #ffffff;
+    color: var(--contact-ink);
+    font-family: inherit;
+    font-size: 16px;
+    font-weight: 400;
+    outline: none;
+    transition: border-color .2s, box-shadow .2s;
+  }
+
+  #vjContactPage .vj-field > input,
+  #vjContactPage .vj-field > select {
+    height: 53px;
+    padding: 0 15px;
+  }
+
+  #vjContactPage .vj-field > textarea {
+    min-height: 145px;
+    padding: 15px;
+    line-height: 1.6;
+    resize: vertical;
+  }
+
+  #vjContactPage .vj-field > input:focus,
+  #vjContactPage .vj-field > select:focus,
+  #vjContactPage .vj-field > textarea:focus {
+    border-color: var(--contact-accent);
+    box-shadow: 0 0 0 3px rgba(180,99,0,.13);
+  }
+
+  #vjContactPage .vj-field small {
+    display: block;
+    margin-top: 8px;
+    color: var(--contact-muted);
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  #vjContactPage .vj-budget-note {
+    margin: -12px 0 0;
+    color: var(--contact-muted);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+
+  /* ZUSATZLEISTUNGEN */
+
+  #vjContactPage .vj-extras-fieldset,
+  #vjContactPage .vj-contact-method {
+    display: block;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    border: 0;
+  }
+
+  #vjContactPage .vj-extras-fieldset legend,
+  #vjContactPage .vj-contact-method legend {
+    display: block;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 0;
+    color: var(--contact-ink);
+    font-size: 15px;
+    font-weight: 700;
+  }
+
+  #vjContactPage .vj-extras-fieldset legend span {
+    color: var(--contact-muted);
+    font-weight: 400;
+  }
+
+  #vjContactPage .vj-extras-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    width: 100%;
+  }
+
+  #vjContactPage .vj-checkbox-card {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    min-height: 68px;
+    padding: 16px;
+    border: 1px solid #dadbe0;
+    border-radius: 12px;
+    background: #ffffff;
+    color: var(--contact-ink);
+    font-size: 14px;
+    font-weight: 650;
+    line-height: 1.4;
+    cursor: pointer;
+    transition: border-color .2s, background .2s;
+  }
+
+  #vjContactPage .vj-checkbox-card:hover {
+    border-color: #c28a4f;
+  }
+
+  #vjContactPage .vj-checkbox-card:has(input:checked) {
+    border-color: var(--contact-accent);
+    background: #fff7ee;
+  }
+
+  #vjContactPage .vj-checkbox-card input,
+  #vjContactPage .vj-method-options input,
+  #vjContactPage .vj-consent input {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+    margin: 0;
+    accent-color: var(--contact-accent);
+    cursor: pointer;
+  }
+
+  /* KONTAKTWEG */
+
+  #vjContactPage .vj-method-options {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px 28px;
+    width: 100%;
+  }
+
+  #vjContactPage .vj-method-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    color: var(--contact-ink);
+    font-size: 15px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  /* DATENSCHUTZ & ABSENDEN */
+
+  #vjContactPage .vj-form-finish {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 19px;
+    width: 100%;
+    margin: 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--contact-line);
+  }
+
+  #vjContactPage .vj-consent {
+    display: flex;
+    align-items: flex-start;
+    gap: 13px;
+    margin: 0;
+    color: var(--contact-muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  #vjContactPage .vj-consent input {
+    margin-top: 3px;
+  }
+
+  #vjContactPage .vj-consent span {
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.65;
+  }
+
+  #vjContactPage .vj-consent a {
+    color: var(--contact-accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  #vjContactPage .vj-submit-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    justify-self: end;
+    gap: 21px;
+    min-height: 55px;
+    margin-top: 12px;
+    padding: 12px 31px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--contact-accent);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 15px;
+    font-weight: 800;
+    line-height: 1.3;
+    cursor: pointer;
+    transition: background .2s;
+  }
+
+  #vjContactPage .vj-submit-button:hover {
+    background: var(--contact-accent-hover);
+  }
+
+  #vjContactPage .vj-submit-button:disabled {
+    opacity: .7;
+    cursor: wait;
+  }
+
+  #vjContactPage .vj-submit-note {
+    justify-self: end;
+    margin: -9px 0 0;
+    color: var(--contact-muted);
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: right;
+  }
+
+  #vjContactPage .vj-form-status {
+    margin: 0;
+    padding: 13px 16px;
+    border: 1px solid #dfb69d;
+    border-radius: 8px;
+    background: #fff6f0;
+    color: #793e20;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* HANDY */
+
+  @media (max-width: 700px) {
+    #vjContactPage {
+      padding: 116px 15px 78px;
+    }
+
+    #vjContactPage .vj-contact-intro {
+      margin-bottom: 42px;
+    }
+
+    #vjContactPage .vj-contact-intro h1 {
+      font-size: clamp(38px, 10vw, 53px);
+    }
+
+    #vjContactPage .vj-contact-intro > p:last-child {
+      font-size: 15px;
+    }
+
+    #vjContactPage .vj-form-section {
+      gap: 23px;
+      padding: 32px 0 37px;
+    }
+
+    #vjContactPage .vj-section-heading {
+      gap: 10px;
+    }
+
+    #vjContactPage .vj-section-number {
+      flex-basis: 30px;
+    }
+
+    #vjContactPage .vj-form-grid,
+    #vjContactPage .vj-extras-grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    #vjContactPage .vj-checkbox-card {
+      min-height: 62px;
+      padding: 13px 15px;
+    }
+
+    #vjContactPage .vj-method-options {
+      gap: 13px 18px;
+    }
+
+    #vjContactPage .vj-submit-button {
+      justify-self: stretch;
+      width: 100%;
+    }
+
+    #vjContactPage .vj-submit-note {
+      justify-self: center;
+      text-align: center;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #vjContactPage .vj-field > input,
+    #vjContactPage .vj-field > select,
+    #vjContactPage .vj-field > textarea,
+    #vjContactPage .vj-checkbox-card,
+    #vjContactPage .vj-submit-button {
+      transition: none;
+    }
+  }
+</style>
