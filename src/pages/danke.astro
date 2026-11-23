@@ -1,3 +1,4 @@
+
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -6,138 +7,287 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   title="Vielen Dank | VJ Production"
   description="Deine Anfrage wurde erfolgreich übermittelt. VJ Production meldet sich innerhalb von 24 Stunden bei dir."
 >
-  <section class="thanks-page">
-    <div class="success-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="M20 6 9 17l-5-5"></path>
-        <path d="M21 12a9 9 0 1 1-3.2-6.9"></path>
-      </svg>
+  <section
+    class="vj-thanks-page"
+    id="vjThanksPage"
+    aria-labelledby="thanks-title"
+  >
+    <div class="vj-thanks-content">
+
+      <!-- BESTÄTIGUNGSSYMBOL -->
+      <div class="vj-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M5 12.5l4.5 4.5L19 7"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <!-- ÜBERSCHRIFT -->
+      <p class="vj-thanks-eyebrow">
+        Anfrage erfolgreich gesendet
+      </p>
+
+      <h1 id="thanks-title">
+        Vielen Dank!
+      </h1>
+
+      <!-- BESTÄTIGUNGSTEXT -->
+      <p class="vj-thanks-description">
+        Eure Anfrage wurde erfolgreich übermittelt.
+        Ich freue mich darauf, mehr über eure Hochzeit
+        zu erfahren.
+      </p>
+
+      <p class="vj-thanks-response">
+        Ich melde mich innerhalb von 24 Stunden
+        persönlich bei euch.
+      </p>
+
+      <!-- TRENNLINIE -->
+      <div class="vj-thanks-divider" aria-hidden="true"></div>
+
+      <!-- ABSCHLUSS -->
+      <p class="vj-thanks-message">
+        Bis dahin wünsche ich euch weiterhin
+        eine wunderschöne Hochzeitsplanung.
+      </p>
+
+      <!-- BUTTON -->
+      <a href="/" class="vj-thanks-button">
+        Zurück zur Startseite
+
+        <span aria-hidden="true">→</span>
+      </a>
+
     </div>
-
-    <p class="kicker">Anfrage gesendet</p>
-
-    <h1>Vielen Dank!</h1>
-
-    <p class="thanks-text">
-      Eure Anfrage wurde erfolgreich übermittelt. Ich melde mich
-      innerhalb von 24 Stunden bei euch.
-    </p>
-
-    <a href="/" class="home-button">Zurück zur Startseite</a>
   </section>
 </BaseLayout>
 
-<style>
-  :global(body) {
-    background: white;
-  }
+<style is:global>
+  /* ============================== */
+  /* VJ PRODUCTION DANKE-SEITE */
+  /* ============================== */
 
-  .thanks-page {
-    min-height: 100vh;
-    padding: 180px 20px 120px;
-    display: grid;
-    justify-items: center;
-    align-content: center;
+  #vjThanksPage {
+    --thanks-accent: #b46300;
+    --thanks-accent-hover: #965000;
+    --thanks-ink: #17181d;
+    --thanks-muted: #696b73;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    min-height: 85svh;
+
+    padding: 155px 24px 110px;
+
+    background: #ffffff;
+    color: var(--thanks-ink);
     text-align: center;
-    background: white;
-    color: #17181d;
   }
 
-  .success-icon {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 44px;
-    border-radius: 999px;
+  #vjThanksPage *,
+  #vjThanksPage *::before,
+  #vjThanksPage *::after {
+    box-sizing: border-box;
+  }
+
+  /* INHALT */
+  #vjThanksPage .vj-thanks-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: min(730px, 100%);
+    margin: 0 auto;
+  }
+
+  /* BESTÄTIGUNGSSYMBOL */
+  #vjThanksPage .vj-success-icon {
     display: grid;
     place-items: center;
-    background: #d9fbe2;
+
+    width: 96px;
+    height: 96px;
+
+    margin: 0 0 37px;
+
+    border: 1px solid #ead5bb;
+    border-radius: 50%;
+
+    background: #fff7ee;
+    color: var(--thanks-accent);
   }
 
-  .success-icon svg {
-    width: 78px;
-    height: 78px;
+  #vjThanksPage .vj-success-icon svg {
+    display: block;
+    width: 47px;
+    height: 47px;
   }
 
-  .success-icon path {
-    fill: none;
-    stroke: #18a64a;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
+  /* KLEINE ÜBERSCHRIFT */
+  #vjThanksPage .vj-thanks-eyebrow {
+    margin: 0 0 18px;
 
-  .kicker {
-    margin: 0 0 24px;
-    color: #df7b00;
+    color: var(--thanks-accent);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 0.22em;
+    line-height: 1.5;
     text-transform: uppercase;
-    letter-spacing: 0.34em;
-    font-size: 13px;
-    font-weight: 700;
   }
 
-  h1 {
+  /* HAUPTTITEL */
+  #vjThanksPage h1 {
     margin: 0;
-    color: #17181d;
-    font-size: clamp(54px, 7vw, 86px);
+
+    color: var(--thanks-ink);
+
+    font-size: clamp(44px, 6vw, 74px);
     font-weight: 300;
-    letter-spacing: -0.07em;
-    line-height: 1;
+    letter-spacing: -0.065em;
+    line-height: 1.08;
   }
 
-  .thanks-text {
-    max-width: 820px;
-    margin: 38px auto 0;
-    color: #777984;
-    font-size: clamp(24px, 3vw, 34px);
-    line-height: 1.45;
+  /* HAUPTTEXT */
+  #vjThanksPage .vj-thanks-description {
+    max-width: 610px;
+
+    margin: 27px auto 0;
+
+    color: #484b53;
+
+    font-size: clamp(17px, 1.8vw, 21px);
+    font-weight: 400;
+    line-height: 1.7;
   }
 
-  .home-button {
-    margin-top: 72px;
-    min-width: 320px;
-    height: 62px;
-    padding: 0 34px;
-    border-radius: 9px;
-    border: 1px solid #dedfe3;
-    background: white;
-    color: #17181d;
+  /* ANTWORTZEIT */
+  #vjThanksPage .vj-thanks-response {
+    margin: 18px auto 0;
+
+    color: var(--thanks-muted);
+
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* TRENNLINIE */
+  #vjThanksPage .vj-thanks-divider {
+    width: 65px;
+    height: 1px;
+
+    margin: 37px auto;
+
+    background: #d8d9de;
+  }
+
+  /* ABSCHLUSSTEXT */
+  #vjThanksPage .vj-thanks-message {
+    max-width: 480px;
+
+    margin: 0;
+
+    color: var(--thanks-muted);
+
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* STARTSEITENBUTTON */
+  #vjThanksPage .vj-thanks-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    gap: 17px;
+
+    min-height: 53px;
+
+    margin-top: 39px;
+    padding: 14px 27px;
+
+    border: 0;
+    border-radius: 7px;
+
+    background: var(--thanks-accent);
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.3;
+    text-decoration: none;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
   }
 
-  .home-button:hover {
-    border-color: #df7b00;
-    color: #df7b00;
+  #vjThanksPage .vj-thanks-button:hover {
+    background: var(--thanks-accent-hover);
+    transform: translateY(-2px);
   }
 
+  #vjThanksPage .vj-thanks-button:focus-visible {
+    outline: 3px solid var(--thanks-accent);
+    outline-offset: 4px;
+  }
+
+  /* HANDY */
   @media (max-width: 620px) {
-    .thanks-page {
-      padding: 150px 18px 90px;
+    #vjThanksPage {
+      min-height: 75svh;
+      padding: 135px 22px 85px;
     }
 
-    .success-icon {
-      width: 110px;
-      height: 110px;
-      margin-bottom: 36px;
+    #vjThanksPage .vj-success-icon {
+      width: 82px;
+      height: 82px;
+      margin-bottom: 31px;
     }
 
-    .success-icon svg {
-      width: 60px;
-      height: 60px;
+    #vjThanksPage .vj-success-icon svg {
+      width: 40px;
+      height: 40px;
     }
 
-    .thanks-text {
-      font-size: 21px;
+    #vjThanksPage h1 {
+      font-size: clamp(42px, 11vw, 55px);
     }
 
-    .home-button {
+    #vjThanksPage .vj-thanks-description {
+      margin-top: 24px;
+      font-size: 17px;
+    }
+
+    #vjThanksPage .vj-thanks-response {
+      font-size: 15px;
+    }
+
+    #vjThanksPage .vj-thanks-divider {
+      margin: 30px auto;
+    }
+
+    #vjThanksPage .vj-thanks-message {
+      font-size: 14px;
+    }
+
+    #vjThanksPage .vj-thanks-button {
       width: 100%;
-      min-width: 0;
-      font-size: 18px;
+      margin-top: 34px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #vjThanksPage .vj-thanks-button {
+      transition: none;
     }
   }
 </style>
