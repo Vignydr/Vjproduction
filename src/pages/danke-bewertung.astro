@@ -1,3 +1,4 @@
+
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 ---
@@ -6,137 +7,308 @@ import BaseLayout from "../layouts/BaseLayout.astro";
   title="Vielen Dank für eure Bewertung | VJ Production"
   description="Vielen Dank für eure Bewertung. Sie wurde erfolgreich übermittelt und wird nach Prüfung veröffentlicht."
 >
-  <section class="thanks-page">
-    <div class="success-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24">
-        <path d="M20 6 9 17l-5-5"></path>
-        <path d="M21 12a9 9 0 1 1-3.2-6.9"></path>
-      </svg>
+  <section
+    class="vj-review-thanks-page"
+    id="vjReviewThanksPage"
+    aria-labelledby="review-thanks-title"
+  >
+    <div class="vj-review-thanks-content">
+
+      <!-- BESTÄTIGUNGSSYMBOL -->
+      <div class="vj-review-success-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path
+            d="M5 12.5l4.5 4.5L19 7"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </div>
+
+      <!-- KLEINE ÜBERSCHRIFT -->
+      <p class="vj-review-thanks-eyebrow">
+        Bewertung erfolgreich gesendet
+      </p>
+
+      <!-- HAUPTTITEL -->
+      <h1 id="review-thanks-title">
+        Vielen Dank!
+      </h1>
+
+      <!-- BESTÄTIGUNGSTEXT -->
+      <p class="vj-review-thanks-description">
+        Vielen Dank, dass ihr euch die Zeit genommen habt,
+        eure Erfahrungen mit VJ Production zu teilen.
+      </p>
+
+      <p class="vj-review-thanks-response">
+        Eure Bewertung wurde erfolgreich übermittelt.
+        Ich prüfe sie und veröffentliche sie anschließend
+        auf der Website.
+      </p>
+
+      <!-- TRENNLINIE -->
+      <div
+        class="vj-review-thanks-divider"
+        aria-hidden="true"
+      ></div>
+
+      <!-- PERSÖNLICHE NACHRICHT -->
+      <p class="vj-review-thanks-message">
+        Eure Rückmeldungen bedeuten mir viel und helfen
+        zukünftigen Hochzeitspaaren dabei,
+        den passenden Videografen zu finden.
+      </p>
+
+      <!-- ZURÜCK-BUTTON -->
+      <a
+        href="/bewertungen"
+        class="vj-review-thanks-button"
+      >
+        Zurück zu den Bewertungen
+        <span aria-hidden="true">→</span>
+      </a>
+
     </div>
-
-    <p class="kicker">Bewertung gesendet</p>
-
-    <h1>Vielen Dank!</h1>
-
-    <p class="thanks-text">
-      Eure Bewertung wurde erfolgreich übermittelt. Ich prüfe sie kurz und veröffentliche sie anschließend auf der Website.
-    </p>
-
-    <a href="/bewertungen" class="home-button">Zurück zu den Bewertungen</a>
   </section>
 </BaseLayout>
 
-<style>
-  :global(body) {
-    background: white;
-  }
+<style is:global>
+  /* ================================== */
+  /* VJ PRODUCTION – DANKE BEWERTUNG */
+  /* ================================== */
 
-  .thanks-page {
-    min-height: 100vh;
-    padding: 180px 20px 120px;
-    display: grid;
-    justify-items: center;
-    align-content: center;
+  #vjReviewThanksPage {
+    --review-accent: #b46300;
+    --review-accent-hover: #965000;
+    --review-ink: #17181d;
+    --review-muted: #696b73;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-height: 85svh;
+
+    margin: 0;
+    padding: 155px 24px 110px;
+
+    background: #ffffff;
+    color: var(--review-ink);
     text-align: center;
-    background: white;
-    color: #17181d;
   }
 
-  .success-icon {
-    width: 140px;
-    height: 140px;
-    margin-bottom: 44px;
-    border-radius: 999px;
+  #vjReviewThanksPage *,
+  #vjReviewThanksPage *::before,
+  #vjReviewThanksPage *::after {
+    box-sizing: border-box;
+  }
+
+  /* INHALT */
+  #vjReviewThanksPage .vj-review-thanks-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: min(730px, 100%);
+    margin: 0 auto;
+  }
+
+  /* BESTÄTIGUNGSSYMBOL */
+  #vjReviewThanksPage .vj-review-success-icon {
     display: grid;
     place-items: center;
-    background: #d9fbe2;
+
+    width: 96px;
+    height: 96px;
+
+    margin: 0 0 37px;
+
+    border: 1px solid #ead5bb;
+    border-radius: 50%;
+
+    background: #fff7ee;
+    color: var(--review-accent);
   }
 
-  .success-icon svg {
-    width: 78px;
-    height: 78px;
+  #vjReviewThanksPage .vj-review-success-icon svg {
+    display: block;
+
+    width: 47px;
+    height: 47px;
   }
 
-  .success-icon path {
-    fill: none;
-    stroke: #18a64a;
-    stroke-width: 1.8;
-    stroke-linecap: round;
-    stroke-linejoin: round;
-  }
+  /* KLEINE ÜBERSCHRIFT */
+  #vjReviewThanksPage .vj-review-thanks-eyebrow {
+    margin: 0 0 18px;
 
-  .kicker {
-    margin: 0 0 24px;
-    color: #df7b00;
+    color: var(--review-accent);
+
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
-    letter-spacing: 0.34em;
-    font-size: 13px;
-    font-weight: 700;
   }
 
-  h1 {
+  /* HAUPTTITEL */
+  #vjReviewThanksPage h1 {
     margin: 0;
-    color: #17181d;
-    font-size: clamp(54px, 7vw, 86px);
+
+    color: var(--review-ink);
+
+    font-size: clamp(44px, 6vw, 74px);
     font-weight: 300;
-    letter-spacing: -0.07em;
-    line-height: 1;
+    line-height: 1.08;
+    letter-spacing: -0.065em;
   }
 
-  .thanks-text {
-    max-width: 820px;
-    margin: 38px auto 0;
-    color: #777984;
-    font-size: clamp(24px, 3vw, 34px);
-    line-height: 1.45;
+  /* HAUPTBESCHREIBUNG */
+  #vjReviewThanksPage .vj-review-thanks-description {
+    max-width: 610px;
+
+    margin: 27px auto 0;
+
+    color: #484b53;
+
+    font-size: clamp(17px, 1.8vw, 21px);
+    font-weight: 400;
+    line-height: 1.7;
   }
 
-  .home-button {
-    margin-top: 72px;
-    min-width: 320px;
-    height: 62px;
-    padding: 0 34px;
-    border-radius: 9px;
-    border: 1px solid #dedfe3;
-    background: white;
-    color: #17181d;
+  /* HINWEIS ZUR VERÖFFENTLICHUNG */
+  #vjReviewThanksPage .vj-review-thanks-response {
+    max-width: 590px;
+
+    margin: 18px auto 0;
+
+    color: var(--review-muted);
+
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+  }
+
+  /* TRENNLINIE */
+  #vjReviewThanksPage .vj-review-thanks-divider {
+    width: 65px;
+    height: 1px;
+
+    margin: 37px auto;
+
+    background: #d8d9de;
+  }
+
+  /* ABSCHLUSSNACHRICHT */
+  #vjReviewThanksPage .vj-review-thanks-message {
+    max-width: 490px;
+
+    margin: 0;
+
+    color: var(--review-muted);
+
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* BUTTON */
+  #vjReviewThanksPage .vj-review-thanks-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 22px;
-    font-weight: 700;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    gap: 17px;
+
+    min-height: 53px;
+
+    margin-top: 39px;
+    padding: 14px 27px;
+
+    border: 0;
+    border-radius: 7px;
+
+    background: var(--review-accent);
+    color: #ffffff;
+
+    font-size: 14px;
+    font-weight: 800;
+    line-height: 1.3;
+    text-decoration: none;
+
+    transition:
+      background 0.2s ease,
+      transform 0.2s ease;
   }
 
-  .home-button:hover {
-    border-color: #df7b00;
-    color: #df7b00;
+  #vjReviewThanksPage .vj-review-thanks-button:hover {
+    background: var(--review-accent-hover);
+    transform: translateY(-2px);
   }
 
+  #vjReviewThanksPage .vj-review-thanks-button:focus-visible {
+    outline: 3px solid var(--review-accent);
+    outline-offset: 4px;
+  }
+
+  /* TABLET */
+  @media (max-width: 850px) {
+    #vjReviewThanksPage {
+      min-height: 80svh;
+      padding: 140px 24px 90px;
+    }
+  }
+
+  /* HANDY */
   @media (max-width: 620px) {
-    .thanks-page {
-      padding: 150px 18px 90px;
+    #vjReviewThanksPage {
+      min-height: 75svh;
+      padding: 135px 22px 85px;
     }
 
-    .success-icon {
-      width: 110px;
-      height: 110px;
-      margin-bottom: 36px;
+    #vjReviewThanksPage .vj-review-success-icon {
+      width: 82px;
+      height: 82px;
+      margin-bottom: 31px;
     }
 
-    .success-icon svg {
-      width: 60px;
-      height: 60px;
+    #vjReviewThanksPage .vj-review-success-icon svg {
+      width: 40px;
+      height: 40px;
     }
 
-    .thanks-text {
-      font-size: 21px;
+    #vjReviewThanksPage h1 {
+      font-size: clamp(42px, 11vw, 55px);
     }
 
-    .home-button {
+    #vjReviewThanksPage .vj-review-thanks-description {
+      margin-top: 24px;
+      font-size: 17px;
+    }
+
+    #vjReviewThanksPage .vj-review-thanks-response {
+      font-size: 15px;
+    }
+
+    #vjReviewThanksPage .vj-review-thanks-divider {
+      margin: 30px auto;
+    }
+
+    #vjReviewThanksPage .vj-review-thanks-message {
+      font-size: 14px;
+    }
+
+    #vjReviewThanksPage .vj-review-thanks-button {
       width: 100%;
-      min-width: 0;
-      font-size: 18px;
+      margin-top: 34px;
+    }
+  }
+
+  /* REDUZIERTE BEWEGUNG */
+  @media (prefers-reduced-motion: reduce) {
+    #vjReviewThanksPage .vj-review-thanks-button {
+      transition: none;
     }
   }
 </style>
