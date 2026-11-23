@@ -69,6 +69,7 @@ const isServiceActive = serviceLinks.some((item) =>
       class="desktop-nav"
       aria-label="Hauptnavigation"
     >
+
       {mainLinks.map((item) => (
         <a
           href={item.href}
@@ -79,7 +80,7 @@ const isServiceActive = serviceLinks.some((item) =>
         </a>
       ))}
 
-      <!-- LEISTUNGEN DROPDOWN -->
+      <!-- DESKTOP AUFKLAPPMENÜ -->
       <details
         class:list={[
           "services-menu",
@@ -106,6 +107,7 @@ const isServiceActive = serviceLinks.some((item) =>
         </summary>
 
         <div class="services-dropdown">
+
           <p>Unsere Leistungen</p>
 
           {serviceLinks.map((item) => (
@@ -118,6 +120,7 @@ const isServiceActive = serviceLinks.some((item) =>
               <span aria-hidden="true">↗</span>
             </a>
           ))}
+
         </div>
       </details>
 
@@ -131,7 +134,7 @@ const isServiceActive = serviceLinks.some((item) =>
         </a>
       ))}
 
-      <!-- KONTAKT CTA -->
+      <!-- KONTAKT BUTTON -->
       <a
         href="/kontakt"
         class:list={[
@@ -143,9 +146,10 @@ const isServiceActive = serviceLinks.some((item) =>
         Anfragen
         <span aria-hidden="true">↗</span>
       </a>
+
     </nav>
 
-    <!-- HANDY MENÜBUTTON -->
+    <!-- MOBILE MENÜBUTTON -->
     <button
       class="menu-button"
       id="menuButton"
@@ -179,28 +183,51 @@ const isServiceActive = serviceLinks.some((item) =>
         </a>
       ))}
 
-      <div
-        class="mobile-group"
-        role="group"
-        aria-label="Leistungen"
+      <!-- NEU: AUFKLAPPBARE LEISTUNGEN AUF DEM HANDY -->
+      <details
+        class:list={[
+          "mobile-services",
+          { "has-active-service": isServiceActive },
+        ]}
+        id="mobileServices"
       >
-        <p class="mobile-group-title">
-          Leistungen
-        </p>
 
-        {serviceLinks.map((item) => (
-          <a
-            href={item.href}
-            class:list={[
-              "mobile-sub-link",
-              { "is-active": isActive(item.href) },
-            ]}
-            aria-current={isActive(item.href) ? "page" : undefined}
+        <summary>
+          <span>Leistungen</span>
+
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            aria-hidden="true"
           >
-            {item.name}
-          </a>
-        ))}
-      </div>
+            <path
+              d="m6 9 6 6 6-6"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </summary>
+
+        <div class="mobile-services-links">
+
+          {serviceLinks.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                "mobile-sub-link",
+                { "is-active": isActive(item.href) },
+              ]}
+              aria-current={isActive(item.href) ? "page" : undefined}
+            >
+              {item.name}
+            </a>
+          ))}
+
+        </div>
+
+      </details>
 
       {otherLinks.map((item) => (
         <a
@@ -212,6 +239,7 @@ const isServiceActive = serviceLinks.some((item) =>
         </a>
       ))}
 
+      <!-- MOBILER KONTAKT-BUTTON -->
       <a
         href="/kontakt"
         class="mobile-cta"
@@ -231,6 +259,7 @@ const isServiceActive = serviceLinks.some((item) =>
     const menuButton = document.getElementById("menuButton");
     const mobileNav = document.getElementById("mobileNav");
     const servicesMenu = document.getElementById("servicesMenu");
+    const mobileServices = document.getElementById("mobileServices");
 
     if (
       !(header instanceof HTMLElement) ||
@@ -249,6 +278,7 @@ const isServiceActive = serviceLinks.some((item) =>
 
     function closeMobileMenu() {
       mobileNav.hidden = true;
+
       menuButton.classList.remove("is-open");
       header.classList.remove("menu-is-open");
 
@@ -265,10 +295,16 @@ const isServiceActive = serviceLinks.some((item) =>
       document.body.classList.remove(
         "vj-mobile-menu-open"
       );
+
+      // Untermenü beim Schließen ebenfalls zurücksetzen
+      if (mobileServices instanceof HTMLDetailsElement) {
+        mobileServices.open = false;
+      }
     }
 
     function openMobileMenu() {
       mobileNav.hidden = false;
+
       menuButton.classList.add("is-open");
       header.classList.add("menu-is-open");
 
@@ -300,6 +336,7 @@ const isServiceActive = serviceLinks.some((item) =>
       updateHeader
     );
 
+    // Hamburger-Menü öffnen und schließen
     menuButton.addEventListener("click", () => {
       if (mobileNav.hidden) {
         openMobileMenu();
@@ -308,6 +345,10 @@ const isServiceActive = serviceLinks.some((item) =>
       }
     });
 
+    // Untermenü wird automatisch über HTML <details>
+    // durch Tippen auf "Leistungen" geöffnet und geschlossen.
+
+    // Nach Auswahl einer Seite Menü schließen
     mobileNav.querySelectorAll("a").forEach((link) => {
       link.addEventListener(
         "click",
@@ -315,11 +356,12 @@ const isServiceActive = serviceLinks.some((item) =>
       );
     });
 
-    // Menüs mit Escape schließen
+    // Escape schließt die Menüs
     document.addEventListener("keydown", (event) => {
       if (event.key !== "Escape") return;
 
       const wasMobileOpen = !mobileNav.hidden;
+
       const wasServicesOpen =
         servicesMenu instanceof HTMLDetailsElement &&
         servicesMenu.open;
@@ -334,12 +376,12 @@ const isServiceActive = serviceLinks.some((item) =>
         menuButton.focus();
       } else if (wasServicesOpen) {
         servicesMenu
-          ?.querySelector("summary")
+          .querySelector("summary")
           ?.focus();
       }
     });
 
-    // Desktop-Dropdown schließen bei Klick außerhalb
+    // Desktop-Leistungen bei Klick außerhalb schließen
     document.addEventListener("pointerdown", (event) => {
       if (!(event.target instanceof Node)) return;
 
@@ -358,7 +400,7 @@ const isServiceActive = serviceLinks.some((item) =>
       }
     });
 
-    // Bei Desktop-Breite das mobile Menü schließen
+    // Beim Wechsel zur Desktop-Ansicht zurücksetzen
     window.addEventListener("resize", () => {
       if (window.innerWidth > 980) {
         closeMobileMenu();
@@ -407,7 +449,7 @@ const isServiceActive = serviceLinks.some((item) =>
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.075);
   }
 
-  /* Transparenter Header nur auf der Startseite */
+  /* TRANSPARENT AUF STARTSEITE */
   .site-header.is-home:not(.is-scrolled) {
     background: transparent;
     box-shadow: none;
@@ -456,7 +498,7 @@ const isServiceActive = serviceLinks.some((item) =>
     display: block;
   }
 
-  /* DESKTOP NAVIGATION */
+  /* DESKTOP */
   .desktop-nav {
     display: flex;
     align-items: center;
@@ -467,9 +509,11 @@ const isServiceActive = serviceLinks.some((item) =>
   .desktop-nav > a:not(.nav-cta),
   .services-menu > summary {
     color: var(--header-ink);
+
     font-size: 14px !important;
     font-weight: 600;
     line-height: 1.3;
+
     white-space: nowrap;
     text-decoration: none;
 
@@ -484,7 +528,7 @@ const isServiceActive = serviceLinks.some((item) =>
     color: var(--header-accent);
   }
 
-  /* Weiße Schrift über dem Startseitenvideo */
+  /* WEISSE SCHRIFT ÜBER VIDEO */
   .site-header.is-home:not(.is-scrolled)
   .desktop-nav > a:not(.nav-cta),
   .site-header.is-home:not(.is-scrolled)
@@ -500,7 +544,7 @@ const isServiceActive = serviceLinks.some((item) =>
     color: #ffd49b;
   }
 
-  /* LEISTUNGEN DROPDOWN */
+  /* LEISTUNGEN – DESKTOP */
   .services-menu {
     position: relative;
     flex: 0 0 auto;
@@ -510,6 +554,7 @@ const isServiceActive = serviceLinks.some((item) =>
     display: flex;
     align-items: center;
     gap: 6px;
+
     cursor: pointer;
     list-style: none;
   }
@@ -526,6 +571,7 @@ const isServiceActive = serviceLinks.some((item) =>
     width: 15px;
     height: 15px;
     flex: 0 0 15px;
+
     transition: transform 0.2s ease;
   }
 
@@ -560,8 +606,8 @@ const isServiceActive = serviceLinks.some((item) =>
 
   .services-dropdown > p {
     margin: 0 13px 11px;
-    color: #878892;
 
+    color: #878892;
     font-size: 10px;
     font-weight: 800;
     letter-spacing: 0.17em;
@@ -596,9 +642,10 @@ const isServiceActive = serviceLinks.some((item) =>
     font-size: 16px;
   }
 
-  /* ANFRAGE-BUTTON */
+  /* KONTAKT CTA */
   .desktop-nav .nav-cta {
     min-height: 43px;
+
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -630,15 +677,17 @@ const isServiceActive = serviceLinks.some((item) =>
     display: none;
   }
 
-  /* MENÜBUTTON */
+  /* HAMBURGER BUTTON */
   .menu-button {
     position: relative;
+
     width: 44px;
     height: 44px;
     flex: 0 0 44px;
 
     border: 0;
     border-radius: 8px;
+
     background: #17181d;
     cursor: pointer;
   }
@@ -647,8 +696,8 @@ const isServiceActive = serviceLinks.some((item) =>
     position: absolute;
     left: 12px;
     right: 12px;
-    height: 2px;
 
+    height: 2px;
     border-radius: 3px;
     background: #fff;
 
@@ -671,7 +720,7 @@ const isServiceActive = serviceLinks.some((item) =>
     transform: translateY(-4.5px) rotate(-45deg);
   }
 
-  /* TABLETS & HANDYS */
+  /* TABLET & HANDY */
   @media (max-width: 980px) {
     .site-header,
     .site-header.is-scrolled,
@@ -679,6 +728,7 @@ const isServiceActive = serviceLinks.some((item) =>
       height: 76px;
 
       background: rgba(255, 255, 255, 0.98);
+
       box-shadow: 0 3px 20px rgba(0, 0, 0, 0.065);
 
       backdrop-filter: blur(18px);
@@ -695,7 +745,7 @@ const isServiceActive = serviceLinks.some((item) =>
       flex-basis: 99px;
     }
 
-    /* Auf Mobilgeräten immer dunkles Logo */
+    /* IMMER DUNKLES LOGO MOBIL */
     .site-header.is-home:not(.is-scrolled)
     .logo .logo-dark {
       display: block;
@@ -721,6 +771,7 @@ const isServiceActive = serviceLinks.some((item) =>
       right: 0;
 
       display: block;
+
       max-height: calc(100dvh - 76px);
       overflow-y: auto;
       overscroll-behavior: contain;
@@ -729,6 +780,7 @@ const isServiceActive = serviceLinks.some((item) =>
 
       background: rgba(255, 255, 255, 0.99);
       border-top: 1px solid #ededee;
+
       box-shadow: 0 20px 40px rgba(0, 0, 0, 0.11);
     }
 
@@ -739,17 +791,21 @@ const isServiceActive = serviceLinks.some((item) =>
     .mobile-nav-inner {
       width: min(680px, 100%);
       margin: 0 auto;
+
       display: flex;
       flex-direction: column;
     }
 
+    /* NORMALE MOBILE LINKS */
     .mobile-nav-inner > a:not(.mobile-cta) {
       display: block;
+
       padding: 15px 10px;
       border-bottom: 1px solid #eeeeef;
 
       color: #17181d;
-      font-size: 16px;
+
+      font-size: 16px !important;
       font-weight: 600;
       line-height: 1.4;
     }
@@ -759,38 +815,108 @@ const isServiceActive = serviceLinks.some((item) =>
       color: #b46300;
     }
 
-    .mobile-group {
-      padding: 15px 10px;
+    /* NEU: MOBILE LEISTUNGEN DROPDOWN */
+    .mobile-services {
       border-bottom: 1px solid #eeeeef;
     }
 
-    .mobile-group-title {
-      margin: 0 0 8px;
+    .mobile-services > summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+
+      min-height: 52px;
+      padding: 15px 10px;
+
+      color: #17181d;
+
+      font-size: 16px !important;
+      font-weight: 600;
+      line-height: 1.4;
+
+      list-style: none;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .mobile-services > summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .mobile-services > summary::marker {
+      content: "";
+    }
+
+    .mobile-services > summary svg {
+      width: 19px;
+      height: 19px;
+      flex: 0 0 19px;
+
       color: #777985;
 
-      font-size: 11px;
-      font-weight: 800;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      transition:
+        transform 0.22s ease,
+        color 0.22s ease;
     }
 
-    .mobile-group .mobile-sub-link {
-      display: block;
-      padding: 10px 0 10px 14px;
-      border-left: 2px solid #ececec;
-
-      color: #373940;
-      font-size: 15px;
-      font-weight: 500;
-      line-height: 1.4;
-    }
-
-    .mobile-group .mobile-sub-link.is-active {
-      border-left-color: #b46300;
+    .mobile-services[open] > summary svg {
+      transform: rotate(180deg);
       color: #b46300;
+    }
+
+    .mobile-services[open] > summary,
+    .mobile-services.has-active-service > summary {
+      color: #b46300;
+    }
+
+    .mobile-services > summary:hover {
+      color: #b46300;
+    }
+
+    /* UNTERSEITEN NUR BEI GEÖFFNETEM MENÜ */
+    .mobile-services-links {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+
+      padding: 0 10px 14px 22px;
+    }
+
+    .mobile-services-links .mobile-sub-link {
+      display: block;
+
+      padding: 12px 13px;
+
+      border-left: 2px solid #e6e6e8;
+      border-radius: 0 6px 6px 0;
+
+      color: #52545c;
+
+      font-size: 14px !important;
+      font-weight: 500;
+      line-height: 1.45;
+
+      transition:
+        color 0.2s ease,
+        background 0.2s ease,
+        border-color 0.2s ease;
+    }
+
+    .mobile-services-links .mobile-sub-link:hover {
+      color: #b46300;
+      background: #fff7ee;
+      border-left-color: #b46300;
+    }
+
+    .mobile-services-links .mobile-sub-link.is-active {
+      color: #b46300;
+      background: #fff7ee;
+      border-left-color: #b46300;
       font-weight: 700;
     }
 
+    /* MOBILE KONTAKT-BUTTON */
     .mobile-nav .mobile-cta {
       display: flex;
       align-items: center;
@@ -798,14 +924,16 @@ const isServiceActive = serviceLinks.some((item) =>
       gap: 13px;
 
       margin-top: 22px;
+
       min-height: 51px;
       padding: 12px 18px;
 
       border-radius: 8px;
+
       background: #b46300;
       color: #fff !important;
 
-      font-size: 15px;
+      font-size: 15px !important;
       font-weight: 750;
     }
 
@@ -825,7 +953,9 @@ const isServiceActive = serviceLinks.some((item) =>
   @media (prefers-reduced-motion: reduce) {
     .site-header,
     .menu-button span,
-    .services-menu > summary svg {
+    .services-menu > summary svg,
+    .mobile-services > summary svg,
+    .mobile-services-links .mobile-sub-link {
       transition: none;
     }
   }
