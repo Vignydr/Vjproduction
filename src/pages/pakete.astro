@@ -1,43 +1,16 @@
+
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-
-const metaIcons = {
-  time: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <circle cx="12" cy="12" r="8"></circle>
-    <path d="M12 7v5l3 2"></path>
-  </svg>`,
-
-  film: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <rect x="4" y="4" width="16" height="16" rx="1.5"></rect>
-    <path d="M8 4v16"></path>
-    <path d="M16 4v16"></path>
-    <path d="M4 8h4"></path>
-    <path d="M4 12h4"></path>
-    <path d="M4 16h4"></path>
-    <path d="M16 8h4"></path>
-    <path d="M16 12h4"></path>
-    <path d="M16 16h4"></path>
-  </svg>`,
-
-  revision: `<svg viewBox="0 0 24 24" fill="none" stroke="#df7b00" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-    <path d="M20 7v5h-5"></path>
-    <path d="M4 17v-5h5"></path>
-    <path d="M18.1 9A7 7 0 0 0 6.2 6.8L4 9"></path>
-    <path d="M5.9 15A7 7 0 0 0 17.8 17.2L20 15"></path>
-  </svg>`,
-};
 
 const packages = [
   {
     name: "Basic",
     subtitle: "Perfekt für intime Hochzeiten",
     price: "1.290",
+    hours: "4h",
+    films: "1 Film",
+    revisions: "1x Revision",
     secondVideographerTarget: "zweiter-videograf-basic",
-    meta: [
-      { icon: "time", label: "4h" },
-      { icon: "film", label: "1 Film" },
-      { icon: "revision", label: "1x Revision" },
-    ],
     features: [
       "4 Stunden Begleitung",
       "Highlightfilm (3–5 Min.)",
@@ -51,13 +24,11 @@ const packages = [
     name: "Classic",
     subtitle: "Mein beliebtestes Paket",
     price: "1.990",
+    hours: "7h",
+    films: "2 Filme",
+    revisions: "2x Revision",
     popular: true,
     secondVideographerTarget: "zweiter-videograf-classic",
-    meta: [
-      { icon: "time", label: "7h" },
-      { icon: "film", label: "2 Filme" },
-      { icon: "revision", label: "2x Revision" },
-    ],
     features: [
       "7 Stunden Begleitung",
       "Highlightfilm (5–8 Min.)",
@@ -72,12 +43,10 @@ const packages = [
     name: "Premium",
     subtitle: "Das komplette Kinoerlebnis",
     price: "2.390",
+    hours: "12h",
+    films: "2 Filme",
+    revisions: "3x Revision",
     secondVideographerTarget: "zweiter-videograf-premium",
-    meta: [
-      { icon: "time", label: "12h" },
-      { icon: "film", label: "2 Filme" },
-      { icon: "revision", label: "3x Revision" },
-    ],
     features: [
       "Ganztägige Begleitung (bis zu 12h)",
       "Cinematic Highlightfilm (8–12 Min.)",
@@ -88,6 +57,15 @@ const packages = [
       "3 Korrekturschleifen",
     ],
   },
+];
+
+const individualFeatures = [
+  "Film-Länge frei wählbar, z. B. 30–45 Min.",
+  "Begleitungsdauer nach Wunsch",
+  "Optional: Drohnenaufnahmen",
+  "Standesamt / freie Trauung / Feier",
+  "Optional: Social Media Clip",
+  "Optional: Rohmaterial oder extra Versionen",
 ];
 
 const faqs = [
@@ -121,173 +99,290 @@ const faqs = [
 
 <BaseLayout
   title="Pakete & Preise | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Hochzeitsvideo Pakete und Preise von VJ Production. Transparente Preise für Hochzeitsfilme in Witten, NRW und deutschlandweit."
+  description="Hochzeitsvideo Pakete und Preise von VJ Production. Basic ab 1.290 €, Classic ab 1.990 € und Premium ab 2.390 €. Hochzeitsvideograf in Witten, NRW und deutschlandweit."
 >
-  <section class="prices-page">
-    <div class="prices-head">
-      <p>Preise</p>
-      <h1>Hochzeitsvideo Pakete & Preise</h1>
-      <span>Transparente Preise, keine versteckten Kosten</span>
-      <small>Preise gemäß § 19 UStG ohne Ausweis der MwSt.</small>
-    </div>
+  <div class="prices-page">
 
-    <div class="package-grid">
-      {packages.map((item) => (
-        <article class={`package-card ${item.popular ? "popular" : ""}`}>
-          {item.popular && <div class="badge">✤ Beliebt</div>}
+    <!-- SEITENKOPF -->
+    <header class="prices-head">
+      <p class="eyebrow">Pakete & Preise</p>
 
-          <h2>{item.name}</h2>
-          <p class="package-subtitle">{item.subtitle}</p>
+      <h1>
+        Euer Tag verdient<br />
+        einen besonderen Film.
+      </h1>
 
-          <div class="price">
-            {item.price}<span>€</span>
-          </div>
+      <p class="intro-text">
+        Ob intime Trauung oder große Hochzeitsfeier:
+        Wählt die Begleitung, die zu eurem Tag passt.
+        Persönlich, transparent und ohne versteckte Kosten.
+      </p>
 
-          <div class="meta-row">
-            {item.meta.map((metaItem) => (
-              <div>
-                <span
-                  class="meta-icon"
-                  set:html={metaIcons[metaItem.icon]}
-                ></span>
-                <strong>{metaItem.label}</strong>
-              </div>
-            ))}
-          </div>
+      <p class="tax-note">
+        Preise gemäß § 19 UStG ohne Ausweis der Mehrwertsteuer.
+      </p>
+    </header>
 
-          <ul>
-            {item.features.map((feature) => (
-              <li>{feature}</li>
-            ))}
-          </ul>
+    <!-- DREI HAUPTPAKETE -->
+    <section
+      class="packages-section"
+      aria-labelledby="packages-title"
+    >
+      <div class="section-intro">
+        <p class="eyebrow">Eure Möglichkeiten</p>
+        <h2 id="packages-title">Drei Pakete. Eure Geschichte.</h2>
+      </div>
 
-          <details
-            class="package-extra-details"
-            id={item.secondVideographerTarget}
+      <div class="packages-grid">
+        {packages.map((item) => (
+          <article
+            class:list={[
+              "package-card",
+              { "is-popular": item.popular },
+            ]}
           >
-            <summary>
-              <div class="package-extra-summary">
-                <strong>Zweiter Videograf optional · ab 350 €</strong>
-                <span>Mehr erfahren</span>
+            {item.popular && (
+              <div class="popular-label">
+                Häufig gewählt
+              </div>
+            )}
+
+            <div class="package-top">
+              <h3>{item.name}</h3>
+              <p class="package-subtitle">{item.subtitle}</p>
+
+              <p class="package-price">
+                {item.price}<span> €</span>
+              </p>
+            </div>
+
+            <div class="package-meta">
+              <div>
+                <span class="meta-value">{item.hours}</span>
+                <span class="meta-label">Begleitung</span>
               </div>
 
-              <span class="package-extra-arrow" aria-hidden="true">⌄</span>
-            </summary>
+              <div>
+                <span class="meta-value">{item.films}</span>
+                <span class="meta-label">Videos</span>
+              </div>
 
-            <div class="package-extra-content">
-              <h3>Noch mehr Perspektiven auf euren Tag</h3>
-
-              <p>
-                Auch mit einem Videografen lässt sich euer Hochzeitstag umfassend und
-                authentisch begleiten. Ein zweiter Videograf ist eine optionale
-                Erweiterung für Paare, die sich bewusst noch mehr Blickwinkel und
-                parallel eingefangene Momente wünschen.
-              </p>
-
-              <p>
-                Während ich euren Tag wie gewohnt begleite, können zusätzlich weitere
-                Reaktionen, Details und Perspektiven festgehalten werden. So entsteht
-                noch mehr vielseitiges Material für euren Hochzeitsfilm, besonders bei
-                Momenten, die gleichzeitig stattfinden oder aus mehreren Blickwinkeln
-                besonders schön wirken.
-              </p>
-
-              <small>
-                Der genaue Preis richtet sich nach Dauer und Umfang der zusätzlichen
-                Begleitung.
-              </small>
+              <div>
+                <span class="meta-value">{item.revisions}</span>
+                <span class="meta-label">Anpassungen</span>
+              </div>
             </div>
-          </details>
 
-          <a class="package-button" href="/kontakt">
-            Paket anfragen <span>→</span>
-          </a>
-        </article>
-      ))}
+            <ul class="package-features">
+              {item.features.map((feature) => (
+                <li>
+                  <span class="feature-check" aria-hidden="true">
+                    ✓
+                  </span>
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
 
-      <article class="package-card individual">
-        <div class="badge flexible">✤ Flexibel</div>
+            <!-- ZWEITER VIDEOGRAF -->
+            <details
+              class="second-videographer"
+              id={item.secondVideographerTarget}
+            >
+              <summary>
+                <span class="second-videographer-label">
+                  Zweiter Videograf optional<br />
+                  <strong>ab 350 €</strong>
+                </span>
 
-        <h2>Individuell</h2>
+                <span class="details-action">
+                  Mehr erfahren
+                  <svg viewBox="0 0 24 24" aria-hidden="true">
+                    <path
+                      d="m6 9 6 6 6-6"
+                      fill="none"
+                      stroke="currentColor"
+                      stroke-width="2"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </span>
+              </summary>
 
-        <p class="package-subtitle">
-          Stellt euch euer Paket so zusammen, wie es zu eurem Tag passt
+              <div class="second-videographer-content">
+                <h4>Weitere Perspektiven auf euren Tag</h4>
+
+                <p>
+                  Auch mit einem Videografen lässt sich euer
+                  Hochzeitstag umfassend und authentisch
+                  begleiten. Ein zweiter Videograf ist eine
+                  optionale Erweiterung für Paare, die sich
+                  noch mehr Blickwinkel und parallel
+                  eingefangene Momente wünschen.
+                </p>
+
+                <p>
+                  Besonders bei getrennten Getting Readys,
+                  größeren Hochzeiten oder gleichzeitig
+                  stattfindenden Momenten können zusätzliche
+                  Perspektiven entstehen.
+                </p>
+
+                <p>
+                  Der genaue Preis richtet sich nach Dauer
+                  und Umfang der zusätzlichen Begleitung.
+                </p>
+              </div>
+            </details>
+
+            <a class="package-button" href="/kontakt">
+              Paket anfragen
+              <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- INDIVIDUELLES PAKET -->
+    <section
+      class="individual-section"
+      aria-labelledby="individual-title"
+    >
+      <div class="individual-copy">
+        <p class="eyebrow">Individuelles Angebot</p>
+
+        <h2 id="individual-title">
+          So einzigartig wie euer Tag.
+        </h2>
+
+        <p>
+          Nicht jede Hochzeit passt in ein festes Paket.
+          Deshalb können wir gemeinsam eine Begleitung
+          zusammenstellen, die zu euren Vorstellungen passt.
         </p>
 
-        <div class="price request">Auf Anfrage</div>
+        <p class="individual-price">
+          Auf Anfrage
+        </p>
 
-        <ul>
-          <li>Film-Länge frei wählbar, z. B. 30–45 Min.</li>
-          <li>Begleitungsdauer nach Wunsch</li>
-          <li>Optional: Drohnenaufnahmen</li>
-          <li>Standesamt / freie Trauung / Feier</li>
-          <li>Optional: Social Media Clip</li>
-          <li>Optional: Rohmaterial oder extra Versionen</li>
+        <a class="individual-button" href="/kontakt">
+          Individuell anfragen
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <div class="individual-details">
+        <h3>Individuell kombinierbar</h3>
+
+        <ul class="individual-features">
+          {individualFeatures.map((feature) => (
+            <li>
+              <span aria-hidden="true">✓</span>
+              {feature}
+            </li>
+          ))}
         </ul>
 
         <details
-          class="package-extra-details"
+          class="individual-second"
           id="zweiter-videograf-individuell"
         >
           <summary>
-            <div class="package-extra-summary">
-              <strong>Zweiter Videograf optional · ab 350 €</strong>
-              <span>Mehr erfahren</span>
-            </div>
-
-            <span class="package-extra-arrow" aria-hidden="true">⌄</span>
+            <span>Zweiter Videograf optional · ab 350 €</span>
+            <span aria-hidden="true" class="details-chevron">⌄</span>
           </summary>
 
-          <div class="package-extra-content">
-            <h3>Noch mehr Perspektiven auf euren Tag</h3>
-
+          <div class="individual-second-content">
             <p>
-              Auch mit einem Videografen lässt sich euer Hochzeitstag umfassend und
-              authentisch begleiten. Ein zweiter Videograf ist eine optionale
-              Erweiterung für Paare, die sich bewusst noch mehr Blickwinkel und
-              parallel eingefangene Momente wünschen.
+              Ein zweiter Videograf kann für zusätzliche
+              Blickwinkel oder gleichzeitig stattfindende
+              Programmpunkte hinzugebucht werden.
+              Die Kosten hängen von Dauer und Umfang ab.
             </p>
-
-            <p>
-              Während ich euren Tag wie gewohnt begleite, können zusätzlich weitere
-              Reaktionen, Details und Perspektiven festgehalten werden. So entsteht
-              noch mehr vielseitiges Material für euren Hochzeitsfilm, besonders bei
-              Momenten, die gleichzeitig stattfinden oder aus mehreren Blickwinkeln
-              besonders schön wirken.
-            </p>
-
-            <small>
-              Der genaue Preis richtet sich nach Dauer und Umfang der zusätzlichen
-              Begleitung.
-            </small>
           </div>
         </details>
+      </div>
+    </section>
 
-        <a class="package-button" href="/kontakt">
-          Individuell anfragen <span>→</span>
-        </a>
-      </article>
-    </div>
+    <!-- TRANSPARENTE HINWEISE -->
+    <section
+      class="notes-section"
+      aria-labelledby="notes-title"
+    >
+      <div class="notes-heading">
+        <p class="eyebrow">Gut zu wissen</p>
+        <h2 id="notes-title">Wichtige Hinweise</h2>
+      </div>
 
-    <div class="notes-box">
-      <h2>Wichtige Hinweise</h2>
-      <p>• Reisekosten: 0,50 € pro km Hin- und Rückfahrt</p>
-      <p>• Der Termin ist nach Eingang der Anzahlung verbindlich reserviert</p>
-      <p>
-        • Add-ons wie Drohne, Extra-Reels oder Express-Lieferung findet ihr unter
-        „Zusatzleistungen“
-      </p>
-    </div>
+      <div class="notes-grid">
+        <article>
+          <span class="note-number">01</span>
+          <h3>Reisekosten</h3>
+          <p>
+            0,50 € pro Kilometer für die Hin- und Rückfahrt.
+          </p>
+        </article>
 
-    <section class="faq-section">
-      <h2>Häufige Fragen</h2>
+        <article>
+          <span class="note-number">02</span>
+          <h3>Terminreservierung</h3>
+          <p>
+            Euer Hochzeitstermin ist nach Eingang
+            der Anzahlung verbindlich reserviert.
+          </p>
+        </article>
+
+        <article>
+          <span class="note-number">03</span>
+          <h3>Zusatzleistungen</h3>
+          <p>
+            Drohnenaufnahmen, Extra-Reels und
+            Expresslieferung könnt ihr bei Bedarf
+            ergänzen.
+          </p>
+
+          <a href="/zusatzleistungen">
+            Alle Zusatzleistungen →
+          </a>
+        </article>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section
+      class="faq-section"
+      aria-labelledby="faq-title"
+    >
+      <div class="faq-heading">
+        <p class="eyebrow">Fragen & Antworten</p>
+        <h2 id="faq-title">Häufige Fragen</h2>
+        <p>
+          Damit ihr schon vor eurer Anfrage wisst,
+          was euch erwartet.
+        </p>
+      </div>
 
       <div class="faq-list">
         {faqs.map((faq, index) => (
           <details open={index === 0}>
             <summary>
               <span>{faq.question}</span>
-              <span class="faq-arrow" aria-hidden="true">⌄</span>
+
+              <svg
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+              >
+                <path
+                  d="m6 9 6 6 6-6"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </summary>
 
             <p>{faq.answer}</p>
@@ -296,687 +391,977 @@ const faqs = [
       </div>
     </section>
 
-    <section class="late-video-card">
-      <div class="late-icon">
-        <svg
-          width="30"
-          height="30"
-          viewBox="0 0 24 24"
-          fill="none"
-          aria-hidden="true"
-        >
-          <rect
-            x="4"
-            y="4"
-            width="16"
-            height="16"
-            rx="1.5"
-            stroke="#df7b00"
-            stroke-width="1.8"
-          ></rect>
-
-          <path d="M8 4v16" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 4v16" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M4 8h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M4 12h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M4 16h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 8h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 12h4" stroke="#df7b00" stroke-width="1.8"></path>
-          <path d="M16 16h4" stroke="#df7b00" stroke-width="1.8"></path>
-        </svg>
-      </div>
-
+    <!-- NACHTRÄGLICHES HOCHZEITSVIDEO -->
+    <section
+      class="late-video-card"
+      aria-labelledby="late-title"
+    >
       <div>
-        <h2>Nachträgliches Hochzeitsvideo</h2>
+        <p class="eyebrow">Eine weitere Möglichkeit</p>
+
+        <h2 id="late-title">
+          Nachträgliches Hochzeitsvideo
+        </h2>
 
         <p>
-          Für Paare, die am Hochzeitstag keinen Videografen hatten. Ein
-          professionelles Shooting nach der Hochzeit.
+          Ihr hattet an eurem Hochzeitstag keinen
+          Videografen? Auch nach der Hochzeit können
+          wir eure Geschichte in einem professionellen
+          Shooting filmisch festhalten.
         </p>
-
-        <a href="/nachtraegliches-hochzeitsvideo">
-          Mehr erfahren <span>→</span>
-        </a>
       </div>
+
+      <a href="/nachtraegliches-hochzeitsvideo">
+        Mehr erfahren
+        <span aria-hidden="true">→</span>
+      </a>
     </section>
 
-    <section class="cta">
-      <div>
-        <h2>Bereit für euren Film?</h2>
+    <!-- KONTAKT -->
+    <section
+      class="prices-cta"
+      aria-labelledby="cta-title"
+    >
+      <p class="eyebrow">Eure Geschichte beginnt hier</p>
 
-        <p>
-          Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag
-          am besten festhalte.
-        </p>
+      <h2 id="cta-title">
+        Bereit für euren Film?
+      </h2>
 
-        <a href="/kontakt">
-          Verfügbarkeit anfragen <span>→</span>
-        </a>
-      </div>
+      <p>
+        Erzählt mir von euren Plänen. Gemeinsam
+        finden wir heraus, welche Begleitung
+        zu eurem Hochzeitstag passt.
+      </p>
+
+      <a href="/kontakt">
+        Verfügbarkeit anfragen
+        <span aria-hidden="true">→</span>
+      </a>
     </section>
-  </section>
+
+  </div>
 </BaseLayout>
-
-<script is:inline>
-  const openSecondVideographerFromHash = () => {
-    const hash = window.location.hash;
-
-    if (!hash || !hash.startsWith("#zweiter-videograf-")) {
-      return;
-    }
-
-    const targetId = hash.slice(1);
-    const target = document.getElementById(targetId);
-
-    if (!(target instanceof HTMLDetailsElement)) {
-      return;
-    }
-
-    target.open = true;
-
-    requestAnimationFrame(() => {
-      setTimeout(() => {
-        target.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }, 80);
-    });
-  };
-
-  window.addEventListener("DOMContentLoaded", openSecondVideographerFromHash);
-  window.addEventListener("hashchange", openSecondVideographerFromHash);
-  window.addEventListener("pageshow", openSecondVideographerFromHash);
-</script>
 
 <style>
   :global(body) {
-    background: white;
+    background: #fff;
   }
 
   .prices-page {
-    background: white;
-    color: #17181d;
-    padding: 135px 20px 108px;
+    --accent: var(--vj-accent, #b46300);
+    --accent-hover: #965000;
+    --ink: #17181d;
+    --muted: #696b73;
+    --border: #e6e6e8;
+
+    padding: 144px 24px 94px;
+    color: var(--ink);
+    background: #fff;
   }
 
-  .prices-head {
-    text-align: center;
-    width: min(980px, 100%);
-    margin: 0 auto 62px;
+  .prices-page *,
+  .prices-page *::before,
+  .prices-page *::after {
+    box-sizing: border-box;
   }
 
-  .prices-head p {
-    margin: 0 0 18px;
-    color: #df7b00;
+  .prices-page a {
+    text-decoration: none;
+  }
+
+  .prices-page a:focus-visible,
+  .prices-page summary:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
+  }
+
+  .eyebrow {
+    margin: 0 0 16px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.34em;
-    font-size: 12px;
-    font-weight: 700;
+    letter-spacing: .2em;
+    line-height: 1.5;
+  }
+
+  /* SEITENKOPF */
+  .prices-head {
+    width: min(850px, 100%);
+    margin: 0 auto 83px;
+    text-align: center;
   }
 
   .prices-head h1 {
     margin: 0;
-    font-size: clamp(40px, 5.2vw, 70px);
+    font-size: clamp(42px, 5.6vw, 76px);
     font-weight: 300;
-    letter-spacing: -0.065em;
-    line-height: 1.05;
+    letter-spacing: -.06em;
+    line-height: 1.06;
+    text-wrap: balance;
   }
 
-  .prices-head span,
-  .prices-head small {
-    display: block;
-    color: #777984;
-    font-size: 16px;
-    line-height: 1.6;
+  .intro-text {
+    max-width: 660px;
+    margin: 24px auto 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
   }
 
-  .prices-head span {
-    margin-top: 22px;
+  .tax-note {
+    margin: 16px 0 0;
+    color: #898b94;
+    font-size: 13px;
+    line-height: 1.5;
   }
 
-  .prices-head small {
-    margin-top: 6px;
-    color: #9a9ba3;
+  /* ABSCHNITTSTITEL */
+  .section-intro {
+    margin-bottom: 40px;
+    text-align: center;
   }
 
-  .package-grid {
-    width: min(1320px, 100%);
-    margin: 0 auto;
+  .section-intro h2 {
+    margin: 0;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 350;
+    letter-spacing: -.05em;
+    line-height: 1.1;
+  }
+
+  /* PAKETKARTEN */
+  .packages-section {
+    width: min(1240px, 100%);
+    margin-inline: auto;
+  }
+
+  .packages-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 32px;
-    align-items: start;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+    align-items: stretch;
   }
 
   .package-card {
     position: relative;
-    min-height: 640px;
-    padding: 38px 40px;
-    border-radius: 22px;
-    background: #f8f8f9;
-    text-align: left;
-    box-shadow: 0 18px 55px rgba(0, 0, 0, 0.035);
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    padding: 36px 29px 28px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #fafafa;
   }
 
-  .package-card.popular {
+  .package-card.is-popular {
+    border-color: #17181d;
     background: #17181d;
-    color: white;
-    transform: translateY(-16px);
-    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.22);
+    color: #fff;
+    box-shadow: 0 23px 55px rgba(23,24,29,.15);
   }
 
-  .badge {
+  .popular-label {
     position: absolute;
-    top: -18px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 9px 26px;
-    border-radius: 8px;
-    background: #ffc21d;
-    color: #17181d;
-    font-size: 14px;
+    top: -14px;
+    right: 22px;
+    padding: 8px 13px;
+    border-radius: 5px;
+    background: #d38b32;
+    color: #fff;
+    font-size: 11px;
     font-weight: 800;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
   }
 
-  .package-card h2 {
-    margin: 0;
+  .package-top {
+    min-height: 151px;
     text-align: center;
-    color: inherit;
-    font-size: 26px;
-    font-weight: 700;
+  }
+
+  .package-top h3 {
+    margin: 0;
+    font-size: 27px;
+    font-weight: 600;
+    letter-spacing: -.045em;
   }
 
   .package-subtitle {
-    margin: 16px auto 0;
-    min-height: 48px;
-    text-align: center;
-    color: #767882;
-    font-size: 15px;
+    margin: 10px 0 0;
+    color: var(--muted);
+    font-size: 14px;
     line-height: 1.5;
   }
 
-  .popular .package-subtitle {
-    color: rgba(255, 255, 255, 0.56);
+  .is-popular .package-subtitle {
+    color: rgba(255,255,255,.65);
   }
 
-  .price {
-    margin: 20px 0 32px;
-    text-align: center;
+  .package-price {
+    margin: 23px 0 0;
     color: inherit;
-    font-size: 48px;
-    font-weight: 300;
-    letter-spacing: -0.05em;
+    font-size: 45px;
+    font-weight: 350;
+    line-height: 1.15;
+    letter-spacing: -.055em;
+    white-space: nowrap;
   }
 
-  .price span {
-    margin-left: 8px;
-    font-size: 16px;
+  .package-price span {
+    font-size: 20px;
+    font-weight: 400;
   }
 
-  .price.request {
-    font-size: 42px;
-  }
-
-  .meta-row {
-    padding: 20px 0;
-    margin-bottom: 26px;
-    border-top: 1px solid rgba(23, 24, 29, 0.1);
-    border-bottom: 1px solid rgba(23, 24, 29, 0.1);
+  /* PAKET-METADATEN */
+  .package-meta {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    text-align: center;
-  }
-
-  .popular .meta-row {
-    border-color: rgba(255, 255, 255, 0.12);
-  }
-
-  .meta-row div {
-    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
-    justify-items: center;
-    color: inherit;
+    padding: 21px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
   }
 
-  .meta-icon {
-    width: 22px;
-    height: 22px;
-    color: #df7b00;
-    display: grid;
-    place-items: center;
+  .is-popular .package-meta {
+    border-color: rgba(255,255,255,.19);
   }
 
-  :global(.meta-icon svg) {
-    width: 18px !important;
-    height: 18px !important;
-    display: block !important;
-    overflow: visible !important;
-  }
-
-  :global(.meta-icon svg circle),
-  :global(.meta-icon svg rect),
-  :global(.meta-icon svg path) {
-    fill: none !important;
-    stroke: #df7b00 !important;
-    stroke-width: 1.9 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
-  }
-
-  :global(.package-card.popular .meta-icon svg circle),
-  :global(.package-card.popular .meta-icon svg rect),
-  :global(.package-card.popular .meta-icon svg path) {
-    stroke: #ffc21d !important;
-  }
-
-  .meta-row strong {
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-  .package-card ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: grid;
-    gap: 16px;
-  }
-
-  .package-card li {
-    color: #5f6068;
-    line-height: 1.5;
-    font-size: 15px;
-  }
-
-  .popular li {
-    color: rgba(255, 255, 255, 0.76);
-  }
-
-  .package-card li::before {
-    content: "✓";
-    margin-right: 16px;
-    color: #df7b00;
-    font-weight: 800;
-  }
-
-  .popular li::before {
-    color: #ffc21d;
-  }
-
-  .package-extra-details {
-    margin-top: 28px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(23, 24, 29, 0.1);
-    scroll-margin-top: 125px;
-  }
-
-  .popular .package-extra-details {
-    border-top-color: rgba(255, 255, 255, 0.12);
-  }
-
-  .package-extra-details > summary {
-    cursor: pointer;
-    list-style: none;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 16px;
-  }
-
-  .package-extra-details > summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .package-extra-summary {
+  .package-meta > div {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     gap: 5px;
+    min-width: 0;
+    text-align: center;
   }
 
-  .package-extra-summary strong {
-    color: #5f6068;
-    font-size: 13px;
-    font-weight: 700;
-    line-height: 1.45;
+  .meta-value {
+    color: var(--accent);
+    font-size: 16px;
+    font-weight: 800;
+    line-height: 1.3;
   }
 
-  .package-extra-summary span {
-    color: #df7b00;
-    font-size: 12px;
-    font-weight: 700;
-    line-height: 1.4;
+  .is-popular .meta-value {
+    color: #ffb45a;
   }
 
-  .popular .package-extra-summary strong {
-    color: rgba(255, 255, 255, 0.68);
-  }
-
-  .popular .package-extra-summary span {
-    color: #ffc21d;
-  }
-
-  .package-extra-arrow {
-    flex: 0 0 auto;
-    color: #9a9ca4;
-    font-size: 21px;
-    line-height: 1;
-    transition: transform 0.2s ease;
-  }
-
-  .popular .package-extra-arrow {
-    color: rgba(255, 255, 255, 0.42);
-  }
-
-  .package-extra-details[open] .package-extra-arrow {
-    transform: rotate(180deg);
-  }
-
-  .package-extra-content {
-    margin-top: 18px;
-    padding-top: 18px;
-    border-top: 1px solid rgba(23, 24, 29, 0.08);
-  }
-
-  .popular .package-extra-content {
-    border-top-color: rgba(255, 255, 255, 0.09);
-  }
-
-  .package-extra-content h3 {
-    margin: 0 0 12px;
-    color: #17181d;
-    font-size: 17px;
-    font-weight: 700;
+  .meta-label {
+    color: var(--muted);
+    font-size: 11px;
     line-height: 1.35;
-    letter-spacing: -0.02em;
   }
 
-  .popular .package-extra-content h3 {
-    color: white;
+  .is-popular .meta-label {
+    color: rgba(255,255,255,.62);
   }
 
-  .package-extra-content p {
-    margin: 0 0 13px;
-    color: #686a73;
-    font-size: 13px;
-    line-height: 1.65;
+  /* PAKETLEISTUNGEN */
+  .package-features {
+    flex: 1;
+    display: grid;
+    align-content: start;
+    gap: 15px;
+    margin: 28px 0 0;
+    padding: 0;
+    list-style: none;
   }
 
-  .popular .package-extra-content p {
-    color: rgba(255, 255, 255, 0.62);
-  }
-
-  .package-extra-content small {
-    display: block;
-    margin-top: 17px;
-    color: #8a8c94;
-    font-size: 12px;
-    font-weight: 600;
+  .package-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #53565e;
+    font-size: 14px;
     line-height: 1.55;
   }
 
-  .popular .package-extra-content small {
-    color: rgba(255, 255, 255, 0.48);
+  .feature-check {
+    flex: 0 0 auto;
+    color: var(--accent);
+    font-weight: 900;
   }
 
-  .package-button {
-    margin-top: 28px;
-    height: 50px;
-    border-radius: 7px;
-    background: #df7b00;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 16px;
-    font-size: 15px;
-    font-weight: 800;
+  .is-popular .package-features li {
+    color: rgba(255,255,255,.83);
   }
 
-  .individual {
-    margin-top: 34px;
+  .is-popular .feature-check {
+    color: #ffb45a;
   }
 
-  .notes-box {
-    width: min(1320px, 100%);
-    margin: 84px auto 80px;
-    padding: 40px 44px;
-    border-radius: 18px;
-    border: 1px solid #f5d36d;
-    background: #fffaf0;
+  /* ZWEITER VIDEOGRAF */
+  .second-videographer {
+    margin-top: 27px;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 110px;
   }
 
-  .notes-box h2 {
-    margin: 0 0 22px;
-    font-size: 22px;
+  .is-popular .second-videographer {
+    border-color: rgba(255,255,255,.19);
   }
 
-  .notes-box p {
-    margin: 12px 0;
-    color: #5f6068;
-    font-size: 16px;
-    line-height: 1.6;
-  }
-
-  .faq-section {
-    width: min(960px, 100%);
-    margin: 0 auto 92px;
-  }
-
-  .faq-section > h2 {
-    margin: 0 0 42px;
-    text-align: center;
-    font-size: clamp(34px, 3.6vw, 46px);
-    font-weight: 300;
-    letter-spacing: -0.05em;
-  }
-
-  .faq-list {
-    display: grid;
-    gap: 20px;
-  }
-
-  .faq-list details {
-    border-radius: 16px;
-    background: #f8f8f9;
-    overflow: hidden;
-  }
-
-  .faq-list summary {
-    cursor: pointer;
-    padding: 24px 30px;
-    list-style: none;
-    font-size: 18px;
-    font-weight: 700;
+  .second-videographer summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 24px;
+    gap: 12px;
+    padding: 18px 0;
+    list-style: none;
+    cursor: pointer;
   }
 
-  .faq-list summary span:first-child {
-    flex: 1;
+  .second-videographer summary::-webkit-details-marker {
+    display: none;
   }
 
-  .faq-arrow {
-    color: #9a9ca4;
-    font-size: 24px;
-    line-height: 1;
-    transition: transform 0.2s ease;
+  .second-videographer summary::marker {
+    content: "";
   }
 
-  .faq-list details[open] .faq-arrow {
+  .second-videographer-label {
+    color: #60636c;
+    font-size: 12px;
+    line-height: 1.55;
+  }
+
+  .second-videographer-label strong {
+    color: var(--ink);
+    font-size: 13px;
+  }
+
+  .is-popular .second-videographer-label {
+    color: rgba(255,255,255,.69);
+  }
+
+  .is-popular .second-videographer-label strong {
+    color: #fff;
+  }
+
+  .details-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    flex: 0 0 auto;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    white-space: nowrap;
+  }
+
+  .is-popular .details-action {
+    color: #ffb45a;
+  }
+
+  .details-action svg {
+    width: 15px;
+    height: 15px;
+    transition: transform .2s ease;
+  }
+
+  .second-videographer[open] .details-action svg {
     transform: rotate(180deg);
+  }
+
+  .second-videographer-content {
+    padding: 5px 0 15px;
+  }
+
+  .second-videographer-content h4 {
+    margin: 0 0 13px;
+    font-size: 16px;
+    line-height: 1.4;
+  }
+
+  .second-videographer-content p {
+    margin: 0 0 12px;
+    color: #646670;
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  .is-popular .second-videographer-content p {
+    color: rgba(255,255,255,.75);
+  }
+
+  /* PAKETBUTTONS */
+  .package-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 51px;
+    margin-top: 16px;
+    padding: 12px 19px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+    transition: background .18s ease;
+  }
+
+  .package-button:hover {
+    background: var(--accent-hover);
+  }
+
+  /* INDIVIDUELLES PAKET */
+  .individual-section {
+    width: min(1240px, 100%);
+    display: grid;
+    grid-template-columns: .95fr 1.05fr;
+    gap: clamp(35px, 6vw, 100px);
+    align-items: center;
+    margin: 25px auto 0;
+    padding: clamp(34px, 5vw, 65px);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: #f7f7f7;
+  }
+
+  .individual-copy h2 {
+    margin: 0;
+    font-size: clamp(31px, 3.4vw, 44px);
+    font-weight: 350;
+    line-height: 1.12;
+    letter-spacing: -.05em;
+    text-wrap: balance;
+  }
+
+  .individual-copy > p:not(.eyebrow):not(.individual-price) {
+    max-width: 530px;
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  .individual-price {
+    margin: 26px 0 0;
+    font-size: 25px;
+    font-weight: 650;
+    letter-spacing: -.04em;
+  }
+
+  .individual-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 13px;
+    min-height: 49px;
+    margin-top: 25px;
+    padding: 12px 21px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .individual-button:hover {
+    background: var(--accent-hover);
+  }
+
+  .individual-details {
+    padding: 28px;
+    border: 1px solid #e6e6e8;
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .individual-details h3 {
+    margin: 0 0 23px;
+    font-size: 21px;
+    font-weight: 600;
+    letter-spacing: -.035em;
+  }
+
+  .individual-features {
+    display: grid;
+    gap: 15px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+
+  .individual-features li {
+    display: flex;
+    gap: 13px;
+    color: #53565e;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  .individual-features li span {
+    color: var(--accent);
+    font-weight: 900;
+  }
+
+  .individual-second {
+    margin-top: 25px;
+    border-top: 1px solid var(--border);
+    scroll-margin-top: 110px;
+  }
+
+  .individual-second summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 17px 0 0;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 700;
+    line-height: 1.5;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .individual-second summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .individual-second summary::marker {
+    content: "";
+  }
+
+  .details-chevron {
+    font-size: 21px;
+  }
+
+  .individual-second[open] .details-chevron {
+    transform: rotate(180deg);
+  }
+
+  .individual-second-content p {
+    margin: 13px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  /* HINWEISE */
+  .notes-section {
+    width: min(1240px, 100%);
+    margin: 106px auto 0;
+  }
+
+  .notes-heading {
+    margin-bottom: 32px;
+  }
+
+  .notes-heading h2 {
+    margin: 0;
+    font-size: clamp(32px, 4vw, 47px);
+    font-weight: 350;
+    letter-spacing: -.05em;
+  }
+
+  .notes-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .notes-grid article {
+    padding: 27px 25px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    background: #fff;
+  }
+
+  .note-number {
+    display: block;
+    margin-bottom: 26px;
+    color: var(--accent);
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .notes-grid h3 {
+    margin: 0 0 10px;
+    font-size: 19px;
+    font-weight: 650;
+  }
+
+  .notes-grid p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.75;
+  }
+
+  .notes-grid a {
+    display: inline-block;
+    margin-top: 15px;
+    color: var(--accent);
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  /* FAQ */
+  .faq-section {
+    width: min(960px, 100%);
+    margin: 115px auto 0;
+  }
+
+  .faq-heading {
+    margin-bottom: 35px;
+    text-align: center;
+  }
+
+  .faq-heading h2 {
+    margin: 0;
+    font-size: clamp(34px, 4.2vw, 52px);
+    font-weight: 350;
+    letter-spacing: -.05em;
+  }
+
+  .faq-heading > p:last-child {
+    margin: 15px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .faq-list {
+    border-top: 1px solid var(--border);
+  }
+
+  .faq-list details {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-list summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    padding: 23px 5px;
+    color: var(--ink);
+    cursor: pointer;
+    list-style: none;
   }
 
   .faq-list summary::-webkit-details-marker {
     display: none;
   }
 
-  .faq-list details p {
+  .faq-list summary::marker {
+    content: "";
+  }
+
+  .faq-list summary span {
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
+  .faq-list summary svg {
+    width: 19px;
+    height: 19px;
+    flex: 0 0 19px;
+    color: var(--accent);
+    transition: transform .18s ease;
+  }
+
+  .faq-list details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  .faq-list details > p {
+    max-width: 800px;
     margin: 0;
-    padding: 0 30px 28px;
-    color: #5f6068;
-    font-size: 16px;
-    line-height: 1.7;
+    padding: 0 35px 24px 5px;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
   }
 
+  /* NACHTRÄGLICHES HOCHZEITSVIDEO */
   .late-video-card {
-    width: min(940px, 100%);
-    margin: 0 auto 84px;
-    padding: 40px;
-    border: 3px solid #e5e5e8;
-    border-radius: 24px;
+    width: min(1240px, 100%);
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+    justify-content: space-between;
     gap: 32px;
+    margin: 105px auto 0;
+    padding: 43px 45px;
+    border-radius: 15px;
+    background: #f7f7f7;
   }
 
-  .late-icon {
-    width: 64px;
-    height: 64px;
-    flex: 0 0 64px;
-    border-radius: 16px;
-    display: grid;
-    place-items: center;
-    background: #fff0ba;
-    color: #df7b00;
+  .late-video-card > div {
+    max-width: 720px;
   }
 
   .late-video-card h2 {
-    margin: 0 0 12px;
-    font-size: 26px;
-    letter-spacing: -0.03em;
+    margin: 0;
+    font-size: clamp(27px, 3vw, 37px);
+    font-weight: 400;
+    letter-spacing: -.04em;
   }
 
-  .late-video-card p {
-    margin: 0 0 26px;
-    color: #5f6068;
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  .late-video-card a {
-    display: inline-flex;
-    height: 44px;
-    padding: 0 24px;
-    align-items: center;
-    gap: 14px;
-    border-radius: 7px;
-    background: white;
-    border: 1px solid #d9d9dd;
-    color: #17181d;
+  .late-video-card p:last-child {
+    margin: 15px 0 0;
+    color: var(--muted);
     font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .late-video-card > a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    color: var(--accent);
+    font-size: 14px;
     font-weight: 800;
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   }
 
-  .cta {
-    width: min(1320px, 100%);
-    margin: 0 auto;
-  }
-
-  .cta > div {
-    padding: 62px 28px;
-    border-radius: 28px;
-    background: #17181d;
-    color: white;
+  /* ABSCHLIESSENDER CTA */
+  .prices-cta {
+    width: min(1240px, 100%);
+    margin: 65px auto 0;
+    padding: 77px 28px;
+    border-radius: 19px;
+    background: var(--ink);
+    color: #fff;
     text-align: center;
   }
 
-  .cta h2 {
+  .prices-cta .eyebrow {
+    color: #ffb45a;
+  }
+
+  .prices-cta h2 {
     margin: 0;
-    font-size: clamp(32px, 3.5vw, 44px);
-    font-weight: 300;
-    letter-spacing: -0.04em;
+    font-size: clamp(37px, 4.5vw, 57px);
+    font-weight: 350;
+    line-height: 1.1;
+    letter-spacing: -.05em;
   }
 
-  .cta p {
-    max-width: 620px;
-    margin: 24px auto 0;
-    color: rgba(255, 255, 255, 0.68);
+  .prices-cta > p:not(.eyebrow) {
+    max-width: 610px;
+    margin: 19px auto 0;
+    color: rgba(255,255,255,.77);
     font-size: 16px;
-    line-height: 1.65;
+    line-height: 1.75;
   }
 
-  .cta a {
-    margin-top: 38px;
+  .prices-cta > a {
     display: inline-flex;
-    height: 50px;
-    padding: 0 34px;
-    border-radius: 7px;
-    background: #df7b00;
-    color: white;
     align-items: center;
-    gap: 14px;
-    font-size: 15px;
+    justify-content: center;
+    gap: 17px;
+    min-height: 53px;
+    margin-top: 30px;
+    padding: 14px 25px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 14px;
     font-weight: 800;
   }
 
-  @media (max-width: 980px) {
-    .package-grid {
-      grid-template-columns: 1fr;
+  .prices-cta > a:hover {
+    background: var(--accent-hover);
+  }
+
+  /* TABLET */
+  @media (max-width: 1050px) {
+    .packages-grid {
+      gap: 13px;
     }
 
-    .package-card.popular {
-      transform: none;
+    .package-card {
+      padding: 32px 21px 24px;
+    }
+
+    .package-meta {
+      gap: 4px;
+    }
+
+    .details-action {
+      font-size: 10px;
+    }
+
+    .individual-section {
+      gap: 30px;
+      padding: 35px;
+    }
+  }
+
+  @media (max-width: 800px) {
+    .packages-grid {
+      grid-template-columns: 1fr;
+      max-width: 580px;
+      margin: 0 auto;
+      gap: 26px;
+    }
+
+    .package-card {
+      padding: 35px 30px 27px;
+    }
+
+    .package-top {
+      min-height: 135px;
+    }
+
+    .individual-section {
+      grid-template-columns: 1fr;
+      max-width: 580px;
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .notes-grid {
+      grid-template-columns: 1fr;
+      gap: 13px;
+    }
+
+    .notes-grid article {
+      padding: 24px;
+    }
+
+    .note-number {
+      margin-bottom: 14px;
     }
 
     .late-video-card {
+      align-items: flex-start;
       flex-direction: column;
     }
   }
 
-  @media (max-width: 620px) {
+  /* HANDY */
+  @media (max-width: 600px) {
     .prices-page {
-      padding: 120px 14px 80px;
+      padding: 120px 14px 70px;
+    }
+
+    .prices-head {
+      margin-bottom: 65px;
+    }
+
+    .prices-head h1 {
+      font-size: clamp(39px, 10vw, 53px);
+    }
+
+    .intro-text {
+      font-size: 15px;
+      line-height: 1.7;
+    }
+
+    .tax-note {
+      font-size: 12px;
+    }
+
+    .section-intro {
+      margin-bottom: 29px;
+    }
+
+    .section-intro h2 {
+      font-size: 32px;
     }
 
     .package-card {
-      min-height: auto;
-      padding: 32px 24px;
+      padding: 35px 23px 25px;
+      border-radius: 14px;
     }
 
-    .price {
-      font-size: 42px;
+    .package-top h3 {
+      font-size: 26px;
     }
 
-    .price.request {
+    .package-price {
+      font-size: 43px;
+    }
+
+    .package-features {
+      gap: 13px;
+    }
+
+    .individual-section {
+      padding: 29px 22px;
+      border-radius: 14px;
+    }
+
+    .individual-copy h2 {
+      font-size: 33px;
+    }
+
+    .individual-button {
+      width: 100%;
+    }
+
+    .individual-details {
+      padding: 22px 18px;
+    }
+
+    .notes-section {
+      margin-top: 83px;
+    }
+
+    .notes-heading h2 {
       font-size: 36px;
     }
 
-    .package-extra-details {
-      margin-top: 24px;
-      padding-top: 16px;
-      scroll-margin-top: 105px;
+    .faq-section {
+      margin-top: 85px;
     }
 
-    .package-extra-summary strong {
-      font-size: 12.5px;
+    .faq-heading h2 {
+      font-size: 38px;
     }
 
-    .package-extra-summary span {
-      font-size: 11.5px;
+    .faq-list summary {
+      padding: 21px 3px;
     }
 
-    .package-extra-content h3 {
+    .faq-list summary span {
       font-size: 16px;
     }
 
-    .package-extra-content p {
-      font-size: 12.5px;
+    .faq-list details > p {
+      padding: 0 10px 22px 3px;
+      font-size: 14px;
     }
 
-    .package-extra-content small {
-      font-size: 11.5px;
-    }
-
-    .notes-box,
     .late-video-card {
-      padding: 26px;
+      margin-top: 82px;
+      padding: 29px 23px;
+    }
+
+    .late-video-card h2 {
+      font-size: 28px;
+    }
+
+    .prices-cta {
+      margin-top: 43px;
+      padding: 58px 22px;
+      border-radius: 15px;
+    }
+
+    .prices-cta h2 {
+      font-size: 38px;
+    }
+
+    .prices-cta > p:not(.eyebrow) {
+      font-size: 15px;
+    }
+
+    .prices-cta > a {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .package-button,
+    .details-action svg,
+    .faq-list summary svg {
+      transition: none;
     }
   }
 </style>
