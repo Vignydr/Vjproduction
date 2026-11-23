@@ -1,3 +1,4 @@
+
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
@@ -254,11 +255,7 @@ const {
         "main .portfolio-offer",
         "main .cta",
         "main .step-card",
-        "main .timeline-item",
-        "main form",
-        "main .form-grid",
-        "main .option-card",
-        "main .check-card"
+        "main .timeline-item"
       ];
 
       const revealElements = document.querySelectorAll(
@@ -286,26 +283,34 @@ const {
         );
       });
 
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              entry.target.classList.add("is-visible");
-              observer.unobserve(entry.target);
-            }
-          });
-        },
-        {
-          threshold: 0.14,
-          rootMargin: "0px 0px -8% 0px",
-        }
+      const elementsToReveal = document.querySelectorAll(
+        ".reveal-on-scroll"
       );
 
-      document
-        .querySelectorAll(".reveal-on-scroll")
-        .forEach((element) => {
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          {
+            threshold: 0.14,
+            rootMargin: "0px 0px -8% 0px",
+          }
+        );
+
+        elementsToReveal.forEach((element) => {
           observer.observe(element);
         });
+      } else {
+        elementsToReveal.forEach((element) => {
+          element.classList.add("is-visible");
+        });
+      }
     </script>
   </body>
 </html>
@@ -334,7 +339,7 @@ const {
       "Segoe UI",
       sans-serif;
     background: #ffffff;
-    color: #17181d;
+    color: var(--vj-ink);
     font-size: 16px;
     line-height: 1.5;
     text-rendering: geometricPrecision;
@@ -370,11 +375,20 @@ const {
 
   /* ============================= */
   /* VJ Production Typografie-System */
-  /* Nur Schriftgrößen / Rhythmus */
-  /* Keine Farben und kein Layout werden verändert */
+  /* Schriftgrößen, Rhythmus und gemeinsame Markenfarben */
   /* ============================= */
 
   :root {
+    /* Einheitliche Designfarben von VJ Production */
+    --vj-accent: #b46300;
+    --vj-accent-hover: #965000;
+    --vj-accent-on-dark: #ffb45a;
+    --vj-accent-soft: #fff7ee;
+    --vj-ink: #17181d;
+    --vj-muted: #696b73;
+    --vj-surface: #f7f7f7;
+    --vj-border: #e3e3e6;
+
     --font-main:
       Inter,
       ui-sans-serif,
@@ -411,7 +425,45 @@ const {
     --vj-section-space-sm: 72px;
   }
 
-  /* Kleine orange Labels: PORTFOLIO, PREISE, BEWERTUNGEN usw. */
+  /*
+   * Seiten, deren Farben bereits über --accent
+   * gesteuert werden, erhalten die neue Markenfarbe.
+   */
+  .home-page,
+  .portfolio-page,
+  .kontakt-page {
+    --accent: var(--vj-accent) !important;
+  }
+
+  /* Tastaturbedienung und Textmarkierung */
+  :focus-visible {
+    outline-color: var(--vj-accent);
+  }
+
+  ::selection {
+    color: #fff;
+    background: var(--vj-accent);
+  }
+
+  /* Auf dunklen Flächen bleibt die Akzentschrift hell. */
+  .home-page .about-copy .eyebrow,
+  .home-page .closing-section .eyebrow,
+  .portfolio-page .contact-section .eyebrow {
+    color: var(--vj-accent-on-dark) !important;
+  }
+
+  /* Einheitliche CTA-Farbe auf bekannten Seitentypen */
+  .portfolio-page .contact-button,
+  .kontakt-page .submit-button {
+    background-color: var(--vj-accent) !important;
+  }
+
+  .portfolio-page .contact-button:hover,
+  .kontakt-page .submit-button:hover {
+    background-color: var(--vj-accent-hover) !important;
+  }
+
+  /* Kleine Labels */
   .kicker,
   .section-kicker,
   .section-head p,
@@ -441,7 +493,7 @@ const {
     line-height: var(--vj-leading-title);
   }
 
-  /* Große Section-Titel */
+  /* Große Abschnittstitel */
   .section-title,
   .section-head h2,
   .process > h2,
@@ -456,7 +508,7 @@ const {
     line-height: var(--vj-leading-title);
   }
 
-  /* Card-Titel */
+  /* Kartentitel */
   .card-title,
   .video-text h2,
   .video-item h2,
@@ -490,7 +542,7 @@ const {
     line-height: var(--vj-leading-normal);
   }
 
-  /* Größere Lesetexte, aber nicht riesig */
+  /* Größere Lesetexte */
   .hero-text span,
   .late-hero .hero-text,
   .important-box p,
@@ -500,7 +552,7 @@ const {
     line-height: var(--vj-leading-relaxed);
   }
 
-  /* Bewertungen: vorher deutlich zu groß */
+  /* Bewertungen */
   .review-text,
   .review-card > p {
     font-size: clamp(17px, 1.45vw, 21px) !important;
@@ -533,26 +585,26 @@ const {
   /* Formulare */
   legend,
   label > span {
-    font-size: var(--vj-text-md) !important;
+    font-size: var(--vj-text-md);
     line-height: 1.35;
   }
 
   input,
   select,
   textarea {
-    font-size: var(--vj-text-base) !important;
+    font-size: var(--vj-text-base);
   }
 
   .option-card,
   .check-card,
   .contact-way label {
-    font-size: var(--vj-text-lg) !important;
+    font-size: var(--vj-text-lg);
     line-height: 1.35;
   }
 
   .consent,
   .consent span {
-    font-size: var(--vj-text-base) !important;
+    font-size: var(--vj-text-base);
     line-height: var(--vj-leading-normal);
   }
 
@@ -569,7 +621,7 @@ const {
   .late-card a,
   .late-video-card a,
   .offer-toggle {
-    font-size: var(--vj-text-base) !important;
+    font-size: var(--vj-text-base);
     line-height: 1.2;
   }
 
@@ -586,7 +638,7 @@ const {
     font-size: var(--vj-text-lg);
   }
 
-  /* Footer etwas ruhiger */
+  /* Footer */
   .vj-footer-brand p,
   .vj-footer-column a,
   .vj-contact-links a {
@@ -602,10 +654,7 @@ const {
     font-size: var(--vj-text-sm) !important;
   }
 
-  /* ============================= */
-  /* Cookie Banner bleibt immer sichtbar und wird nicht animiert */
-  /* ============================= */
-
+  /* Cookie-Banner wird nicht animiert */
   .vj-cookie-banner,
   .vj-cookie-banner * {
     animation: none !important;
@@ -616,10 +665,7 @@ const {
     transform: none !important;
   }
 
-  /* ============================= */
-  /* Scroll Animation */
-  /* ============================= */
-
+  /* Scroll-Animation */
   .reveal-on-scroll {
     opacity: 0;
     transform: translateY(34px);
