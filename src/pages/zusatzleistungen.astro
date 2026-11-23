@@ -1,475 +1,582 @@
+
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const icons = {
-  drone: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="5" cy="5" r="2.4"></circle>
-    <circle cx="19" cy="5" r="2.4"></circle>
-    <circle cx="5" cy="19" r="2.4"></circle>
-    <circle cx="19" cy="19" r="2.4"></circle>
-    <path d="M7 7l3.1 3.1"></path>
-    <path d="M17 7l-3.1 3.1"></path>
-    <path d="M7 17l3.1-3.1"></path>
-    <path d="M17 17l-3.1-3.1"></path>
-    <rect x="9.7" y="9.7" width="4.6" height="4.6" rx="1.1"></rect>
-    <path d="M12 9.7V7.8"></path>
-    <path d="M12 14.3v1.9"></path>
-    <path d="M9.7 12H7.8"></path>
-    <path d="M14.3 12h1.9"></path>
-  </svg>`,
-
-  lightning: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <path d="M13 2 4 14h7l-1 8 10-14h-7V2Z"></path>
-  </svg>`,
-
-  film: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <rect x="4" y="4" width="16" height="16" rx="1.5"></rect>
-    <path d="M8 4v16"></path>
-    <path d="M16 4v16"></path>
-    <path d="M4 8h4"></path>
-    <path d="M4 12h4"></path>
-    <path d="M4 16h4"></path>
-    <path d="M16 8h4"></path>
-    <path d="M16 12h4"></path>
-    <path d="M16 16h4"></path>
-  </svg>`,
-
-  secondVideographer: `<svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-    <circle cx="8.5" cy="8" r="3"></circle>
-    <path d="M3.5 19c.5-3.2 2.3-5 5-5s4.5 1.8 5 5"></path>
-    <circle cx="17" cy="9" r="2.4"></circle>
-    <path d="M15.2 14.4c.6-.3 1.3-.4 2-.4 2.3 0 3.8 1.5 4.3 4"></path>
-  </svg>`,
-};
-
-const extraCards = [
+const extras = [
   {
-    icon: "secondVideographer",
     title: "Zweiter Videograf",
-    text: "Für noch mehr Perspektiven, Reaktionen und parallel eingefangene Momente an eurem Hochzeitstag.",
     price: "ab 350 €",
-    button: "Anfragen",
+    description:
+      "Für noch mehr Perspektiven, Reaktionen und parallel eingefangene Momente an eurem Hochzeitstag.",
+    number: "01",
+    icon: "people",
   },
   {
-    icon: "lightning",
     title: "Express-Lieferung",
-    text: "Lieferung innerhalb von 3 Wochen statt regulärer Lieferzeit.",
     price: "260 €",
-    button: "Anfragen",
+    description:
+      "Lieferung innerhalb von 3 Wochen statt der regulären Lieferzeit.",
+    number: "02",
+    icon: "clock",
   },
   {
-    icon: "film",
-    title: "Social Media Reels",
-    text: "Ein zusätzlicher vertikaler Kurzclip im Reel Format, perfekt für Instagram und TikTok. Emotional, schnell geschnitten und so abgestimmt, dass man ihn sofort teilen kann.",
+    title: "Social Media Reel",
     price: "190 €",
-    button: "Anfragen",
+    description:
+      "Ein zusätzlicher vertikaler Kurzclip im Reel-Format, passend für Instagram und TikTok.",
+    number: "03",
+    icon: "film",
   },
 ];
 ---
 
 <BaseLayout
-  title="Zusatzleistungen | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Zusatzleistungen für euren Hochzeitsfilm: zweiter Videograf, Drohnenaufnahmen, Express-Lieferung und Social Media Reels von VJ Production."
+  title="Zusatzleistungen für Hochzeitsfilme | VJ Production"
+  description="Ergänzt euren Hochzeitsfilm bei VJ Production mit Drohnenaufnahmen, einem zweiten Videografen, Expresslieferung oder Social-Media-Reels."
 >
-  <section class="extras-page">
-    <section class="extras-head">
-      <p>Extras</p>
+  <div class="extras-page">
+
+    <header class="extras-head">
+      <p class="eyebrow">VJ Production · Extras</p>
       <h1>Zusatzleistungen</h1>
-      <span>Erweitere dein Paket mit besonderen Extras</span>
-    </section>
+      <p>
+        Euer Hochzeitsfilm, noch individueller.
+        Ergänzt euer Paket um die Leistungen,
+        die zu euren Wünschen passen.
+      </p>
+    </header>
 
-    <section class="drone-card">
+    <!-- DROHNENAUFNAHMEN -->
+    <section class="drone-card" aria-labelledby="drone-title">
       <div class="drone-main">
-        <div class="feature-icon" set:html={icons.drone}></div>
+        <p class="drone-kicker">Eine besondere Perspektive</p>
 
-        <h2>Drohnenaufnahmen</h2>
+        <div class="drone-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <circle cx="5" cy="5" r="2.4"></circle>
+            <circle cx="19" cy="5" r="2.4"></circle>
+            <circle cx="5" cy="19" r="2.4"></circle>
+            <circle cx="19" cy="19" r="2.4"></circle>
+            <path d="M7 7l3.1 3.1M17 7l-3.1 3.1M7 17l3.1-3.1M17 17l-3.1-3.1"></path>
+            <rect x="9.7" y="9.7" width="4.6" height="4.6" rx="1.1"></rect>
+          </svg>
+        </div>
+
+        <h2 id="drone-title">Drohnenaufnahmen</h2>
         <p>
-          Cineastische Luftaufnahmen, die eure Location und Stimmung aus einer
-          einzigartigen Perspektive zeigen und dem Film mehr Tiefe geben.
+          Cineastische Luftaufnahmen, die eure Location und
+          Stimmung aus einer einzigartigen Perspektive zeigen
+          und eurem Hochzeitsfilm mehr Tiefe geben.
         </p>
 
-        <strong>350 €</strong>
+        <strong class="drone-price">350 €</strong>
 
-        <a href="/kontakt">
-          Drohne anfragen <span>→</span>
+        <a class="primary-button" href="/kontakt">
+          Drohne anfragen <span aria-hidden="true">→</span>
         </a>
       </div>
 
       <div class="drone-note">
-        <h3>Wichtige Hinweise</h3>
+        <span class="note-label">Gut zu wissen</span>
+        <h3>Was bei Drohnenaufnahmen wichtig ist</h3>
         <p>
-          Wetterabhängig, nicht bei starkem Wind oder Regen. Beachtung von
-          Flugverbotszonen. EU-Drohnenführerschein und Haftpflichtversicherung
-          vorhanden.
+          Luftaufnahmen sind wetterabhängig und können bei
+          starkem Wind oder Regen nicht stattfinden.
+          Auch Flugverbotszonen und örtliche Vorgaben
+          müssen berücksichtigt werden.
         </p>
+        <p>
+          Ein EU-Drohnenführerschein und eine
+          Haftpflichtversicherung sind vorhanden.
+        </p>
+
+        <div class="drone-detail">
+          <span>Premium-Paket</span>
+          <strong>Drohnenaufnahmen bereits inklusive</strong>
+        </div>
       </div>
     </section>
 
-    <section class="more-extras">
-      <h2>Weitere Extras</h2>
+    <!-- WEITERE EXTRAS -->
+    <section class="more-extras" aria-labelledby="more-extras-title">
+      <div class="section-heading">
+        <p class="eyebrow">Individuell ergänzen</p>
+        <h2 id="more-extras-title">Weitere Möglichkeiten.</h2>
+        <p>
+          Kleine Erweiterungen, die euren Film
+          noch persönlicher machen.
+        </p>
+      </div>
 
       <div class="extra-grid">
-        {extraCards.map((item) => (
+        {extras.map((item) => (
           <article class="extra-card">
-            <div class="small-icon" set:html={icons[item.icon]}></div>
+            <span class="extra-number">{item.number}</span>
+
+            <div class="extra-icon" aria-hidden="true">
+              {item.icon === "people" && (
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="8.5" cy="8" r="3"></circle>
+                  <path d="M3.5 19c.5-3.2 2.3-5 5-5s4.5 1.8 5 5"></path>
+                  <circle cx="17" cy="9" r="2.4"></circle>
+                  <path d="M15.2 14.4c.6-.3 1.3-.4 2-.4 2.3 0 3.8 1.5 4.3 4"></path>
+                </svg>
+              )}
+
+              {item.icon === "clock" && (
+                <svg viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="9"></circle>
+                  <path d="M12 7v5l4 2"></path>
+                </svg>
+              )}
+
+              {item.icon === "film" && (
+                <svg viewBox="0 0 24 24" fill="none">
+                  <rect x="4" y="4" width="16" height="16" rx="1.5"></rect>
+                  <path d="M8 4v16M16 4v16M4 8h4M4 12h4M4 16h4M16 8h4M16 12h4M16 16h4"></path>
+                </svg>
+              )}
+            </div>
 
             <h3>{item.title}</h3>
-            <p>{item.text}</p>
+            <p>{item.description}</p>
 
-            <strong>{item.price}</strong>
+            <strong class="extra-price">{item.price}</strong>
 
-            <a href="/kontakt">
-              {item.button} <span>→</span>
+            <a href="/kontakt" class="extra-button">
+              Anfragen <span aria-hidden="true">→</span>
             </a>
           </article>
         ))}
       </div>
     </section>
 
-    <section class="cta">
+    <!-- PAKETE -->
+    <section class="package-hint">
       <div>
-        <h2>Bereit für euren Film?</h2>
-
+        <p class="eyebrow">Noch auf der Suche?</p>
+        <h2>Welches Hochzeitspaket passt zu euch?</h2>
         <p>
-          Lasst uns in einem unverbindlichen Gespräch herausfinden, wie ich euren Tag
-          am besten festhalte.
+          Die Zusatzleistungen lassen sich passend zu euren
+          Vorstellungen ergänzen. Schaut euch zunächst meine
+          drei Hochzeitspakete an.
         </p>
-
-        <a href="/kontakt">
-          Verfügbarkeit anfragen <span>→</span>
-        </a>
       </div>
+      <a href="/pakete">
+        Pakete &amp; Preise ansehen
+        <span aria-hidden="true">→</span>
+      </a>
     </section>
-  </section>
+
+    <!-- KONTAKT -->
+    <section class="extras-cta" aria-labelledby="cta-title">
+      <p class="eyebrow">Eure Wünsche im Mittelpunkt</p>
+      <h2 id="cta-title">Lasst uns euren Film gestalten.</h2>
+      <p>
+        Erzählt mir von euren Plänen und den Extras,
+        die ihr euch für eure Hochzeit vorstellen könnt.
+      </p>
+      <a href="/kontakt">
+        Verfügbarkeit anfragen <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </div>
 </BaseLayout>
 
 <style>
-  :global(body) {
-    background: white;
-  }
+  :global(body) { background: white; }
 
   .extras-page {
+    --accent: #b46300;
+    --ink: #17181d;
+    --muted: #696b73;
+    --line: #e3e3e6;
     background: white;
-    color: #17181d;
-    padding: 135px 20px 108px;
+    color: var(--ink);
+    padding: 145px 24px 100px;
+  }
+
+  .extras-page *,
+  .extras-page *::before,
+  .extras-page *::after { box-sizing: border-box; }
+
+  .extras-page a { text-decoration: none; }
+
+  .eyebrow {
+    margin: 0 0 16px;
+    color: var(--accent);
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1.5;
+    letter-spacing: .2em;
+    text-transform: uppercase;
   }
 
   .extras-head {
+    width: min(850px, 100%);
+    margin: 0 auto 76px;
     text-align: center;
-    width: min(980px, 100%);
-    margin: 0 auto 72px;
-  }
-
-  .extras-head p {
-    margin: 0 0 18px;
-    color: #df7b00;
-    text-transform: uppercase;
-    letter-spacing: 0.34em;
-    font-size: 12px;
-    font-weight: 700;
   }
 
   .extras-head h1 {
     margin: 0;
-    font-size: clamp(40px, 5.2vw, 70px);
+    font-size: clamp(42px, 5.6vw, 76px);
     font-weight: 300;
-    letter-spacing: -0.065em;
-    line-height: 1.05;
+    line-height: 1.06;
+    letter-spacing: -.065em;
   }
 
-  .extras-head span {
-    display: block;
-    margin-top: 22px;
-    color: #777984;
-    font-size: 16px;
-    line-height: 1.6;
+  .extras-head > p:last-child {
+    max-width: 620px;
+    margin: 23px auto 0;
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 1.75;
   }
 
   .drone-card {
-    width: min(1280px, 100%);
-    margin: 0 auto 96px;
-    border-radius: 28px;
-    overflow: hidden;
     display: grid;
     grid-template-columns: 1.05fr 1fr;
-    background: #17181d;
+    width: min(1200px, 100%);
+    margin: 0 auto 110px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: var(--ink);
     color: white;
   }
 
-  .drone-main {
-    padding: 60px 58px;
-    background: #17181d;
-  }
+  .drone-main { padding: 55px 52px; }
 
   .drone-note {
-    padding: 60px 58px;
+    display: flex;
+    flex-direction: column;
+    padding: 55px 52px;
     background: #24252a;
   }
 
-  .feature-icon {
-    width: 64px;
-    height: 64px;
-    margin-bottom: 34px;
-    border-radius: 16px;
+  .drone-kicker,
+  .note-label {
+    display: block;
+    margin: 0 0 23px;
+    color: #ffb45a;
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+  }
+
+  .drone-icon {
     display: grid;
     place-items: center;
-    background: rgba(255, 194, 29, 0.16);
-    color: #ffc21d;
+    width: 66px;
+    height: 66px;
+    margin-bottom: 29px;
+    border: 1px solid rgba(255,180,90,.28);
+    border-radius: 14px;
+    background: rgba(180,99,0,.16);
   }
 
-  :global(.feature-icon svg) {
-    width: 34px !important;
-    height: 34px !important;
-    display: block !important;
-    overflow: visible !important;
-  }
-
-  :global(.feature-icon svg path),
-  :global(.feature-icon svg rect),
-  :global(.feature-icon svg circle) {
-    fill: none !important;
-    stroke: #ffc21d !important;
-    stroke-width: 1.9 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
+  .drone-icon svg {
+    width: 35px;
+    height: 35px;
+    stroke: #ffb45a;
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .drone-main h2 {
-    margin: 0 0 26px;
-    color: white;
-    font-size: clamp(34px, 3.8vw, 48px);
-    font-weight: 300;
-    letter-spacing: -0.055em;
-    line-height: 1.08;
+    margin: 0 0 23px;
+    font-size: clamp(34px, 3.7vw, 48px);
+    font-weight: 350;
+    letter-spacing: -.05em;
+    line-height: 1.1;
   }
 
   .drone-main p,
   .drone-note p {
-    margin: 0;
-    max-width: 520px;
-    color: rgba(255, 255, 255, 0.62);
-    font-size: 18px;
-    line-height: 1.6;
+    max-width: 500px;
+    margin: 0 0 18px;
+    color: rgba(255,255,255,.72);
+    font-size: 16px;
+    line-height: 1.75;
   }
 
-  .drone-main strong {
+  .drone-price {
     display: block;
-    margin-top: 34px;
-    color: #ffc21d;
-    font-size: 34px;
-    font-weight: 300;
-    letter-spacing: -0.035em;
+    margin-top: 25px;
+    color: #ffb45a;
+    font-size: 35px;
+    font-weight: 400;
   }
 
-  .drone-main a {
-    margin-top: 34px;
+  .primary-button {
     display: inline-flex;
-    height: 50px;
-    padding: 0 24px;
     align-items: center;
     justify-content: center;
-    gap: 16px;
+    gap: 15px;
+    min-height: 51px;
+    margin-top: 28px;
+    padding: 12px 24px;
     border-radius: 7px;
-    background: #df7b00;
+    background: var(--accent);
     color: white;
-    font-size: 15px;
+    font-size: 14px;
     font-weight: 800;
   }
 
+  .primary-button:hover { background: #965000; }
+
   .drone-note h3 {
-    margin: 0 0 26px;
-    color: white;
-    font-size: 22px;
+    margin: 0 0 24px;
+    font-size: clamp(25px, 2.8vw, 32px);
+    font-weight: 450;
+    line-height: 1.2;
+    letter-spacing: -.035em;
+  }
+
+  .drone-detail {
+    display: grid;
+    gap: 7px;
+    margin-top: auto;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255,255,255,.17);
+  }
+
+  .drone-detail span {
+    color: #ffb45a;
+    font-size: 12px;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+  }
+
+  .drone-detail strong {
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
   }
 
   .more-extras {
-    width: min(1180px, 100%);
-    margin: 0 auto 90px;
+    width: min(1200px, 100%);
+    margin: 0 auto 95px;
   }
 
-  .more-extras > h2 {
-    margin: 0 0 46px;
+  .section-heading {
+    max-width: 720px;
+    margin: 0 auto 42px;
     text-align: center;
-    color: #17181d;
-    font-size: clamp(32px, 3.5vw, 44px);
-    font-weight: 300;
-    letter-spacing: -0.045em;
+  }
+
+  .section-heading h2 {
+    margin: 0;
+    font-size: clamp(34px, 4vw, 52px);
+    font-weight: 350;
+    letter-spacing: -.05em;
+  }
+
+  .section-heading > p:last-child {
+    margin: 16px 0 0;
+    color: var(--muted);
+    font-size: 15px;
   }
 
   .extra-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 34px;
+    gap: 19px;
   }
 
   .extra-card {
-    min-height: 350px;
-    padding: 34px;
-    border-radius: 16px;
-    background: white;
-    border: 1px solid #dedfe3;
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
+    min-width: 0;
+    padding: 32px 28px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #fafafa;
   }
 
-  .small-icon {
-    width: 48px;
-    height: 48px;
-    margin-bottom: 30px;
-    border-radius: 10px;
+  .extra-number {
+    align-self: flex-end;
+    color: #a1a2a9;
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .extra-icon {
     display: grid;
     place-items: center;
-    background: #f4f4f6;
-    color: #5f6068;
+    width: 55px;
+    height: 55px;
+    margin: 8px 0 24px;
+    border-radius: 12px;
+    background: #fff3e6;
   }
 
-  :global(.small-icon svg) {
-    width: 22px !important;
-    height: 22px !important;
-    display: block !important;
-    overflow: visible !important;
-  }
-
-  :global(.small-icon svg path),
-  :global(.small-icon svg rect),
-  :global(.small-icon svg circle) {
-    fill: none !important;
-    stroke: #5f6068 !important;
-    stroke-width: 1.9 !important;
-    stroke-linecap: round !important;
-    stroke-linejoin: round !important;
+  .extra-icon svg {
+    width: 27px;
+    height: 27px;
+    stroke: var(--accent);
+    stroke-width: 1.7;
+    stroke-linecap: round;
+    stroke-linejoin: round;
   }
 
   .extra-card h3 {
-    margin: 0 0 24px;
-    color: #17181d;
+    margin: 0 0 16px;
     font-size: 22px;
-    font-weight: 800;
-    letter-spacing: -0.035em;
+    font-weight: 700;
+    line-height: 1.3;
   }
 
   .extra-card p {
+    flex: 1;
     margin: 0;
-    color: #5f6068;
-    font-size: 16px;
-    line-height: 1.6;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
   }
 
-  .extra-card strong {
-    display: block;
-    margin-top: auto;
-    padding-top: 32px;
-    color: #17181d;
-    font-size: 24px;
-    font-weight: 300;
-    letter-spacing: -0.03em;
+  .extra-price {
+    margin-top: 28px;
+    color: var(--ink);
+    font-size: 26px;
+    font-weight: 450;
   }
 
-  .extra-card a {
-    margin-top: 22px;
-    height: 42px;
-    border-radius: 7px;
-    border: 1px solid #dedfe3;
-    display: inline-flex;
+  .extra-button {
+    display: flex;
     align-items: center;
     justify-content: center;
-    gap: 16px;
-    color: #17181d;
-    font-size: 15px;
+    gap: 12px;
+    min-height: 47px;
+    margin-top: 22px;
+    padding: 12px;
+    border: 1px solid #d8d8dc;
+    border-radius: 7px;
+    background: white;
+    color: var(--ink);
+    font-size: 14px;
     font-weight: 800;
-    box-shadow: 0 5px 14px rgba(0, 0, 0, 0.035);
+    transition: border-color .2s, color .2s;
   }
 
-  .cta {
-    width: min(1220px, 100%);
+  .extra-button:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .package-hint {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    width: min(1200px, 100%);
+    margin: 0 auto 70px;
+    padding: 36px 39px;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    background: #f7f7f7;
+  }
+
+  .package-hint > div { max-width: 740px; }
+
+  .package-hint h2 {
+    margin: 0;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 400;
+    letter-spacing: -.04em;
+  }
+
+  .package-hint p:not(.eyebrow) {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .package-hint a {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    flex: 0 0 auto;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 800;
+  }
+
+  .extras-cta {
+    width: min(1200px, 100%);
     margin: 0 auto;
-  }
-
-  .cta > div {
-    padding: 62px 28px;
-    border-radius: 28px;
-    background: #17181d;
+    padding: 72px 28px;
+    border-radius: 19px;
+    background: var(--ink);
     color: white;
     text-align: center;
   }
 
-  .cta h2 {
+  .extras-cta .eyebrow { color: #ffb45a; }
+
+  .extras-cta h2 {
     margin: 0;
-    color: white;
-    font-size: clamp(32px, 3.5vw, 44px);
-    font-weight: 300;
-    letter-spacing: -0.045em;
+    font-size: clamp(36px, 4.3vw, 56px);
+    font-weight: 350;
+    letter-spacing: -.05em;
   }
 
-  .cta p {
-    max-width: 760px;
-    margin: 26px auto 0;
-    color: rgba(255, 255, 255, 0.68);
-    font-size: 17px;
-    line-height: 1.6;
+  .extras-cta p:not(.eyebrow) {
+    max-width: 660px;
+    margin: 19px auto 0;
+    color: rgba(255,255,255,.75);
+    font-size: 16px;
+    line-height: 1.75;
   }
 
-  .cta a {
-    margin-top: 40px;
+  .extras-cta a {
     display: inline-flex;
-    height: 50px;
-    padding: 0 38px;
-    border-radius: 7px;
-    background: #df7b00;
-    color: white;
     align-items: center;
-    gap: 18px;
-    font-size: 15px;
+    justify-content: center;
+    gap: 16px;
+    min-height: 52px;
+    margin-top: 29px;
+    padding: 13px 27px;
+    border-radius: 7px;
+    background: var(--accent);
+    color: white;
+    font-size: 14px;
     font-weight: 800;
   }
 
-  @media (max-width: 1000px) {
-    .extra-grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
+  .extras-cta a:hover { background: #965000; }
 
   @media (max-width: 900px) {
-    .drone-card {
-      grid-template-columns: 1fr;
-    }
-
-    .drone-main,
-    .drone-note {
-      padding: 42px 30px;
-    }
-
-    .drone-main p,
-    .drone-note p {
-      font-size: 16px;
-    }
-
-    .more-extras {
-      width: min(760px, 100%);
-    }
+    .drone-card { grid-template-columns: 1fr; }
+    .drone-main, .drone-note { padding: 43px 34px; }
+    .drone-detail { margin-top: 25px; }
+    .extra-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .extra-card:last-child { grid-column: 1 / -1; }
   }
 
   @media (max-width: 700px) {
-    .extra-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .more-extras {
-      width: min(520px, 100%);
-    }
+    .extra-grid { grid-template-columns: 1fr; }
+    .extra-card:last-child { grid-column: auto; }
+    .package-hint { flex-direction: column; align-items: flex-start; }
   }
 
   @media (max-width: 620px) {
-    .extras-page {
-      padding: 120px 14px 80px;
-    }
-
-    .extra-card {
-      min-height: auto;
-      padding: 30px;
-    }
+    .extras-page { padding: 120px 14px 78px; }
+    .extras-head { margin-bottom: 52px; }
+    .extras-head h1 { font-size: 44px; }
+    .extras-head > p:last-child { font-size: 15px; }
+    .drone-card { margin-bottom: 83px; border-radius: 15px; }
+    .drone-main, .drone-note { padding: 34px 26px; }
+    .drone-main p, .drone-note p { font-size: 15px; }
+    .primary-button { width: 100%; }
+    .more-extras { margin-bottom: 74px; }
+    .extra-card { padding: 29px 25px; }
+    .package-hint { padding: 28px 24px; }
+    .extras-cta { padding: 58px 22px; }
+    .extras-cta a { width: 100%; }
   }
 </style>

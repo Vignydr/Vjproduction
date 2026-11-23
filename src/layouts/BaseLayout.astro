@@ -22,7 +22,7 @@ const {
 
     <title>{title}</title>
 
-    <!-- Google Consent Mode, Google Ads und Meta Pixel -->
+    <!-- GOOGLE ADS, CONSENT MODE UND META PIXEL -->
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
 
@@ -34,13 +34,9 @@ const {
 
       function readVjCookieConsent() {
         try {
-          const rawValue = localStorage.getItem(
-            "vj-cookie-consent"
-          );
+          const rawValue = localStorage.getItem("vj-cookie-consent");
 
-          if (!rawValue) {
-            return null;
-          }
+          if (!rawValue) return null;
 
           const parsedValue = JSON.parse(rawValue);
 
@@ -57,24 +53,17 @@ const {
             "Cookie-Auswahl konnte nicht gelesen werden:",
             error
           );
-
           return null;
         }
       }
 
-      const storedCookieConsent =
-        readVjCookieConsent();
-
+      const storedCookieConsent = readVjCookieConsent();
       const hasAdvertisingConsent =
         storedCookieConsent === "accepted";
 
       const initialConsentState =
         hasAdvertisingConsent ? "granted" : "denied";
 
-      /*
-       * Der Standardzustand wird vor dem Laden des
-       * Google-Tags gesetzt.
-       */
       window.gtag("consent", "default", {
         ad_storage: initialConsentState,
         analytics_storage: initialConsentState,
@@ -84,7 +73,6 @@ const {
       });
 
       window.gtag("js", new Date());
-
       window.gtag("config", "AW-17951138748");
 
       const isProductionWebsite =
@@ -99,9 +87,7 @@ const {
 
       try {
         contactSubmissionTimestamp = Number(
-          sessionStorage.getItem(
-            "vjContactFormSubmittedAt"
-          )
+          sessionStorage.getItem("vjContactFormSubmittedAt")
         );
       } catch (error) {
         console.warn(
@@ -126,14 +112,11 @@ const {
 
       if (window.__vjValidContactSubmission) {
         window.gtag("event", "conversion", {
-          send_to:
-            "AW-17951138748/bJpgCK2RyNYcELzH4u9C",
+          send_to: "AW-17951138748/bJpgCK2RyNYcELzH4u9C",
         });
 
         try {
-          sessionStorage.removeItem(
-            "vjContactFormSubmittedAt"
-          );
+          sessionStorage.removeItem("vjContactFormSubmittedAt");
         } catch (error) {
           console.warn(
             "Formularstatus konnte nicht entfernt werden:",
@@ -146,16 +129,12 @@ const {
       window.__vjMetaLeadSent = false;
 
       window.vjLoadMetaPixel = function () {
-        if (window.__vjMetaPixelLoaded) {
-          return;
-        }
+        if (window.__vjMetaPixelLoaded) return;
 
         window.__vjMetaPixelLoaded = true;
 
         !(function (f, b, e, v, n, t, s) {
-          if (f.fbq) {
-            return;
-          }
+          if (f.fbq) return;
 
           n = f.fbq = function () {
             n.callMethod
@@ -163,9 +142,7 @@ const {
               : n.queue.push(arguments);
           };
 
-          if (!f._fbq) {
-            f._fbq = n;
-          }
+          if (!f._fbq) f._fbq = n;
 
           n.push = n;
           n.loaded = true;
@@ -197,23 +174,18 @@ const {
         }
 
         if (
-          window.location.pathname ===
-            "/danke-bewertung" ||
-          window.location.pathname ===
-            "/danke-bewertung/"
+          window.location.pathname === "/danke-bewertung" ||
+          window.location.pathname === "/danke-bewertung/"
         ) {
-          window.fbq(
-            "track",
-            "SubmitApplication"
-          );
+          window.fbq("track", "SubmitApplication");
         }
       };
 
       /*
-       * Meta wird ausschließlich geladen, wenn bereits
-       * eine gespeicherte Zustimmung vorhanden ist.
-       * Bei einer neuen Zustimmung ruft der Cookie-Banner
-       * dieselbe Funktion auf.
+       * Meta Pixel wird erst geladen, wenn die entsprechende
+       * gespeicherte Zustimmung vorhanden ist.
+       * Der CookieBanner kann vjLoadMetaPixel() nach
+       * einer neu erteilten Zustimmung aufrufen.
        */
       if (hasAdvertisingConsent) {
         window.vjLoadMetaPixel();
@@ -225,7 +197,7 @@ const {
       async
       src="https://www.googletagmanager.com/gtag/js?id=AW-17951138748"
     ></script>
-    <!-- Ende Google Consent Mode, Google Ads und Meta Pixel -->
+    <!-- ENDE TRACKING -->
   </head>
 
   <body>
@@ -239,88 +211,112 @@ const {
 
     <CookieBanner />
 
+    <!-- EINBLENDUNGEN BEIM SCROLLEN -->
     <script is:inline>
-      const revealSelectors = [
-        "main h1",
-        "main h2",
-        "main h3",
-        "main p",
-        "main .section-head",
-        "main .video-item",
-        "main .video-card",
-        "main .package-card",
-        "main .extra-card",
-        "main .review-card",
-        "main .after-card",
-        "main .portfolio-offer",
-        "main .cta",
-        "main .step-card",
-        "main .timeline-item"
-      ];
+      (() => {
+        const selectors = [
+          "main h1",
+          "main h2",
+          "main h3",
+          "main p",
+          "main .video-card",
+          "main .package-card",
+          "main .extra-card",
+          "main .review-card",
+          "main .process-step",
+          "main .timeline-item",
+        ];
 
-      const revealElements = document.querySelectorAll(
-        revealSelectors.join(",")
-      );
-
-      revealElements.forEach((element, index) => {
-        if (
-          element.closest(".hero") ||
-          element.closest("header") ||
-          element.closest("footer") ||
-          element.closest(".vj-cookie-banner") ||
-          element.classList.contains("no-reveal")
-        ) {
-          return;
-        }
-
-        element.classList.add("reveal-on-scroll");
-
-        const delay = Math.min(index % 6, 5) * 70;
-
-        element.style.setProperty(
-          "--reveal-delay",
-          `${delay}ms`
+        const elements = document.querySelectorAll(
+          selectors.join(",")
         );
-      });
 
-      const elementsToReveal = document.querySelectorAll(
-        ".reveal-on-scroll"
-      );
+        const reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)"
+        ).matches;
 
-      if ("IntersectionObserver" in window) {
-        const observer = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add("is-visible");
-                observer.unobserve(entry.target);
-              }
-            });
-          },
-          {
-            threshold: 0.14,
-            rootMargin: "0px 0px -8% 0px",
+        if (reduceMotion) return;
+
+        let index = 0;
+
+        elements.forEach((element) => {
+          if (
+            element.closest(
+              ".hero, header, footer, form, .review-modal, .vj-cookie-banner"
+            ) ||
+            element.classList.contains("no-reveal")
+          ) {
+            return;
           }
+
+          element.classList.add("reveal-on-scroll");
+
+          element.style.setProperty(
+            "--reveal-delay",
+            `${Math.min(index % 6, 5) * 70}ms`
+          );
+
+          index += 1;
+        });
+
+        const revealElements = document.querySelectorAll(
+          ".reveal-on-scroll"
         );
 
-        elementsToReveal.forEach((element) => {
-          observer.observe(element);
-        });
-      } else {
-        elementsToReveal.forEach((element) => {
-          element.classList.add("is-visible");
-        });
-      }
+        if ("IntersectionObserver" in window) {
+          const observer = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  observer.unobserve(entry.target);
+                }
+              });
+            },
+            {
+              threshold: 0.12,
+              rootMargin: "0px 0px -7% 0px",
+            }
+          );
+
+          revealElements.forEach((element) => {
+            observer.observe(element);
+          });
+        } else {
+          revealElements.forEach((element) => {
+            element.classList.add("is-visible");
+          });
+        }
+      })();
     </script>
   </body>
 </html>
 
 <style is:global>
-  /* ============================= */
-  /* VJ Production Global Reset */
-  /* ============================= */
+  :root {
+    --vj-accent: #b46300;
+    --vj-accent-hover: #965000;
+    --vj-accent-on-dark: #ffb45a;
+    --vj-accent-soft: #fff7ee;
 
-  * {
+    --vj-ink: #17181d;
+    --vj-muted: #696b73;
+    --vj-surface: #f7f7f7;
+    --vj-border: #e3e3e6;
+
+    --font-main:
+      Inter,
+      ui-sans-serif,
+      system-ui,
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      sans-serif;
+  }
+
+  *,
+  *::before,
+  *::after {
     box-sizing: border-box;
   }
 
@@ -330,16 +326,9 @@ const {
 
   body {
     margin: 0;
-    font-family:
-      Inter,
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif;
-    background: #ffffff;
+    background: white;
     color: var(--vj-ink);
+    font-family: var(--font-main);
     font-size: 16px;
     line-height: 1.5;
     text-rendering: geometricPrecision;
@@ -354,8 +343,8 @@ const {
 
   button,
   input,
-  textarea,
-  select {
+  select,
+  textarea {
     font-family: inherit;
   }
 
@@ -369,311 +358,51 @@ const {
     max-width: 100%;
   }
 
-  main {
+  main#pageContent {
     min-height: 60vh;
   }
 
-  /* ============================= */
-  /* VJ Production Typografie-System */
-  /* Schriftgrößen, Rhythmus und gemeinsame Markenfarben */
-  /* ============================= */
-
-  :root {
-    /* Einheitliche Designfarben von VJ Production */
-    --vj-accent: #b46300;
-    --vj-accent-hover: #965000;
-    --vj-accent-on-dark: #ffb45a;
-    --vj-accent-soft: #fff7ee;
-    --vj-ink: #17181d;
-    --vj-muted: #696b73;
-    --vj-surface: #f7f7f7;
-    --vj-border: #e3e3e6;
-
-    --font-main:
-      Inter,
-      ui-sans-serif,
-      system-ui,
-      -apple-system,
-      BlinkMacSystemFont,
-      "Segoe UI",
-      sans-serif;
-
-    /* Kleine Texte */
-    --vj-text-xs: 12px;
-    --vj-text-sm: 14px;
-    --vj-text-base: 16px;
-    --vj-text-md: 17px;
-    --vj-text-lg: 18px;
-    --vj-text-xl: 20px;
-    --vj-text-2xl: 24px;
-    --vj-text-3xl: 30px;
-
-    /* Titel */
-    --vj-title-card: clamp(20px, 1.7vw, 24px);
-    --vj-title-section: clamp(34px, 4.2vw, 56px);
-    --vj-title-page: clamp(42px, 5.6vw, 76px);
-    --vj-title-hero: clamp(42px, 5.4vw, 72px);
-
-    /* Zeilenhöhen */
-    --vj-leading-tight: 1.05;
-    --vj-leading-title: 1.08;
-    --vj-leading-normal: 1.6;
-    --vj-leading-relaxed: 1.72;
-
-    /* Standard-Abstände für Textblöcke */
-    --vj-section-space: 96px;
-    --vj-section-space-sm: 72px;
-  }
-
-  /*
-   * Seiten, deren Farben bereits über --accent
-   * gesteuert werden, erhalten die neue Markenfarbe.
-   */
-  .home-page,
-  .portfolio-page,
-  .kontakt-page {
-    --accent: var(--vj-accent) !important;
-  }
-
-  /* Tastaturbedienung und Textmarkierung */
   :focus-visible {
-    outline-color: var(--vj-accent);
+    outline: 3px solid var(--vj-accent);
+    outline-offset: 3px;
   }
 
   ::selection {
-    color: #fff;
+    color: white;
     background: var(--vj-accent);
   }
 
-  /* Auf dunklen Flächen bleibt die Akzentschrift hell. */
-  .home-page .about-copy .eyebrow,
-  .home-page .closing-section .eyebrow,
-  .portfolio-page .contact-section .eyebrow {
-    color: var(--vj-accent-on-dark) !important;
+  /* GEMEINSAME FARBE FÜR ALLE NEUEN SEITEN */
+  .home-page,
+  .portfolio-page,
+  .prices-page,
+  .kontakt-page,
+  .extras-page,
+  .about-page,
+  .reviews-page {
+    --accent: var(--vj-accent);
   }
 
-  /* Einheitliche CTA-Farbe auf bekannten Seitentypen */
-  .portfolio-page .contact-button,
-  .kontakt-page .submit-button {
-    background-color: var(--vj-accent) !important;
-  }
+  /*
+   * Die einzelnen Seiten steuern ihre eigene Schriftgröße.
+   * Es gibt bewusst keine globalen !important-Regeln
+   * für h1, h2, p, Labels oder Karten.
+   */
 
-  .portfolio-page .contact-button:hover,
-  .kontakt-page .submit-button:hover {
-    background-color: var(--vj-accent-hover) !important;
-  }
-
-  /* Kleine Labels */
-  .kicker,
-  .section-kicker,
-  .section-head p,
-  .portfolio-head p,
-  .prices-head p,
-  .extras-head p,
-  .reviews-head > p,
-  .kontakt-head p,
-  .late-hero .kicker,
-  .hero-text p,
-  .modal-kicker {
-    font-size: var(--vj-text-xs) !important;
-    line-height: 1.2;
-  }
-
-  /* Große Seitentitel */
-  .page-title,
-  .portfolio-head h1,
-  .prices-head h1,
-  .extras-head h1,
-  .kontakt-head h1,
-  .late-hero h1,
-  .hero-text h1,
-  .reviews-head h1,
-  .modal-panel h2 {
-    font-size: var(--vj-title-page) !important;
-    line-height: var(--vj-leading-title);
-  }
-
-  /* Große Abschnittstitel */
-  .section-title,
-  .section-head h2,
-  .process > h2,
-  .packages > h2,
-  .extras > h2,
-  .faq-section > h2,
-  .more-extras > h2,
-  .story h2,
-  .why h2,
-  .cta h2 {
-    font-size: var(--vj-title-section) !important;
-    line-height: var(--vj-leading-title);
-  }
-
-  /* Kartentitel */
-  .card-title,
-  .video-text h2,
-  .video-item h2,
-  .extra-card h3,
-  .package-card h2,
-  .package-card h3,
-  .late-card h2,
-  .late-video-card h2,
-  .benefit-card h2,
-  .review-author strong,
-  .reason-item h3 {
-    font-size: var(--vj-title-card);
-    line-height: 1.18;
-  }
-
-  /* Normale Texte */
-  .intro p,
-  .video-text p,
-  .video-item p,
-  .package-card li,
-  .extra-card p,
-  .late-card p,
-  .late-video-card p,
-  .notes-box p,
-  .benefit-card p,
-  .reason-item p,
-  .modal-subtitle,
-  .offer-details,
-  .discount-box p {
-    font-size: var(--vj-text-base);
-    line-height: var(--vj-leading-normal);
-  }
-
-  /* Größere Lesetexte */
-  .hero-text span,
-  .late-hero .hero-text,
-  .important-box p,
-  .process-item p,
-  .story p {
-    font-size: clamp(17px, 1.55vw, 21px) !important;
-    line-height: var(--vj-leading-relaxed);
-  }
-
-  /* Bewertungen */
-  .review-text,
-  .review-card > p {
-    font-size: clamp(17px, 1.45vw, 21px) !important;
-    line-height: 1.65 !important;
-    letter-spacing: -0.015em !important;
-  }
-
-  .review-author span,
-  .package-subtitle,
-  .subtitle,
-  .prices-head span,
-  .prices-head small,
-  .extras-head span,
-  .kontakt-head span {
-    font-size: var(--vj-text-base) !important;
-    line-height: var(--vj-leading-normal);
-  }
-
-  /* FAQ */
-  summary {
-    font-size: var(--vj-text-lg) !important;
-    line-height: 1.35;
-  }
-
-  details p {
-    font-size: var(--vj-text-base) !important;
-    line-height: var(--vj-leading-relaxed);
-  }
-
-  /* Formulare */
-  legend,
-  label > span {
-    font-size: var(--vj-text-md);
-    line-height: 1.35;
-  }
-
-  input,
-  select,
-  textarea {
-    font-size: var(--vj-text-base);
-  }
-
-  .option-card,
-  .check-card,
-  .contact-way label {
-    font-size: var(--vj-text-lg);
-    line-height: 1.35;
-  }
-
-  .consent,
-  .consent span {
-    font-size: var(--vj-text-base);
-    line-height: var(--vj-leading-normal);
-  }
-
-  /* Buttons */
-  button,
-  .primary-button,
-  .secondary-button,
-  .cta a,
-  .package-card a,
-  .package-button,
-  .submit-button,
-  .submit-review,
-  .details-button,
-  .late-card a,
-  .late-video-card a,
-  .offer-toggle {
-    font-size: var(--vj-text-base);
-    line-height: 1.2;
-  }
-
-  /* Navigation */
-  .nav-link,
-  .vj-nav-link,
-  .desktop-nav a,
-  header nav a {
-    font-size: var(--vj-text-sm);
-  }
-
-  .mobile-link,
-  .vj-mobile-link {
-    font-size: var(--vj-text-lg);
-  }
-
-  /* Footer */
-  .vj-footer-brand p,
-  .vj-footer-column a,
-  .vj-contact-links a {
-    font-size: var(--vj-text-base) !important;
-    line-height: 1.55;
-  }
-
-  .vj-footer-column h3 {
-    font-size: var(--vj-text-base) !important;
-  }
-
-  .vj-copyright {
-    font-size: var(--vj-text-sm) !important;
-  }
-
-  /* Cookie-Banner wird nicht animiert */
-  .vj-cookie-banner,
-  .vj-cookie-banner * {
-    animation: none !important;
-  }
-
+  /* COOKIE-BANNER NICHT MIT SCROLL-ANIMATION VERSEHEN */
   .vj-cookie-banner {
     opacity: 1 !important;
     transform: none !important;
   }
 
-  /* Scroll-Animation */
+  /* SCROLL-ANIMATION */
   .reveal-on-scroll {
     opacity: 0;
-    transform: translateY(34px);
+    transform: translateY(28px);
     transition:
-      opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-      transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
+      opacity .8s cubic-bezier(.22, 1, .36, 1),
+      transform .8s cubic-bezier(.22, 1, .36, 1);
     transition-delay: var(--reveal-delay, 0ms);
-    will-change: opacity, transform;
   }
 
   .reveal-on-scroll.is-visible {
@@ -681,28 +410,7 @@ const {
     transform: none;
   }
 
-  .scroll-mouse,
-  .mouse-scroll,
-  .mouse-indicator,
-  .scroll-indicator {
-    animation: mouseFloat 1.65s ease-in-out infinite;
-    will-change: transform;
-  }
-
-  @keyframes mouseFloat {
-    0% {
-      transform: translateY(0);
-    }
-
-    50% {
-      transform: translateY(12px);
-    }
-
-    100% {
-      transform: translateY(0);
-    }
-  }
-
+  /* BEWEGUNGSREDUKTION */
   @media (prefers-reduced-motion: reduce) {
     html {
       scroll-behavior: auto;
@@ -712,40 +420,6 @@ const {
       opacity: 1 !important;
       transform: none !important;
       transition: none !important;
-    }
-
-    .scroll-mouse,
-    .mouse-scroll,
-    .mouse-indicator,
-    .scroll-indicator {
-      animation: none !important;
-    }
-  }
-
-  @media (max-width: 700px) {
-    :root {
-      --vj-title-section: clamp(32px, 9vw, 46px);
-      --vj-title-page: clamp(38px, 11vw, 56px);
-      --vj-title-hero: clamp(38px, 10vw, 58px);
-    }
-
-    .review-text,
-    .review-card > p {
-      font-size: 17px !important;
-    }
-
-    .hero-text span,
-    .late-hero .hero-text,
-    .important-box p,
-    .process-item p,
-    .story p {
-      font-size: 17px !important;
-    }
-
-    .option-card,
-    .check-card,
-    .contact-way label {
-      font-size: var(--vj-text-base) !important;
     }
   }
 </style>

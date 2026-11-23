@@ -2,19 +2,11 @@
 ---
 const year = new Date().getFullYear();
 
-const services = [
-  { label: "Portfolio", href: "/portfolio" },
-  { label: "Pakete & Preise", href: "/pakete" },
-  { label: "Verlobung", href: "/verlobung" },
-  {
-    label: "Nachträgliches Hochzeitsvideo",
-    href: "/nachtraegliches-hochzeitsvideo",
-  },
-  { label: "Zusatzleistungen", href: "/zusatzleistungen" },
-];
-
 const navigation = [
   { label: "Home", href: "/" },
+  { label: "Portfolio", href: "/portfolio" },
+  { label: "Pakete & Preise", href: "/pakete" },
+  { label: "Zusatzleistungen", href: "/zusatzleistungen" },
   { label: "Über mich", href: "/ueber-mich" },
   { label: "Bewertungen", href: "/bewertungen" },
   { label: "Kontakt", href: "/kontakt" },
@@ -30,23 +22,10 @@ const legal = [
 
 <footer class="vj-footer">
   <div class="vj-footer-inner">
-
     <div class="vj-footer-grid">
-
-      <!-- MARKE -->
       <div class="vj-footer-brand">
-        <a
-          href="/"
-          class="vj-footer-logo"
-          aria-label="VJ Production Startseite"
-        >
-          <img
-            src="/images/vj-logo-white.png"
-            alt="VJ Production"
-            width="118"
-            height="80"
-            loading="lazy"
-          />
+        <a href="/" class="vj-footer-logo" aria-label="VJ Production Startseite">
+          <img src="/images/vj-logo-white.png" alt="VJ Production" width="118" height="80" loading="lazy" />
         </a>
 
         <p class="vj-footer-slogan">
@@ -59,85 +38,39 @@ const legal = [
           In NRW und deutschlandweit.
         </p>
 
-        <a
-          class="vj-footer-button"
-          href="/kontakt"
-        >
-          Hochzeit anfragen
-          <span aria-hidden="true">↗</span>
+        <a class="vj-footer-button" href="/kontakt">
+          Hochzeit anfragen <span aria-hidden="true">↗</span>
         </a>
       </div>
 
-      <!-- LEISTUNGEN -->
       <div class="vj-footer-column">
-        <h3>Leistungen</h3>
-
-        <nav aria-label="Unsere Leistungen">
-          {services.map((item) => (
-            <a href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </div>
-
-      <!-- NAVIGATION -->
-      <div class="vj-footer-column">
-        <h3>VJ Production</h3>
-
-        <nav aria-label="Weitere Seiten">
+        <h3>Entdecken</h3>
+        <nav aria-label="Footernavigation">
           {navigation.map((item) => (
-            <a href={item.href}>
-              {item.label}
-            </a>
+            <a href={item.href}>{item.label}</a>
           ))}
         </nav>
       </div>
 
-      <!-- KONTAKT -->
       <div class="vj-footer-column">
         <h3>Kontakt</h3>
-
         <div class="vj-contact-links">
-
-          <a
-            href="mailto:info@vjproduction.de"
-            aria-label="E-Mail an VJ Production schreiben"
-          >
-            <span
-              class="vj-contact-icon"
-              aria-hidden="true"
-            >
+          <a href="mailto:info@vjproduction.de">
+            <span class="vj-contact-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none">
-                <rect
-                  x="3.5"
-                  y="5.5"
-                  width="17"
-                  height="13"
-                  rx="2"
-                />
-                <path d="M4.5 7.5 12 13l7.5-5.5" />
+                <rect x="3.5" y="5.5" width="17" height="13" rx="2"></rect>
+                <path d="M4.5 7.5 12 13l7.5-5.5"></path>
               </svg>
             </span>
-
             <span>info@vjproduction.de</span>
           </a>
 
-          <a
-            href="tel:+4915561237671"
-            aria-label="VJ Production anrufen"
-          >
-            <span
-              class="vj-contact-icon"
-              aria-hidden="true"
-            >
+          <a href="tel:+4915561237671">
+            <span class="vj-contact-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none">
-                <path
-                  d="M7.4 4.5 9.8 9c.3.6.2 1.3-.3 1.8l-1.2 1.2a13.5 13.5 0 0 0 5.7 5.7l1.2-1.2c.5-.5 1.2-.6 1.8-.3l4.5 2.4c.7.4 1 1.2.7 1.9-.4 1-1.3 2.3-3 2.3C10.1 22.8 1.2 13.9 1.2 4.8c0-1.7 1.3-2.6 2.3-3 .7-.3 1.5 0 1.9.7Z"
-                />
+                <path d="M7.4 4.5 9.8 9c.3.6.2 1.3-.3 1.8l-1.2 1.2a13.5 13.5 0 0 0 5.7 5.7l1.2-1.2c.5-.5 1.2-.6 1.8-.3l4.5 2.4c.7.4 1 1.2.7 1.9-.4 1-1.3 2.3-3 2.3C10.1 22.8 1.2 13.9 1.2 4.8c0-1.7 1.3-2.6 2.3-3 .7-.3 1.5 0 1.9.7Z"></path>
               </svg>
             </span>
-
             <span>+49 1556 1237671</span>
           </a>
 
@@ -145,102 +78,58 @@ const legal = [
             href="https://www.instagram.com/v.j.production?igsh=MXh2MXIzeWJhc3U4bQ%3D%3D&utm_source=qr"
             target="_blank"
             rel="noopener noreferrer"
-            aria-label="Instagram von VJ Production öffnen"
           >
-            <span
-              class="vj-contact-icon"
-              aria-hidden="true"
-            >
+            <span class="vj-contact-icon" aria-hidden="true">
               <svg viewBox="0 0 24 24" fill="none">
-                <rect
-                  x="3.5"
-                  y="3.5"
-                  width="17"
-                  height="17"
-                  rx="5"
-                />
-                <circle
-                  cx="12"
-                  cy="12"
-                  r="4"
-                />
-                <circle
-                  cx="17.2"
-                  cy="6.8"
-                  r="1.1"
-                />
+                <rect x="3.5" y="3.5" width="17" height="17" rx="5"></rect>
+                <circle cx="12" cy="12" r="4"></circle>
+                <circle cx="17.2" cy="6.8" r="1.1"></circle>
               </svg>
             </span>
-
             <span>Instagram</span>
           </a>
-
         </div>
       </div>
-
     </div>
 
-    <!-- UNTERE FOOTERLEISTE -->
     <div class="vj-footer-bottom">
-
       <p class="vj-copyright">
         © {year} VJ Production. Alle Rechte vorbehalten.
       </p>
 
-      <nav
-        class="vj-legal-links"
-        aria-label="Rechtliche Informationen"
-      >
+      <nav class="vj-legal-links" aria-label="Rechtliche Informationen">
         {legal.map((item) => (
-          <a href={item.href}>
-            {item.label}
-          </a>
+          <a href={item.href}>{item.label}</a>
         ))}
       </nav>
-
     </div>
-
   </div>
 </footer>
 
 <style>
   .vj-footer {
-    --footer-accent: #ffb45a;
-
     background: #17181d;
-    color: #fff;
-
-    padding: 90px 24px 36px;
+    color: white;
+    padding: 83px 24px 34px;
   }
 
   .vj-footer-inner {
-    width: min(1240px, 100%);
-    margin: 0 auto;
+    width: min(1200px, 100%);
+    margin: auto;
   }
 
-  /* FOOTER SPALTEN */
   .vj-footer-grid {
     display: grid;
-    grid-template-columns:
-      minmax(0, 1.4fr)
-      minmax(0, 1fr)
-      minmax(0, 0.8fr)
-      minmax(0, 1.25fr);
-
-    gap: clamp(28px, 4vw, 72px);
+    grid-template-columns: 1.2fr 1fr 1fr;
     align-items: start;
+    gap: clamp(36px, 6vw, 100px);
   }
 
-  /* MARKE */
   .vj-footer-logo {
     display: inline-flex;
-    align-items: center;
-    justify-content: flex-start;
-
     width: 118px;
     height: 80px;
-
-    margin-bottom: 23px;
+    margin-bottom: 20px;
   }
 
   .vj-footer-logo img {
@@ -250,22 +139,19 @@ const legal = [
     object-fit: contain;
   }
 
-  .vj-footer-brand p {
-    margin: 0;
-    line-height: 1.7;
-  }
+  .vj-footer-brand p { margin: 0; }
 
   .vj-footer-brand .vj-footer-slogan {
-    color: rgba(255, 255, 255, 0.86);
+    color: rgba(255,255,255,.86);
     font-size: 15px !important;
-    font-weight: 500;
+    line-height: 1.65;
   }
 
   .vj-footer-brand .vj-footer-location {
-    margin-top: 20px;
-    color: rgba(255, 255, 255, 0.55);
+    margin-top: 21px;
+    color: rgba(255,255,255,.56);
     font-size: 14px !important;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
   .vj-footer-button {
@@ -273,76 +159,58 @@ const legal = [
     align-items: center;
     justify-content: center;
     gap: 14px;
-
-    margin-top: 27px;
     min-height: 44px;
-    padding: 11px 17px;
-
-    border: 1px solid rgba(255, 180, 90, 0.5);
+    margin-top: 26px;
+    padding: 11px 18px;
+    border: 1px solid rgba(255,180,90,.55);
     border-radius: 7px;
-
-    background: rgba(180, 99, 0, 0.12);
     color: #ffbd71;
-
+    background: rgba(180,99,0,.12);
     font-size: 13px;
-    font-weight: 750;
+    font-weight: 800;
     text-decoration: none;
-
-    transition:
-      border-color 0.2s ease,
-      background 0.2s ease;
+    transition: background .2s;
   }
 
   .vj-footer-button:hover {
-    border-color: #ffbd71;
-    background: rgba(180, 99, 0, 0.23);
+    background: rgba(180,99,0,.26);
   }
 
-  /* SPALTENTITEL */
   .vj-footer-column h3 {
-    margin: 16px 0 27px;
-
+    margin: 16px 0 26px;
     color: #ffb45a;
-
     font-size: 12px !important;
     font-weight: 800;
-    line-height: 1.4;
-    letter-spacing: 0.15em;
+    letter-spacing: .15em;
     text-transform: uppercase;
   }
 
-  /* LINKS */
   .vj-footer-column nav,
   .vj-contact-links {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 17px;
+    gap: 15px;
   }
 
-  .vj-footer .vj-footer-column a,
-  .vj-footer .vj-contact-links a {
-    color: rgba(255, 255, 255, 0.65);
-
+  .vj-footer-column a,
+  .vj-contact-links a {
+    color: rgba(255,255,255,.69);
     font-size: 14px !important;
-    font-weight: 450;
     line-height: 1.6;
     text-decoration: none;
-
-    transition: color 0.2s ease;
+    transition: color .2s;
   }
 
-  .vj-footer .vj-footer-column a:hover,
-  .vj-footer .vj-contact-links a:hover {
+  .vj-footer-column a:hover,
+  .vj-contact-links a:hover {
     color: #ffb45a;
   }
 
-  /* KONTAKT */
   .vj-contact-links a {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 12px;
-    min-width: 0;
   }
 
   .vj-contact-links a span:last-child {
@@ -350,18 +218,14 @@ const legal = [
   }
 
   .vj-contact-icon {
+    display: inline-flex;
+    flex: 0 0 21px;
     width: 21px;
     height: 21px;
-    flex: 0 0 21px;
-
-    display: inline-grid;
-    place-items: center;
-
     color: #ffb45a;
   }
 
   .vj-contact-icon svg {
-    display: block;
     width: 21px;
     height: 21px;
   }
@@ -376,116 +240,61 @@ const legal = [
     stroke-linejoin: round;
   }
 
-  /* UNTERER BEREICH */
   .vj-footer-bottom {
     display: flex;
-    align-items: center;
     justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
     gap: 24px;
-
-    margin-top: 76px;
+    margin-top: 70px;
     padding-top: 29px;
-
-    border-top: 1px solid rgba(255, 255, 255, 0.13);
+    border-top: 1px solid rgba(255,255,255,.13);
   }
 
   .vj-footer .vj-copyright {
     margin: 0;
-
-    color: rgba(255, 255, 255, 0.43);
+    color: rgba(255,255,255,.48);
     font-size: 12px !important;
-    line-height: 1.5;
   }
 
   .vj-legal-links {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
     flex-wrap: wrap;
-    gap: 12px 24px;
+    gap: 13px 23px;
   }
 
   .vj-legal-links a {
-    color: rgba(255, 255, 255, 0.54);
-
+    color: rgba(255,255,255,.62);
     font-size: 12px;
-    line-height: 1.5;
     text-decoration: none;
-
-    transition: color 0.2s ease;
   }
 
-  .vj-legal-links a:hover {
-    color: #ffb45a;
-  }
+  .vj-legal-links a:hover { color: #ffb45a; }
 
-  /* TABLETS */
-  @media (max-width: 1000px) {
-    .vj-footer {
-      padding-top: 73px;
-    }
-
+  @media (max-width: 850px) {
     .vj-footer-grid {
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 50px 40px;
+      gap: 48px;
     }
 
-    .vj-footer-column h3 {
-      margin-top: 7px;
-    }
+    .vj-footer-brand { grid-column: 1 / -1; }
   }
 
-  /* HANDY */
-  @media (max-width: 620px) {
-    .vj-footer {
-      padding: 62px 20px 31px;
-    }
+  @media (max-width: 600px) {
+    .vj-footer { padding: 60px 20px 30px; }
 
     .vj-footer-grid {
       grid-template-columns: 1fr;
       gap: 38px;
     }
 
-    .vj-footer-logo {
-      width: 108px;
-      height: 72px;
-      margin-bottom: 19px;
-    }
-
-    .vj-footer-column h3 {
-      margin: 0 0 20px;
-    }
-
-    .vj-footer-column nav,
-    .vj-contact-links {
-      gap: 13px;
-    }
+    .vj-footer-brand { grid-column: auto; }
+    .vj-footer-column h3 { margin: 0 0 19px; }
 
     .vj-footer-bottom {
       flex-direction: column-reverse;
       align-items: flex-start;
-      gap: 26px;
-
-      margin-top: 55px;
-      padding-top: 28px;
-    }
-
-    .vj-legal-links {
-      justify-content: flex-start;
-      gap: 14px 22px;
-    }
-
-    .vj-footer .vj-copyright {
-      font-size: 12px !important;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .vj-footer-button,
-    .vj-footer-column a,
-    .vj-contact-links a,
-    .vj-legal-links a {
-      transition: none;
+      margin-top: 52px;
     }
   }
 </style>

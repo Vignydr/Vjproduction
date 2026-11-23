@@ -85,20 +85,20 @@ const selectedReviews = [
   {
     name: "Phelina & Mert",
     place: "Dortmund",
-    text: "Wir sind unendlich dankbar, dass Vigny unseren großen Tag so wunderschön und emotional festgehalten hat! Die Videos sind einfach traumhaft geworden und wir könnten nicht glücklicher damit sein.",
     image: "/images/Phelina & Mert .jpg",
+    text: "Wir sind unendlich dankbar, dass Vigny unseren großen Tag so wunderschön und emotional festgehalten hat! Die Videos sind einfach traumhaft geworden und wir könnten nicht glücklicher damit sein.",
   },
   {
     name: "Melisa & Adis",
     place: "Herne",
-    text: "Vigny, wir möchten uns von Herzen bei dir bedanken, dass du unsere Hochzeit vom Anfang bis zum Ende begleitet hast. Deine ruhige, professionelle und sympathische Art hat uns sofort ein gutes Gefühl gegeben.",
     image: "/images/melisa-adis.webp",
+    text: "Vigny, wir möchten uns von Herzen bei dir bedanken, dass du unsere Hochzeit vom Anfang bis zum Ende begleitet hast. Deine ruhige, professionelle und sympathische Art hat uns sofort ein gutes Gefühl gegeben.",
   },
   {
     name: "Thahn & Pascal",
     place: "Heinsberg-Dremmen",
-    text: "Auf Vigny sind wir durch eine Instagram-Werbung aufmerksam geworden. Besonders die Übersicht, die transparente Preisgestaltung und seine Arbeiten haben bei uns einen positiven ersten Eindruck hinterlassen.",
     image: "",
+    text: "Auf Vigny sind wir durch eine Instagram-Werbung aufmerksam geworden. Besonders die Übersicht, die transparente Preisgestaltung und seine Arbeiten haben bei uns einen positiven ersten Eindruck hinterlassen.",
   },
 ];
 
@@ -125,9 +125,9 @@ const extras = [
   title="Hochzeitsvideograf Witten & NRW | VJ Production"
   description="VJ Production – Hochzeitsvideograf aus Witten für NRW und deutschlandweit. Persönliche Hochzeitsfilme, transparente Pakete und echte Kundenstimmen entdecken."
 >
-  <main class="home-page">
+  <div class="home-page">
 
-    <!-- HERO -->
+    <!-- STARTSEITENVIDEO -->
     <section class="hero" aria-labelledby="hero-title">
       <div class="hero-media" aria-hidden="true">
         <video
@@ -141,10 +141,7 @@ const extras = [
           preload="auto"
           poster="/images/hero-poster.jpg"
         >
-          <source
-            src="/videos/Stef%20und%20Jana.mp4"
-            type="video/mp4"
-          />
+          <source src="/videos/Stef%20und%20Jana.mp4" type="video/mp4" />
         </video>
       </div>
 
@@ -152,7 +149,7 @@ const extras = [
 
       <div class="hero-content">
         <p class="hero-kicker">
-          Hochzeitsvideograf aus Witten · NRW & deutschlandweit
+          Hochzeitsvideograf aus Witten · NRW &amp; deutschlandweit
         </p>
 
         <h1 id="hero-title">
@@ -167,37 +164,27 @@ const extras = [
 
         <div class="hero-actions">
           <a class="button button-primary" href="/portfolio">
-            Meine Filme ansehen
-            <span aria-hidden="true">→</span>
+            Meine Filme ansehen <span aria-hidden="true">→</span>
           </a>
 
           <a class="button button-outline" href="/kontakt">
-            Verfügbarkeit anfragen
-            <span aria-hidden="true">↗</span>
+            Verfügbarkeit anfragen <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
 
-      <a
-        class="scroll-cue"
-        href="#hochzeitsfilm"
-        aria-label="Zum Hochzeitsfilm scrollen"
-      >
+      <a class="scroll-cue" href="#hochzeitsfilm" aria-label="Zum Hochzeitsfilm scrollen">
         <span></span>
       </a>
     </section>
 
-    <!-- VORTEILE -->
-    <div
-      class="value-strip"
-      aria-label="Vorteile von VJ Production"
-    >
+    <div class="value-strip" aria-label="Vorteile von VJ Production">
       <span>Persönliche Begleitung</span>
       <span>Individuell geschnittene Filme</span>
       <span>Private Online-Galerie</span>
     </div>
 
-    <!-- HOCHZEITSFILM -->
+    <!-- AUSGEWÄHLTER FILM -->
     <section
       class="featured-story section-wrap"
       id="hochzeitsfilm"
@@ -205,12 +192,10 @@ const extras = [
     >
       <div class="section-heading">
         <p class="eyebrow">Ein Einblick in meine Arbeit</p>
-
         <h2 id="film-title">
           Nicht nur Erinnerungen.<br />
           Ein Gefühl, das bleibt.
         </h2>
-
         <p>
           Schaut selbst, wie sich ein Hochzeitstag
           in bewegten Bildern erzählen lässt.
@@ -233,19 +218,14 @@ const extras = [
           <p class="eyebrow">{featuredFilm.type}</p>
           <h3>{featuredFilm.couple}</h3>
         </div>
-
         <a class="text-link" href="/portfolio">
-          Alle Hochzeitsfilme ansehen
-          <span aria-hidden="true">→</span>
+          Alle Hochzeitsfilme ansehen <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
 
     <!-- ÜBER MICH -->
-    <section
-      class="about-section section-wrap"
-      aria-labelledby="about-title"
-    >
+    <section class="about-section section-wrap" aria-labelledby="about-title">
       <div class="about-photo">
         <img
           src="/images/Vigny.png"
@@ -256,13 +236,8 @@ const extras = [
       </div>
 
       <div class="about-copy">
-        <p class="eyebrow">
-          Der Mensch hinter der Kamera
-        </p>
-
-        <h2 id="about-title">
-          Hallo, ich bin Vigny.
-        </h2>
+        <p class="eyebrow">Der Mensch hinter der Kamera</p>
+        <h2 id="about-title">Hallo, ich bin Vigny.</h2>
 
         <p>
           Ich begleite Hochzeiten ruhig und unaufdringlich,
@@ -278,48 +253,32 @@ const extras = [
         </p>
 
         <a class="text-link text-link-light" href="/ueber-mich">
-          Mehr über mich
-          <span aria-hidden="true">→</span>
+          Mehr über mich <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
 
     <!-- REGIONALE SICHTBARKEIT -->
-    <section
-      class="location-section section-wrap"
-      aria-labelledby="location-title"
-    >
-      <p class="eyebrow">
-        In NRW zu Hause · Deutschlandweit unterwegs
-      </p>
-
+    <section class="location-section section-wrap" aria-labelledby="location-title">
+      <p class="eyebrow">In NRW zu Hause · Deutschlandweit unterwegs</p>
       <h2 id="location-title">
         Hochzeitsvideograf in Witten und Nordrhein-Westfalen
       </h2>
-
       <p>
         Von Witten aus begleite ich Hochzeiten in Dortmund,
-        Bochum, Essen, Hagen und ganz NRW – auf Wunsch
-        auch deutschlandweit. Ob standesamtliche Trauung,
-        große Hochzeitsfeier oder nachträgliches Hochzeitsvideo:
-        Im Mittelpunkt stehen eure Geschichte und die echten
-        Momente des Tages.
+        Bochum, Essen, Hagen und ganz NRW – auf Wunsch auch
+        deutschlandweit. Ob standesamtliche Trauung oder große
+        Hochzeitsfeier: Im Mittelpunkt stehen eure Geschichte
+        und die echten Momente des Tages.
       </p>
     </section>
 
-    <!-- BEWERTUNGEN -->
-    <section
-      class="reviews-section"
-      aria-labelledby="reviews-title"
-    >
+    <!-- KUNDENBEWERTUNGEN -->
+    <section class="reviews-section" aria-labelledby="reviews-title">
       <div class="section-wrap">
         <div class="section-heading">
           <p class="eyebrow">Erfahrungen</p>
-
-          <h2 id="reviews-title">
-            Worte, die mehr sagen.
-          </h2>
-
+          <h2 id="reviews-title">Worte, die mehr sagen.</h2>
           <p>
             Was Paare über die gemeinsame Zeit
             und ihre Filme erzählen.
@@ -329,16 +288,11 @@ const extras = [
         <div class="reviews-grid">
           {selectedReviews.map((review) => (
             <article class="review-card">
-              <div
-                class="review-stars"
-                aria-label="5 von 5 Sternen"
-              >
+              <div class="review-stars" aria-label="5 von 5 Sternen">
                 ★★★★★
               </div>
 
-              <blockquote>
-                „{review.text}“
-              </blockquote>
+              <blockquote>„{review.text}“</blockquote>
 
               <div class="review-person">
                 {review.image ? (
@@ -349,14 +303,10 @@ const extras = [
                     decoding="async"
                   />
                 ) : (
-                  <span
-                    class="review-initials"
-                    aria-hidden="true"
-                  >
+                  <span class="review-initials" aria-hidden="true">
                     T &amp; P
                   </span>
                 )}
-
                 <div>
                   <strong>{review.name}</strong>
                   <span>{review.place}</span>
@@ -366,30 +316,19 @@ const extras = [
           ))}
         </div>
 
-        <a
-          class="text-link reviews-link"
-          href="/bewertungen"
-        >
-          Alle Kundenbewertungen lesen
-          <span aria-hidden="true">→</span>
+        <a class="text-link reviews-link" href="/bewertungen">
+          Alle Kundenbewertungen lesen <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
 
     <!-- ABLAUF -->
-    <section
-      class="process-section section-wrap"
-      aria-labelledby="process-title"
-    >
+    <section class="process-section section-wrap" aria-labelledby="process-title">
       <div class="section-heading">
-        <p class="eyebrow">
-          Von der Anfrage bis zum fertigen Film
-        </p>
-
+        <p class="eyebrow">Von der Anfrage bis zum fertigen Film</p>
         <h2 id="process-title">
           Ganz entspannt zu eurem Hochzeitsfilm.
         </h2>
-
         <p>
           Damit ihr wisst, was euch erwartet –
           und euren Tag genießen könnt.
@@ -408,19 +347,13 @@ const extras = [
     </section>
 
     <!-- PAKETE -->
-    <section
-      class="packages-section"
-      id="pakete"
-      aria-labelledby="packages-title"
-    >
+    <section class="packages-section" id="pakete" aria-labelledby="packages-title">
       <div class="section-wrap">
         <div class="section-heading">
-          <p class="eyebrow">Pakete & Preise</p>
-
+          <p class="eyebrow">Pakete &amp; Preise</p>
           <h2 id="packages-title">
             So individuell wie eure Hochzeit.
           </h2>
-
           <p>
             Klare Leistungen und transparente Preise –
             ohne Rätselraten.
@@ -429,25 +362,13 @@ const extras = [
 
         <div class="packages-grid">
           {packages.map((item) => (
-            <article
-              class={
-                item.popular
-                  ? "package-card is-popular"
-                  : "package-card"
-              }
-            >
+            <article class:list={["package-card", { "is-popular": item.popular }]}>
               {item.popular && (
-                <span class="popular-label">
-                  Häufig gewählt
-                </span>
+                <span class="popular-label">Häufig gewählt</span>
               )}
 
               <p class="package-name">{item.name}</p>
-
-              <p class="package-price">
-                {item.price} <span>€</span>
-              </p>
-
+              <p class="package-price">{item.price} <span>€</span></p>
               <p class="package-hours">{item.hours}</p>
 
               <ul>
@@ -457,34 +378,23 @@ const extras = [
               </ul>
 
               <div class="package-extra">
-                <span>
-                  Zweiter Videograf optional · ab 350 €
-                </span>
-
-                <a
-                  href={`/pakete#${item.secondVideographerTarget}`}
-                >
+                <span>Zweiter Videograf optional · ab 350 €</span>
+                <a href={`/pakete#${item.secondVideographerTarget}`}>
                   Details ansehen →
                 </a>
               </div>
 
               <a class="package-button" href="/kontakt">
-                Paket anfragen
-                <span aria-hidden="true">→</span>
+                Paket anfragen <span aria-hidden="true">→</span>
               </a>
             </article>
           ))}
         </div>
 
-        <!-- INDIVIDUELLES PAKET -->
         <div class="individual-package">
           <div>
             <p class="eyebrow">Individuell</p>
-
-            <h3>
-              Ihr habt andere Vorstellungen?
-            </h3>
-
+            <h3>Ihr habt andere Vorstellungen?</h3>
             <p>
               Begleitungsdauer, Filmlänge und Zusatzleistungen
               stimmen wir auf eure Wünsche ab.
@@ -494,43 +404,26 @@ const extras = [
           </div>
 
           <div class="individual-actions">
-            <a
-              class="text-link"
-              href="/pakete#zweiter-videograf-individuell"
-            >
+            <a class="text-link" href="/pakete#zweiter-videograf-individuell">
               Optionen ansehen →
             </a>
-
-            <a
-              class="button button-primary"
-              href="/kontakt"
-            >
+            <a class="button button-primary" href="/kontakt">
               Individuell anfragen →
             </a>
           </div>
         </div>
 
-        <a
-          class="text-link packages-details"
-          href="/pakete"
-        >
-          Alle Paketdetails ansehen
-          <span aria-hidden="true">→</span>
+        <a class="text-link packages-details" href="/pakete">
+          Alle Paketdetails ansehen <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
 
     <!-- ZUSATZLEISTUNGEN -->
-    <section
-      class="services-section section-wrap"
-      aria-labelledby="services-title"
-    >
+    <section class="services-section section-wrap" aria-labelledby="services-title">
       <div class="section-heading">
         <p class="eyebrow">Für eure Wünsche</p>
-
-        <h2 id="services-title">
-          Noch ein bisschen mehr.
-        </h2>
+        <h2 id="services-title">Noch ein bisschen mehr.</h2>
       </div>
 
       <div class="extras-grid">
@@ -543,61 +436,26 @@ const extras = [
         ))}
       </div>
 
-      <a
-        class="text-link services-link"
-        href="/zusatzleistungen"
-      >
+      <a class="text-link services-link" href="/zusatzleistungen">
         Alle Zusatzleistungen ansehen →
       </a>
-
-      <div class="late-video">
-        <div>
-          <p class="eyebrow">
-            Auch nach eurem Hochzeitstag
-          </p>
-
-          <h3>
-            Nachträgliches Hochzeitsvideo
-          </h3>
-
-          <p>
-            Ihr hattet keinen Videografen?
-            Wir können eure Geschichte auch nach der
-            Hochzeit filmisch festhalten.
-          </p>
-        </div>
-
-        <a
-          class="text-link"
-          href="/nachtraegliches-hochzeitsvideo"
-        >
-          Mehr erfahren →
-        </a>
-      </div>
     </section>
 
-    <!-- FOTO & VIDEO -->
+    <!-- FOTOGRAFIN -->
     <section
       class="partner-section section-wrap"
       id="foto-video-team"
       aria-labelledby="partner-title"
     >
       <div>
-        <p class="eyebrow">
-          Foto & Video als Team
-        </p>
-
-        <h2 id="partner-title">
-          Zwei Perspektiven. Eine Geschichte.
-        </h2>
-
+        <p class="eyebrow">Foto &amp; Video als Team</p>
+        <h2 id="partner-title">Zwei Perspektiven. Eine Geschichte.</h2>
         <p>
           Gemeinsam mit Julia von
-          <strong>Junique Photography</strong>
-          begleite ich Hochzeiten auch als eingespieltes
-          Foto- und Videoteam. So können Bilder
-          und Film harmonisch aufeinander abgestimmt
-          entstehen.
+          <strong>Junique Photography</strong> begleite ich
+          Hochzeiten auch als eingespieltes Foto- und
+          Videoteam. So können Bilder und Film harmonisch
+          aufeinander abgestimmt entstehen.
         </p>
       </div>
 
@@ -607,74 +465,48 @@ const extras = [
         target="_blank"
         rel="noopener noreferrer"
       >
-        Junique Photography ansehen
-        <span aria-hidden="true">↗</span>
+        Junique Photography ansehen <span aria-hidden="true">↗</span>
       </a>
     </section>
 
     <!-- KONTAKT -->
-    <section
-      class="closing-section section-wrap"
-      aria-labelledby="closing-title"
-    >
-      <p class="eyebrow">
-        Eure Geschichte verdient es, erzählt zu werden
-      </p>
-
-      <h2 id="closing-title">
-        Lasst uns kennenlernen.
-      </h2>
-
+    <section class="closing-section section-wrap" aria-labelledby="closing-title">
+      <p class="eyebrow">Eure Geschichte verdient es, erzählt zu werden</p>
+      <h2 id="closing-title">Lasst uns kennenlernen.</h2>
       <p>
         Erzählt mir von euren Plänen.
         Ich freue mich darauf, euren Tag kennenzulernen.
       </p>
-
       <a class="button button-primary" href="/kontakt">
-        Verfügbarkeit anfragen
-        <span aria-hidden="true">→</span>
+        Verfügbarkeit anfragen <span aria-hidden="true">→</span>
       </a>
     </section>
-
-  </main>
+  </div>
 </BaseLayout>
 
-<!-- AUTOMATISCHES HINTERGRUNDVIDEO -->
 <script is:inline>
   (() => {
     const video = document.getElementById("heroVideo");
 
-    if (!(video instanceof HTMLVideoElement)) {
-      return;
-    }
+    if (!(video instanceof HTMLVideoElement)) return;
 
     video.muted = true;
     video.defaultMuted = true;
     video.playsInline = true;
     video.loop = true;
 
-    const tryPlay = () => {
-      if (document.visibilityState === "hidden") {
-        return;
-      }
-
-      if (!video.paused && !video.ended) {
-        return;
-      }
+    function tryPlay() {
+      if (document.visibilityState === "hidden") return;
+      if (!video.paused && !video.ended) return;
 
       const result = video.play();
-
       if (result && typeof result.catch === "function") {
         result.catch(() => {});
       }
-    };
+    }
 
     if (document.readyState === "loading") {
-      document.addEventListener(
-        "DOMContentLoaded",
-        tryPlay,
-        { once: true }
-      );
+      document.addEventListener("DOMContentLoaded", tryPlay, { once: true });
     } else {
       tryPlay();
     }
@@ -684,51 +516,33 @@ const extras = [
     window.addEventListener("pageshow", tryPlay);
 
     document.addEventListener("visibilitychange", () => {
-      if (document.visibilityState === "visible") {
-        tryPlay();
-      }
+      if (document.visibilityState === "visible") tryPlay();
     });
 
     ["pointerdown", "touchstart", "keydown"].forEach((name) => {
-      document.addEventListener(name, tryPlay, {
-        once: true,
-        passive: true,
-      });
+      document.addEventListener(name, tryPlay, { once: true, passive: true });
     });
   })();
 </script>
 
 <style>
-  :global(body) {
-    background: #fff;
-  }
+  :global(body) { background: #fff; }
 
-  /* GRUNDLAYOUT */
   .home-page {
     --ink: #17181d;
     --muted: #656872;
-    --accent: #af5e00;
+    --accent: #b46300;
     --line: #e6e6e8;
-
     color: var(--ink);
-    background: #fff;
+    background: white;
     overflow-x: clip;
   }
 
   .home-page *,
   .home-page *::before,
-  .home-page *::after {
-    box-sizing: border-box;
-  }
+  .home-page *::after { box-sizing: border-box; }
 
-  .home-page a {
-    text-decoration: none;
-  }
-
-  .home-page a:focus-visible {
-    outline: 3px solid var(--accent);
-    outline-offset: 5px;
-  }
+  .home-page a { text-decoration: none; }
 
   .section-wrap {
     width: min(1140px, calc(100% - 48px));
@@ -772,7 +586,6 @@ const extras = [
     line-height: 1.65;
   }
 
-  /* BUTTONS */
   .button {
     min-height: 52px;
     display: inline-flex;
@@ -782,33 +595,22 @@ const extras = [
     padding: 13px 24px;
     border-radius: 7px;
     font-size: 14px;
-    font-weight: 750;
+    font-weight: 800;
     text-align: center;
-    transition: background .2s ease, transform .2s ease;
+    transition: background .2s, transform .2s;
   }
 
-  .button:hover {
-    transform: translateY(-2px);
-  }
-
-  .button-primary {
-    background: var(--accent);
-    color: #fff;
-  }
-
-  .button-primary:hover {
-    background: #965000;
-  }
+  .button:hover { transform: translateY(-2px); }
+  .button-primary { background: var(--accent); color: white; }
+  .button-primary:hover { background: #965000; }
 
   .button-outline {
-    color: #fff;
+    color: white;
     border: 1px solid rgba(255,255,255,.6);
     background: rgba(255,255,255,.05);
   }
 
-  .button-outline:hover {
-    background: rgba(255,255,255,.16);
-  }
+  .button-outline:hover { background: rgba(255,255,255,.16); }
 
   .text-link {
     display: inline-flex;
@@ -820,24 +622,19 @@ const extras = [
     line-height: 1.5;
   }
 
-  .text-link span {
-    transition: transform .2s ease;
-  }
+  .text-link span { transition: transform .2s; }
+  .text-link:hover span { transform: translateX(4px); }
 
-  .text-link:hover span {
-    transform: translateX(4px);
-  }
-
-  /* HERO */
+  /* VIDEO-HERO */
   .hero {
     position: relative;
-    min-height: max(660px, 100svh);
     display: grid;
     place-items: center;
+    min-height: max(660px, 100svh);
     padding: 135px 24px 105px;
     overflow: hidden;
     background: #15151a;
-    color: #fff;
+    color: white;
     text-align: center;
   }
 
@@ -848,8 +645,7 @@ const extras = [
   }
 
   .hero-media {
-    background: #15151a url('/images/hero-poster.jpg')
-      center / cover no-repeat;
+    background: #15151a url("/images/hero-poster.jpg") center / cover no-repeat;
   }
 
   .hero-video {
@@ -869,26 +665,26 @@ const extras = [
   }
 
   .hero-content {
+    position: relative;
     z-index: 1;
     width: min(940px, 100%);
-    position: relative;
   }
 
   .hero-kicker {
     margin: 0 0 23px;
+    color: rgba(255,255,255,.92);
     font-size: 11px;
-    font-weight: 750;
+    font-weight: 800;
     text-transform: uppercase;
     letter-spacing: .22em;
-    color: rgba(255,255,255,.92);
   }
 
   .hero h1 {
     margin: 0;
     font-size: clamp(45px, 7vw, 88px);
     font-weight: 300;
-    letter-spacing: -.065em;
     line-height: 1.04;
+    letter-spacing: -.065em;
     text-wrap: balance;
   }
 
@@ -900,16 +696,16 @@ const extras = [
   .hero-subtitle {
     max-width: 610px;
     margin: 25px auto 0;
-    font-size: clamp(15px, 1.7vw, 18px);
     color: rgba(255,255,255,.9);
+    font-size: clamp(15px, 1.7vw, 18px);
     line-height: 1.7;
   }
 
   .hero-actions {
     display: flex;
     justify-content: center;
-    gap: 12px;
     flex-wrap: wrap;
+    gap: 12px;
     margin-top: 36px;
   }
 
@@ -932,10 +728,9 @@ const extras = [
     height: 8px;
     margin-top: 8px;
     border-radius: 10px;
-    background: #fff;
+    background: white;
   }
 
-  /* LEISTUNGSVORTEILE */
   .value-strip {
     display: flex;
     justify-content: center;
@@ -950,7 +745,7 @@ const extras = [
   }
 
   .value-strip span + span::before {
-    content: '·';
+    content: "·";
     margin-right: 44px;
     color: var(--accent);
   }
@@ -983,14 +778,10 @@ const extras = [
 
   .film-footer {
     display: flex;
-    justify-content: space-between;
     align-items: end;
+    justify-content: space-between;
     gap: 22px;
     margin-top: 23px;
-  }
-
-  .film-footer .eyebrow {
-    margin-bottom: 6px;
   }
 
   .film-footer h3 {
@@ -1000,32 +791,30 @@ const extras = [
     letter-spacing: -.045em;
   }
 
-  /* PORTRÄT – NEUE BILDPOSITION */
+  /* ÜBER MICH */
   .about-section {
     display: grid;
     grid-template-columns: .92fr 1.08fr;
-    background: var(--ink);
-    color: #fff;
     overflow: hidden;
     border-radius: 22px;
+    background: var(--ink);
+    color: white;
   }
 
   .about-photo {
     position: relative;
     min-height: 520px;
-    background: #303139;
     overflow: hidden;
+    background: #303139;
   }
 
   .about-photo img {
+    position: absolute;
+    inset: 0;
     display: block;
     width: 100%;
     height: 100%;
-    position: absolute;
-    inset: 0;
     object-fit: cover;
-
-    /* Zwischen der ursprünglichen und der zu tiefen Position */
     object-position: center 23%;
   }
 
@@ -1034,9 +823,7 @@ const extras = [
     padding: clamp(35px, 5vw, 78px);
   }
 
-  .about-copy h2 {
-    color: #fff;
-  }
+  .about-copy h2 { color: white; }
 
   .about-copy > p:not(.eyebrow) {
     max-width: 560px;
@@ -1046,10 +833,10 @@ const extras = [
     line-height: 1.75;
   }
 
-  .text-link-light {
-    margin-top: 28px;
-    color: #ffb24b;
-  }
+  .about-copy .eyebrow,
+  .text-link-light { color: #ffb45a; }
+
+  .text-link-light { margin-top: 28px; }
 
   /* STANDORT */
   .location-section {
@@ -1072,8 +859,8 @@ const extras = [
 
   /* BEWERTUNGEN */
   .reviews-section {
-    background: #f7f7f7;
     padding: 96px 0 94px;
+    background: #f7f7f7;
   }
 
   .reviews-grid {
@@ -1086,22 +873,22 @@ const extras = [
     display: flex;
     flex-direction: column;
     min-width: 0;
-    padding: 33px 29px;
+    padding: 30px;
+    border: 1px solid #e7e7e9;
+    border-radius: 15px;
     background: white;
-    border: 1px solid #ededee;
-    border-radius: 14px;
   }
 
   .review-stars {
-    color: #c5760b;
-    letter-spacing: .08em;
+    color: #b46300;
     font-size: 17px;
+    letter-spacing: .08em;
   }
 
   .review-card blockquote {
     flex: 1;
-    margin: 19px 0 28px;
-    color: #42444b;
+    margin: 19px 0 30px;
+    color: #555862;
     font-size: 15px;
     line-height: 1.75;
   }
@@ -1110,101 +897,92 @@ const extras = [
     display: flex;
     align-items: center;
     gap: 13px;
-    padding-top: 19px;
-    border-top: 1px solid var(--line);
   }
 
   .review-person img,
   .review-initials {
-    width: 52px;
-    height: 52px;
-    flex: 0 0 52px;
-    border-radius: 7px;
-    object-fit: cover;
-  }
-
-  .review-initials {
     display: grid;
     place-items: center;
-    background: #eee9e2;
-    color: var(--ink);
+    width: 47px;
+    height: 47px;
+    flex: 0 0 47px;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #17181d;
+    color: white;
     font-size: 12px;
     font-weight: 700;
   }
 
-  .review-person strong,
-  .review-person span:not(.review-initials) {
-    display: block;
-  }
-
   .review-person strong {
+    display: block;
     font-size: 14px;
-    line-height: 1.3;
   }
 
-  .review-person span:not(.review-initials) {
-    color: var(--muted);
-    font-size: 12px;
+  .review-person div span {
+    display: block;
     margin-top: 4px;
+    color: #888b92;
+    font-size: 12px;
   }
 
   .reviews-link {
     display: flex;
-    width: fit-content;
-    margin: 31px auto 0;
+    justify-content: center;
+    margin-top: 32px;
   }
 
   /* ABLAUF */
   .process-section {
-    padding-top: 102px;
-    padding-bottom: 110px;
+    padding-top: 106px;
+    padding-bottom: 108px;
   }
 
   .process-grid {
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
-    gap: 22px;
+    gap: 15px;
   }
 
   .process-step {
-    border-top: 1px solid #d9dadd;
-    padding: 24px 3px 0;
+    padding: 25px 19px;
+    border: 1px solid #e8e8eb;
+    border-radius: 13px;
+    background: white;
   }
 
   .step-number {
     display: block;
-    margin-bottom: 22px;
+    margin-bottom: 28px;
     color: var(--accent);
-    font-weight: 750;
     font-size: 12px;
-    letter-spacing: .09em;
+    font-weight: 800;
   }
 
   .process-step h3 {
     margin: 0 0 12px;
-    font-size: 17px;
-    font-weight: 650;
+    font-size: 18px;
     line-height: 1.3;
   }
 
   .process-step p {
     margin: 0;
     color: var(--muted);
-    font-size: 14px;
+    font-size: 13px;
     line-height: 1.65;
   }
 
   /* PAKETE */
   .packages-section {
-    padding: 105px 0 90px;
+    padding: 96px 0 100px;
     background: #f7f7f7;
+    scroll-margin-top: 90px;
   }
 
   .packages-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 20px;
-    align-items: stretch;
+    gap: 18px;
   }
 
   .package-card {
@@ -1212,628 +990,323 @@ const extras = [
     display: flex;
     flex-direction: column;
     min-width: 0;
-    padding: 36px 30px 28px;
-    border-radius: 15px;
-    background: #fff;
-    border: 1px solid #e6e6e9;
+    padding: 35px 28px 27px;
+    border: 1px solid #e4e4e7;
+    border-radius: 17px;
+    background: white;
   }
 
   .package-card.is-popular {
     background: var(--ink);
-    border-color: var(--ink);
     color: white;
+    border-color: var(--ink);
   }
 
   .popular-label {
     position: absolute;
-    top: -14px;
-    right: 23px;
-    padding: 7px 12px;
+    top: -13px;
+    right: 19px;
+    padding: 7px 13px;
     border-radius: 5px;
-    color: var(--ink);
-    background: #ffc21d;
+    background: #d38b32;
+    color: white;
     font-size: 11px;
-    font-weight: 750;
+    font-weight: 800;
   }
 
   .package-name {
     margin: 0;
-    font-size: 16px;
-    font-weight: 750;
-  }
-
-  .package-price {
-    margin: 20px 0 5px;
-    font-size: 43px;
-    font-weight: 300;
-    letter-spacing: -.06em;
-    white-space: nowrap;
-  }
-
-  .package-price span {
-    font-size: 17px;
-    letter-spacing: normal;
-  }
-
-  .package-hours {
-    margin: 0 0 27px;
-    color: var(--muted);
-    font-size: 14px;
+    font-size: 25px;
     font-weight: 600;
   }
 
-  .package-card.is-popular .package-hours {
-    color: rgba(255,255,255,.76);
+  .package-price {
+    margin: 22px 0 0;
+    font-size: 42px;
+    font-weight: 350;
+    letter-spacing: -.05em;
+  }
+
+  .package-price span { font-size: 18px; }
+
+  .package-hours {
+    margin: 10px 0 25px;
+    color: #6c6e76;
+    font-size: 14px;
+  }
+
+  .is-popular .package-hours {
+    color: rgba(255,255,255,.7);
   }
 
   .package-card ul {
-    flex: 1;
     display: grid;
     align-content: start;
-    gap: 12px;
+    flex: 1;
+    gap: 13px;
     margin: 0;
-    padding: 0;
+    padding: 24px 0 0;
     list-style: none;
+    border-top: 1px solid #e5e5e7;
+  }
+
+  .is-popular ul {
+    border-color: rgba(255,255,255,.2);
   }
 
   .package-card li {
-    display: flex;
-    gap: 10px;
-    color: #51535e;
+    position: relative;
+    padding-left: 24px;
+    color: #555861;
     font-size: 14px;
     line-height: 1.5;
   }
 
   .package-card li::before {
-    content: '✓';
-    flex: 0 0 auto;
+    content: "✓";
+    position: absolute;
+    left: 0;
     color: var(--accent);
     font-weight: 800;
   }
 
-  .package-card.is-popular li {
-    color: rgba(255,255,255,.83);
+  .is-popular li {
+    color: rgba(255,255,255,.84);
   }
 
-  .package-card.is-popular li::before {
-    color: #ffc21d;
-  }
+  .is-popular li::before { color: #ffb45a; }
 
   .package-extra {
-    display: grid;
-    gap: 6px;
-    margin-top: 30px;
-    padding-top: 18px;
-    border-top: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 7px;
+    margin-top: 28px;
+    padding-top: 19px;
+    border-top: 1px solid #e5e5e7;
+  }
+
+  .is-popular .package-extra {
+    border-color: rgba(255,255,255,.2);
   }
 
   .package-extra span {
-    color: var(--muted);
+    color: #60636c;
     font-size: 12px;
-    line-height: 1.5;
+  }
+
+  .is-popular .package-extra span {
+    color: rgba(255,255,255,.7);
   }
 
   .package-extra a {
     color: var(--accent);
     font-size: 12px;
-    font-weight: 750;
+    font-weight: 800;
   }
 
-  .package-card.is-popular .package-extra {
-    border-color: rgba(255,255,255,.2);
-  }
-
-  .package-card.is-popular .package-extra span {
-    color: rgba(255,255,255,.7);
-  }
-
-  .package-card.is-popular .package-extra a {
-    color: #ffc21d;
-  }
+  .is-popular .package-extra a { color: #ffb45a; }
 
   .package-button {
     display: flex;
-    justify-content: center;
     align-items: center;
-    gap: 13px;
-    min-height: 49px;
-    margin-top: 23px;
-    padding: 9px 15px;
+    justify-content: center;
+    gap: 12px;
+    min-height: 50px;
+    margin-top: 20px;
+    padding: 12px 18px;
     border-radius: 7px;
     background: var(--accent);
     color: white;
     font-size: 14px;
-    font-weight: 750;
+    font-weight: 800;
+    transition: background .2s;
   }
 
-  .package-button:hover {
-    background: #965000;
-  }
+  .package-button:hover { background: #965000; }
 
-  /* INDIVIDUELLES PAKET */
   .individual-package {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    gap: 25px;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 23px;
     padding: 31px 35px;
-    margin-top: 19px;
-    border: 1px solid #e4e4e8;
-    border-radius: 14px;
-    background: #fff;
-  }
-
-  .individual-package .eyebrow {
-    margin-bottom: 8px;
+    border: 1px solid #e3e3e5;
+    border-radius: 15px;
+    background: white;
   }
 
   .individual-package h3 {
     margin: 0;
-    font-size: 24px;
-    font-weight: 500;
-    letter-spacing: -.04em;
+    font-size: 26px;
+    font-weight: 400;
+    letter-spacing: -.035em;
   }
 
-  .individual-package p:last-child {
-    max-width: 560px;
-    margin: 11px 0 0;
-    font-size: 14px;
+  .individual-package p:not(.eyebrow) {
+    max-width: 650px;
+    margin: 13px 0 0;
     color: var(--muted);
-    line-height: 1.6;
+    font-size: 14px;
+    line-height: 1.7;
   }
 
   .individual-actions {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 14px;
-  }
-
-  .individual-actions .button {
-    white-space: nowrap;
+    gap: 15px;
+    flex: 0 0 auto;
   }
 
   .packages-details {
     display: flex;
-    width: fit-content;
-    margin: 27px auto 0;
+    justify-content: center;
+    margin-top: 30px;
   }
 
   /* ZUSATZLEISTUNGEN */
   .services-section {
-    padding-top: 106px;
-    padding-bottom: 95px;
+    padding-top: 98px;
+    padding-bottom: 102px;
+    text-align: center;
   }
 
   .extras-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 18px;
+    gap: 17px;
+    text-align: left;
   }
 
   .extra-card {
-    padding: 29px 27px;
-    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    padding: 27px 25px;
+    border: 1px solid #e5e5e7;
     border-radius: 13px;
+    background: #fafafa;
   }
 
   .extra-card h3 {
     margin: 0;
     font-size: 19px;
-    font-weight: 650;
   }
 
   .extra-card p {
-    min-height: 44px;
-    margin: 13px 0 22px;
+    flex: 1;
+    margin: 13px 0 18px;
     color: var(--muted);
     font-size: 14px;
-    line-height: 1.6;
+    line-height: 1.65;
   }
 
   .extra-card strong {
-    color: var(--accent);
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 22px;
+    font-weight: 500;
   }
 
-  .services-link {
-    display: flex;
-    width: fit-content;
-    margin: 27px auto 0;
-  }
+  .services-link { margin-top: 29px; }
 
-  /* NACHTRÄGLICHES HOCHZEITSVIDEO */
-  .late-video {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 24px;
-    padding: 34px 36px;
-    margin-top: 56px;
-    background: #f7f7f7;
-    border-radius: 14px;
-  }
-
-  .late-video .eyebrow {
-    margin-bottom: 10px;
-  }
-
-  .late-video h3 {
-    margin: 0;
-    font-size: 25px;
-    font-weight: 450;
-    letter-spacing: -.035em;
-  }
-
-  .late-video p:last-child {
-    max-width: 630px;
-    margin: 12px 0 0;
-    color: var(--muted);
-    font-size: 14px;
-    line-height: 1.6;
-  }
-
-  .late-video > a {
-    flex: 0 0 auto;
-  }
-
-  /* FOTO & VIDEO */
+  /* FOTOGRAFIN */
   .partner-section {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 34px;
-    padding: 38px 44px;
-    margin-bottom: 94px;
-    border: 1px solid var(--line);
-    background: #f8f8f7;
+    gap: 35px;
+    margin-bottom: 90px;
+    padding: 42px 46px;
+    border: 1px solid #e4e4e6;
     border-radius: 16px;
-    scroll-margin-top: 100px;
+    background: #f7f7f7;
   }
 
-  .partner-section > div {
-    max-width: 760px;
-  }
+  .partner-section > div { max-width: 720px; }
 
-  .partner-section h2 {
-    font-size: clamp(28px, 3.5vw, 41px);
-  }
-
-  .partner-section p:last-child {
-    margin: 17px 0 0;
+  .partner-section p:not(.eyebrow) {
+    margin: 19px 0 0;
     color: var(--muted);
     font-size: 15px;
-    line-height: 1.7;
+    line-height: 1.75;
   }
 
-  .partner-section strong {
-    color: var(--ink);
-  }
-
-  .partner-section > a {
-    flex: 0 0 auto;
-  }
+  .partner-section .text-link { flex: 0 0 auto; }
 
   /* KONTAKT */
   .closing-section {
-    padding: 76px 25px;
-    margin-bottom: 92px;
-    border-radius: 21px;
-    text-align: center;
+    margin-bottom: 98px;
+    padding: 75px 28px;
+    border-radius: 20px;
     background: var(--ink);
     color: white;
+    text-align: center;
   }
 
-  .closing-section h2 {
-    color: #fff;
-  }
+  .closing-section .eyebrow { color: #ffb45a; }
+
+  .closing-section h2 { color: white; }
 
   .closing-section > p:not(.eyebrow) {
-    max-width: 620px;
-    margin: 21px auto 0;
-    color: rgba(255,255,255,.76);
-    line-height: 1.7;
+    max-width: 630px;
+    margin: 20px auto 0;
+    color: rgba(255,255,255,.75);
     font-size: 16px;
+    line-height: 1.7;
   }
 
-  .closing-section .button {
-    margin-top: 31px;
-  }
+  .closing-section .button { margin-top: 29px; }
 
-  /* TABLETS */
-  @media (max-width: 1000px) {
-    .process-grid {
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      row-gap: 33px;
-    }
-
-    .packages-grid {
-      gap: 12px;
-    }
-
-    .package-card {
-      padding: 31px 23px 24px;
-    }
-
-    .reviews-grid {
-      gap: 12px;
-    }
-
-    .review-card {
-      padding: 26px 22px;
-    }
+  @media (max-width: 1050px) {
+    .process-grid { grid-template-columns: repeat(3, 1fr); }
+    .reviews-grid { grid-template-columns: repeat(2, 1fr); }
+    .reviews-grid .review-card:last-child { grid-column: 1 / -1; }
   }
 
   @media (max-width: 800px) {
-    .about-section {
-      grid-template-columns: 1fr;
-    }
-
-    .about-photo {
-      min-height: 460px;
-    }
-
-    .about-copy {
-      padding: 45px 38px 49px;
-    }
-
-    .reviews-grid {
-      grid-template-columns: 1fr;
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    .review-card {
-      min-height: 0;
-    }
-
-    .packages-grid {
-      grid-template-columns: 1fr;
-      max-width: 640px;
-      margin-inline: auto;
-      gap: 20px;
-    }
-
-    .package-card {
-      padding: 33px 32px;
-    }
-
-    .individual-package {
-      max-width: 640px;
-      margin-inline: auto;
-      margin-top: 20px;
-    }
-
-    .extras-grid {
-      grid-template-columns: 1fr;
-      gap: 12px;
-    }
-
-    .extra-card p {
-      min-height: 0;
-    }
-
-    .partner-section {
-      flex-direction: column;
-      align-items: start;
-    }
+    .about-section { grid-template-columns: 1fr; }
+    .about-photo { min-height: 460px; }
+    .packages-grid { grid-template-columns: 1fr; }
+    .package-card { max-width: 580px; width: 100%; margin-inline: auto; }
+    .individual-package { flex-direction: column; align-items: flex-start; }
+    .individual-actions { align-items: flex-start; }
+    .partner-section { flex-direction: column; align-items: flex-start; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
   }
 
-  /* HANDY */
-  @media (max-width: 600px) {
-    .section-wrap {
-      width: min(100% - 28px, 1140px);
-    }
-
-    .section-heading {
-      margin-bottom: 32px;
-    }
-
-    .section-heading h2,
-    .about-copy h2,
-    .closing-section h2 {
-      font-size: clamp(33px, 9vw, 43px);
-    }
-
-    .section-heading > p:last-child {
-      font-size: 14px;
-    }
-
-    .hero {
-      min-height: max(630px, 100svh);
-      padding: 125px 18px 95px;
-    }
-
-    .hero-kicker {
-      font-size: 10px;
-      letter-spacing: .14em;
-      line-height: 1.65;
-    }
-
-    .hero h1 {
-      font-size: clamp(42px, 10.5vw, 60px);
-    }
-
-    .hero-subtitle {
-      margin-top: 20px;
-      font-size: 15px;
-      line-height: 1.65;
-    }
-
-    .hero-actions {
-      gap: 10px;
-      margin-top: 29px;
-    }
-
-    .hero-actions .button {
-      width: min(350px, 100%);
-    }
-
-    .scroll-cue {
-      bottom: 24px;
-    }
-
-    .value-strip {
-      padding: 20px 15px;
-      gap: 9px 19px;
-      font-size: 11px;
-    }
-
-    .value-strip span + span::before {
-      display: none;
-    }
-
-    .featured-story {
-      padding-top: 70px;
-      padding-bottom: 73px;
-    }
-
-    .featured-frame {
-      overflow: visible;
-      border-radius: 0;
-      box-shadow: none;
-    }
-
-    .film-footer {
-      align-items: start;
-      flex-direction: column;
-      gap: 17px;
-    }
-
-    .film-footer h3 {
-      font-size: 31px;
-    }
-
-    .about-section {
-      border-radius: 15px;
-    }
-
-    .about-photo {
-      min-height: 400px;
-    }
-
-    .about-copy {
-      padding: 35px 25px 39px;
-    }
-
-    .about-copy > p:not(.eyebrow) {
-      font-size: 15px;
-    }
-
-    .location-section {
-      padding-top: 68px;
-      padding-bottom: 75px;
-    }
-
-    .location-section h2 {
-      font-size: 31px;
-    }
-
-    .location-section > p:last-child {
-      font-size: 14px;
-    }
-
-    .reviews-section {
-      padding: 77px 0 78px;
-    }
-
-    .review-card blockquote {
-      font-size: 14px;
-    }
-
-    .process-section {
-      padding-top: 76px;
-      padding-bottom: 78px;
-    }
-
-    .process-grid {
-      grid-template-columns: 1fr;
-      gap: 0;
-    }
-
-    .process-step {
-      display: grid;
-      grid-template-columns: 43px 1fr;
-      column-gap: 11px;
-      padding: 18px 0;
-    }
-
-    .step-number {
-      grid-row: span 2;
-      margin: 0;
-    }
-
-    .process-step h3 {
-      margin-bottom: 7px;
-    }
-
-    .process-step p {
-      font-size: 13px;
-    }
-
-    .packages-section {
-      padding: 78px 0 76px;
-    }
-
-    .package-price {
-      font-size: 40px;
-    }
-
-    .individual-package {
-      flex-direction: column;
-      align-items: stretch;
-      padding: 27px;
-    }
-
-    .individual-actions {
-      align-items: stretch;
-    }
-
-    .individual-actions .button {
-      width: 100%;
-    }
-
-    .services-section {
-      padding-top: 76px;
-      padding-bottom: 75px;
-    }
-
-    .late-video {
-      flex-direction: column;
-      align-items: start;
-      margin-top: 37px;
-      padding: 28px 25px;
-    }
-
-    .partner-section {
-      padding: 30px 25px;
-      margin-bottom: 65px;
-    }
-
-    .partner-section p:last-child {
-      font-size: 14px;
-    }
-
-    .closing-section {
-      padding: 61px 22px;
-      margin-bottom: 66px;
-      border-radius: 15px;
-    }
-
-    .closing-section > p:not(.eyebrow) {
-      font-size: 15px;
-    }
-
-    .closing-section .button {
-      width: 100%;
-    }
+  @media (max-width: 620px) {
+    .section-wrap { width: calc(100% - 28px); }
+    .hero { min-height: 100svh; padding: 115px 17px 100px; }
+    .hero h1 { font-size: clamp(43px, 11vw, 62px); }
+    .hero-actions { flex-direction: column; align-items: stretch; }
+    .hero-actions .button { width: 100%; }
+    .value-strip { gap: 9px 20px; padding: 20px 15px; }
+    .value-strip span + span::before { display: none; }
+    .featured-story { padding-top: 75px; padding-bottom: 76px; }
+    .featured-frame { border-radius: 0; }
+    .film-footer { display: block; }
+    .film-footer .text-link { margin-top: 18px; }
+    .about-photo { min-height: 400px; }
+    .about-copy { padding: 35px 25px; }
+    .location-section { padding-block: 76px; }
+    .reviews-section { padding-block: 77px; }
+    .reviews-grid { grid-template-columns: 1fr; }
+    .reviews-grid .review-card:last-child { grid-column: auto; }
+    .process-section { padding-block: 80px; }
+    .process-grid { grid-template-columns: 1fr; }
+    .packages-section { padding-block: 82px; }
+    .package-card { padding: 32px 24px; }
+    .individual-package { padding: 28px 23px; }
+    .individual-actions { width: 100%; }
+    .individual-actions .button { width: 100%; }
+    .services-section { padding-block: 82px; }
+    .extras-grid { grid-template-columns: 1fr; }
+    .partner-section { padding: 30px 24px; margin-bottom: 72px; }
+    .closing-section { padding: 55px 22px; margin-bottom: 76px; }
+    .closing-section .button { width: 100%; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .button,
-    .text-link span {
-      transition: none;
-    }
+    .button, .text-link span, .package-button { transition: none; }
   }
 </style>

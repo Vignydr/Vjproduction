@@ -1,158 +1,49 @@
 
 ---
-const mainLinks = [
+const navItems = [
   { name: "Home", href: "/" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Pakete & Preise", href: "/pakete" },
-];
-
-const serviceLinks = [
-  { name: "Verlobung", href: "/verlobung" },
-  {
-    name: "Nachträgliches Hochzeitsvideo",
-    href: "/nachtraegliches-hochzeitsvideo",
-  },
   { name: "Zusatzleistungen", href: "/zusatzleistungen" },
-];
-
-const otherLinks = [
   { name: "Über mich", href: "/ueber-mich" },
   { name: "Bewertungen", href: "/bewertungen" },
 ];
 
-const currentPath =
-  Astro.url.pathname.replace(/\/+$/, "") || "/";
-
-const isActive = (href) => {
-  if (href === "/") return currentPath === "/";
-  return currentPath === href || currentPath.startsWith(`${href}/`);
-};
-
-const isHome = currentPath === "/";
-const isServiceActive = serviceLinks.some((item) =>
-  isActive(item.href)
-);
+const path = Astro.url.pathname.replace(/\/+$/, "") || "/";
+const isHome = path === "/";
+const isActive = (href) =>
+  href === "/" ? path === "/" : path === href || path.startsWith(`${href}/`);
 ---
 
-<header
-  id="siteHeader"
-  class:list={["site-header", { "is-home": isHome }]}
->
+<header id="siteHeader" class:list={["site-header", { "is-home": isHome }]}>
   <div class="header-inner">
-
-    <!-- LOGO -->
-    <a
-      class="logo"
-      href="/"
-      aria-label="VJ Production Startseite"
-    >
-      <img
-        class="logo-dark"
-        src="/images/vj-logo-dark.png"
-        alt="VJ Production"
-        width="112"
-        height="65"
-      />
-
-      <img
-        class="logo-light"
-        src="/images/vj-logo-white.png"
-        alt=""
-        aria-hidden="true"
-        width="112"
-        height="65"
-      />
+    <a href="/" class="logo" aria-label="VJ Production Startseite">
+      <img class="logo-dark" src="/images/vj-logo-dark.png" alt="VJ Production" width="112" height="65" />
+      <img class="logo-light" src="/images/vj-logo-white.png" alt="" aria-hidden="true" width="112" height="65" />
     </a>
 
-    <!-- DESKTOP NAVIGATION -->
-    <nav
-      class="desktop-nav"
-      aria-label="Hauptnavigation"
-    >
-
-      {mainLinks.map((item) => (
+    <nav class="desktop-nav" aria-label="Hauptnavigation">
+      {navItems.map((item) => (
         <a
           href={item.href}
-          class={isActive(item.href) ? "is-active" : ""}
+          class:list={{ "is-active": isActive(item.href) }}
           aria-current={isActive(item.href) ? "page" : undefined}
         >
           {item.name}
         </a>
       ))}
-
-      <!-- DESKTOP AUFKLAPPMENÜ -->
-      <details
-        class:list={[
-          "services-menu",
-          { "is-active": isServiceActive },
-        ]}
-        id="servicesMenu"
-      >
-        <summary>
-          Leistungen
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="m6 9 6 6 6-6"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </summary>
-
-        <div class="services-dropdown">
-
-          <p>Unsere Leistungen</p>
-
-          {serviceLinks.map((item) => (
-            <a
-              href={item.href}
-              class={isActive(item.href) ? "is-active" : ""}
-              aria-current={isActive(item.href) ? "page" : undefined}
-            >
-              <span>{item.name}</span>
-              <span aria-hidden="true">↗</span>
-            </a>
-          ))}
-
-        </div>
-      </details>
-
-      {otherLinks.map((item) => (
-        <a
-          href={item.href}
-          class={isActive(item.href) ? "is-active" : ""}
-          aria-current={isActive(item.href) ? "page" : undefined}
-        >
-          {item.name}
-        </a>
-      ))}
-
-      <!-- KONTAKT BUTTON -->
       <a
         href="/kontakt"
-        class:list={[
-          "nav-cta",
-          { "is-active": isActive("/kontakt") },
-        ]}
+        class="nav-cta"
         aria-current={isActive("/kontakt") ? "page" : undefined}
       >
-        Anfragen
-        <span aria-hidden="true">↗</span>
+        Anfragen <span aria-hidden="true">↗</span>
       </a>
-
     </nav>
 
-    <!-- MOBILE MENÜBUTTON -->
     <button
-      class="menu-button"
       id="menuButton"
+      class="menu-button"
       type="button"
       aria-label="Menü öffnen"
       aria-controls="mobileNav"
@@ -161,94 +52,22 @@ const isServiceActive = serviceLinks.some((item) =>
       <span></span>
       <span></span>
     </button>
-
   </div>
 
-  <!-- MOBILE NAVIGATION -->
-  <nav
-    class="mobile-nav"
-    id="mobileNav"
-    aria-label="Mobile Navigation"
-    hidden
-  >
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile Navigation" hidden>
     <div class="mobile-nav-inner">
-
-      {mainLinks.map((item) => (
+      {navItems.map((item) => (
         <a
           href={item.href}
-          class={isActive(item.href) ? "is-active" : ""}
+          class:list={{ "is-active": isActive(item.href) }}
           aria-current={isActive(item.href) ? "page" : undefined}
         >
           {item.name}
         </a>
       ))}
-
-      <!-- NEU: AUFKLAPPBARE LEISTUNGEN AUF DEM HANDY -->
-      <details
-        class:list={[
-          "mobile-services",
-          { "has-active-service": isServiceActive },
-        ]}
-        id="mobileServices"
-      >
-
-        <summary>
-          <span>Leistungen</span>
-
-          <svg
-            viewBox="0 0 24 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <path
-              d="m6 9 6 6 6-6"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            />
-          </svg>
-        </summary>
-
-        <div class="mobile-services-links">
-
-          {serviceLinks.map((item) => (
-            <a
-              href={item.href}
-              class:list={[
-                "mobile-sub-link",
-                { "is-active": isActive(item.href) },
-              ]}
-              aria-current={isActive(item.href) ? "page" : undefined}
-            >
-              {item.name}
-            </a>
-          ))}
-
-        </div>
-
-      </details>
-
-      {otherLinks.map((item) => (
-        <a
-          href={item.href}
-          class={isActive(item.href) ? "is-active" : ""}
-          aria-current={isActive(item.href) ? "page" : undefined}
-        >
-          {item.name}
-        </a>
-      ))}
-
-      <!-- MOBILER KONTAKT-BUTTON -->
-      <a
-        href="/kontakt"
-        class="mobile-cta"
-        aria-current={isActive("/kontakt") ? "page" : undefined}
-      >
-        Verfügbarkeit anfragen
-        <span aria-hidden="true">↗</span>
+      <a class="mobile-cta" href="/kontakt">
+        Verfügbarkeit anfragen <span aria-hidden="true">↗</span>
       </a>
-
     </div>
   </nav>
 </header>
@@ -256,200 +75,84 @@ const isServiceActive = serviceLinks.some((item) =>
 <script is:inline>
   (() => {
     const header = document.getElementById("siteHeader");
-    const menuButton = document.getElementById("menuButton");
-    const mobileNav = document.getElementById("mobileNav");
-    const servicesMenu = document.getElementById("servicesMenu");
-    const mobileServices = document.getElementById("mobileServices");
+    const button = document.getElementById("menuButton");
+    const menu = document.getElementById("mobileNav");
 
-    if (
-      !(header instanceof HTMLElement) ||
-      !(menuButton instanceof HTMLButtonElement) ||
-      !(mobileNav instanceof HTMLElement)
-    ) {
-      return;
-    }
+    if (!header || !button || !menu) return;
 
     function updateHeader() {
-      header.classList.toggle(
-        "is-scrolled",
-        window.scrollY > 35
-      );
+      header.classList.toggle("is-scrolled", window.scrollY > 35);
     }
 
-    function closeMobileMenu() {
-      mobileNav.hidden = true;
-
-      menuButton.classList.remove("is-open");
-      header.classList.remove("menu-is-open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "false"
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        "Menü öffnen"
-      );
-
-      document.body.classList.remove(
-        "vj-mobile-menu-open"
-      );
-
-      // Untermenü beim Schließen ebenfalls zurücksetzen
-      if (mobileServices instanceof HTMLDetailsElement) {
-        mobileServices.open = false;
-      }
+    function closeMenu() {
+      menu.hidden = true;
+      button.classList.remove("is-open");
+      button.setAttribute("aria-expanded", "false");
+      button.setAttribute("aria-label", "Menü öffnen");
+      document.body.classList.remove("vj-mobile-menu-open");
     }
 
-    function openMobileMenu() {
-      mobileNav.hidden = false;
-
-      menuButton.classList.add("is-open");
-      header.classList.add("menu-is-open");
-
-      menuButton.setAttribute(
-        "aria-expanded",
-        "true"
-      );
-
-      menuButton.setAttribute(
-        "aria-label",
-        "Menü schließen"
-      );
-
-      document.body.classList.add(
-        "vj-mobile-menu-open"
-      );
+    function openMenu() {
+      menu.hidden = false;
+      button.classList.add("is-open");
+      button.setAttribute("aria-expanded", "true");
+      button.setAttribute("aria-label", "Menü schließen");
+      document.body.classList.add("vj-mobile-menu-open");
     }
 
     updateHeader();
 
-    window.addEventListener(
-      "scroll",
-      updateHeader,
-      { passive: true }
-    );
+    window.addEventListener("scroll", updateHeader, { passive: true });
+    window.addEventListener("pageshow", updateHeader);
 
-    window.addEventListener(
-      "pageshow",
-      updateHeader
-    );
-
-    // Hamburger-Menü öffnen und schließen
-    menuButton.addEventListener("click", () => {
-      if (mobileNav.hidden) {
-        openMobileMenu();
-      } else {
-        closeMobileMenu();
-      }
+    button.addEventListener("click", () => {
+      menu.hidden ? openMenu() : closeMenu();
     });
 
-    // Untermenü wird automatisch über HTML <details>
-    // durch Tippen auf "Leistungen" geöffnet und geschlossen.
-
-    // Nach Auswahl einer Seite Menü schließen
-    mobileNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener(
-        "click",
-        closeMobileMenu
-      );
+    menu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
     });
 
-    // Escape schließt die Menüs
     document.addEventListener("keydown", (event) => {
-      if (event.key !== "Escape") return;
-
-      const wasMobileOpen = !mobileNav.hidden;
-
-      const wasServicesOpen =
-        servicesMenu instanceof HTMLDetailsElement &&
-        servicesMenu.open;
-
-      closeMobileMenu();
-
-      if (servicesMenu instanceof HTMLDetailsElement) {
-        servicesMenu.open = false;
-      }
-
-      if (wasMobileOpen) {
-        menuButton.focus();
-      } else if (wasServicesOpen) {
-        servicesMenu
-          .querySelector("summary")
-          ?.focus();
+      if (event.key === "Escape" && !menu.hidden) {
+        closeMenu();
+        button.focus();
       }
     });
 
-    // Desktop-Leistungen bei Klick außerhalb schließen
     document.addEventListener("pointerdown", (event) => {
-      if (!(event.target instanceof Node)) return;
-
-      if (
-        servicesMenu instanceof HTMLDetailsElement &&
-        !servicesMenu.contains(event.target)
-      ) {
-        servicesMenu.open = false;
-      }
-
-      if (
-        !mobileNav.hidden &&
-        !header.contains(event.target)
-      ) {
-        closeMobileMenu();
+      if (!menu.hidden && !header.contains(event.target)) {
+        closeMenu();
       }
     });
 
-    // Beim Wechsel zur Desktop-Ansicht zurücksetzen
     window.addEventListener("resize", () => {
-      if (window.innerWidth > 980) {
-        closeMobileMenu();
-      }
-
-      if (
-        window.innerWidth <= 980 &&
-        servicesMenu instanceof HTMLDetailsElement
-      ) {
-        servicesMenu.open = false;
-      }
+      if (window.innerWidth > 980) closeMenu();
     });
   })();
 </script>
 
 <style>
   .site-header {
-    --header-ink: #17181d;
-    --header-accent: #b46300;
-
+    --ink: #17181d;
+    --accent: #b46300;
     position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+    inset: 0 0 auto;
     z-index: 1100;
-
     height: 86px;
-
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 1px 0 rgba(23, 24, 29, 0.055);
-
-    transition:
-      background 0.25s ease,
-      box-shadow 0.25s ease,
-      height 0.25s ease;
+    background: rgba(255,255,255,.98);
+    box-shadow: 0 1px 0 rgba(23,24,29,.06);
+    transition: height .25s, background .25s, box-shadow .25s;
   }
 
   .site-header.is-scrolled {
     height: 75px;
-
-    background: rgba(255, 255, 255, 0.97);
-
+    background: rgba(255,255,255,.97);
+    box-shadow: 0 8px 30px rgba(0,0,0,.075);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.075);
   }
 
-  /* TRANSPARENT AUF STARTSEITE */
   .site-header.is-home:not(.is-scrolled) {
     background: transparent;
     box-shadow: none;
@@ -458,237 +161,103 @@ const isServiceActive = serviceLinks.some((item) =>
   .header-inner {
     width: min(1380px, calc(100% - 52px));
     height: 100%;
-    margin: 0 auto;
-
+    margin: auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 35px;
+    gap: 28px;
   }
 
-  /* LOGO */
   .logo {
+    flex: 0 0 112px;
     width: 112px;
     height: 65px;
-    flex: 0 0 112px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
   }
 
   .logo img {
+    display: block;
     width: 100%;
     height: 100%;
     object-fit: contain;
-    display: block;
   }
 
-  .logo .logo-light {
-    display: none;
+  .logo-light { display: none !important; }
+
+  .is-home:not(.is-scrolled) .logo-dark {
+    display: none !important;
   }
 
-  .site-header.is-home:not(.is-scrolled)
-  .logo .logo-dark {
-    display: none;
+  .is-home:not(.is-scrolled) .logo-light {
+    display: block !important;
   }
 
-  .site-header.is-home:not(.is-scrolled)
-  .logo .logo-light {
-    display: block;
-  }
-
-  /* DESKTOP */
   .desktop-nav {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: clamp(15px, 1.9vw, 29px);
+    gap: clamp(13px, 1.7vw, 27px);
   }
 
-  .desktop-nav > a:not(.nav-cta),
-  .services-menu > summary {
-    color: var(--header-ink);
-
+  .desktop-nav > a:not(.nav-cta) {
+    color: var(--ink);
     font-size: 14px !important;
     font-weight: 600;
-    line-height: 1.3;
-
+    line-height: 1.4;
     white-space: nowrap;
     text-decoration: none;
-
-    transition: color 0.2s ease;
+    transition: color .2s;
   }
 
   .desktop-nav > a:not(.nav-cta):hover,
-  .desktop-nav > a:not(.nav-cta).is-active,
-  .services-menu > summary:hover,
-  .services-menu.is-active > summary,
-  .services-menu[open] > summary {
-    color: var(--header-accent);
+  .desktop-nav > a.is-active:not(.nav-cta) {
+    color: var(--accent);
   }
 
-  /* WEISSE SCHRIFT ÜBER VIDEO */
-  .site-header.is-home:not(.is-scrolled)
-  .desktop-nav > a:not(.nav-cta),
-  .site-header.is-home:not(.is-scrolled)
-  .services-menu > summary {
-    color: #fff;
-    text-shadow: 0 1px 8px rgba(0, 0, 0, 0.32);
+  .is-home:not(.is-scrolled) .desktop-nav > a:not(.nav-cta) {
+    color: white;
+    text-shadow: 0 1px 8px rgba(0,0,0,.35);
   }
 
-  .site-header.is-home:not(.is-scrolled)
-  .desktop-nav > a:not(.nav-cta):hover,
-  .site-header.is-home:not(.is-scrolled)
-  .services-menu > summary:hover {
+  .is-home:not(.is-scrolled) .desktop-nav > a:not(.nav-cta):hover {
     color: #ffd49b;
   }
 
-  /* LEISTUNGEN – DESKTOP */
-  .services-menu {
-    position: relative;
-    flex: 0 0 auto;
-  }
-
-  .services-menu > summary {
-    display: flex;
-    align-items: center;
-    gap: 6px;
-
-    cursor: pointer;
-    list-style: none;
-  }
-
-  .services-menu > summary::-webkit-details-marker {
-    display: none;
-  }
-
-  .services-menu > summary::marker {
-    content: "";
-  }
-
-  .services-menu > summary svg {
-    width: 15px;
-    height: 15px;
-    flex: 0 0 15px;
-
-    transition: transform 0.2s ease;
-  }
-
-  .services-menu[open] > summary svg {
-    transform: rotate(180deg);
-  }
-
-  .services-dropdown {
-    position: absolute;
-    top: calc(100% + 28px);
-    left: 50%;
-    transform: translateX(-50%);
-
-    width: 315px;
-    padding: 16px 12px 12px;
-
-    background: #fff;
-    border: 1px solid #e7e7e9;
-    border-radius: 14px;
-
-    box-shadow: 0 18px 55px rgba(23, 24, 29, 0.13);
-  }
-
-  .services-dropdown::before {
-    content: "";
-    position: absolute;
-    bottom: 100%;
-    left: 0;
-    right: 0;
-    height: 29px;
-  }
-
-  .services-dropdown > p {
-    margin: 0 13px 11px;
-
-    color: #878892;
-    font-size: 10px;
-    font-weight: 800;
-    letter-spacing: 0.17em;
-    text-transform: uppercase;
-  }
-
-  .services-dropdown a {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 14px;
-
-    padding: 13px;
-    border-radius: 8px;
-
-    color: #17181d;
-    font-size: 13px;
-    font-weight: 600;
-    line-height: 1.4;
-
-    white-space: normal;
-  }
-
-  .services-dropdown a:hover,
-  .services-dropdown a.is-active {
-    color: #b46300;
-    background: #fff7ee;
-  }
-
-  .services-dropdown a span:last-child {
-    color: #b46300;
-    font-size: 16px;
-  }
-
-  /* KONTAKT CTA */
   .desktop-nav .nav-cta {
-    min-height: 43px;
-
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 13px;
-
+    gap: 12px;
+    min-height: 43px;
     padding: 10px 19px;
     border-radius: 7px;
-
-    background: #b46300;
-    color: #fff !important;
-
+    background: var(--accent);
+    color: white !important;
     font-size: 13px !important;
-    font-weight: 750;
-    line-height: 1.2;
+    font-weight: 800;
     white-space: nowrap;
-
-    transition:
-      background 0.2s ease,
-      transform 0.2s ease;
+    text-decoration: none;
+    transition: background .2s, transform .2s;
   }
 
-  .desktop-nav .nav-cta:hover {
+  .nav-cta:hover {
     background: #965000;
     transform: translateY(-1px);
   }
 
-  .menu-button,
-  .mobile-nav {
-    display: none;
-  }
+  .menu-button { display: none; }
+  .mobile-nav { display: none; }
 
-  /* HAMBURGER BUTTON */
   .menu-button {
     position: relative;
-
     width: 44px;
     height: 44px;
     flex: 0 0 44px;
-
     border: 0;
     border-radius: 8px;
-
-    background: #17181d;
+    background: var(--ink);
     cursor: pointer;
   }
 
@@ -696,21 +265,14 @@ const isServiceActive = serviceLinks.some((item) =>
     position: absolute;
     left: 12px;
     right: 12px;
-
     height: 2px;
-    border-radius: 3px;
-    background: #fff;
-
-    transition: transform 0.2s ease;
+    background: white;
+    border-radius: 2px;
+    transition: transform .2s;
   }
 
-  .menu-button span:first-child {
-    top: 17px;
-  }
-
-  .menu-button span:last-child {
-    top: 26px;
-  }
+  .menu-button span:first-child { top: 17px; }
+  .menu-button span:last-child { top: 26px; }
 
   .menu-button.is-open span:first-child {
     transform: translateY(4.5px) rotate(45deg);
@@ -720,242 +282,92 @@ const isServiceActive = serviceLinks.some((item) =>
     transform: translateY(-4.5px) rotate(-45deg);
   }
 
-  /* TABLET & HANDY */
   @media (max-width: 980px) {
     .site-header,
     .site-header.is-scrolled,
     .site-header.is-home:not(.is-scrolled) {
       height: 76px;
-
-      background: rgba(255, 255, 255, 0.98);
-
-      box-shadow: 0 3px 20px rgba(0, 0, 0, 0.065);
-
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 3px 20px rgba(0,0,0,.065);
       backdrop-filter: blur(18px);
       -webkit-backdrop-filter: blur(18px);
     }
 
-    .header-inner {
-      width: min(100% - 32px, 1380px);
+    .header-inner { width: calc(100% - 32px); }
+    .logo { width: 99px; height: 58px; flex-basis: 99px; }
+
+    .is-home:not(.is-scrolled) .logo-dark {
+      display: block !important;
     }
 
-    .logo {
-      width: 99px;
-      height: 58px;
-      flex-basis: 99px;
+    .is-home:not(.is-scrolled) .logo-light {
+      display: none !important;
     }
 
-    /* IMMER DUNKLES LOGO MOBIL */
-    .site-header.is-home:not(.is-scrolled)
-    .logo .logo-dark {
-      display: block;
-    }
-
-    .site-header.is-home:not(.is-scrolled)
-    .logo .logo-light {
-      display: none;
-    }
-
-    .desktop-nav {
-      display: none;
-    }
-
-    .menu-button {
-      display: block;
-    }
+    .desktop-nav { display: none; }
+    .menu-button { display: block; }
 
     .mobile-nav {
       position: absolute;
       top: 100%;
       left: 0;
       right: 0;
-
       display: block;
-
       max-height: calc(100dvh - 76px);
       overflow-y: auto;
       overscroll-behavior: contain;
-
       padding: 15px 16px 28px;
-
-      background: rgba(255, 255, 255, 0.99);
+      background: rgba(255,255,255,.99);
       border-top: 1px solid #ededee;
-
-      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.11);
+      box-shadow: 0 20px 40px rgba(0,0,0,.11);
     }
 
-    .mobile-nav[hidden] {
-      display: none !important;
-    }
+    .mobile-nav[hidden] { display: none !important; }
 
     .mobile-nav-inner {
+      display: flex;
+      flex-direction: column;
       width: min(680px, 100%);
-      margin: 0 auto;
-
-      display: flex;
-      flex-direction: column;
+      margin: auto;
     }
 
-    /* NORMALE MOBILE LINKS */
     .mobile-nav-inner > a:not(.mobile-cta) {
-      display: block;
-
       padding: 15px 10px;
-      border-bottom: 1px solid #eeeeef;
-
-      color: #17181d;
-
-      font-size: 16px !important;
+      border-bottom: 1px solid #eee;
+      color: var(--ink);
+      font-size: 16px;
       font-weight: 600;
-      line-height: 1.4;
+      text-decoration: none;
     }
 
-    .mobile-nav a.is-active,
-    .mobile-nav a[aria-current="page"] {
-      color: #b46300;
+    .mobile-nav-inner > a.is-active {
+      color: var(--accent);
     }
 
-    /* NEU: MOBILE LEISTUNGEN DROPDOWN */
-    .mobile-services {
-      border-bottom: 1px solid #eeeeef;
-    }
-
-    .mobile-services > summary {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-
-      min-height: 52px;
-      padding: 15px 10px;
-
-      color: #17181d;
-
-      font-size: 16px !important;
-      font-weight: 600;
-      line-height: 1.4;
-
-      list-style: none;
-      cursor: pointer;
-      user-select: none;
-    }
-
-    .mobile-services > summary::-webkit-details-marker {
-      display: none;
-    }
-
-    .mobile-services > summary::marker {
-      content: "";
-    }
-
-    .mobile-services > summary svg {
-      width: 19px;
-      height: 19px;
-      flex: 0 0 19px;
-
-      color: #777985;
-
-      transition:
-        transform 0.22s ease,
-        color 0.22s ease;
-    }
-
-    .mobile-services[open] > summary svg {
-      transform: rotate(180deg);
-      color: #b46300;
-    }
-
-    .mobile-services[open] > summary,
-    .mobile-services.has-active-service > summary {
-      color: #b46300;
-    }
-
-    .mobile-services > summary:hover {
-      color: #b46300;
-    }
-
-    /* UNTERSEITEN NUR BEI GEÖFFNETEM MENÜ */
-    .mobile-services-links {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-
-      padding: 0 10px 14px 22px;
-    }
-
-    .mobile-services-links .mobile-sub-link {
-      display: block;
-
-      padding: 12px 13px;
-
-      border-left: 2px solid #e6e6e8;
-      border-radius: 0 6px 6px 0;
-
-      color: #52545c;
-
-      font-size: 14px !important;
-      font-weight: 500;
-      line-height: 1.45;
-
-      transition:
-        color 0.2s ease,
-        background 0.2s ease,
-        border-color 0.2s ease;
-    }
-
-    .mobile-services-links .mobile-sub-link:hover {
-      color: #b46300;
-      background: #fff7ee;
-      border-left-color: #b46300;
-    }
-
-    .mobile-services-links .mobile-sub-link.is-active {
-      color: #b46300;
-      background: #fff7ee;
-      border-left-color: #b46300;
-      font-weight: 700;
-    }
-
-    /* MOBILE KONTAKT-BUTTON */
     .mobile-nav .mobile-cta {
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 13px;
-
       margin-top: 22px;
-
-      min-height: 51px;
-      padding: 12px 18px;
-
+      padding: 15px 18px;
       border-radius: 8px;
-
-      background: #b46300;
-      color: #fff !important;
-
-      font-size: 15px !important;
-      font-weight: 750;
+      background: var(--accent);
+      color: white !important;
+      font-size: 15px;
+      font-weight: 800;
+      text-decoration: none;
     }
 
-    :global(body.vj-mobile-menu-open) {
-      overflow: hidden;
-    }
+    :global(body.vj-mobile-menu-open) { overflow: hidden; }
   }
 
   @media (max-width: 620px) {
-    .logo {
-      width: 90px;
-      height: 54px;
-      flex-basis: 90px;
-    }
+    .logo { width: 90px; height: 54px; flex-basis: 90px; }
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .site-header,
-    .menu-button span,
-    .services-menu > summary svg,
-    .mobile-services > summary svg,
-    .mobile-services-links .mobile-sub-link {
+    .site-header, .menu-button span, .nav-cta {
       transition: none;
     }
   }

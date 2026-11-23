@@ -2,46 +2,59 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const occasions = [
-  { value: "Hochzeit", label: "Hochzeit" },
-  { value: "Verlobung", label: "Verlobung" },
+const additionalServices = [
   {
-    value: "Nachträgliches Hochzeitsvideoshooting",
-    label: "Nachträgliches Hochzeitsvideoshooting",
+    name: "Zweiter Videograf",
+    value: "Interesse",
+    label: "Zweiter Videograf",
+  },
+  {
+    name: "Zusatzleistungen",
+    value: "Drohnenaufnahmen",
+    label: "Drohnenaufnahmen",
+  },
+  {
+    name: "Zusatzleistungen",
+    value: "Express-Lieferung",
+    label: "Express-Lieferung",
+  },
+  {
+    name: "Zusatzleistungen",
+    value: "Social Media Reel",
+    label: "Social Media Reel",
   },
 ];
 
-const additionalServices = [
-  { name: "Zweiter Videograf", value: "Interesse", label: "Zweiter Videograf" },
-  { name: "Zusatzleistungen", value: "Drohnenaufnahmen", label: "Drohnenaufnahmen" },
-  { name: "Zusatzleistungen", value: "Express-Lieferung", label: "Express-Lieferung" },
-  { name: "Zusatzleistungen", value: "Social Media Reel", label: "Social Media Reel" },
-];
-
 const sources = [
-  { value: "Google-Suche", label: "Google-Suche" },
+  { value: "Google-Suche", label: "Google-Suche (organisch)" },
   { value: "Google-Werbung (Google Ads)", label: "Google-Werbung (Google Ads)" },
   { value: "Instagram", label: "Instagram" },
   { value: "Facebook", label: "Facebook" },
   { value: "Bark.com", label: "Bark.com" },
-  { value: "Empfehlung durch Freunde oder Familie", label: "Empfehlung durch Freunde oder Familie" },
-  { value: "Empfehlung durch Fotografen oder Dienstleister", label: "Empfehlung durch Fotografen oder Dienstleister" },
+  {
+    value: "Empfehlung von Freunden/Bekannten",
+    label: "Empfehlung von Freunden/Bekannten",
+  },
+  {
+    value: "Empfehlung durch Fotografen oder Dienstleister",
+    label: "Empfehlung durch Fotografen oder Dienstleister",
+  },
   { value: "TikTok", label: "TikTok" },
   { value: "Sonstiges", label: "Sonstiges" },
 ];
 ---
 
 <BaseLayout
-  title="Kontakt | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Kontaktiere VJ Production für deinen Hochzeitsfilm. Anfrage für Hochzeitsvideo, Verlobungsvideo, nachträgliches Hochzeitsvideoshooting oder Zusatzleistungen."
+  title="Hochzeit anfragen | Hochzeitsvideograf NRW | VJ Production"
+  description="Fragt VJ Production unverbindlich für eure Hochzeit an. Hochzeitsvideograf aus Witten für emotionale Hochzeitsfilme in NRW und deutschlandweit."
 >
-  <main class="kontakt-page">
+  <section class="kontakt-page">
     <header class="kontakt-head">
-      <p class="eyebrow">VJ Production · Anfrage</p>
+      <p class="eyebrow">VJ Production · Hochzeit anfragen</p>
       <h1>Erzählt mir von eurem Tag.</h1>
       <p class="head-description">
-        Ich freue mich auf eure Pläne. Füllt das Formular aus und ich melde mich
-        persönlich bei euch. Eure Anfrage ist unverbindlich.
+        Ich freue mich auf eure Pläne. Füllt das Formular aus und
+        ich melde mich persönlich bei euch. Eure Anfrage ist unverbindlich.
       </p>
     </header>
 
@@ -51,42 +64,46 @@ const sources = [
       action="https://api.web3forms.com/submit"
       method="POST"
     >
-      <!-- Bestehende Web3Forms-Anbindung und Danke-Seite beibehalten -->
       <input type="hidden" name="access_key" value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972" />
-      <input type="hidden" name="subject" value="Neue Anfrage über vjproduction.de" />
+      <input type="hidden" name="subject" value="Neue Hochzeitsanfrage über vjproduction.de" />
       <input type="hidden" name="from_name" value="VJ Production Website" />
       <input type="hidden" name="redirect" value="https://vjproduction.de/danke" />
+      <input type="hidden" name="Anlass" value="Hochzeit" />
 
+      <input
+        type="checkbox"
+        name="botcheck"
+        tabindex="-1"
+        autocomplete="off"
+        class="honeypot"
+      />
+
+      <!-- 01 / EURE HOCHZEIT -->
       <section class="form-section" aria-labelledby="event-heading">
         <div class="section-heading">
           <span class="section-number" aria-hidden="true">01</span>
           <div>
-            <h2 id="event-heading">Euer Event</h2>
-            <p>Was plant ihr und wann findet es statt?</p>
+            <h2 id="event-heading">Eure Hochzeit</h2>
+            <p>Wann und wo feiert ihr?</p>
           </div>
         </div>
 
-        <fieldset>
-          <legend>Was ist der Anlass? <span class="required">*</span></legend>
-          <div class="choice-grid occasion-grid">
-            {occasions.map((occasion) => (
-              <label class="choice-card">
-                <input type="radio" name="Anlass" value={occasion.value} required />
-                <span>{occasion.label}</span>
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
         <div class="form-grid">
           <label class="field">
-            <span>Datum</span>
+            <span>Hochzeitsdatum</span>
             <input type="date" name="Datum" aria-describedby="date-note" />
-            <small id="date-note">Falls noch nicht bekannt, einfach freilassen.</small>
+            <small id="date-note">
+              Falls noch nicht bekannt, einfach freilassen.
+            </small>
           </label>
+
           <label class="field">
             <span>Location / Ort</span>
-            <input type="text" name="Location" placeholder="z. B. Witten, Dortmund, Essen …" />
+            <input
+              type="text"
+              name="Location"
+              placeholder="z. B. Witten, Dortmund, Essen …"
+            />
           </label>
         </div>
 
@@ -105,7 +122,9 @@ const sources = [
           <label class="field">
             <span>Investitionsrahmen <span class="required">*</span></span>
             <select name="Investitionsrahmen" required>
-              <option value="" disabled selected>Investitionsrahmen auswählen …</option>
+              <option value="" disabled selected>
+                Investitionsrahmen auswählen …
+              </option>
               <option value="Ab 1.290 Euro">ab 1.290 € – Basic</option>
               <option value="Ab 1.990 Euro">ab 1.990 € – Classic</option>
               <option value="Ab 2.390 Euro">ab 2.390 € – Premium</option>
@@ -113,16 +132,25 @@ const sources = [
             </select>
           </label>
         </div>
+
         <p class="form-note">
-          Die Paket- und Budgetauswahl hilft mir, eure Anfrage passend einzuschätzen.
+          Die Paket- und Budgetauswahl hilft mir,
+          eure Anfrage passend einzuschätzen.
         </p>
 
         <fieldset>
-          <legend>Zusatzleistungen <span class="optional">(optional)</span></legend>
+          <legend>
+            Zusatzleistungen <span class="optional">(optional)</span>
+          </legend>
+
           <div class="choice-grid extras-grid">
             {additionalServices.map((service) => (
               <label class="choice-card">
-                <input type="checkbox" name={service.name} value={service.value} />
+                <input
+                  type="checkbox"
+                  name={service.name}
+                  value={service.value}
+                />
                 <span>{service.label}</span>
               </label>
             ))}
@@ -130,6 +158,7 @@ const sources = [
         </fieldset>
       </section>
 
+      <!-- 02 / KONTAKT -->
       <section class="form-section" aria-labelledby="contact-heading">
         <div class="section-heading">
           <span class="section-number" aria-hidden="true">02</span>
@@ -140,10 +169,13 @@ const sources = [
         </div>
 
         <label class="field">
-          <span>Ihr Name <span class="required">*</span></span>
+          <span>Euer Name <span class="required">*</span></span>
           <input
-            type="text" name="Name" placeholder="Anna & Max Mustermann"
-            autocomplete="name" required
+            type="text"
+            name="Name"
+            placeholder="Anna & Max Mustermann"
+            autocomplete="name"
+            required
           />
         </label>
 
@@ -151,387 +183,25 @@ const sources = [
           <label class="field">
             <span>E-Mail</span>
             <input
-              id="kontaktEmail" type="email" name="email"
-              placeholder="eure@email.de" autocomplete="email"
+              id="kontaktEmail"
+              type="email"
+              name="email"
+              placeholder="eure@email.de"
+              autocomplete="email"
               aria-describedby="email-note"
             />
-            <small id="email-note">Pflichtfeld, wenn ihr E-Mail als Kontaktweg auswählt.</small>
+            <small id="email-note">
+              Pflichtfeld, wenn ihr E-Mail als Kontaktweg auswählt.
+            </small>
           </label>
+
           <label class="field">
             <span>Telefon <span class="required">*</span></span>
             <input
-              type="tel" name="Telefon" placeholder="+49 123 456789"
-              autocomplete="tel" required
+              type="tel"
+              name="Telefon"
+              placeholder="+49 123 456789"
+              autocomplete="tel"
+              required
             />
-          </label>
-        </div>
-
-        <fieldset class="contact-way">
-          <legend>Bevorzugter Kontaktweg</legend>
-          <div class="contact-way-options">
-            <label><input type="radio" name="Bevorzugter Kontaktweg" value="E-Mail" /> E-Mail</label>
-            <label><input type="radio" name="Bevorzugter Kontaktweg" value="Telefon" checked /> Telefon</label>
-            <label><input type="radio" name="Bevorzugter Kontaktweg" value="WhatsApp" /> WhatsApp</label>
-          </div>
-        </fieldset>
-      </section>
-
-      <section class="form-section" aria-labelledby="message-heading">
-        <div class="section-heading">
-          <span class="section-number" aria-hidden="true">03</span>
-          <div>
-            <h2 id="message-heading">Eure Geschichte</h2>
-            <p>Erzählt mir noch etwas über eure Wünsche.</p>
-          </div>
-        </div>
-
-        <label class="field">
-          <span>Wie seid ihr auf VJ Production aufmerksam geworden? <span class="required">*</span></span>
-          <select id="kontaktQuelle" name="Wie auf uns aufmerksam geworden" required>
-            <option value="" disabled selected>Bitte auswählen …</option>
-            {sources.map((source) => (
-              <option value={source.value}>{source.label}</option>
-            ))}
-          </select>
-        </label>
-
-        <label id="quelleSonstiges" class="field source-other" hidden>
-          <span>Wo genau habt ihr mich gefunden? <span class="required">*</span></span>
-          <input
-            id="quelleDetails" type="text" name="Andere Herkunft (Details)"
-            placeholder="Bitte kurz beschreiben …" disabled
-          />
-        </label>
-
-        <label class="field">
-          <span>Nachricht <span class="optional">(optional)</span></span>
-          <textarea
-            name="Nachricht" rows="6"
-            placeholder="Erzählt mir kurz von euch, eurem Anlass und was euch wichtig ist …"
-          ></textarea>
-        </label>
-      </section>
-
-      <div class="form-finish">
-        <label class="consent">
-          <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required />
-          <span>
-            Ich habe die <a href="/datenschutz">Datenschutzerklärung</a>
-            gelesen und akzeptiere sie. <span class="required">*</span>
-          </span>
-        </label>
-
-        <label class="consent">
-          <input type="checkbox" name="Kontakt erlaubt" value="Ja" required />
-          <span>Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. <span class="required">*</span></span>
-        </label>
-
-        <p id="kontaktStatus" class="form-status" role="status" aria-live="polite" hidden></p>
-
-        <button class="submit-button" type="submit">
-          Anfrage absenden <span aria-hidden="true">→</span>
-        </button>
-        <p class="submit-note">Unverbindlich anfragen – ich melde mich persönlich bei euch.</p>
-      </div>
-    </form>
-  </main>
-
-  <script is:inline>
-    (() => {
-      const form = document.getElementById("kontaktForm");
-      if (!(form instanceof HTMLFormElement)) return;
-
-      const submitButton = form.querySelector('button[type="submit"]');
-      const status = document.getElementById("kontaktStatus");
-      const email = document.getElementById("kontaktEmail");
-      const source = document.getElementById("kontaktQuelle");
-      const otherWrapper = document.getElementById("quelleSonstiges");
-      const otherInput = document.getElementById("quelleDetails");
-
-      // Die bestehende Danke-Seite verwendet diesen Marker für Conversions.
-      try { sessionStorage.removeItem("vjContactFormSubmittedAt"); } catch {}
-
-      // Nur bei Kontaktweg E-Mail muss auch eine E-Mail-Adresse angegeben werden.
-      function updateEmailRequirement() {
-        if (!(email instanceof HTMLInputElement)) return;
-        const chosen = form.querySelector('input[name="Bevorzugter Kontaktweg"]:checked');
-        email.required = chosen instanceof HTMLInputElement && chosen.value === "E-Mail";
-      }
-      form.querySelectorAll('input[name="Bevorzugter Kontaktweg"]').forEach((radio) => {
-        radio.addEventListener("change", updateEmailRequirement);
-      });
-      updateEmailRequirement();
-
-      // Bei "Sonstiges" eine konkrete Herkunft ergänzen lassen.
-      function updateOtherSource() {
-        if (!(source instanceof HTMLSelectElement) ||
-            !(otherWrapper instanceof HTMLElement) ||
-            !(otherInput instanceof HTMLInputElement)) return;
-        const other = source.value === "Sonstiges";
-        otherWrapper.hidden = !other;
-        otherInput.disabled = !other;
-        otherInput.required = other;
-        if (!other) otherInput.value = "";
-      }
-      source?.addEventListener("change", updateOtherSource);
-      updateOtherSource();
-
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
-        if (!(submitButton instanceof HTMLButtonElement)) return;
-        if (!form.reportValidity()) return;
-
-        const originalHTML = submitButton.innerHTML;
-        submitButton.disabled = true;
-        submitButton.textContent = "Anfrage wird gesendet …";
-        if (status instanceof HTMLElement) {
-          status.hidden = true;
-          status.textContent = "";
-        }
-
-        try {
-          const formData = new FormData(form);
-          // Erfolgsweiterleitung wie bisher kontrolliert nach bestätigter API-Antwort.
-          formData.delete("redirect");
-
-          const response = await fetch("https://api.web3forms.com/submit", {
-            method: "POST",
-            body: formData,
-            headers: { Accept: "application/json" },
-          });
-          const result = await response.json();
-          if (!response.ok || result.success !== true) {
-            throw new Error(result.message || "Die Anfrage konnte nicht gesendet werden.");
-          }
-
-          try {
-            sessionStorage.setItem("vjContactFormSubmittedAt", String(Date.now()));
-          } catch {}
-          window.location.assign("/danke");
-        } catch (error) {
-          console.error("Fehler beim Senden des Kontaktformulars:", error);
-          if (status instanceof HTMLElement) {
-            status.textContent = "Die Anfrage konnte gerade nicht gesendet werden. Bitte versucht es erneut oder kontaktiert mich telefonisch.";
-            status.hidden = false;
-          }
-          submitButton.disabled = false;
-          submitButton.innerHTML = originalHTML;
-        }
-      });
-    })();
-  </script>
-</BaseLayout>
-
-<style>
-  :global(body) { background: #fff; }
-  .kontakt-page {
-    --ink: #17181d;
-    --muted: #696b73;
-    --accent: #b46300;
-    --line: #e3e3e6;
-    background: #fff;
-    color: var(--ink);
-    padding: 145px 20px 110px;
-  }
-  .kontakt-page *, .kontakt-page *::before, .kontakt-page *::after { box-sizing: border-box; }
-  .kontakt-head { max-width: 840px; margin: 0 auto 55px; text-align: center; }
-  .eyebrow {
-    margin: 0 0 18px;
-    color: var(--accent);
-    text-transform: uppercase;
-    letter-spacing: .25em;
-    font-size: 11px;
-    font-weight: 800;
-  }
-  .kontakt-head h1 {
-    margin: 0;
-    font-size: clamp(40px, 6vw, 70px);
-    font-weight: 300;
-    letter-spacing: -.065em;
-    line-height: 1.07;
-    text-wrap: balance;
-  }
-  .head-description {
-    margin: 23px auto 0;
-    max-width: 590px;
-    color: var(--muted);
-    font-size: 16px;
-    line-height: 1.7;
-  }
-  .kontakt-form { width: min(840px, 100%); margin: 0 auto; }
-  .form-section {
-    padding: 39px 0 42px;
-    border-top: 1px solid var(--line);
-    display: grid;
-    gap: 26px;
-  }
-  .section-heading { display: flex; align-items: flex-start; gap: 18px; margin: 0 0 8px; }
-  .section-number {
-    flex: 0 0 41px;
-    color: var(--accent);
-    font-size: 14px;
-    font-weight: 700;
-    letter-spacing: .04em;
-    padding-top: 7px;
-  }
-  .section-heading h2 {
-    margin: 0;
-    font-size: clamp(27px, 3.4vw, 37px);
-    font-weight: 400;
-    line-height: 1.2;
-    letter-spacing: -.04em;
-  }
-  .section-heading p { margin: 7px 0 0; color: var(--muted); font-size: 14px; line-height: 1.6; }
-  .kontakt-form fieldset { margin: 0; padding: 0; border: 0; min-width: 0; }
-  .kontakt-form legend, .field > span {
-    display: block;
-    width: 100%;
-    margin: 0 0 11px;
-    padding: 0;
-    color: var(--ink);
-    font-size: 15px;
-    font-weight: 700;
-    line-height: 1.45;
-  }
-  .required { color: var(--accent); }
-  .optional { color: var(--muted); font-weight: 400; }
-  .choice-grid { display: grid; gap: 12px; }
-  .occasion-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  .extras-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .choice-card {
-    display: flex;
-    align-items: center;
-    gap: 13px;
-    min-width: 0;
-    min-height: 68px;
-    padding: 16px;
-    border: 1px solid #dadbe0;
-    border-radius: 12px;
-    background: #fff;
-    color: var(--ink);
-    font-size: 14px;
-    font-weight: 650;
-    line-height: 1.4;
-    cursor: pointer;
-    transition: border-color .16s ease, background .16s ease, box-shadow .16s ease;
-  }
-  .choice-card:hover { border-color: #c28a4f; }
-  .choice-card:has(input:checked) {
-    border-color: var(--accent);
-    background: #fffaf3;
-    box-shadow: 0 0 0 2px rgba(180, 99, 0, .08);
-  }
-  .choice-card input, .contact-way input, .consent input {
-    flex: 0 0 19px;
-    width: 19px;
-    height: 19px;
-    margin: 0;
-    accent-color: var(--accent);
-    cursor: pointer;
-  }
-  .form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
-  .field { display: block; min-width: 0; }
-  .field > input, .field > select, .field > textarea {
-    display: block;
-    width: 100%;
-    max-width: 100%;
-    min-width: 0;
-    border: 1px solid #d8d9de;
-    border-radius: 8px;
-    background: #fff;
-    color: var(--ink);
-    font: inherit;
-    font-size: 16px;
-    outline: none;
-    transition: border-color .16s ease, box-shadow .16s ease;
-  }
-  .field > input, .field > select { height: 53px; padding: 0 15px; }
-  .field > textarea { padding: 15px; min-height: 138px; resize: vertical; line-height: 1.55; }
-  .field > input:focus, .field > select:focus, .field > textarea:focus {
-    border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(180, 99, 0, .13);
-  }
-  .field small { display: block; margin-top: 7px; color: var(--muted); font-size: 12px; line-height: 1.4; }
-  .field > input[type="date"] { appearance: auto; -webkit-appearance: auto; }
-  .form-note {
-    margin: -14px 0 0;
-    color: var(--muted);
-    font-size: 13px;
-    line-height: 1.55;
-  }
-  .contact-way-options { display: flex; flex-wrap: wrap; gap: 16px 28px; }
-  .contact-way-options label {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-    font-size: 15px;
-  }
-  .source-other[hidden] { display: none !important; }
-  .form-finish {
-    display: grid;
-    gap: 19px;
-    padding-top: 30px;
-    border-top: 1px solid var(--line);
-  }
-  .consent { display: flex; align-items: flex-start; gap: 13px; font-size: 14px; line-height: 1.65; }
-  .consent input { margin-top: 3px; }
-  .consent a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-  .submit-button {
-    justify-self: end;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 21px;
-    min-height: 55px;
-    padding: 10px 31px;
-    margin-top: 12px;
-    border: 0;
-    border-radius: 7px;
-    background: #df7b00;
-    color: #fff;
-    font: inherit;
-    font-size: 15px;
-    font-weight: 800;
-    cursor: pointer;
-    transition: background .18s ease;
-  }
-  .submit-button:hover { background: #c66d00; }
-  .submit-button:disabled { opacity: .7; cursor: wait; }
-  .submit-note {
-    justify-self: end;
-    margin: -9px 0 0;
-    color: var(--muted);
-    font-size: 12px;
-    text-align: right;
-  }
-  .form-status {
-    margin: 0;
-    padding: 13px 16px;
-    border: 1px solid #dfb69d;
-    border-radius: 8px;
-    color: #793e20;
-    background: #fff6f0;
-    font-size: 14px;
-    line-height: 1.5;
-  }
-  .form-status[hidden] { display: none; }
-  .kontakt-page :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
-  @media (max-width: 700px) {
-    .kontakt-page { padding: 116px 15px 78px; }
-    .kontakt-head { margin-bottom: 41px; }
-    .head-description { font-size: 15px; }
-    .form-section { padding: 31px 0 36px; gap: 23px; }
-    .section-heading { gap: 10px; }
-    .section-number { flex-basis: 31px; }
-    .occasion-grid, .extras-grid, .form-grid { grid-template-columns: minmax(0, 1fr); }
-    .choice-grid { gap: 9px; }
-    .choice-card { min-height: 62px; padding: 13px 15px; }
-    .contact-way-options { gap: 13px 18px; }
-    .submit-button { width: 100%; justify-self: stretch; }
-    .submit-note { justify-self: center; text-align: center; }
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .choice-card, .field > input, .field > select, .field > textarea, .submit-button { transition: none; }
-  }
-</style>
+          </label
