@@ -99,42 +99,59 @@ const faqs = [
 
 <BaseLayout
   title="Pakete & Preise | Hochzeitsvideograf Witten & NRW | VJ Production"
-  description="Hochzeitsvideo-Pakete von VJ Production: Basic ab 1.290 €, Classic ab 1.990 € und Premium ab 2.390 €. Professionelle Hochzeitsfilme aus Witten."
+  description="Hochzeitsvideo-Pakete von VJ Production: Basic ab 1.290 €, Classic ab 1.990 € und Premium ab 2.390 €. Professionelle Hochzeitsfilme in NRW."
 >
-  <div class="prices-page">
-    <header class="prices-head">
-      <p class="eyebrow">Pakete &amp; Preise</p>
+  <div class="prices-page" id="vjPricingPage">
+
+    <!-- SEITENKOPF -->
+    <header class="pricing-hero">
+      <p class="pricing-eyebrow">Pakete &amp; Preise</p>
+
       <h1>Euer Tag verdient einen besonderen Film.</h1>
-      <p class="intro-text">
+
+      <p class="pricing-intro">
         Ob intime Trauung oder große Hochzeitsfeier:
         Wählt die Begleitung, die zu eurem Tag passt.
         Persönlich, transparent und ohne versteckte Kosten.
       </p>
-      <p class="tax-note">
+
+      <p class="pricing-tax">
         Preise gemäß § 19 UStG ohne Ausweis der Mehrwertsteuer.
       </p>
     </header>
 
-    <section class="packages-section" aria-labelledby="packages-title">
-      <div class="section-intro">
-        <p class="eyebrow">Eure Möglichkeiten</p>
-        <h2 id="packages-title">Drei Pakete. Eure Geschichte.</h2>
+    <!-- PAKETE -->
+    <section class="pricing-packages" aria-labelledby="pricing-packages-title">
+      <div class="pricing-section-head">
+        <p class="pricing-eyebrow">Eure Möglichkeiten</p>
+        <h2 id="pricing-packages-title">
+          Drei Pakete. Eure Geschichte.
+        </h2>
       </div>
 
-      <div class="packages-grid">
+      <div class="pricing-packages-grid">
         {packages.map((item) => (
-          <article class:list={["package-card", { "is-popular": item.popular }]}>
+          <article
+            class:list={[
+              "pricing-package",
+              { "pricing-package-featured": item.popular },
+            ]}
+          >
             {item.popular && (
-              <div class="popular-label">Häufig gewählt</div>
+              <span class="pricing-popular">
+                Häufig gewählt
+              </span>
             )}
 
-            <div class="package-top">
+            <div class="pricing-package-intro">
               <h3>{item.name}</h3>
-              <p class="package-subtitle">{item.subtitle}</p>
-              <p class="package-price">{item.price}<span> €</span></p>
+              <p>{item.subtitle}</p>
+              <div class="pricing-price">
+                {item.price}<span> €</span>
+              </div>
             </div>
 
-            <div class="package-meta">
+            <div class="pricing-meta">
               <div>
                 <strong>{item.hours}</strong>
                 <span>Begleitung</span>
@@ -149,7 +166,7 @@ const faqs = [
               </div>
             </div>
 
-            <ul class="package-features">
+            <ul class="pricing-features">
               {item.features.map((feature) => (
                 <li>
                   <span aria-hidden="true">✓</span>
@@ -158,38 +175,46 @@ const faqs = [
               ))}
             </ul>
 
-            <details class="second-videographer" id={item.target}>
+            <details class="pricing-second" id={item.target}>
               <summary>
                 <span>
                   Zweiter Videograf optional<br />
                   <strong>ab 350 €</strong>
                 </span>
-                <span class="details-action">
-                  Mehr erfahren <span aria-hidden="true">⌄</span>
+
+                <span class="pricing-second-action">
+                  Mehr erfahren
+                  <span aria-hidden="true">⌄</span>
                 </span>
               </summary>
 
-              <div class="second-videographer-content">
-                <h4>Noch mehr Perspektiven auf euren Tag</h4>
+              <div class="pricing-second-content">
+                <h4>Weitere Perspektiven auf euren Tag</h4>
+
                 <p>
-                  Auch mit einem Videografen lässt sich euer Hochzeitstag
-                  umfassend und authentisch begleiten. Ein zweiter Videograf
-                  ist eine optionale Erweiterung für Paare, die sich noch
-                  mehr Blickwinkel und gleichzeitig eingefangene Momente wünschen.
+                  Auch mit einem Videografen lässt sich
+                  euer Hochzeitstag umfassend und
+                  authentisch begleiten.
+                  Ein zweiter Videograf ist eine
+                  optionale Erweiterung für Paare,
+                  die sich zusätzliche Blickwinkel wünschen.
                 </p>
+
                 <p>
-                  Besonders bei getrennten Getting Readys, größeren Hochzeiten
-                  oder parallel stattfindenden Programmpunkten können so
-                  zusätzliche Perspektiven entstehen.
+                  Besonders bei getrennten Getting Readys,
+                  größeren Hochzeiten oder parallel
+                  stattfindenden Momenten können so
+                  weitere Perspektiven entstehen.
                 </p>
+
                 <p>
-                  Der genaue Preis richtet sich nach Dauer und Umfang
-                  der zusätzlichen Begleitung.
+                  Der genaue Preis richtet sich nach
+                  Dauer und Umfang der Begleitung.
                 </p>
               </div>
             </details>
 
-            <a class="package-button" href="/kontakt">
+            <a class="pricing-button" href="/kontakt">
               Paket anfragen <span aria-hidden="true">→</span>
             </a>
           </article>
@@ -197,23 +222,33 @@ const faqs = [
       </div>
     </section>
 
-    <section class="individual-section" aria-labelledby="individual-title">
-      <div class="individual-copy">
-        <p class="eyebrow">Individuelles Angebot</p>
-        <h2 id="individual-title">So einzigartig wie euer Tag.</h2>
+    <!-- INDIVIDUELLES PAKET -->
+    <section class="pricing-individual" aria-labelledby="individual-title">
+      <div class="pricing-individual-copy">
+        <p class="pricing-eyebrow">Individuelles Angebot</p>
+
+        <h2 id="individual-title">
+          So einzigartig wie euer Tag.
+        </h2>
+
         <p>
           Nicht jede Hochzeit passt in ein festes Paket.
           Deshalb können wir gemeinsam eine Begleitung
           zusammenstellen, die zu euren Vorstellungen passt.
         </p>
-        <p class="individual-price">Auf Anfrage</p>
-        <a href="/kontakt" class="individual-button">
+
+        <strong class="pricing-individual-price">
+          Auf Anfrage
+        </strong>
+
+        <a class="pricing-button" href="/kontakt">
           Individuell anfragen <span aria-hidden="true">→</span>
         </a>
       </div>
 
-      <div class="individual-details">
+      <div class="pricing-individual-options">
         <h3>Individuell kombinierbar</h3>
+
         <ul>
           {individualFeatures.map((feature) => (
             <li>
@@ -223,113 +258,186 @@ const faqs = [
           ))}
         </ul>
 
-        <details class="individual-second" id="zweiter-videograf-individuell">
+        <details
+          class="pricing-individual-second"
+          id="zweiter-videograf-individuell"
+        >
           <summary>
-            Zweiter Videograf optional · ab 350 €
+            <span>Zweiter Videograf optional · ab 350 €</span>
             <span aria-hidden="true">⌄</span>
           </summary>
+
           <p>
-            Für zusätzliche Blickwinkel und gleichzeitig stattfindende
-            Momente. Die Kosten hängen von Dauer und Umfang der Begleitung ab.
+            Für zusätzliche Blickwinkel oder gleichzeitig
+            stattfindende Momente. Die Kosten hängen von
+            Dauer und Umfang der Begleitung ab.
           </p>
         </details>
       </div>
     </section>
 
-    <section class="notes-section" aria-labelledby="notes-title">
-      <div class="notes-heading">
-        <p class="eyebrow">Gut zu wissen</p>
+    <!-- WICHTIGE HINWEISE -->
+    <section class="pricing-notes" aria-labelledby="notes-title">
+      <div class="pricing-section-head pricing-section-head-left">
+        <p class="pricing-eyebrow">Gut zu wissen</p>
         <h2 id="notes-title">Wichtige Hinweise</h2>
       </div>
 
-      <div class="notes-grid">
+      <div class="pricing-notes-grid">
         <article>
-          <span class="note-number">01</span>
+          <span class="pricing-number">01</span>
           <h3>Reisekosten</h3>
           <p>0,50 € pro Kilometer für die Hin- und Rückfahrt.</p>
         </article>
+
         <article>
-          <span class="note-number">02</span>
+          <span class="pricing-number">02</span>
           <h3>Terminreservierung</h3>
           <p>
-            Euer Hochzeitstermin ist nach Eingang der Anzahlung
-            verbindlich reserviert.
+            Euer Hochzeitstermin ist nach Eingang
+            der Anzahlung verbindlich reserviert.
           </p>
         </article>
+
         <article>
-          <span class="note-number">03</span>
+          <span class="pricing-number">03</span>
           <h3>Zusatzleistungen</h3>
           <p>
-            Drohnenaufnahmen, Extra-Reels und Expresslieferung
-            könnt ihr bei Bedarf ergänzen.
+            Drohnenaufnahmen, Extra-Reels und
+            Expresslieferung könnt ihr bei Bedarf ergänzen.
           </p>
-          <a href="/zusatzleistungen">Alle Zusatzleistungen →</a>
+          <a href="/zusatzleistungen">
+            Alle Zusatzleistungen →
+          </a>
         </article>
       </div>
     </section>
 
-    <section class="faq-section" aria-labelledby="faq-title">
-      <div class="faq-heading">
-        <p class="eyebrow">Fragen &amp; Antworten</p>
-        <h2 id="faq-title">Häufige Fragen</h2>
-        <p>Damit ihr schon vor eurer Anfrage wisst, was euch erwartet.</p>
+    <!-- FAQ -->
+    <section
+      class="pricing-faq"
+      id="haeufige-fragen"
+      aria-labelledby="pricing-faq-title"
+    >
+      <div class="pricing-section-head">
+        <p class="pricing-eyebrow">Fragen &amp; Antworten</p>
+
+        <h2 id="pricing-faq-title">
+          Häufige Fragen
+        </h2>
+
+        <p>
+          Damit ihr schon vor eurer Anfrage wisst,
+          was euch erwartet.
+        </p>
       </div>
 
-      <div class="faq-list">
+      <div class="pricing-faq-list">
         {faqs.map((faq, index) => (
           <details open={index === 0}>
             <summary>
               <span>{faq.question}</span>
-              <span class="faq-arrow" aria-hidden="true">⌄</span>
+
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                aria-hidden="true"
+              >
+                <path
+                  d="m6 9 6 6 6-6"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
             </summary>
-            <p>{faq.answer}</p>
+
+            <div class="pricing-faq-answer">
+              <p>{faq.answer}</p>
+            </div>
           </details>
         ))}
       </div>
     </section>
 
-    <section class="late-video-card" aria-labelledby="extras-title">
-      <div>
-        <p class="eyebrow">Eure Möglichkeiten</p>
-        <h2 id="extras-title">Noch mehr aus eurem Hochzeitsfilm machen.</h2>
+    <!-- ZUSATZLEISTUNGEN -->
+    <section
+      class="pricing-extras-promo"
+      aria-labelledby="pricing-extras-title"
+    >
+      <div class="pricing-extras-copy">
+        <p class="pricing-eyebrow">Eure Möglichkeiten</p>
+
+        <h2 id="pricing-extras-title">
+          Noch mehr aus eurem Hochzeitsfilm machen.
+        </h2>
+
         <p>
-          Vom zweiten Videografen über Drohnenaufnahmen bis zum
-          Social-Media-Reel: Ihr könnt eure Hochzeitsbegleitung
-          mit ausgewählten Zusatzleistungen ergänzen.
+          Vom zweiten Videografen über Drohnenaufnahmen
+          bis zum Social-Media-Reel: Ergänzt eure
+          Hochzeitsbegleitung mit ausgewählten Extras.
         </p>
       </div>
-      <a href="/zusatzleistungen">
-        Extras entdecken <span aria-hidden="true">→</span>
+
+      <a href="/zusatzleistungen" class="pricing-extras-link">
+        Extras entdecken
+        <span aria-hidden="true">→</span>
       </a>
     </section>
 
-    <section class="prices-cta" aria-labelledby="cta-title">
-      <p class="eyebrow">Eure Geschichte beginnt hier</p>
-      <h2 id="cta-title">Bereit für euren Film?</h2>
-      <p>
-        Erzählt mir von euren Plänen. Gemeinsam finden wir heraus,
+    <!-- ABSCHLIESSENDER ANFRAGEBEREICH -->
+    <section
+      class="pricing-final-cta"
+      aria-labelledby="pricing-final-title"
+    >
+      <p class="pricing-eyebrow">
+        Eure Geschichte beginnt hier
+      </p>
+
+      <h2 id="pricing-final-title">
+        Bereit für euren Film?
+      </h2>
+
+      <p class="pricing-final-description">
+        Erzählt mir von euren Plänen.
+        Gemeinsam finden wir heraus,
         welche Begleitung zu eurem Hochzeitstag passt.
       </p>
-      <a href="/kontakt">
-        Verfügbarkeit anfragen <span aria-hidden="true">→</span>
+
+      <a href="/kontakt" class="pricing-final-button">
+        Verfügbarkeit anfragen
+        <span aria-hidden="true">→</span>
       </a>
     </section>
+
   </div>
 </BaseLayout>
 
 <script is:inline>
   (() => {
     function openDetailsFromHash() {
-      const id = decodeURIComponent(window.location.hash.slice(1));
-      if (!id.startsWith("zweiter-videograf-")) return;
+      const id = decodeURIComponent(
+        window.location.hash.slice(1)
+      );
+
+      if (!id.startsWith("zweiter-videograf-")) {
+        return;
+      }
 
       const target = document.getElementById(id);
-      if (!(target instanceof HTMLDetailsElement)) return;
+
+      if (!(target instanceof HTMLDetailsElement)) {
+        return;
+      }
 
       target.open = true;
+
       requestAnimationFrame(() => {
         target.scrollIntoView({
-          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
+          behavior: window.matchMedia(
+            "(prefers-reduced-motion: reduce)"
+          ).matches
             ? "auto"
             : "smooth",
           block: "start",
@@ -338,160 +446,192 @@ const faqs = [
     }
 
     if (document.readyState === "loading") {
-      document.addEventListener("DOMContentLoaded", openDetailsFromHash, { once: true });
+      document.addEventListener(
+        "DOMContentLoaded",
+        openDetailsFromHash,
+        { once: true }
+      );
     } else {
       openDetailsFromHash();
     }
 
-    window.addEventListener("hashchange", openDetailsFromHash);
-    window.addEventListener("pageshow", openDetailsFromHash);
+    window.addEventListener(
+      "hashchange",
+      openDetailsFromHash
+    );
   })();
 </script>
 
-<style>
-  :global(body) { background: white; }
+<style is:global>
+  /* ============================ */
+  /* VJ PRODUCTION – PAKETE */
+  /* ============================ */
 
-  .prices-page {
-    --accent: #b46300;
-    --ink: #17181d;
-    --muted: #696b73;
-    --line: #e6e6e8;
-    padding: 144px 24px 94px;
-    background: white;
-    color: var(--ink);
+  #vjPricingPage {
+    --price-orange: #b46300;
+    --price-orange-hover: #965000;
+    --price-ink: #17181d;
+    --price-muted: #696b73;
+    --price-line: #e4e4e7;
+
+    padding: 145px 24px 100px;
+    background: #ffffff;
+    color: var(--price-ink);
   }
 
-  .prices-page *,
-  .prices-page *::before,
-  .prices-page *::after { box-sizing: border-box; }
+  #vjPricingPage *,
+  #vjPricingPage *::before,
+  #vjPricingPage *::after {
+    box-sizing: border-box;
+  }
 
-  .prices-page a { text-decoration: none; }
+  #vjPricingPage a {
+    text-decoration: none;
+  }
 
-  .eyebrow {
-    margin: 0 0 16px;
-    color: var(--accent);
+  #vjPricingPage a:focus-visible,
+  #vjPricingPage summary:focus-visible {
+    outline: 3px solid var(--price-orange);
+    outline-offset: 4px;
+  }
+
+  #vjPricingPage .pricing-eyebrow {
+    margin: 0 0 15px;
+    color: var(--price-orange);
     font-size: 11px;
     font-weight: 800;
-    letter-spacing: .2em;
     line-height: 1.5;
+    letter-spacing: .2em;
     text-transform: uppercase;
   }
 
-  .prices-head {
-    width: min(850px, 100%);
+  /* SEITENKOPF */
+
+  #vjPricingPage .pricing-hero {
+    max-width: 850px;
     margin: 0 auto 83px;
     text-align: center;
   }
 
-  .prices-head h1 {
+  #vjPricingPage .pricing-hero h1 {
     margin: 0;
     font-size: clamp(42px, 5.6vw, 76px);
     font-weight: 300;
+    line-height: 1.07;
     letter-spacing: -.06em;
-    line-height: 1.06;
     text-wrap: balance;
   }
 
-  .intro-text {
-    max-width: 660px;
+  #vjPricingPage .pricing-intro {
+    max-width: 650px;
     margin: 24px auto 0;
-    color: var(--muted);
+    color: var(--price-muted);
     font-size: 17px;
     line-height: 1.75;
   }
 
-  .tax-note {
-    margin: 16px 0 0;
-    color: #898b94;
+  #vjPricingPage .pricing-tax {
+    margin: 17px 0 0;
+    color: #888a93;
     font-size: 13px;
   }
 
-  .packages-section,
-  .individual-section,
-  .notes-section,
-  .late-video-card,
-  .prices-cta {
-    width: min(1240px, 100%);
-    margin-inline: auto;
-  }
-
-  .section-intro {
-    margin-bottom: 40px;
+  #vjPricingPage .pricing-section-head {
+    max-width: 780px;
+    margin: 0 auto 43px;
     text-align: center;
   }
 
-  .section-intro h2,
-  .notes-heading h2,
-  .faq-heading h2 {
+  #vjPricingPage .pricing-section-head h2 {
     margin: 0;
     font-size: clamp(32px, 4vw, 49px);
     font-weight: 350;
-    letter-spacing: -.05em;
     line-height: 1.12;
+    letter-spacing: -.05em;
+    text-wrap: balance;
   }
 
-  .packages-grid {
+  #vjPricingPage .pricing-section-head > p:last-child:not(.pricing-eyebrow) {
+    margin: 16px 0 0;
+    color: var(--price-muted);
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  /* PAKETKARTEN */
+
+  #vjPricingPage .pricing-packages,
+  #vjPricingPage .pricing-individual,
+  #vjPricingPage .pricing-notes,
+  #vjPricingPage .pricing-extras-promo,
+  #vjPricingPage .pricing-final-cta {
+    width: min(1240px, 100%);
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #vjPricingPage .pricing-packages-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    align-items: stretch;
     gap: 20px;
+    align-items: stretch;
   }
 
-  .package-card {
+  #vjPricingPage .pricing-package {
     position: relative;
     display: flex;
     flex-direction: column;
     min-width: 0;
     padding: 36px 29px 28px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--price-line);
     border-radius: 18px;
     background: #fafafa;
   }
 
-  .package-card.is-popular {
-    background: var(--ink);
-    border-color: var(--ink);
-    color: white;
+  #vjPricingPage .pricing-package-featured {
+    border-color: var(--price-ink);
+    background: var(--price-ink);
+    color: #ffffff;
     box-shadow: 0 23px 55px rgba(23,24,29,.15);
   }
 
-  .popular-label {
+  #vjPricingPage .pricing-popular {
     position: absolute;
     top: -14px;
     right: 22px;
     padding: 8px 13px;
     border-radius: 5px;
     background: #d38b32;
-    color: white;
+    color: #ffffff;
     font-size: 11px;
     font-weight: 800;
   }
 
-  .package-top {
+  #vjPricingPage .pricing-package-intro {
     min-height: 151px;
     text-align: center;
   }
 
-  .package-top h3 {
+  #vjPricingPage .pricing-package-intro h3 {
     margin: 0;
     font-size: 27px;
     font-weight: 600;
     letter-spacing: -.045em;
   }
 
-  .package-subtitle {
+  #vjPricingPage .pricing-package-intro > p {
     margin: 10px 0 0;
-    color: var(--muted);
+    color: var(--price-muted);
     font-size: 14px;
     line-height: 1.5;
   }
 
-  .is-popular .package-subtitle {
+  #vjPricingPage .pricing-package-featured .pricing-package-intro > p {
     color: rgba(255,255,255,.67);
   }
 
-  .package-price {
-    margin: 23px 0 0;
+  #vjPricingPage .pricing-price {
+    margin-top: 23px;
     font-size: 45px;
     font-weight: 350;
     line-height: 1.15;
@@ -499,49 +639,53 @@ const faqs = [
     white-space: nowrap;
   }
 
-  .package-price span {
+  #vjPricingPage .pricing-price span {
     font-size: 20px;
     font-weight: 400;
   }
 
-  .package-meta {
+  #vjPricingPage .pricing-meta {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 8px;
     padding: 21px 0;
-    border-block: 1px solid var(--line);
+    border-top: 1px solid var(--price-line);
+    border-bottom: 1px solid var(--price-line);
   }
 
-  .is-popular .package-meta {
+  #vjPricingPage .pricing-package-featured .pricing-meta {
     border-color: rgba(255,255,255,.19);
   }
 
-  .package-meta > div {
-    display: grid;
-    justify-items: center;
+  #vjPricingPage .pricing-meta > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     gap: 5px;
     min-width: 0;
     text-align: center;
   }
 
-  .package-meta strong {
-    color: var(--accent);
+  #vjPricingPage .pricing-meta strong {
+    color: var(--price-orange);
     font-size: 16px;
     font-weight: 800;
   }
 
-  .is-popular .package-meta strong { color: #ffb45a; }
+  #vjPricingPage .pricing-package-featured .pricing-meta strong {
+    color: #ffb45a;
+  }
 
-  .package-meta span {
-    color: var(--muted);
+  #vjPricingPage .pricing-meta span {
+    color: var(--price-muted);
     font-size: 11px;
   }
 
-  .is-popular .package-meta span {
-    color: rgba(255,255,255,.62);
+  #vjPricingPage .pricing-package-featured .pricing-meta span {
+    color: rgba(255,255,255,.65);
   }
 
-  .package-features {
+  #vjPricingPage .pricing-features {
     display: grid;
     align-content: start;
     flex: 1;
@@ -551,7 +695,7 @@ const faqs = [
     list-style: none;
   }
 
-  .package-features li {
+  #vjPricingPage .pricing-features li {
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -560,171 +704,184 @@ const faqs = [
     line-height: 1.55;
   }
 
-  .package-features li > span {
-    color: var(--accent);
+  #vjPricingPage .pricing-features li > span {
+    color: var(--price-orange);
     font-weight: 900;
   }
 
-  .is-popular .package-features li {
+  #vjPricingPage .pricing-package-featured .pricing-features li {
     color: rgba(255,255,255,.84);
   }
 
-  .is-popular .package-features li > span {
+  #vjPricingPage .pricing-package-featured .pricing-features li > span {
     color: #ffb45a;
   }
 
-  .second-videographer {
+  /* ZWEITER VIDEOGRAF */
+
+  #vjPricingPage .pricing-second {
     margin-top: 27px;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--price-line);
     scroll-margin-top: 110px;
   }
 
-  .is-popular .second-videographer {
+  #vjPricingPage .pricing-package-featured .pricing-second {
     border-color: rgba(255,255,255,.19);
   }
 
-  .second-videographer summary {
+  #vjPricingPage .pricing-second summary {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 10px;
+    gap: 12px;
     padding: 18px 0;
     cursor: pointer;
     list-style: none;
   }
 
-  .second-videographer summary::-webkit-details-marker,
-  .individual-second summary::-webkit-details-marker,
-  .faq-list summary::-webkit-details-marker {
+  #vjPricingPage .pricing-second summary::-webkit-details-marker,
+  #vjPricingPage .pricing-individual-second summary::-webkit-details-marker,
+  #vjPricingPage .pricing-faq summary::-webkit-details-marker {
     display: none;
   }
 
-  .second-videographer summary > span:first-child {
-    color: #60636c;
+  #vjPricingPage .pricing-second summary::marker,
+  #vjPricingPage .pricing-individual-second summary::marker,
+  #vjPricingPage .pricing-faq summary::marker {
+    content: "";
+  }
+
+  #vjPricingPage .pricing-second summary > span:first-child {
+    color: var(--price-muted);
     font-size: 12px;
     line-height: 1.6;
   }
 
-  .second-videographer summary strong {
-    color: var(--ink);
+  #vjPricingPage .pricing-second summary strong {
+    color: var(--price-ink);
     font-size: 13px;
   }
 
-  .is-popular .second-videographer summary > span:first-child {
+  #vjPricingPage .pricing-package-featured .pricing-second summary > span:first-child {
     color: rgba(255,255,255,.72);
   }
 
-  .is-popular .second-videographer summary strong { color: white; }
+  #vjPricingPage .pricing-package-featured .pricing-second summary strong {
+    color: #ffffff;
+  }
 
-  .details-action {
+  #vjPricingPage .pricing-second-action {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    color: var(--accent);
+    gap: 7px;
+    color: var(--price-orange);
     font-size: 11px;
     font-weight: 800;
     white-space: nowrap;
   }
 
-  .is-popular .details-action { color: #ffb45a; }
-  .details-action > span { font-size: 19px; }
-  .second-videographer[open] .details-action > span {
+  #vjPricingPage .pricing-package-featured .pricing-second-action {
+    color: #ffb45a;
+  }
+
+  #vjPricingPage .pricing-second[open] .pricing-second-action > span {
     transform: rotate(180deg);
   }
 
-  .second-videographer-content {
+  #vjPricingPage .pricing-second-content {
     padding: 5px 0 15px;
   }
 
-  .second-videographer-content h4 {
-    margin: 0 0 12px;
+  #vjPricingPage .pricing-second-content h4 {
+    margin: 0 0 13px;
     font-size: 16px;
   }
 
-  .second-videographer-content p {
+  #vjPricingPage .pricing-second-content p {
     margin: 0 0 12px;
-    color: #646670;
+    color: var(--price-muted);
     font-size: 13px;
     line-height: 1.7;
   }
 
-  .is-popular .second-videographer-content p {
+  #vjPricingPage .pricing-package-featured .pricing-second-content p {
     color: rgba(255,255,255,.75);
   }
 
-  .package-button,
-  .individual-button,
-  .prices-cta > a {
+  #vjPricingPage .pricing-button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 13px;
     min-height: 51px;
+    margin-top: 17px;
     padding: 12px 19px;
     border-radius: 7px;
-    background: var(--accent);
-    color: white;
+    background: var(--price-orange);
+    color: #ffffff;
     font-size: 14px;
     font-weight: 800;
-    transition: background .2s;
+    transition: background .2s ease;
   }
 
-  .package-button { margin-top: 16px; }
+  #vjPricingPage .pricing-button:hover {
+    background: var(--price-orange-hover);
+  }
 
-  .package-button:hover,
-  .individual-button:hover,
-  .prices-cta > a:hover { background: #965000; }
+  /* INDIVIDUELLES PAKET */
 
-  /* INDIVIDUELL */
-  .individual-section {
+  #vjPricingPage .pricing-individual {
     display: grid;
     grid-template-columns: .95fr 1.05fr;
     align-items: center;
     gap: clamp(35px, 6vw, 100px);
     margin-top: 25px;
     padding: clamp(34px, 5vw, 65px);
-    border: 1px solid var(--line);
+    border: 1px solid var(--price-line);
     border-radius: 18px;
     background: #f7f7f7;
   }
 
-  .individual-copy h2 {
+  #vjPricingPage .pricing-individual-copy h2 {
     margin: 0;
     font-size: clamp(31px, 3.4vw, 44px);
     font-weight: 350;
-    letter-spacing: -.05em;
     line-height: 1.12;
+    letter-spacing: -.05em;
   }
 
-  .individual-copy > p:not(.eyebrow):not(.individual-price) {
+  #vjPricingPage .pricing-individual-copy > p:not(.pricing-eyebrow) {
     margin: 20px 0 0;
-    color: var(--muted);
+    color: var(--price-muted);
     font-size: 15px;
     line-height: 1.75;
   }
 
-  .individual-price {
-    margin: 26px 0 0;
+  #vjPricingPage .pricing-individual-price {
+    display: block;
+    margin-top: 26px;
     font-size: 25px;
     font-weight: 650;
   }
 
-  .individual-button { margin-top: 25px; }
-
-  .individual-details {
-    padding: 28px;
-    border: 1px solid var(--line);
-    border-radius: 12px;
-    background: white;
+  #vjPricingPage .pricing-individual-copy .pricing-button {
+    margin-top: 25px;
   }
 
-  .individual-details h3 {
+  #vjPricingPage .pricing-individual-options {
+    padding: 28px;
+    border: 1px solid var(--price-line);
+    border-radius: 12px;
+    background: #ffffff;
+  }
+
+  #vjPricingPage .pricing-individual-options h3 {
     margin: 0 0 23px;
     font-size: 21px;
     font-weight: 600;
   }
 
-  .individual-details ul {
+  #vjPricingPage .pricing-individual-options ul {
     display: grid;
     gap: 15px;
     margin: 0;
@@ -732,7 +889,7 @@ const faqs = [
     list-style: none;
   }
 
-  .individual-details li {
+  #vjPricingPage .pricing-individual-options li {
     display: flex;
     gap: 13px;
     color: #53565e;
@@ -740,105 +897,436 @@ const faqs = [
     line-height: 1.5;
   }
 
-  .individual-details li span {
-    color: var(--accent);
+  #vjPricingPage .pricing-individual-options li span {
+    color: var(--price-orange);
     font-weight: 900;
   }
 
-  .individual-second {
+  #vjPricingPage .pricing-individual-second {
     margin-top: 25px;
-    border-top: 1px solid var(--line);
+    border-top: 1px solid var(--price-line);
     scroll-margin-top: 110px;
   }
 
-  .individual-second summary {
+  #vjPricingPage .pricing-individual-second summary {
     display: flex;
     justify-content: space-between;
     gap: 12px;
     padding: 17px 0 0;
-    color: var(--accent);
+    color: var(--price-orange);
     font-size: 13px;
     font-weight: 800;
     cursor: pointer;
     list-style: none;
   }
 
-  .individual-second[open] summary span {
-    transform: rotate(180deg);
-  }
-
-  .individual-second p {
+  #vjPricingPage .pricing-individual-second p {
     margin: 15px 0 0;
-    color: var(--muted);
+    color: var(--price-muted);
     font-size: 13px;
     line-height: 1.7;
   }
 
-  /* HINWEISE */
-  .notes-section { margin-top: 106px; }
-  .notes-heading { margin-bottom: 32px; }
+  /* WICHTIGE HINWEISE */
 
-  .notes-grid {
+  #vjPricingPage .pricing-notes {
+    margin-top: 106px;
+  }
+
+  #vjPricingPage .pricing-section-head-left {
+    margin-left: 0;
+    text-align: left;
+  }
+
+  #vjPricingPage .pricing-notes-grid {
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 18px;
   }
 
-  .notes-grid article {
+  #vjPricingPage .pricing-notes-grid article {
     padding: 27px 25px;
-    border: 1px solid var(--line);
+    border: 1px solid var(--price-line);
     border-radius: 12px;
+    background: #ffffff;
   }
 
-  .note-number {
+  #vjPricingPage .pricing-number {
     display: block;
     margin-bottom: 26px;
-    color: var(--accent);
+    color: var(--price-orange);
     font-size: 12px;
     font-weight: 800;
   }
 
-  .notes-grid h3 {
+  #vjPricingPage .pricing-notes-grid h3 {
     margin: 0 0 10px;
     font-size: 19px;
+    font-weight: 650;
   }
 
-  .notes-grid p {
+  #vjPricingPage .pricing-notes-grid p {
     margin: 0;
-    color: var(--muted);
+    color: var(--price-muted);
     font-size: 14px;
     line-height: 1.75;
   }
 
-  .notes-grid a {
+  #vjPricingPage .pricing-notes-grid a {
     display: inline-block;
     margin-top: 15px;
-    color: var(--accent);
+    color: var(--price-orange);
     font-size: 13px;
     font-weight: 800;
   }
 
-  /* FAQ */
-  .faq-section {
+  /* ============================ */
+  /* FAQ – VOLLSTÄNDIGES DESIGN */
+  /* ============================ */
+
+  #vjPricingPage .pricing-faq {
+    display: block;
     width: min(960px, 100%);
     margin: 115px auto 0;
+    padding: 0;
   }
 
-  .faq-heading {
-    margin-bottom: 35px;
+  #vjPricingPage .pricing-faq .pricing-section-head {
+    margin-bottom: 36px;
+  }
+
+  #vjPricingPage .pricing-faq-list {
+    display: block;
+    width: 100%;
+    border-top: 1px solid var(--price-line);
+  }
+
+  #vjPricingPage .pricing-faq-list details {
+    display: block;
+    width: 100%;
+    border-bottom: 1px solid var(--price-line);
+  }
+
+  #vjPricingPage .pricing-faq-list summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    width: 100%;
+    min-height: 76px;
+    padding: 22px 13px;
+    color: var(--price-ink);
+    background: transparent;
+    cursor: pointer;
+    list-style: none;
+    transition: background .2s ease;
+  }
+
+  #vjPricingPage .pricing-faq-list summary:hover {
+    background: #faf8f5;
+  }
+
+  #vjPricingPage .pricing-faq-list summary > span {
+    flex: 1;
+    font-size: 17px;
+    font-weight: 650;
+    line-height: 1.45;
+  }
+
+  #vjPricingPage .pricing-faq-list summary svg {
+    width: 20px;
+    height: 20px;
+    flex: 0 0 20px;
+    color: var(--price-orange);
+    transition: transform .2s ease;
+  }
+
+  #vjPricingPage .pricing-faq-list details[open] summary svg {
+    transform: rotate(180deg);
+  }
+
+  #vjPricingPage .pricing-faq-answer {
+    padding: 0 52px 27px 13px;
+  }
+
+  #vjPricingPage .pricing-faq-answer p {
+    max-width: 790px;
+    margin: 0;
+    color: var(--price-muted);
+    font-size: 15px;
+    line-height: 1.85;
+  }
+
+  /* ============================ */
+  /* ZUSATZLEISTUNGEN-KARTE */
+  /* ============================ */
+
+  #vjPricingPage .pricing-extras-promo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-top: 105px;
+    padding: 45px 48px;
+    border: 1px solid var(--price-line);
+    border-radius: 16px;
+    background: #f7f7f7;
+  }
+
+  #vjPricingPage .pricing-extras-copy {
+    max-width: 740px;
+  }
+
+  #vjPricingPage .pricing-extras-copy h2 {
+    margin: 0;
+    font-size: clamp(27px, 3vw, 38px);
+    font-weight: 400;
+    line-height: 1.2;
+    letter-spacing: -.045em;
+  }
+
+  #vjPricingPage .pricing-extras-copy > p:last-child {
+    margin: 16px 0 0;
+    color: var(--price-muted);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  #vjPricingPage .pricing-extras-link {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    flex: 0 0 auto;
+    min-height: 49px;
+    padding: 12px 20px;
+    border: 1px solid var(--price-orange);
+    border-radius: 7px;
+    color: var(--price-orange);
+    background: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    transition: background .2s ease, color .2s ease;
+  }
+
+  #vjPricingPage .pricing-extras-link:hover {
+    color: #ffffff;
+    background: var(--price-orange);
+  }
+
+  /* ============================ */
+  /* ANFRAGEBEREICH – DUNKEL */
+  /* ============================ */
+
+  #vjPricingPage .pricing-final-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 65px;
+    padding: 79px 30px;
+    border-radius: 19px;
+    background: #17181d;
+    color: #ffffff;
     text-align: center;
   }
 
-  .faq-heading > p:last-child {
-    margin: 15px 0 0;
-    color: var(--muted);
-    font-size: 15px;
+  #vjPricingPage .pricing-final-cta .pricing-eyebrow {
+    color: #ffb45a;
   }
 
-  .faq-list { border-top: 1px solid var(--line); }
-  .faq-list details { border-bottom: 1px solid var(--line); }
+  #vjPricingPage .pricing-final-cta h2 {
+    max-width: 820px;
+    margin: 0;
+    color: #ffffff;
+    font-size: clamp(37px, 4.5vw, 57px);
+    font-weight: 350;
+    line-height: 1.12;
+    letter-spacing: -.05em;
+  }
 
-  .faq-list summary {
-    display: flex;
+  #vjPricingPage .pricing-final-description {
+    max-width: 640px;
+    margin: 21px auto 0;
+    color: rgba(255,255,255,.78);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  #vjPricingPage .pricing-final-button {
+    display: inline-flex;
     align-items: center;
-    justify-content: space
+    justify-content: center;
+    gap: 17px;
+    min-height: 54px;
+    margin-top: 31px;
+    padding: 14px 27px;
+    border: 0;
+    border-radius: 7px;
+    background: var(--price-orange);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 800;
+    transition: background .2s ease, transform .2s ease;
+  }
+
+  #vjPricingPage .pricing-final-button:hover {
+    background: var(--price-orange-hover);
+    transform: translateY(-2px);
+  }
+
+  /* RESPONSIVE */
+
+  @media (max-width: 1050px) {
+    #vjPricingPage .pricing-packages-grid {
+      gap: 13px;
+    }
+
+    #vjPricingPage .pricing-package {
+      padding: 32px 21px 24px;
+    }
+  }
+
+  @media (max-width: 850px) {
+    #vjPricingPage .pricing-packages-grid {
+      grid-template-columns: 1fr;
+      max-width: 580px;
+      margin: 0 auto;
+      gap: 26px;
+    }
+
+    #vjPricingPage .pricing-individual {
+      grid-template-columns: 1fr;
+      max-width: 580px;
+      gap: 30px;
+    }
+
+    #vjPricingPage .pricing-notes-grid {
+      grid-template-columns: 1fr;
+      gap: 13px;
+    }
+
+    #vjPricingPage .pricing-number {
+      margin-bottom: 14px;
+    }
+
+    #vjPricingPage .pricing-extras-promo {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 25px;
+    }
+
+    #vjPricingPage .pricing-extras-link {
+      align-self: flex-start;
+    }
+  }
+
+  @media (max-width: 600px) {
+    #vjPricingPage {
+      padding: 120px 14px 75px;
+    }
+
+    #vjPricingPage .pricing-hero {
+      margin-bottom: 65px;
+    }
+
+    #vjPricingPage .pricing-hero h1 {
+      font-size: clamp(39px, 10vw, 53px);
+    }
+
+    #vjPricingPage .pricing-intro {
+      font-size: 15px;
+    }
+
+    #vjPricingPage .pricing-section-head h2 {
+      font-size: 33px;
+    }
+
+    #vjPricingPage .pricing-package {
+      padding: 35px 23px 25px;
+    }
+
+    #vjPricingPage .pricing-price {
+      font-size: 43px;
+    }
+
+    #vjPricingPage .pricing-individual {
+      padding: 29px 22px;
+    }
+
+    #vjPricingPage .pricing-individual-options {
+      padding: 22px 18px;
+    }
+
+    #vjPricingPage .pricing-individual-copy .pricing-button {
+      display: flex;
+      width: 100%;
+    }
+
+    #vjPricingPage .pricing-notes {
+      margin-top: 83px;
+    }
+
+    #vjPricingPage .pricing-faq {
+      margin-top: 85px;
+    }
+
+    #vjPricingPage .pricing-faq-list summary {
+      min-height: 70px;
+      padding: 19px 5px;
+    }
+
+    #vjPricingPage .pricing-faq-list summary > span {
+      font-size: 16px;
+    }
+
+    #vjPricingPage .pricing-faq-answer {
+      padding: 0 12px 23px 5px;
+    }
+
+    #vjPricingPage .pricing-faq-answer p {
+      font-size: 14px;
+    }
+
+    #vjPricingPage .pricing-extras-promo {
+      margin-top: 82px;
+      padding: 31px 24px;
+      border-radius: 14px;
+    }
+
+    #vjPricingPage .pricing-extras-copy h2 {
+      font-size: 29px;
+    }
+
+    #vjPricingPage .pricing-extras-link {
+      width: 100%;
+    }
+
+    #vjPricingPage .pricing-final-cta {
+      margin-top: 40px;
+      padding: 61px 22px;
+      border-radius: 15px;
+    }
+
+    #vjPricingPage .pricing-final-cta h2 {
+      font-size: 39px;
+    }
+
+    #vjPricingPage .pricing-final-description {
+      font-size: 15px;
+    }
+
+    #vjPricingPage .pricing-final-button {
+      width: 100%;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #vjPricingPage .pricing-button,
+    #vjPricingPage .pricing-extras-link,
+    #vjPricingPage .pricing-final-button,
+    #vjPricingPage .pricing-faq-list summary svg {
+      transition: none;
+    }
+  }
+</style>
