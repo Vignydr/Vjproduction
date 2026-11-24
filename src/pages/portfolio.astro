@@ -35,12 +35,12 @@ const coupleVideos = [
   {
     couple: "Aleyna & Güven",
     type: "Paarshooting",
-    src: "https://galleries.vidflow.co/videos/r29jufq6",
+    src: "https://galleries.vidflow.co/videos/gtv6l0mx",
   },
   {
     couple: "Melisa & Adis",
     type: "Paarshooting",
-    src: "https://galleries.vidflow.co/videos/b2ayyew1",
+    src: "https://galleries.vidflow.co/videos/yajaab4f",
   },
 ];
 ---
@@ -51,15 +51,22 @@ const coupleVideos = [
 >
   <div class="portfolio-page">
 
+    <!-- SEITENKOPF -->
     <header class="portfolio-intro">
       <p class="eyebrow">VJ Production · Portfolio</p>
+
       <h1>Hochzeitsfilme, die bleiben.</h1>
+
       <p class="intro-subtitle">
         Echte Momente. Mit Ruhe begleitet. Cineastisch erzählt.
       </p>
     </header>
 
-    <section class="featured-section" aria-label="Ausgewählter Hochzeitsfilm">
+    <!-- AUSGEWÄHLTER HOCHZEITSFILM -->
+    <section
+      class="featured-section"
+      aria-label="Ausgewählter Hochzeitsfilm"
+    >
       <article class="featured-project">
         <div class="film-frame film-frame--featured">
           <iframe
@@ -77,18 +84,31 @@ const coupleVideos = [
             <p class="film-type">{featuredVideo.type}</p>
             <h2>{featuredVideo.couple}</h2>
           </div>
+
           <p class="featured-description">
-            Ein Hochzeitstag voller Nähe, Emotionen und unvergesslicher Augenblicke.
+            Ein Hochzeitstag voller Nähe, Emotionen
+            und unvergesslicher Augenblicke.
           </p>
         </div>
       </article>
     </section>
 
-    <section class="film-section" aria-labelledby="hochzeitsfilme-title">
+    <!-- WEITERE HOCHZEITSFILME -->
+    <section
+      class="film-section"
+      aria-labelledby="hochzeitsfilme-title"
+    >
       <div class="section-heading">
         <p class="eyebrow">01 / Hochzeiten</p>
-        <h2 id="hochzeitsfilme-title">Weitere Hochzeitsgeschichten</h2>
-        <p>Jede Hochzeit ist anders. Jeder Film erzählt ihre eigene Geschichte.</p>
+
+        <h2 id="hochzeitsfilme-title">
+          Weitere Hochzeitsgeschichten
+        </h2>
+
+        <p>
+          Jede Hochzeit ist anders. Jeder Film erzählt
+          ihre eigene Geschichte.
+        </p>
       </div>
 
       <div class="film-grid">
@@ -104,6 +124,7 @@ const coupleVideos = [
                 allowfullscreen
               ></iframe>
             </div>
+
             <div class="film-caption">
               <p class="film-type">{video.type}</p>
               <h3>{video.couple}</h3>
@@ -113,11 +134,22 @@ const coupleVideos = [
       </div>
     </section>
 
-    <section class="film-section film-section--couples" aria-labelledby="paarfilme-title">
+    <!-- PAARSHOOTINGS -->
+    <section
+      class="film-section film-section--couples"
+      aria-labelledby="paarfilme-title"
+    >
       <div class="section-heading">
         <p class="eyebrow">02 / Love Stories</p>
-        <h2 id="paarfilme-title">Paarshootings</h2>
-        <p>Natürliche Begegnungen, Nähe und kleine Momente zwischen zwei Menschen.</p>
+
+        <h2 id="paarfilme-title">
+          Paarshootings
+        </h2>
+
+        <p>
+          Natürliche Begegnungen, Nähe und kleine Momente
+          zwischen zwei Menschen.
+        </p>
       </div>
 
       <div class="film-grid">
@@ -133,6 +165,7 @@ const coupleVideos = [
                 allowfullscreen
               ></iframe>
             </div>
+
             <div class="film-caption">
               <p class="film-type">{video.type}</p>
               <h3>{video.couple}</h3>
@@ -142,39 +175,65 @@ const coupleVideos = [
       </div>
     </section>
 
-    <section class="partner-section" id="foto-video-team" aria-labelledby="partner-title">
+    <!-- FOTO & VIDEO ALS TEAM -->
+    <section
+      class="partner-section"
+      id="foto-video-team"
+      aria-labelledby="partner-title"
+    >
       <div class="partner-content">
         <p class="eyebrow">Foto &amp; Video als Team</p>
-        <h2 id="partner-title">Zwei Perspektiven. Eine Geschichte.</h2>
+
+        <h2 id="partner-title">
+          Zwei Perspektiven. Eine Geschichte.
+        </h2>
+
         <p>
-          Gemeinsam mit Julia von <strong>Junique Photography</strong> begleite ich
-          Hochzeiten auch als eingespieltes Foto- und Videoteam. So können Fotos
-          und Film aufeinander abgestimmt entstehen, ohne dass ihr euren Tag
-          für die Kamera unterbrechen müsst.
+          Gemeinsam mit Julia von
+          <strong>Junique Photography</strong>
+          begleite ich Hochzeiten auch als eingespieltes
+          Foto- und Videoteam. So können Fotos und Film
+          aufeinander abgestimmt entstehen, ohne dass ihr
+          euren Tag für die Kamera unterbrechen müsst.
         </p>
+
         <a
           class="partner-link"
           href="https://juniquephotography.de"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Junique Photography entdecken <span aria-hidden="true">↗</span>
+          Junique Photography entdecken
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
 
-    <section class="contact-section" aria-labelledby="contact-title">
+    <!-- KONTAKT -->
+    <section
+      class="contact-section"
+      aria-labelledby="contact-title"
+    >
       <p class="eyebrow">Eure Geschichte</p>
-      <h2 id="contact-title">Lasst uns euren Film gestalten.</h2>
+
+      <h2 id="contact-title">
+        Lasst uns euren Film gestalten.
+      </h2>
+
       <p>
-        Erzählt mir von euren Plänen. Ich freue mich darauf, euch kennenzulernen
-        und eure Geschichte in bewegten Bildern festzuhalten.
+        Erzählt mir von euren Plänen. Ich freue mich
+        darauf, euch kennenzulernen und eure Geschichte
+        in bewegten Bildern festzuhalten.
       </p>
+
       <a href="/kontakt" class="contact-button">
-        Verfügbarkeit anfragen <span aria-hidden="true">→</span>
+        Verfügbarkeit anfragen
+        <span aria-hidden="true">→</span>
       </a>
+
       <p class="contact-note">
-        Weitere ausgewählte Arbeiten zeige ich euch gerne im persönlichen Gespräch.
+        Weitere ausgewählte Arbeiten zeige ich euch
+        gerne im persönlichen Gespräch.
       </p>
     </section>
 
@@ -182,24 +241,32 @@ const coupleVideos = [
 </BaseLayout>
 
 <style>
-  :global(body) { background: white; }
+  :global(body) {
+    background: white;
+  }
 
   .portfolio-page {
     --ink: #17181d;
     --muted: #696b73;
     --accent: #b46300;
     --line: #e8e8eb;
+
     color: var(--ink);
     background: white;
+
     padding: 154px 24px 104px;
     overflow-x: clip;
   }
 
   .portfolio-page *,
   .portfolio-page *::before,
-  .portfolio-page *::after { box-sizing: border-box; }
+  .portfolio-page *::after {
+    box-sizing: border-box;
+  }
 
-  .portfolio-page a { text-decoration: none; }
+  .portfolio-page a {
+    text-decoration: none;
+  }
 
   .portfolio-intro,
   .featured-section,
@@ -214,6 +281,7 @@ const coupleVideos = [
   .film-type {
     margin: 0;
     color: var(--accent);
+
     text-transform: uppercase;
     font-size: 11px;
     font-weight: 800;
@@ -221,16 +289,21 @@ const coupleVideos = [
     letter-spacing: .2em;
   }
 
+  /* SEITENKOPF */
+
   .portfolio-intro {
     margin-bottom: 68px;
     text-align: center;
   }
 
-  .portfolio-intro .eyebrow { margin-bottom: 22px; }
+  .portfolio-intro .eyebrow {
+    margin-bottom: 22px;
+  }
 
   .portfolio-intro h1 {
     max-width: 900px;
     margin: 0 auto;
+
     font-size: clamp(42px, 6vw, 76px);
     font-weight: 300;
     line-height: 1.05;
@@ -245,10 +318,13 @@ const coupleVideos = [
     line-height: 1.6;
   }
 
+  /* VIDEOS – EINHEITLICH 16:9 */
+
   .film-frame {
     position: relative;
     width: 100%;
     aspect-ratio: 16 / 9;
+
     background: #111216;
     border-radius: 14px;
     overflow: hidden;
@@ -257,6 +333,7 @@ const coupleVideos = [
   .film-frame iframe {
     position: absolute;
     inset: 0;
+
     display: block;
     width: 100%;
     height: 100%;
@@ -268,7 +345,11 @@ const coupleVideos = [
     box-shadow: 0 26px 72px rgba(23,24,29,.11);
   }
 
-  .featured-section { margin-bottom: 116px; }
+  /* AUSGEWÄHLTER FILM */
+
+  .featured-section {
+    margin-bottom: 116px;
+  }
 
   .featured-caption {
     display: flex;
@@ -278,7 +359,9 @@ const coupleVideos = [
     padding-top: 28px;
   }
 
-  .featured-caption .film-type { margin-bottom: 9px; }
+  .featured-caption .film-type {
+    margin-bottom: 9px;
+  }
 
   .featured-caption h2 {
     margin: 0;
@@ -291,10 +374,13 @@ const coupleVideos = [
   .featured-description {
     max-width: 390px;
     margin: 0 0 2px;
+
     color: var(--muted);
     font-size: 15px;
     line-height: 1.7;
   }
+
+  /* WEITERE FILME */
 
   .film-section {
     padding-top: 78px;
@@ -308,10 +394,13 @@ const coupleVideos = [
     text-align: center;
   }
 
-  .section-heading .eyebrow { margin-bottom: 14px; }
+  .section-heading .eyebrow {
+    margin-bottom: 14px;
+  }
 
   .section-heading h2 {
     margin: 0;
+
     font-size: clamp(33px, 4vw, 49px);
     font-weight: 300;
     line-height: 1.1;
@@ -332,9 +421,13 @@ const coupleVideos = [
     gap: 32px;
   }
 
-  .film-card { min-width: 0; }
+  .film-card {
+    min-width: 0;
+  }
 
-  .film-caption { padding-top: 21px; }
+  .film-caption {
+    padding-top: 21px;
+  }
 
   .film-caption .film-type {
     margin-bottom: 7px;
@@ -350,22 +443,34 @@ const coupleVideos = [
     letter-spacing: -.045em;
   }
 
-  .film-section--couples { margin-bottom: 108px; }
+  .film-section--couples {
+    margin-bottom: 108px;
+  }
+
+  /* FOTO & VIDEO ALS TEAM */
 
   .partner-section {
     margin-bottom: 96px;
     padding: 48px 52px;
+
     border: 1px solid #e9e9e9;
     border-radius: 19px;
+
     background: #f8f8f7;
     scroll-margin-top: 110px;
   }
 
-  .partner-content { max-width: 810px; }
-  .partner-content .eyebrow { margin-bottom: 17px; }
+  .partner-content {
+    max-width: 810px;
+  }
+
+  .partner-content .eyebrow {
+    margin-bottom: 17px;
+  }
 
   .partner-content h2 {
     margin: 0;
+
     font-size: clamp(30px, 3.5vw, 44px);
     font-weight: 300;
     line-height: 1.13;
@@ -374,6 +479,7 @@ const coupleVideos = [
 
   .partner-content > p:not(.eyebrow) {
     margin: 19px 0 0;
+
     color: var(--muted);
     font-size: 16px;
     line-height: 1.75;
@@ -388,20 +494,29 @@ const coupleVideos = [
     display: inline-flex;
     align-items: center;
     gap: 10px;
+
     min-height: 44px;
     margin-top: 24px;
+
     border-bottom: 1px solid var(--accent);
+
     color: var(--ink);
     font-size: 14px;
     font-weight: 750;
   }
 
-  .partner-link span { color: var(--accent); }
+  .partner-link span {
+    color: var(--accent);
+  }
+
+  /* KONTAKT */
 
   .contact-section {
     padding: 75px 26px 69px;
+
     border-radius: 22px;
     background: var(--ink);
+
     color: white;
     text-align: center;
   }
@@ -414,6 +529,7 @@ const coupleVideos = [
   .contact-section h2 {
     max-width: 760px;
     margin: 0 auto;
+
     font-size: clamp(35px, 4.5vw, 56px);
     font-weight: 300;
     line-height: 1.08;
@@ -423,6 +539,7 @@ const coupleVideos = [
   .contact-section > p:not(.eyebrow) {
     max-width: 670px;
     margin: 21px auto 0;
+
     color: rgba(255,255,255,.74);
     font-size: 16px;
     line-height: 1.7;
@@ -433,18 +550,24 @@ const coupleVideos = [
     align-items: center;
     justify-content: center;
     gap: 18px;
+
     min-height: 54px;
     margin-top: 31px;
     padding: 0 29px;
+
     border-radius: 7px;
     background: var(--accent);
+
     color: white;
     font-size: 15px;
     font-weight: 800;
+
     transition: background .2s;
   }
 
-  .contact-button:hover { background: #965000; }
+  .contact-button:hover {
+    background: #965000;
+  }
 
   .contact-section > .contact-note {
     margin-top: 27px;
@@ -452,13 +575,19 @@ const coupleVideos = [
     color: rgba(255,255,255,.55);
   }
 
+  /* TASTATURBEDIENUNG */
+
   .portfolio-page a:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 5px;
   }
 
+  /* TABLET */
+
   @media (max-width: 1000px) {
-    .film-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .film-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
     .film-card:last-child:nth-child(odd) {
       grid-column: 1 / -1;
@@ -467,15 +596,43 @@ const coupleVideos = [
     }
   }
 
+  /* HANDY */
+
   @media (max-width: 720px) {
-    .portfolio-page { padding: 122px 18px 78px; }
-    .portfolio-intro { margin-bottom: 45px; }
-    .featured-section { margin-bottom: 76px; }
-    .featured-caption { display: block; padding-top: 22px; }
-    .featured-description { margin-top: 14px; }
-    .film-section { padding-top: 61px; margin-bottom: 76px; }
-    .section-heading { margin-bottom: 36px; }
-    .film-grid { grid-template-columns: 1fr; gap: 43px; }
+    .portfolio-page {
+      padding: 122px 18px 78px;
+    }
+
+    .portfolio-intro {
+      margin-bottom: 45px;
+    }
+
+    .featured-section {
+      margin-bottom: 76px;
+    }
+
+    .featured-caption {
+      display: block;
+      padding-top: 22px;
+    }
+
+    .featured-description {
+      margin-top: 14px;
+    }
+
+    .film-section {
+      padding-top: 61px;
+      margin-bottom: 76px;
+    }
+
+    .section-heading {
+      margin-bottom: 36px;
+    }
+
+    .film-grid {
+      grid-template-columns: 1fr;
+      gap: 43px;
+    }
 
     .film-card:last-child:nth-child(odd) {
       grid-column: auto;
@@ -487,24 +644,46 @@ const coupleVideos = [
       margin-bottom: 74px;
     }
 
-    .contact-section { padding: 57px 22px 53px; }
+    .contact-section {
+      padding: 57px 22px 53px;
+    }
   }
 
   @media (max-width: 480px) {
-    .portfolio-page { padding: 116px 14px 64px; }
-    .portfolio-intro h1 { font-size: clamp(36px, 10vw, 46px); }
-    .intro-subtitle { font-size: 14px; }
+    .portfolio-page {
+      padding: 116px 14px 64px;
+    }
 
-    /* Alle Videos bleiben im 16:9-Querformat. */
+    .portfolio-intro h1 {
+      font-size: clamp(36px, 10vw, 46px);
+    }
+
+    .intro-subtitle {
+      font-size: 14px;
+    }
+
+    /* Alle Videos bleiben im 16:9-Querformat */
+
     .film-frame {
       border-radius: 0;
       overflow: hidden;
     }
 
-    .film-frame--featured { box-shadow: none; }
-    .film-caption h3 { font-size: 26px; }
-    .featured-caption h2 { font-size: 35px; }
-    .section-heading h2 { font-size: 34px; }
+    .film-frame--featured {
+      box-shadow: none;
+    }
+
+    .film-caption h3 {
+      font-size: 26px;
+    }
+
+    .featured-caption h2 {
+      font-size: 35px;
+    }
+
+    .section-heading h2 {
+      font-size: 34px;
+    }
 
     .partner-section {
       padding: 30px 22px;
@@ -516,6 +695,8 @@ const coupleVideos = [
       border-radius: 16px;
     }
 
-    .contact-button { width: 100%; }
+    .contact-button {
+      width: 100%;
+    }
   }
 </style>
