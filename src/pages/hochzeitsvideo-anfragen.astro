@@ -2,8 +2,11 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const weddingTeaser = "https://galleries.vidflow.co/videos/b6w58mek";
+// Hochzeitsfilm von Phelina & Mert
+const weddingTeaser =
+  "https://galleries.vidflow.co/videos/b6w58mek";
 
+// Aktuelle Paketpreise
 const packages = [
   {
     name: "Basic",
@@ -22,7 +25,7 @@ const packages = [
   },
   {
     name: "Premium",
-    price: "2.790 €",
+    price: "2.390 €",
     duration: "Bis zu 12 Stunden Begleitung",
     description:
       "Für die ausführliche Begleitung eures Tages – inklusive Drohnenaufnahmen.",
@@ -32,35 +35,56 @@ const packages = [
 
 <BaseLayout
   title="Euren Hochzeitsfilm anfragen | VJ Production – Hochzeitsvideograf NRW"
-  description="Euer Hochzeitstag als cineastischer Film: Entdeckt den Wedding Teaser von Phelina & Mert, die Pakete ab 1.290 € und fragt euren Termin bei VJ Production unverbindlich an."
+  description="Euer Hochzeitstag als cineastischer Film: Entdeckt den Hochzeitsfilm von Phelina & Mert, die Pakete ab 1.290 € und fragt euren Termin bei VJ Production unverbindlich an."
 >
-  <section class="vj-landing" aria-labelledby="vj-landing-title">
+  <section
+    class="vj-landing"
+    aria-labelledby="vj-landing-title"
+  >
     <!-- EINSTIEG -->
     <header class="landing-hero wrap">
-      <p class="eyebrow">VJ Production · Hochzeitsvideografie in NRW</p>
-      <h1 id="vj-landing-title">
-        Euer Tag vergeht.<br /><em>Das Gefühl bleibt.</em>
-      </h1>
-      <p class="hero-description">
-        Die leisen Blicke, das Lachen, die Stimmen eurer Liebsten – all die
-        Momente, die euren Hochzeitstag einzigartig machen. Ich halte sie in
-        einem persönlichen, cineastischen Hochzeitsfilm fest.
+      <p class="eyebrow">
+        VJ Production · Hochzeitsvideografie in NRW
       </p>
+
+      <h1 id="vj-landing-title">
+        Euer Tag vergeht.<br />
+        <em>Das Gefühl bleibt.</em>
+      </h1>
+
+      <p class="hero-description">
+        Die leisen Blicke, das Lachen, die Stimmen eurer
+        Liebsten – all die Momente, die euren Hochzeitstag
+        einzigartig machen. Ich halte sie in einem
+        persönlichen, cineastischen Hochzeitsfilm fest.
+      </p>
+
       <div class="hero-actions">
-        <a class="button button-primary" href="#anfrage">
-          Wunschtermin anfragen <span aria-hidden="true">→</span>
+        <a
+          class="button button-primary"
+          href="#anfrage"
+        >
+          Wunschtermin anfragen
+          <span aria-hidden="true">→</span>
         </a>
-        <a class="button button-secondary" href="#film">
-          Hochzeitsfilm ansehen <span aria-hidden="true">↘</span>
+
+        <a
+          class="button button-secondary"
+          href="#film"
+        >
+          Hochzeitsfilm ansehen
+          <span aria-hidden="true">↘</span>
         </a>
       </div>
+
       <p class="hero-note">
-        Persönliche Begleitung aus Witten · NRW & deutschlandweit ·
+        Persönliche Begleitung aus Witten ·
+        NRW & deutschlandweit ·
         Ab 1.290 € zzgl. ggf. Reisekosten
       </p>
     </header>
 
-    <!-- PHELINA & MERT -->
+    <!-- HOCHZEITSFILM -->
     <section
       class="film-section wrap"
       id="film"
@@ -68,19 +92,25 @@ const packages = [
     >
       <div class="section-heading section-heading-left">
         <div>
-          <p class="eyebrow">Ein Film. Eine echte Geschichte.</p>
-          <h2 id="film-title">Phelina <span>&</span> Mert</h2>
+          <p class="eyebrow">
+            Ein Film. Eine echte Geschichte.
+          </p>
+
+          <h2 id="film-title">
+            Phelina <span>&</span> Mert
+          </h2>
         </div>
+
         <p>
-          So erzähle ich Hochzeiten: nicht als Aneinanderreihung schöner
-          Bilder, sondern als Geschichte voller Gefühl.
+          So erzähle ich Hochzeiten: nicht als Aneinanderreihung
+          schöner Bilder, sondern als Geschichte voller Gefühl.
         </p>
       </div>
 
       <div class="film-frame">
         <iframe
           src={weddingTeaser}
-          title="Wedding Teaser von Phelina und Mert – VJ Production"
+          title="Hochzeitsfilm von Phelina und Mert – VJ Production"
           loading="eager"
           scrolling="no"
           allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
@@ -90,28 +120,46 @@ const packages = [
 
       <div class="film-bottom">
         <div>
-          <strong>Wedding Teaser · Phelina & Mert</strong>
+          <strong>
+            Hochzeitsfilm · Phelina & Mert
+          </strong>
+
           <span>
-            Ein Einblick in meine Bildsprache und meinen Filmschnitt.
+            Ein Einblick in meine Bildsprache
+            und meinen Filmschnitt.
           </span>
         </div>
-        <a class="subtle-link" href="/portfolio">
-          Weitere Hochzeitsfilme <span aria-hidden="true">↗</span>
+
+        <a
+          class="subtle-link"
+          href="/portfolio"
+        >
+          Weitere Hochzeitsfilme
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
 
       <div class="film-cta">
         <p>
-          Ihr könnt euch vorstellen, euren Tag so festhalten zu lassen?
+          Ihr könnt euch vorstellen, euren Tag
+          so festhalten zu lassen?
         </p>
-        <a class="button button-primary" href="#anfrage">
-          Verfügbarkeit prüfen <span aria-hidden="true">→</span>
+
+        <a
+          class="button button-primary"
+          href="#anfrage"
+        >
+          Verfügbarkeit prüfen
+          <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
 
-    <!-- ÜBER MICH -->
-    <section class="about-section wrap" aria-labelledby="about-title">
+    <!-- PERSÖNLICHE VORSTELLUNG -->
+    <section
+      class="about-section wrap"
+      aria-labelledby="about-title"
+    >
       <div class="about-image">
         <img
           src="/images/Vigny.png"
@@ -120,38 +168,60 @@ const packages = [
           decoding="async"
         />
       </div>
+
       <div class="about-copy">
-        <p class="eyebrow">Der Mensch hinter der Kamera</p>
-        <h2 id="about-title">Hallo, ich bin Vigny.</h2>
-        <p>
-          Ich glaube, dass die schönsten Momente entstehen, wenn ihr euren
-          Tag einfach genießen könnt. Deshalb begleite ich euch ruhig und
-          unaufdringlich – und bin da, wenn aus einem Augenblick eine
-          Erinnerung wird.
+        <p class="eyebrow">
+          Der Mensch hinter der Kamera
         </p>
+
+        <h2 id="about-title">
+          Hallo, ich bin Vigny.
+        </h2>
+
         <p>
-          Jeder Film entsteht individuell. Musik, Schnitt und Bildsprache
-          richte ich nach euch und der Atmosphäre eurer Hochzeit aus.
+          Ich glaube, dass die schönsten Momente entstehen,
+          wenn ihr euren Tag einfach genießen könnt.
+          Deshalb begleite ich euch ruhig und unaufdringlich –
+          und bin da, wenn aus einem Augenblick
+          eine Erinnerung wird.
+        </p>
+
+        <p>
+          Jeder Film entsteht individuell. Musik, Schnitt
+          und Bildsprache richte ich nach euch und der
+          Atmosphäre eurer Hochzeit aus.
           Kein Film von der Stange.
         </p>
-        <a class="subtle-link subtle-link-light" href="/ueber-mich">
-          Mehr über mich erfahren <span aria-hidden="true">↗</span>
+
+        <a
+          class="subtle-link subtle-link-light"
+          href="/ueber-mich"
+        >
+          Mehr über mich erfahren
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
 
-    <!-- PAKETE & INDIVIDUELLES ANGEBOT -->
-    <section class="packages-section" aria-labelledby="packages-title">
+    <!-- PAKETE -->
+    <section
+      class="packages-section"
+      aria-labelledby="packages-title"
+    >
       <div class="wrap">
         <div class="section-heading">
-          <p class="eyebrow">Transparent von Anfang an</p>
+          <p class="eyebrow">
+            Transparent von Anfang an
+          </p>
+
           <h2 id="packages-title">
             Der passende Rahmen für eure Geschichte.
           </h2>
+
           <p>
-            Ihr sollt schon vor eurer Anfrage wissen, womit ihr planen
-            könnt. Gemeinsam finden wir die Begleitung, die zu eurem
-            Tag passt.
+            Ihr sollt schon vor eurer Anfrage wissen,
+            womit ihr planen könnt. Gemeinsam finden wir
+            die Begleitung, die zu eurem Tag passt.
           </p>
         </div>
 
@@ -164,41 +234,56 @@ const packages = [
               ]}
             >
               {item.featured && (
-                <span class="package-label">Häufig gewählt</span>
+                <span class="package-label">
+                  Häufig gewählt
+                </span>
               )}
 
               <h3>{item.name}</h3>
-              <p class="package-duration">{item.duration}</p>
-              <p class="package-price">{item.price}</p>
-              <p class="package-description">{item.description}</p>
+
+              <p class="package-duration">
+                {item.duration}
+              </p>
+
+              <p class="package-price">
+                {item.price}
+              </p>
+
+              <p class="package-description">
+                {item.description}
+              </p>
 
               <a
                 href="#anfrage"
                 class="package-action"
                 data-select-package={item.name}
               >
-                Paket anfragen <span aria-hidden="true">→</span>
+                Paket anfragen
+                <span aria-hidden="true">→</span>
               </a>
             </article>
           ))}
         </div>
 
-        <!-- NEU: INDIVIDUELLE ANFRAGEN -->
+        <!-- INDIVIDUELLES ANGEBOT -->
         <div
           class="individual-offer"
           aria-labelledby="individual-offer-title"
         >
           <div class="individual-offer-copy">
-            <p class="eyebrow">Auf euch zugeschnitten</p>
+            <p class="eyebrow">
+              Auf euch zugeschnitten
+            </p>
 
             <h3 id="individual-offer-title">
               Ihr habt andere Vorstellungen?
             </h3>
 
             <p>
-              Nicht jede Hochzeit passt in ein festes Paket. Ob eine andere
-              Begleitungsdauer, besondere Filmwünsche oder zusätzliche
-              Leistungen: Gerne erstelle ich euch ein individuelles
+              Nicht jede Hochzeit passt in ein festes Paket.
+              Ob eine andere Begleitungsdauer, besondere
+              Filmwünsche oder zusätzliche Leistungen:
+              Gerne erstelle ich euch ein individuelles
               Angebot, das zu euch und eurem Hochzeitstag passt.
             </p>
           </div>
@@ -216,9 +301,13 @@ const packages = [
         <p class="price-note">
           Preise gemäß § 19 UStG ohne Umsatzsteuerausweis.
           Gegebenenfalls fallen zusätzliche Reisekosten an.
+          Individuelle Angebote sind auf Anfrage möglich.
         </p>
 
-        <a class="subtle-link packages-link" href="/pakete">
+        <a
+          class="subtle-link packages-link"
+          href="/pakete"
+        >
           Alle Leistungen und Paketdetails ansehen
           <span aria-hidden="true">↗</span>
         </a>
@@ -231,7 +320,10 @@ const packages = [
       aria-labelledby="review-title"
     >
       <div class="review-head">
-        <p class="eyebrow">Worte, die bleiben</p>
+        <p class="eyebrow">
+          Worte, die bleiben
+        </p>
+
         <h2 id="review-title">
           Wenn der Film mehr zurückbringt als Bilder.
         </h2>
@@ -246,22 +338,30 @@ const packages = [
         />
 
         <div>
-          <p class="review-stars" aria-label="5 von 5 Sternen">
+          <p
+            class="review-stars"
+            aria-label="5 von 5 Sternen"
+          >
             ★★★★★
           </p>
 
           <blockquote>
-            „Wir sind unendlich dankbar, dass Vigny unseren großen Tag
-            so wunderschön und emotional festgehalten hat! Die Videos
-            sind einfach traumhaft geworden und wir könnten nicht
-            glücklicher damit sein.“
+            „Wir sind unendlich dankbar, dass Vigny
+            unseren großen Tag so wunderschön und
+            emotional festgehalten hat! Die Videos
+            sind einfach traumhaft geworden und wir
+            könnten nicht glücklicher damit sein.“
           </blockquote>
 
           <p class="review-name">
-            Phelina & Mert <span>· Dortmund</span>
+            Phelina & Mert
+            <span>· Dortmund</span>
           </p>
 
-          <a class="subtle-link" href="/bewertungen">
+          <a
+            class="subtle-link"
+            href="/bewertungen"
+          >
             Weitere Erfahrungen lesen
             <span aria-hidden="true">↗</span>
           </a>
@@ -276,14 +376,22 @@ const packages = [
       aria-labelledby="request-title"
     >
       <div class="wrap request-layout">
+
         <div class="request-intro">
-          <p class="eyebrow">Eure Geschichte beginnt hier</p>
-          <h2 id="request-title">Erzählt mir von eurem Tag.</h2>
+          <p class="eyebrow">
+            Eure Geschichte beginnt hier
+          </p>
+
+          <h2 id="request-title">
+            Erzählt mir von eurem Tag.
+          </h2>
+
           <p>
-            Ob euer Ablauf schon feststeht oder ihr noch mitten in
-            der Planung steckt: Schreibt mir ein paar Eckdaten.
-            Ich prüfe euren Wunschtermin und melde mich persönlich
-            bei euch zurück.
+            Ob euer Ablauf schon feststeht oder ihr
+            noch mitten in der Planung steckt:
+            Schreibt mir ein paar Eckdaten.
+            Ich prüfe euren Wunschtermin und melde
+            mich persönlich bei euch zurück.
           </p>
 
           <div class="request-points">
@@ -291,10 +399,12 @@ const packages = [
               <i aria-hidden="true">✓</i>
               Unverbindliche Anfrage
             </span>
+
             <span>
               <i aria-hidden="true">✓</i>
               Persönliche Rückmeldung
             </span>
+
             <span>
               <i aria-hidden="true">✓</i>
               Transparente Pakete & Preise
@@ -315,6 +425,7 @@ const packages = [
           action="https://api.web3forms.com/submit"
           method="POST"
         >
+          <!-- WEB3FORMS -->
           <input
             type="hidden"
             name="access_key"
@@ -324,7 +435,7 @@ const packages = [
           <input
             type="hidden"
             name="subject"
-            value="Neue Hochzeitsanfrage über die VJ Production Landingpage"
+            value="Neue Hochzeitsanfrage über VJ Production Landingpage"
           />
 
           <input
@@ -352,7 +463,11 @@ const packages = [
             value=""
           />
 
-          <div class="honeypot" aria-hidden="true">
+          <!-- SPAMSCHUTZ -->
+          <div
+            class="honeypot"
+            aria-hidden="true"
+          >
             <label>
               Dieses Feld bitte leer lassen
               <input
@@ -364,9 +479,13 @@ const packages = [
             </label>
           </div>
 
+          <!-- NAME UND EMAIL -->
           <div class="field-row">
             <label class="field">
-              <span>Euer Name <em>*</em></span>
+              <span>
+                Euer Name <em>*</em>
+              </span>
+
               <input
                 type="text"
                 name="Name"
@@ -377,7 +496,10 @@ const packages = [
             </label>
 
             <label class="field">
-              <span>E-Mail-Adresse <em>*</em></span>
+              <span>
+                E-Mail-Adresse <em>*</em>
+              </span>
+
               <input
                 type="email"
                 name="email"
@@ -388,9 +510,11 @@ const packages = [
             </label>
           </div>
 
+          <!-- DATUM UND ORT -->
           <div class="field-row">
             <label class="field">
               <span>Hochzeitsdatum</span>
+
               <input
                 type="date"
                 name="Datum"
@@ -399,6 +523,7 @@ const packages = [
 
             <label class="field">
               <span>Hochzeitsort</span>
+
               <input
                 type="text"
                 name="Location"
@@ -407,24 +532,39 @@ const packages = [
             </label>
           </div>
 
+          <!-- PAKET UND BUDGET -->
           <div class="field-row">
             <label class="field">
               <span>
-                Welches Paket interessiert euch? <em>*</em>
+                Welches Paket interessiert euch?
+                <em>*</em>
               </span>
-              <select name="Paket" id="vjPackageSelect" required>
-                <option value="" disabled selected>
+
+              <select
+                name="Paket"
+                id="vjPackageSelect"
+                required
+              >
+                <option
+                  value=""
+                  disabled
+                  selected
+                >
                   Bitte auswählen
                 </option>
+
                 <option value="Basic">
                   Basic · 1.290 €
                 </option>
+
                 <option value="Classic">
                   Classic · 1.990 €
                 </option>
+
                 <option value="Premium">
-                  Premium · 2.790 €
+                  Premium · 2.390 €
                 </option>
+
                 <option value="Individuell / noch unsicher">
                   Individuell / noch unsicher
                 </option>
@@ -432,20 +572,34 @@ const packages = [
             </label>
 
             <label class="field">
-              <span>Euer Investitionsrahmen <em>*</em></span>
-              <select name="Investitionsrahmen" required>
-                <option value="" disabled selected>
+              <span>
+                Euer Investitionsrahmen <em>*</em>
+              </span>
+
+              <select
+                name="Investitionsrahmen"
+                required
+              >
+                <option
+                  value=""
+                  disabled
+                  selected
+                >
                   Bitte auswählen
                 </option>
+
                 <option value="1.290–1.989 €">
                   1.290–1.989 €
                 </option>
-                <option value="1.990–2.789 €">
-                  1.990–2.789 €
+
+                <option value="1.990–2.389 €">
+                  1.990–2.389 €
                 </option>
-                <option value="2.790–3.499 €">
-                  2.790–3.499 €
+
+                <option value="2.390–3.499 €">
+                  2.390–3.499 €
                 </option>
+
                 <option value="3.500 € oder mehr">
                   3.500 € oder mehr
                 </option>
@@ -453,10 +607,13 @@ const packages = [
             </label>
           </div>
 
+          <!-- TELEFON -->
           <label class="field">
             <span>
-              Telefonnummer <small>(optional)</small>
+              Telefonnummer
+              <small>(optional)</small>
             </span>
+
             <input
               type="tel"
               name="Telefon"
@@ -465,15 +622,20 @@ const packages = [
             />
           </label>
 
+          <!-- NACHRICHT -->
           <label class="field">
-            <span>Was sollte ich über euren Tag wissen?</span>
+            <span>
+              Was sollte ich über euren Tag wissen?
+            </span>
+
             <textarea
               name="Nachricht"
               rows="4"
-              placeholder="Erzählt mir gern von euren Plänen, eurer Location oder euren Wünschen ..."
+              placeholder="Erzählt mir gerne von euren Plänen, eurer Location oder euren Wünschen ..."
             ></textarea>
           </label>
 
+          <!-- DATENSCHUTZ -->
           <label class="consent-row">
             <input
               type="checkbox"
@@ -481,6 +643,7 @@ const packages = [
               value="Ja"
               required
             />
+
             <span>
               Ich habe die
               <a
@@ -490,13 +653,15 @@ const packages = [
               >
                 Datenschutzerklärung
               </a>
-              gelesen und bin mit der Verarbeitung meiner Angaben zur
-              Beantwortung meiner Anfrage einverstanden. <em>*</em>
+              gelesen und bin mit der Verarbeitung meiner
+              Angaben zur Beantwortung meiner Anfrage
+              einverstanden. <em>*</em>
             </span>
           </label>
 
           <p class="required-note">
-            * Pflichtfelder · Unverbindlich und ohne Buchungsverpflichtung
+            * Pflichtfelder ·
+            Unverbindlich und ohne Buchungsverpflichtung
           </p>
 
           <button
@@ -518,38 +683,51 @@ const packages = [
       </div>
     </section>
 
-    <!-- WEITERE SEITEN -->
+    <!-- WEITERE SEITEN ENTDECKEN -->
     <nav
       class="explore-section wrap"
       aria-label="Weitere Bereiche der Website"
     >
-      <p>Ihr möchtet VJ Production noch besser kennenlernen?</p>
+      <p>
+        Ihr möchtet VJ Production noch besser kennenlernen?
+      </p>
+
       <div>
         <a href="/portfolio">
-          Alle Filme <span aria-hidden="true">↗</span>
+          Alle Filme
+          <span aria-hidden="true">↗</span>
         </a>
+
         <a href="/pakete">
-          Pakete & Preise <span aria-hidden="true">↗</span>
+          Pakete & Preise
+          <span aria-hidden="true">↗</span>
         </a>
+
         <a href="/ueber-mich">
-          Über mich <span aria-hidden="true">↗</span>
+          Über mich
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
     </nav>
   </section>
 
+  <!-- FORMULAR UND META-LEAD-TRACKING -->
   <script is:inline>
     (() => {
       const form = document.getElementById("vjLandingForm");
       const button = document.getElementById("vjSubmitButton");
       const message = document.getElementById("vjFormMessage");
       const campaign = document.getElementById("vjCampaign");
-      const packageSelect = document.getElementById("vjPackageSelect");
+      const packageSelect = document.getElementById(
+        "vjPackageSelect"
+      );
 
       if (!(form instanceof HTMLFormElement)) return;
 
-      // UTM-Parameter für die Werbeauswertung speichern
-      const params = new URLSearchParams(window.location.search);
+      // UTM-Parameter für die Werbeauswertung
+      const params = new URLSearchParams(
+        window.location.search
+      );
 
       if (campaign instanceof HTMLInputElement) {
         const keys = [
@@ -561,83 +739,126 @@ const packages = [
 
         campaign.value = keys
           .filter((key) => params.has(key))
-          .map((key) => `${key}: ${params.get(key)}`)
+          .map(
+            (key) =>
+              `${key}: ${params.get(key)}`
+          )
           .join(" | ");
       }
 
-      // Paket vorauswählen, wenn ein Paket-Button angeklickt wird.
+      // Paket bei Klick automatisch auswählen
       document
         .querySelectorAll("[data-select-package]")
         .forEach((link) => {
           link.addEventListener("click", () => {
-            if (!(packageSelect instanceof HTMLSelectElement)) return;
+            if (
+              !(packageSelect instanceof HTMLSelectElement)
+            ) {
+              return;
+            }
 
-            const selected = link.getAttribute("data-select-package");
+            const selected = link.getAttribute(
+              "data-select-package"
+            );
 
             if (selected) {
               packageSelect.value = selected;
+
               packageSelect.dispatchEvent(
-                new Event("change", { bubbles: true })
+                new Event("change", {
+                  bubbles: true,
+                })
               );
             }
           });
         });
 
-      // Anfrage versenden und nur bei Erfolg die Lead-Markierung setzen.
-      form.addEventListener("submit", async (event) => {
-        event.preventDefault();
+      // Formular nur einmal absenden
+      let submitting = false;
 
-        if (!form.reportValidity()) return;
+      form.addEventListener(
+        "submit",
+        async (event) => {
+          event.preventDefault();
 
-        if (button instanceof HTMLButtonElement) {
-          button.disabled = true;
-          button.setAttribute("aria-busy", "true");
-        }
+          if (submitting) return;
+          if (!form.reportValidity()) return;
 
-        if (message) {
-          message.textContent = "Eure Anfrage wird gesendet ...";
-        }
+          submitting = true;
 
-        try {
-          const response = await fetch(form.action, {
-            method: "POST",
-            body: new FormData(form),
-            headers: {
-              Accept: "application/json",
-            },
-          });
+          if (
+            button instanceof HTMLButtonElement
+          ) {
+            button.disabled = true;
+            button.setAttribute(
+              "aria-busy",
+              "true"
+            );
+          }
 
-          const result = await response.json();
-
-          if (!response.ok || result.success !== true) {
-            throw new Error("Die Anfrage konnte nicht gesendet werden.");
+          if (message) {
+            message.textContent =
+              "Eure Anfrage wird gesendet ...";
           }
 
           try {
-            sessionStorage.setItem(
-              "vjContactFormSubmittedAt",
-              String(Date.now())
+            const response = await fetch(
+              form.action,
+              {
+                method: "POST",
+                body: new FormData(form),
+                headers: {
+                  Accept: "application/json",
+                },
+              }
             );
+
+            const result = await response.json();
+
+            if (
+              !response.ok ||
+              result.success !== true
+            ) {
+              throw new Error(
+                "Die Anfrage konnte nicht gesendet werden."
+              );
+            }
+
+            // Markierung erst NACH erfolgreichem Versand.
+            // BaseLayout.astro löst auf /danke
+            // das Meta-Lead-Event aus.
+            try {
+              sessionStorage.setItem(
+                "vjContactFormSubmittedAt",
+                String(Date.now())
+              );
+            } catch (error) {
+              console.warn(
+                "Tracking-Markierung konnte nicht gespeichert werden.",
+                error
+              );
+            }
+
+            window.location.assign("/danke");
           } catch (error) {
-            console.warn(
-              "Tracking-Markierung konnte nicht gespeichert werden.",
-              error
-            );
-          }
+            submitting = false;
 
-          window.location.assign("/danke");
-        } catch (error) {
-          if (message) {
-            message.textContent =
-              "Das Senden hat leider nicht geklappt. Bitte versucht es erneut oder nutzt die Kontaktseite.";
-          }
+            if (message) {
+              message.textContent =
+                "Das Senden hat leider nicht geklappt. Bitte versucht es erneut oder nutzt die Kontaktseite.";
+            }
 
-          if (button instanceof HTMLButtonElement) {
-            button.disabled = false;
-            button.removeAttribute("aria-busy");
+            if (
+              button instanceof HTMLButtonElement
+            ) {
+              button.disabled = false;
+              button.removeAttribute(
+                "aria-busy"
+              );
+            }
           }
         }
-      });
+      );
     })();
   </script>
 </BaseLayout>
@@ -747,6 +968,7 @@ const packages = [
     text-decoration: underline;
   }
 
+  /* HERO */
   .landing-hero {
     padding: 132px 0 67px;
     text-align: center;
@@ -790,6 +1012,7 @@ const packages = [
     line-height: 1.65;
   }
 
+  /* FILM */
   .film-section {
     padding-bottom: 102px;
     scroll-margin-top: 100px;
@@ -900,6 +1123,7 @@ const packages = [
     line-height: 1.5;
   }
 
+  /* ÜBER MICH */
   .about-section {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
@@ -947,6 +1171,7 @@ const packages = [
     color: #f2b86a;
   }
 
+  /* PAKETE */
   .packages-section {
     padding: 92px 0 89px;
     background: #f8f8f7;
@@ -1092,6 +1317,7 @@ const packages = [
     margin: 24px auto 0;
   }
 
+  /* BEWERTUNG */
   .review-section {
     display: grid;
     grid-template-columns: 0.63fr 1.37fr;
@@ -1144,6 +1370,7 @@ const packages = [
     font-weight: 500;
   }
 
+  /* KONTAKTFORMULAR */
   .request-section {
     background: #f7f5f1;
     padding: 95px 0 100px;
@@ -1204,12 +1431,14 @@ const packages = [
     background: #fff;
     border: 1px solid #ece8e3;
     border-radius: 16px;
-    box-shadow: 0 16px 45px rgba(23, 24, 29, 0.045);
+    box-shadow:
+      0 16px 45px rgba(23, 24, 29, 0.045);
   }
 
   .field-row {
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
     gap: 18px;
   }
 
@@ -1273,7 +1502,8 @@ const packages = [
   .request-form select:focus,
   .request-form textarea:focus {
     border-color: var(--accent);
-    box-shadow: 0 0 0 3px rgba(180, 99, 0, 0.1);
+    box-shadow:
+      0 0 0 3px rgba(180, 99, 0, 0.1);
   }
 
   .consent-row {
@@ -1335,6 +1565,7 @@ const packages = [
     overflow: hidden;
   }
 
+  /* WEITERE SEITEN */
   .explore-section {
     display: flex;
     justify-content: space-between;
@@ -1367,6 +1598,7 @@ const packages = [
     color: var(--accent);
   }
 
+  /* TABLET */
   @media (max-width: 920px) {
     .about-section {
       grid-template-columns: 1fr;
@@ -1398,6 +1630,7 @@ const packages = [
     }
   }
 
+  /* SMARTPHONE */
   @media (max-width: 680px) {
     .wrap {
       width: calc(100% - 30px);
@@ -1534,6 +1767,7 @@ const packages = [
     }
   }
 
+  /* BARRIEREFREIHEIT */
   @media (prefers-reduced-motion: reduce) {
     :global(html) {
       scroll-behavior: auto;
