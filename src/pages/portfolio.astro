@@ -144,6 +144,24 @@ const weddingStories = [
           </article>
         ))}
       </div>
+
+      <!-- WEITERE FILME AUF ANFRAGE -->
+      <div class="vj-more-films">
+        <p class="vj-more-films-title">
+          Weitere Hochzeitsfilme auf Anfrage
+        </p>
+
+        <p class="vj-more-films-text">
+          Ihr möchtet noch mehr von meiner Arbeit sehen?
+          Gerne zeige ich euch weitere ausgewählte
+          Hochzeitsfilme auf Anfrage.
+        </p>
+
+        <a href="/kontakt" class="vj-more-films-link">
+          Weitere Filme anfragen
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
     </section>
 
     <!-- FOTO UND VIDEO ALS TEAM -->
@@ -231,7 +249,6 @@ const weddingStories = [
     width: 100%;
     margin: 0;
     padding: 151px 24px 105px;
-
     background: #ffffff;
     color: var(--portfolio-ink);
   }
@@ -253,7 +270,6 @@ const weddingStories = [
 
   #vjPortfolio .vj-eyebrow {
     margin: 0;
-
     color: var(--portfolio-orange);
     font-size: 11px;
     font-weight: 800;
@@ -271,9 +287,7 @@ const weddingStories = [
     margin-right: auto;
   }
 
-  /* ============================ */
   /* HERO */
-  /* ============================ */
 
   #vjPortfolio .vj-portfolio-hero {
     max-width: 940px;
@@ -287,7 +301,6 @@ const weddingStories = [
 
   #vjPortfolio .vj-portfolio-hero h1 {
     margin: 0;
-
     color: var(--portfolio-ink);
     font-size: clamp(40px, 5.6vw, 76px);
     font-weight: 300;
@@ -297,26 +310,20 @@ const weddingStories = [
 
   #vjPortfolio .vj-hero-description {
     margin: 25px auto 0;
-
     color: var(--portfolio-muted);
     font-size: 16px;
     line-height: 1.7;
   }
 
-  /* ============================ */
   /* VIDEOFORMAT 16:9 */
-  /* ============================ */
 
   #vjPortfolio .vj-featured-video,
   #vjPortfolio .vj-video-frame {
     position: relative;
     display: block;
-
     width: 100%;
     aspect-ratio: 16 / 9;
-
     overflow: hidden;
-
     border-radius: 12px;
     background: #111216;
   }
@@ -325,19 +332,15 @@ const weddingStories = [
   #vjPortfolio .vj-video-frame iframe {
     position: absolute;
     inset: 0;
-
     display: block;
     width: 100%;
     height: 100%;
-
     padding: 0;
     margin: 0;
     border: 0;
   }
 
-  /* ============================ */
   /* HAUPTFILM */
-  /* ============================ */
 
   #vjPortfolio .vj-featured-section {
     padding-bottom: 107px;
@@ -354,13 +357,11 @@ const weddingStories = [
     align-items: baseline;
     justify-content: space-between;
     gap: 20px;
-
     padding: 27px 2px 0;
   }
 
   #vjPortfolio .vj-featured-caption h2 {
     margin: 0;
-
     color: var(--portfolio-ink);
     font-size: clamp(35px, 4.5vw, 53px);
     font-weight: 350;
@@ -374,9 +375,7 @@ const weddingStories = [
     line-height: 1.5;
   }
 
-  /* ============================ */
-  /* WEITERE HOCHZEITSGESCHICHTEN */
-  /* ============================ */
+  /* HOCHZEITSGESCHICHTEN */
 
   #vjPortfolio .vj-stories-section {
     padding-top: 105px;
@@ -395,7 +394,6 @@ const weddingStories = [
 
   #vjPortfolio .vj-section-intro h2 {
     margin: 0;
-
     color: var(--portfolio-ink);
     font-size: clamp(34px, 4.4vw, 52px);
     font-weight: 350;
@@ -424,7 +422,6 @@ const weddingStories = [
 
   #vjPortfolio .vj-story-heading h3 {
     margin: 0;
-
     color: var(--portfolio-ink);
     font-size: clamp(34px, 4vw, 48px);
     font-weight: 350;
@@ -457,25 +454,66 @@ const weddingStories = [
 
   #vjPortfolio .vj-film-caption {
     margin: 17px 2px 0;
-
     color: var(--portfolio-muted);
     font-size: 14px;
     font-weight: 500;
     line-height: 1.5;
   }
 
-  /* ============================ */
+  /* WEITERE FILME AUF ANFRAGE */
+
+  #vjPortfolio .vj-more-films {
+    width: min(750px, 100%);
+    margin: 92px auto 0;
+    padding: 39px 25px 0;
+    border-top: 1px solid var(--portfolio-line);
+    text-align: center;
+  }
+
+  #vjPortfolio .vj-more-films-title {
+    margin: 0;
+    color: var(--portfolio-ink);
+    font-size: clamp(21px, 2.5vw, 28px);
+    font-weight: 450;
+    line-height: 1.3;
+    letter-spacing: -.035em;
+  }
+
+  #vjPortfolio .vj-more-films-text {
+    max-width: 530px;
+    margin: 13px auto 0;
+    color: var(--portfolio-muted);
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  #vjPortfolio .vj-more-films-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 19px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid var(--portfolio-orange);
+    color: var(--portfolio-orange);
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.6;
+    transition: color .2s ease;
+  }
+
+  #vjPortfolio .vj-more-films-link:hover {
+    color: var(--portfolio-orange-hover);
+  }
+
   /* FOTO UND VIDEO ALS TEAM */
-  /* ============================ */
 
   #vjPortfolio .vj-partner-section {
     padding: 50px 55px;
     margin-bottom: 95px;
-
     border: 1px solid #e8e8e9;
     border-radius: 18px;
     background: #f7f7f6;
-
     scroll-margin-top: 110px;
   }
 
@@ -489,7 +527,6 @@ const weddingStories = [
 
   #vjPortfolio .vj-partner-content h2 {
     margin: 0;
-
     color: var(--portfolio-ink);
     font-size: clamp(33px, 4vw, 47px);
     font-weight: 350;
@@ -499,7 +536,6 @@ const weddingStories = [
 
   #vjPortfolio .vj-partner-content > p:not(.vj-eyebrow) {
     margin: 21px 0 0;
-
     color: var(--portfolio-muted);
     font-size: 15px;
     line-height: 1.8;
@@ -514,16 +550,12 @@ const weddingStories = [
     display: inline-flex;
     align-items: center;
     gap: 13px;
-
     min-height: 45px;
     margin-top: 27px;
-
     border-bottom: 1px solid var(--portfolio-orange);
-
     color: var(--portfolio-ink);
     font-size: 14px;
     font-weight: 750;
-
     transition: color .2s ease;
   }
 
@@ -535,19 +567,15 @@ const weddingStories = [
     color: var(--portfolio-orange);
   }
 
-  /* ============================ */
   /* KONTAKTBEREICH */
-  /* ============================ */
 
   #vjPortfolio .vj-portfolio-cta {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     padding: 76px 30px;
     border-radius: 19px;
-
     background: var(--portfolio-ink);
     color: #ffffff;
     text-align: center;
@@ -560,7 +588,6 @@ const weddingStories = [
 
   #vjPortfolio .vj-portfolio-cta h2 {
     margin: 0;
-
     color: #ffffff;
     font-size: clamp(37px, 5vw, 59px);
     font-weight: 350;
@@ -571,7 +598,6 @@ const weddingStories = [
   #vjPortfolio .vj-portfolio-cta > p:not(.vj-eyebrow) {
     max-width: 630px;
     margin: 23px auto 0;
-
     color: rgba(255, 255, 255, .75);
     font-size: 15px;
     line-height: 1.8;
@@ -582,21 +608,16 @@ const weddingStories = [
     align-items: center;
     justify-content: center;
     gap: 17px;
-
     min-height: 54px;
     margin-top: 32px;
     padding: 13px 27px;
-
     border: 0;
     border-radius: 7px;
-
     background: var(--portfolio-orange);
     color: #ffffff;
-
     font-size: 14px;
     font-weight: 800;
     line-height: 1.3;
-
     transition:
       background .2s ease,
       transform .2s ease;
@@ -607,9 +628,7 @@ const weddingStories = [
     transform: translateY(-2px);
   }
 
-  /* ============================ */
   /* TABLET */
-  /* ============================ */
 
   @media (max-width: 900px) {
     #vjPortfolio .vj-story-videos {
@@ -621,9 +640,7 @@ const weddingStories = [
     }
   }
 
-  /* ============================ */
   /* HANDY */
-  /* ============================ */
 
   @media (max-width: 700px) {
     #vjPortfolio {
@@ -705,6 +722,15 @@ const weddingStories = [
       margin-top: 13px;
     }
 
+    #vjPortfolio .vj-more-films {
+      margin-top: 66px;
+      padding: 31px 10px 0;
+    }
+
+    #vjPortfolio .vj-more-films-text {
+      font-size: 14px;
+    }
+
     #vjPortfolio .vj-partner-section {
       padding: 35px 28px;
       margin-bottom: 75px;
@@ -715,9 +741,7 @@ const weddingStories = [
     }
   }
 
-  /* ============================ */
   /* KLEINE HANDYS */
-  /* ============================ */
 
   @media (max-width: 480px) {
     #vjPortfolio {
@@ -766,6 +790,7 @@ const weddingStories = [
   }
 
   @media (prefers-reduced-motion: reduce) {
+    #vjPortfolio .vj-more-films-link,
     #vjPortfolio .vj-partner-link,
     #vjPortfolio .vj-cta-button {
       transition: none;
