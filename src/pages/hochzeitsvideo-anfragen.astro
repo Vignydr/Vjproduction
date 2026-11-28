@@ -1,1037 +1,579 @@
+
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-const today = new Date().toISOString().split("T")[0];
+// Derselbe Wedding Teaser, der bereits auf der Startseite zu sehen ist.
+const weddingTeaser = "https://galleries.vidflow.co/videos/b6w58mek";
 
-const benefits = [
-  {
-    title: "Unaufdringlich begleitet",
-    text: "Ich halte echte Momente fest, ohne euren Tag zu stören oder euch dauerhaft zu inszenieren.",
-  },
-  {
-    title: "Cineastisch erzählt",
-    text: "Aus Blicken, Stimmen, Musik und kleinen Details entsteht ein Film, der sich nach euch anfühlt.",
-  },
-  {
-    title: "Sicher geliefert",
-    text: "Ihr erhaltet euren Film über eine private Videogalerie zum Anschauen, Herunterladen und Teilen.",
-  },
-];
-
+// Preise und Laufzeiten entsprechend der bestehenden Paketseite.
 const packages = [
   {
     name: "Basic",
-    price: "ab 1.290 €",
-    text: "Für kurze Begleitungen und emotionale Highlights.",
+    price: "1.290 €",
+    duration: "4 Stunden Begleitung",
+    description: "Für Paare, die ihre wichtigsten Momente als Film bewahren möchten.",
   },
   {
     name: "Classic",
-    price: "ab 1.990 €",
-    text: "Der beliebte Mittelweg mit mehr Zeit und Social-Media-Kurzfilm.",
-    popular: true,
+    price: "1.990 €",
+    duration: "7 Stunden Begleitung",
+    description: "Mehr Raum für eure Geschichte – inklusive Kurzfilm für Social Media.",
+    featured: true,
   },
   {
     name: "Premium",
-    price: "ab 2.790 €",
-    text: "Für eine ganztägige Begleitung mit besonders umfangreichem Film.",
-  },
-];
-
-const reviews = [
-  {
-    text: "Jetzt wäre ein Videograf das Erste, was wir buchen würden. Das Video haben wir uns bereits unzählige Male angeschaut.",
-    name: "Jasmin & José Luis",
-    place: "Soest / Möhnesee",
-    image: "/images/jasmin-jose.jpeg",
-  },
-  {
-    text: "Unsere Hochzeit war ein unvergesslicher Tag, aber er ist so schnell vorbei gewesen. Das Video bringt all diese Emotionen zurück.",
-    name: "Jana & Stefan",
-    place: "Westoverledingen",
-    image: "/images/jana-stefan.jpg",
+    price: "2.790 €",
+    duration: "Bis zu 12 Stunden Begleitung",
+    description: "Für die ausführliche Begleitung eures Tages – inklusive Drohnenaufnahmen.",
   },
 ];
 ---
 
 <BaseLayout
-  title="Hochzeitsvideo anfragen | Hochzeitsvideograf NRW | VJ Production"
-  description="Hochzeitsvideo in NRW anfragen: Emotionale Hochzeitsfilme von VJ Production. Hochzeitsvideograf aus Witten für Dortmund, Bochum, Essen, Hagen und ganz NRW."
+  title="Euren Hochzeitsfilm anfragen | VJ Production – Hochzeitsvideograf NRW"
+  description="Euer Hochzeitstag als cineastischer Film: Entdeckt den Wedding Teaser von Phelina & Mert, die Pakete ab 1.290 € und fragt euren Termin bei VJ Production unverbindlich an."
 >
-  <section class="lead-page">
-    <section class="lead-hero">
-      <p class="kicker">Hochzeitsvideo anfragen</p>
-
-      <h1>Euer Hochzeitstag als Film, den ihr immer wieder fühlen könnt.</h1>
-
-      <p class="hero-text">
-        Ich begleite Hochzeiten in NRW und deutschlandweit, ruhig, unaufdringlich
-        und mit dem Blick für echte Emotionen. Aus eurem Tag entsteht ein
-        cineastischer Hochzeitsfilm, der nicht nur schön aussieht, sondern sich
-        nach euch anfühlt.
+  <section class="vj-landing" aria-labelledby="vj-landing-title">
+    <!-- 1. Klare Botschaft und direkter Weg zum Formular -->
+    <header class="landing-hero wrap">
+      <p class="eyebrow">VJ Production · Hochzeitsvideografie in NRW</p>
+      <h1 id="vj-landing-title">Euer Tag vergeht.<br /><em>Das Gefühl bleibt.</em></h1>
+      <p class="hero-description">
+        Die leisen Blicke, das Lachen, die Stimmen eurer Liebsten – all die Momente,
+        die euren Hochzeitstag einzigartig machen. Ich halte sie in einem
+        persönlichen, cineastischen Hochzeitsfilm fest.
       </p>
-
       <div class="hero-actions">
-        <a href="#anfrage" class="primary-button">
-          Anfrage starten <span>→</span>
+        <a class="button button-primary" href="#anfrage">
+          Wunschtermin anfragen <span aria-hidden="true">→</span>
         </a>
-
-        <a href="#video" class="secondary-button">
-          Film ansehen
+        <a class="button button-secondary" href="#film">
+          Hochzeitsfilm ansehen <span aria-hidden="true">↘</span>
         </a>
       </div>
+      <p class="hero-note">
+        Persönliche Begleitung aus Witten · NRW & deutschlandweit · Ab 1.290 € zzgl. ggf. Reisekosten
+      </p>
+    </header>
 
-      <div class="trust-row">
-        <span>Hochzeitsvideograf aus Witten</span>
-        <span>NRW & deutschlandweit</span>
-        <span>Pakete ab 1.290 €</span>
-      </div>
-    </section>
-
-    <section class="video-section" id="video">
-      <div class="section-head">
-        <p>Einblick</p>
-
-        <h2>So kann sich euer Film anfühlen</h2>
-
-        <span>
-          Ein Beispiel aus meinem Portfolio, ruhig, emotional und cineastisch
-          erzählt.
-        </span>
+    <!-- 2. Der Film aus der Werbung – bewusst im originalen 16:9-Format -->
+    <section class="film-section wrap" id="film" aria-labelledby="film-title">
+      <div class="section-heading section-heading-left">
+        <div>
+          <p class="eyebrow">Ein Film. Eine echte Geschichte.</p>
+          <h2 id="film-title">Phelina <span>&</span> Mert</h2>
+        </div>
+        <p>
+          So erzähle ich Hochzeiten: nicht als Aneinanderreihung schöner Bilder,
+          sondern als Geschichte voller Gefühl.
+        </p>
       </div>
 
-      <div class="video-frame">
+      <div class="film-frame">
         <iframe
-          src="https://galleries.vidflow.co/videos/b2ayyew1"
-          title="Paarshooting Hochzeitsvideo von VJ Production"
-          loading="lazy"
-          allow="fullscreen; picture-in-picture"
+          src={weddingTeaser}
+          title="Wedding Teaser von Phelina und Mert – VJ Production"
+          loading="eager"
+          scrolling="no"
+          allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
           allowfullscreen
         ></iframe>
       </div>
-    </section>
-
-    <section class="emotion-section">
-      <div>
-        <p class="kicker">Warum Video?</p>
-
-        <h2>Fotos zeigen den Moment. Ein Film bringt ihn zurück.</h2>
+      <div class="film-bottom">
+        <div>
+          <strong>Wedding Teaser · Phelina & Mert</strong>
+          <span>Ein Einblick in meine Bildsprache und meinen Filmschnitt.</span>
+        </div>
+        <a class="subtle-link" href="/portfolio">
+          Weitere Hochzeitsfilme <span aria-hidden="true">↗</span>
+        </a>
       </div>
-
-      <p>
-        Viele Paare merken erst nach der Hochzeit, wie schnell der Tag vergangen
-        ist. Ein Film hält nicht nur Bilder fest, sondern Stimmen, Bewegung,
-        Atmosphäre und die kleinen Augenblicke dazwischen: ein Blick vor der
-        Trauung, Tränen bei einer Rede, Lachen beim Feiern und all die Momente,
-        die man am Tag selbst kaum bewusst wahrnimmt.
-      </p>
-    </section>
-
-    <section class="benefits-grid">
-      {benefits.map((benefit) => (
-        <article class="benefit-card">
-          <div class="benefit-dot"></div>
-          <h3>{benefit.title}</h3>
-          <p>{benefit.text}</p>
-        </article>
-      ))}
-    </section>
-
-    <section class="packages-section">
-      <div class="section-head">
-        <p>Pakete</p>
-
-        <h2>Klare Orientierung für eure Planung</h2>
-
-        <span>
-          Wählt im Anfrageformular das Paket, das aktuell am besten zu euren
-          Vorstellungen passt. Die Details besprechen wir anschließend gemeinsam.
-        </span>
-      </div>
-
-      <div class="package-grid">
-        {packages.map((item) => (
-          <article class={`package-card ${item.popular ? "popular" : ""}`}>
-            {item.popular && <div class="popular-badge">Beliebt</div>}
-
-            <h3>{item.name}</h3>
-            <strong>{item.price}</strong>
-            <p>{item.text}</p>
-          </article>
-        ))}
-      </div>
-    </section>
-
-    <section class="reviews-section">
-      <div class="section-head">
-        <p>Bewertungen</p>
-        <h2>Was Paare sagen</h2>
-      </div>
-
-      <div class="review-grid">
-        {reviews.map((review) => (
-          <article class="review-card">
-            <div class="stars">★★★★★</div>
-
-            <p>"{review.text}"</p>
-
-            <div class="review-person">
-              <img
-                src={review.image}
-                alt={`Foto von ${review.name}`}
-                loading="lazy"
-              />
-
-              <div>
-                <strong>{review.name}</strong>
-                <span>{review.place}</span>
-              </div>
-            </div>
-          </article>
-        ))}
-      </div>
-
-      <div class="more-reviews">
-        <a href="/bewertungen">
-          Weitere Bewertungen ansehen <span>→</span>
+      <div class="film-cta">
+        <p>Ihr könnt euch vorstellen, euren Tag so festhalten zu lassen?</p>
+        <a class="button button-primary" href="#anfrage">
+          Verfügbarkeit prüfen <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
 
-    <section class="lead-form-section" id="anfrage">
-      <div class="form-intro">
-        <p class="kicker">Unverbindlich anfragen</p>
-
-        <h2>Erzählt mir kurz von eurem Tag</h2>
-
-        <span>
-          Ich melde mich persönlich bei euch zurück und wir schauen gemeinsam,
-          ob euer Datum noch verfügbar ist.
-        </span>
+    <!-- 3. Persönliche Begleitung statt austauschbare Werbeversprechen -->
+    <section class="about-section wrap" aria-labelledby="about-title">
+      <div class="about-image">
+        <img
+          src="/images/Vigny.png"
+          alt="Vigny, Hochzeitsvideograf von VJ Production"
+          loading="lazy"
+          decoding="async"
+        />
       </div>
-
-      <form
-        class="lead-form"
-        id="leadForm"
-        action="https://api.web3forms.com/submit"
-        method="POST"
-      >
-        <input
-          type="hidden"
-          name="access_key"
-          value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
-        />
-
-        <input
-          type="hidden"
-          name="subject"
-          value="Neue Hochzeitsvideo-Anfrage über Landingpage"
-        />
-
-        <input
-          type="hidden"
-          name="from_name"
-          value="VJ Production Website"
-        />
-
-        <input
-          type="hidden"
-          name="redirect"
-          value="https://vjproduction.de/danke"
-        />
-
-        <input
-          type="hidden"
-          name="Quelle"
-          value="Landingpage Hochzeitsvideo anfragen"
-        />
-
-        <label>
-          <span>Art der Anfrage *</span>
-
-          <select name="Art der Anfrage" required>
-            <option value="" disabled selected>
-              Bitte auswählen...
-            </option>
-
-            <option value="Hochzeit">
-              Hochzeit
-            </option>
-
-            <option value="Nachträgliches Hochzeitsvideoshooting">
-              Nachträgliches Hochzeitsvideoshooting
-            </option>
-          </select>
-        </label>
-
-        <div class="form-grid">
-          <label>
-            <span>Ihr Name *</span>
-
-            <input
-              type="text"
-              name="Name"
-              placeholder="Anna & Max Mustermann"
-              autocomplete="name"
-              required
-            />
-          </label>
-
-          <label>
-            <span>E-Mail</span>
-
-            <input
-              type="email"
-              name="email"
-              placeholder="ihre@email.de"
-              autocomplete="email"
-            />
-          </label>
-        </div>
-
-        <div class="form-grid">
-          <label>
-            <span>Telefon *</span>
-
-            <input
-              type="tel"
-              name="Telefon"
-              placeholder="+49 123 456789"
-              autocomplete="tel"
-              required
-            />
-          </label>
-
-          <label>
-            <span>Hochzeitsdatum</span>
-
-            <input
-              type="date"
-              name="Datum"
-              value={today}
-            />
-          </label>
-        </div>
-
-        <label>
-          <span>Location / Ort</span>
-
-          <input
-            type="text"
-            name="Location"
-            placeholder="z. B. Witten, Dortmund, Essen..."
-          />
-        </label>
-
-        <div class="form-grid">
-          <label>
-            <span>Paket *</span>
-
-            <select name="Paket" required>
-              <option value="" disabled selected>
-                Paket auswählen...
-              </option>
-
-              <option value="Basic">
-                Basic
-              </option>
-
-              <option value="Classic">
-                Classic
-              </option>
-
-              <option value="Premium">
-                Premium
-              </option>
-
-              <option value="Individuell">
-                Individuell
-              </option>
-            </select>
-          </label>
-
-          <label>
-            <span>Investitionsrahmen *</span>
-
-            <select name="Investitionsrahmen" required>
-              <option value="" disabled selected>
-                Investitionsrahmen auswählen...
-              </option>
-
-              <option value="Ab 1.290 Euro">
-                ab 1.290 € – Basic
-              </option>
-
-              <option value="Ab 1.990 Euro">
-                ab 1.990 € – Classic
-              </option>
-
-              <option value="Ab 2.790 Euro">
-                ab 2.790 € – Premium
-              </option>
-
-              <option value="3.000 Euro oder mehr">
-                3.000 €+
-              </option>
-            </select>
-          </label>
-        </div>
-
-        <label>
-          <span>Nachricht</span>
-
-          <textarea
-            name="Nachricht"
-            rows="6"
-            placeholder="Erzählt mir kurz von euch, eurer Hochzeit und was euch wichtig ist..."
-          ></textarea>
-        </label>
-
-        <label class="consent">
-          <input
-            type="checkbox"
-            name="Datenschutz akzeptiert"
-            value="Ja"
-            required
-          />
-
-          <span>
-            Ich habe die
-            <a href="/datenschutz">Datenschutzerklärung</a>
-            gelesen und akzeptiere sie. *
-          </span>
-        </label>
-
-        <label class="consent">
-          <input
-            type="checkbox"
-            name="Kontakt erlaubt"
-            value="Ja"
-            required
-          />
-
-          <span>
-            Ich willige ein, dass du mich zur Anfrage kontaktieren darfst. *
-          </span>
-        </label>
-
-        <button class="submit-button" type="submit">
-          Anfrage absenden
-          <span>→</span>
-        </button>
-      </form>
+      <div class="about-copy">
+        <p class="eyebrow">Der Mensch hinter der Kamera</p>
+        <h2 id="about-title">Hallo, ich bin Vigny.</h2>
+        <p>
+          Ich glaube, dass die schönsten Momente entstehen, wenn ihr euren Tag
+          einfach genießen könnt. Deshalb begleite ich euch ruhig und
+          unaufdringlich – und bin da, wenn aus einem Augenblick eine Erinnerung wird.
+        </p>
+        <p>
+          Jeder Film entsteht individuell. Musik, Schnitt und Bildsprache richte
+          ich nach euch und der Atmosphäre eurer Hochzeit aus. Kein Film von der Stange.
+        </p>
+        <a class="subtle-link subtle-link-light" href="/ueber-mich">
+          Mehr über mich erfahren <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </section>
+
+    <!-- 4. Preisfilter, aber keine zweite ausführliche Paketseite -->
+    <section class="packages-section" aria-labelledby="packages-title">
+      <div class="wrap">
+        <div class="section-heading">
+          <p class="eyebrow">Transparent von Anfang an</p>
+          <h2 id="packages-title">Der passende Rahmen für eure Geschichte.</h2>
+          <p>
+            Ihr sollt schon vor eurer Anfrage wissen, womit ihr planen könnt.
+            Gemeinsam finden wir die Begleitung, die zu eurem Tag passt.
+          </p>
+        </div>
+        <div class="packages-grid">
+          {packages.map((item) => (
+            <article class:list={["package-card", { "is-featured": item.featured }]}>
+              {item.featured && <span class="package-label">Häufig gewählt</span>}
+              <h3>{item.name}</h3>
+              <p class="package-duration">{item.duration}</p>
+              <p class="package-price">{item.price}</p>
+              <p class="package-description">{item.description}</p>
+              <a href="#anfrage" class="package-action">
+                Paket anfragen <span aria-hidden="true">→</span>
+              </a>
+            </article>
+          ))}
+        </div>
+        <p class="price-note">
+          Preise gemäß § 19 UStG ohne Umsatzsteuerausweis. Gegebenenfalls fallen
+          zusätzliche Reisekosten an. Individuelle Begleitungen sind ebenfalls möglich.
+        </p>
+        <a class="subtle-link packages-link" href="/pakete">
+          Alle Leistungen und Paketdetails ansehen <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. Echte Kundenstimme passend zum Werbefilm -->
+    <section class="review-section wrap" aria-labelledby="review-title">
+      <div class="review-head">
+        <p class="eyebrow">Worte, die bleiben</p>
+        <h2 id="review-title">Wenn der Film mehr zurückbringt als Bilder.</h2>
+      </div>
+      <div class="review-content">
+        <img
+          src="/images/Phelina & Mert .jpg"
+          alt="Phelina und Mert an ihrem Hochzeitstag"
+          loading="lazy"
+          decoding="async"
+        />
+        <div>
+          <p class="review-stars" aria-label="5 von 5 Sternen">★★★★★</p>
+          <blockquote>
+            „Wir sind unendlich dankbar, dass Vigny unseren großen Tag so
+            wunderschön und emotional festgehalten hat! Die Videos sind einfach
+            traumhaft geworden und wir könnten nicht glücklicher damit sein.“
+          </blockquote>
+          <p class="review-name">Phelina & Mert <span>· Dortmund</span></p>
+          <a class="subtle-link" href="/bewertungen">
+            Weitere Erfahrungen lesen <span aria-hidden="true">↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Anfrage direkt auf der Landingpage: kein unnötiger Seitenwechsel -->
+    <section class="request-section" id="anfrage" aria-labelledby="request-title">
+      <div class="wrap request-layout">
+        <div class="request-intro">
+          <p class="eyebrow">Eure Geschichte beginnt hier</p>
+          <h2 id="request-title">Erzählt mir von eurem Tag.</h2>
+          <p>
+            Ob euer Ablauf schon feststeht oder ihr noch mitten in der Planung
+            steckt: Schreibt mir ein paar Eckdaten. Ich prüfe euren Wunschtermin
+            und melde mich persönlich bei euch zurück.
+          </p>
+          <div class="request-points">
+            <span><i aria-hidden="true">✓</i> Unverbindliche Anfrage</span>
+            <span><i aria-hidden="true">✓</i> Persönliche Rückmeldung</span>
+            <span><i aria-hidden="true">✓</i> Transparente Pakete & Preise</span>
+          </div>
+          <p class="request-alternative">
+            Ihr möchtet euch erst umsehen?
+            <a href="/portfolio">Portfolio</a>,
+            <a href="/pakete">Pakete</a> oder
+            <a href="/">Startseite</a> entdecken.
+          </p>
+        </div>
+
+        <form
+          class="request-form"
+          id="vjLandingForm"
+          action="https://api.web3forms.com/submit"
+          method="POST"
+        >
+          <input type="hidden" name="access_key" value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972" />
+          <input type="hidden" name="subject" value="Neue Hochzeitsanfrage über die VJ Production Landingpage" />
+          <input type="hidden" name="from_name" value="VJ Production Website" />
+          <input type="hidden" name="redirect" value="https://vjproduction.de/danke" />
+          <input type="hidden" name="Quelle" value="Landingpage Hochzeitsvideo anfragen" />
+          <input type="hidden" name="Kampagne" id="vjCampaign" value="" />
+          <div class="honeypot" aria-hidden="true">
+            <label>Dieses Feld bitte leer lassen <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" /></label>
+          </div>
+
+          <div class="field-row">
+            <label class="field">
+              <span>Euer Name <em>*</em></span>
+              <input type="text" name="Name" placeholder="z. B. Anna & Max" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span>E-Mail-Adresse <em>*</em></span>
+              <input type="email" name="email" placeholder="eure@email.de" autocomplete="email" required />
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>Hochzeitsdatum</span>
+              <input type="date" name="Datum" />
+            </label>
+            <label class="field">
+              <span>Hochzeitsort</span>
+              <input type="text" name="Location" placeholder="Stadt / Location, falls bekannt" />
+            </label>
+          </div>
+          <div class="field-row">
+            <label class="field">
+              <span>Welches Paket interessiert euch? <em>*</em></span>
+              <select name="Paket" required>
+                <option value="" disabled selected>Bitte auswählen</option>
+                <option value="Basic">Basic · 1.290 €</option>
+                <option value="Classic">Classic · 1.990 €</option>
+                <option value="Premium">Premium · 2.790 €</option>
+                <option value="Individuell / noch unsicher">Individuell / noch unsicher</option>
+              </select>
+            </label>
+            <label class="field">
+              <span>Euer Investitionsrahmen <em>*</em></span>
+              <select name="Investitionsrahmen" required>
+                <option value="" disabled selected>Bitte auswählen</option>
+                <option value="1.290–1.989 €">1.290–1.989 €</option>
+                <option value="1.990–2.789 €">1.990–2.789 €</option>
+                <option value="2.790–3.499 €">2.790–3.499 €</option>
+                <option value="3.500 € oder mehr">3.500 € oder mehr</option>
+              </select>
+            </label>
+          </div>
+          <label class="field">
+            <span>Telefonnummer <small>(optional)</small></span>
+            <input type="tel" name="Telefon" placeholder="Für ein persönliches Kennenlerngespräch" autocomplete="tel" />
+          </label>
+          <label class="field">
+            <span>Was sollte ich über euren Tag wissen?</span>
+            <textarea name="Nachricht" rows="4" placeholder="Erzählt mir gern von euren Plänen, eurer Location oder euren Wünschen ..."></textarea>
+          </label>
+          <label class="consent-row">
+            <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required />
+            <span>
+              Ich habe die <a href="/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>
+              gelesen und bin mit der Verarbeitung meiner Angaben zur Beantwortung meiner Anfrage einverstanden. <em>*</em>
+            </span>
+          </label>
+          <p class="required-note">* Pflichtfelder · Unverbindlich und ohne Buchungsverpflichtung</p>
+          <button type="submit" class="button button-primary submit-button" id="vjSubmitButton">
+            Wunschtermin unverbindlich anfragen <span aria-hidden="true">→</span>
+          </button>
+          <p id="vjFormMessage" class="form-message" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <!-- 7. Navigation bleibt normal nutzbar, zusätzliche klare Auswege -->
+    <nav class="explore-section wrap" aria-label="Weitere Bereiche der Website">
+      <p>Ihr möchtet VJ Production noch besser kennenlernen?</p>
+      <div>
+        <a href="/portfolio">Alle Filme <span aria-hidden="true">↗</span></a>
+        <a href="/pakete">Pakete & Preise <span aria-hidden="true">↗</span></a>
+        <a href="/ueber-mich">Über mich <span aria-hidden="true">↗</span></a>
+      </div>
+    </nav>
   </section>
+
+  <!-- Lead nur bei erfolgreicher Web3Forms-Antwort markieren.
+       BaseLayout.astro sendet das Meta-Lead-Event auf /danke. -->
+  <script is:inline>
+    (() => {
+      const form = document.getElementById("vjLandingForm");
+      const button = document.getElementById("vjSubmitButton");
+      const message = document.getElementById("vjFormMessage");
+      const campaign = document.getElementById("vjCampaign");
+      if (!(form instanceof HTMLFormElement)) return;
+
+      const params = new URLSearchParams(window.location.search);
+      if (campaign instanceof HTMLInputElement) {
+        const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+        campaign.value = keys
+          .filter((key) => params.has(key))
+          .map((key) => `${key}: ${params.get(key)}`)
+          .join(" | ");
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        if (!form.reportValidity()) return;
+
+        if (button instanceof HTMLButtonElement) {
+          button.disabled = true;
+          button.setAttribute("aria-busy", "true");
+        }
+        if (message) message.textContent = "Eure Anfrage wird gesendet ...";
+
+        try {
+          const response = await fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { Accept: "application/json" },
+          });
+          const result = await response.json();
+          if (!response.ok || result.success !== true) {
+            throw new Error("Die Anfrage konnte nicht gesendet werden.");
+          }
+
+          try {
+            sessionStorage.setItem("vjContactFormSubmittedAt", String(Date.now()));
+          } catch (error) {
+            console.warn("Tracking-Markierung konnte nicht gespeichert werden.", error);
+          }
+          window.location.assign("/danke");
+        } catch (error) {
+          if (message) {
+            message.textContent =
+              "Das Senden hat leider nicht geklappt. Bitte versucht es erneut oder nutzt die Kontaktseite.";
+          }
+          if (button instanceof HTMLButtonElement) {
+            button.disabled = false;
+            button.removeAttribute("aria-busy");
+          }
+        }
+      });
+    })();
+  </script>
 </BaseLayout>
 
 <style>
-  :global(*) {
-    box-sizing: border-box;
+  :global(html) { scroll-behavior: smooth; }
+  .vj-landing {
+    --ink: #17181d;
+    --accent: #b46300;
+    --accent-dark: #995200;
+    --muted: #62656e;
+    --line: #e8e5e1;
+    color: var(--ink);
+    background: #fff;
+    overflow-x: clip;
   }
-
-  :global(body) {
-    background: white;
+  .vj-landing *, .vj-landing *::before, .vj-landing *::after { box-sizing: border-box; }
+  .vj-landing a { text-decoration: none; }
+  .vj-landing a:focus-visible, .vj-landing button:focus-visible {
+    outline: 3px solid var(--accent);
+    outline-offset: 4px;
   }
-
-  .lead-page {
-    background: white;
-    color: #17181d;
-    padding: 135px 20px 108px;
-  }
-
-  .lead-hero {
-    width: min(1040px, 100%);
-    margin: 0 auto 92px;
-    text-align: center;
-  }
-
-  .kicker,
-  .section-head p {
+  .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+  .eyebrow {
     margin: 0 0 18px;
-    color: #df7b00;
+    font-size: 11px;
+    letter-spacing: .2em;
     text-transform: uppercase;
-    letter-spacing: 0.34em;
-    font-size: 12px;
-    font-weight: 700;
+    font-weight: 800;
+    line-height: 1.5;
+    color: var(--accent);
   }
-
-  .lead-hero h1 {
-    max-width: 980px;
-    margin: 0 auto;
-    font-size: clamp(40px, 5.6vw, 74px);
-    font-weight: 300;
-    letter-spacing: -0.07em;
-    line-height: 1.05;
-  }
-
-  .hero-text {
-    max-width: 850px;
-    margin: 30px auto 0;
-    color: #5f6068;
-    font-size: clamp(17px, 1.7vw, 22px);
-    line-height: 1.72;
-  }
-
-  .hero-actions {
-    margin-top: 38px;
-    display: flex;
+  .button {
+    display: inline-flex;
+    min-height: 52px;
+    padding: 13px 22px;
+    align-items: center;
     justify-content: center;
     gap: 16px;
-    flex-wrap: wrap;
-  }
-
-  .primary-button,
-  .secondary-button {
-    height: 52px;
-    padding: 0 30px;
     border-radius: 7px;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    font-size: 15px;
-    font-weight: 800;
-    text-decoration: none;
-  }
-
-  .primary-button {
-    background: #df7b00;
-    color: white;
-  }
-
-  .secondary-button {
-    border: 1px solid #dedfe3;
-    background: white;
-    color: #17181d;
-  }
-
-  .trust-row {
-    margin: 42px auto 0;
-    display: flex;
-    justify-content: center;
-    gap: 14px;
-    flex-wrap: wrap;
-  }
-
-  .trust-row span {
-    padding: 10px 16px;
-    border-radius: 999px;
-    background: #f8f8f9;
-    color: #5f6068;
+    border: 1px solid transparent;
     font-size: 14px;
-    font-weight: 700;
-  }
-
-  .video-section,
-  .packages-section,
-  .reviews-section,
-  .lead-form-section {
-    width: min(1120px, 100%);
-    margin: 0 auto 96px;
-  }
-
-  .section-head {
-    margin: 0 auto 46px;
+    font-weight: 750;
     text-align: center;
-  }
-
-  .section-head h2,
-  .emotion-section h2,
-  .form-intro h2 {
-    margin: 0;
-    color: #17181d;
-    font-size: clamp(32px, 4vw, 52px);
-    font-weight: 300;
-    letter-spacing: -0.06em;
-    line-height: 1.08;
-  }
-
-  .section-head span,
-  .form-intro span {
-    display: block;
-    max-width: 720px;
-    margin: 20px auto 0;
-    color: #777984;
-    font-size: 16px;
-    line-height: 1.65;
-  }
-
-  .video-frame {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 24px;
-    background: #17181d;
-    box-shadow: 0 28px 70px rgba(0, 0, 0, 0.16);
-  }
-
-  .video-frame iframe {
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    border: 0;
-  }
-
-  .emotion-section {
-    width: min(1120px, 100%);
-    margin: 0 auto 96px;
-    padding: 58px 60px;
-    border-radius: 28px;
-    background: #f8f8f9;
-    display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 54px;
-    align-items: center;
-  }
-
-  .emotion-section p:last-child {
-    margin: 0;
-    color: #5f6068;
-    font-size: 17px;
-    line-height: 1.78;
-  }
-
-  .benefits-grid {
-    width: min(1120px, 100%);
-    margin: 0 auto 96px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .benefit-card {
-    padding: 34px;
-    border-radius: 20px;
-    background: white;
-    border: 1px solid #dedfe3;
-    box-shadow: 0 10px 28px rgba(0, 0, 0, 0.035);
-  }
-
-  .benefit-dot {
-    width: 12px;
-    height: 12px;
-    margin-bottom: 26px;
-    border-radius: 999px;
-    background: #df7b00;
-  }
-
-  .benefit-card h3 {
-    margin: 0 0 16px;
-    color: #17181d;
-    font-size: 21px;
-    letter-spacing: -0.035em;
-  }
-
-  .benefit-card p {
-    margin: 0;
-    color: #5f6068;
-    font-size: 15.5px;
-    line-height: 1.68;
-  }
-
-  .package-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-  }
-
-  .package-card {
-    position: relative;
-    padding: 34px;
-    border-radius: 20px;
-    background: #f8f8f9;
-    text-align: center;
-  }
-
-  .package-card.popular {
-    background: #17181d;
-    color: white;
-    transform: translateY(-10px);
-    box-shadow: 0 24px 54px rgba(0, 0, 0, 0.18);
-  }
-
-  .popular-badge {
-    position: absolute;
-    top: -15px;
-    left: 50%;
-    transform: translateX(-50%);
-    padding: 7px 18px;
-    border-radius: 999px;
-    background: #ffc21d;
-    color: #17181d;
-    font-size: 12px;
-    font-weight: 800;
-  }
-
-  .package-card h3 {
-    margin: 0;
-    font-size: 23px;
-    font-weight: 600;
-  }
-
-  .package-card strong {
-    display: block;
-    margin-top: 18px;
-    color: #df7b00;
-    font-size: 28px;
-    font-weight: 300;
-  }
-
-  .package-card.popular strong {
-    color: #ffc21d;
-  }
-
-  .package-card p {
-    margin: 20px 0 0;
-    color: #5f6068;
-    font-size: 15.5px;
-    line-height: 1.65;
-  }
-
-  .package-card.popular p {
-    color: rgba(255, 255, 255, 0.7);
-  }
-
-  .review-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-  }
-
-  .review-card {
-    padding: 34px;
-    border-radius: 20px;
-    background: #f8f8f9;
-  }
-
-  .stars {
-    color: #ffc21d;
-    letter-spacing: 0.08em;
-    font-size: 16px;
-  }
-
-  .review-card > p {
-    margin: 24px 0 0;
-    color: #4c4d55;
-    font-size: 17px;
-    line-height: 1.68;
-  }
-
-  .review-person {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-  }
-
-  .review-person img {
-    width: 58px;
-    height: 58px;
-    border-radius: 999px;
-    object-fit: cover;
-    background: #dedfe3;
-  }
-
-  .review-person strong,
-  .review-person span {
-    display: block;
-  }
-
-  .review-person strong {
-    color: #17181d;
-    font-size: 17px;
-  }
-
-  .review-person span {
-    margin-top: 4px;
-    color: #777984;
-    font-size: 14px;
-  }
-
-  .more-reviews {
-    margin-top: 34px;
-    text-align: center;
-  }
-
-  .more-reviews a {
-    min-height: 48px;
-    padding: 0 28px;
-    border-radius: 7px;
-    background: #17181d;
-    color: white;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-    font-size: 15px;
-    font-weight: 800;
-    text-decoration: none;
-    box-shadow: 0 14px 34px rgba(23, 24, 29, 0.14);
-  }
-
-  .more-reviews a span {
-    font-size: 18px;
-    line-height: 1;
-  }
-
-  .lead-form-section {
-    margin-bottom: 0;
-    padding: 58px;
-    border-radius: 28px;
-    background: #f8f8f9;
-    display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 58px;
-    align-items: start;
-  }
-
-  .form-intro {
-    position: sticky;
-    top: 110px;
-  }
-
-  .lead-form {
-    display: grid;
-    gap: 22px;
-    padding: 34px;
-    border-radius: 22px;
-    background: white;
-    border: 1px solid #dedfe3;
-  }
-
-  .form-grid {
-    width: 100%;
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: 20px;
-  }
-
-  .lead-form > label,
-  .form-grid > label {
-    display: block;
-    width: 100%;
-    min-width: 0;
-  }
-
-  label > span:not(.consent span) {
-    display: block;
-    margin-bottom: 10px;
-    color: #17181d;
-    font-size: 16px;
-    font-weight: 700;
     line-height: 1.35;
-  }
-
-  input,
-  select,
-  textarea {
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    border: 1px solid #dedfe3;
-    border-radius: 8px;
-    background: white;
-    color: #17181d;
-    font: inherit;
-    font-size: 16px;
-    outline: none;
-  }
-
-  input,
-  select {
-    height: 50px;
-    min-height: 50px;
-    padding: 0 16px;
-  }
-
-  textarea {
-    padding: 16px;
-    resize: vertical;
-  }
-
-  input[type="date"] {
-    display: block;
-    width: 100%;
-    min-width: 0;
-    max-width: 100%;
-    height: 50px;
-    min-height: 50px;
-    padding: 0 16px;
-    border: 1px solid #dedfe3;
-    border-radius: 8px;
-    background: white;
-    color: #17181d;
-    font-size: 16px;
-    line-height: normal;
-    text-align: left;
-    appearance: none;
-    -webkit-appearance: none;
-  }
-
-  input[type="date"]::-webkit-date-and-time-value {
-    width: 100%;
-    min-height: 50px;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    text-align: left;
-  }
-
-  input[type="date"]::-webkit-datetime-edit {
-    width: 100%;
-    padding: 0;
-    text-align: left;
-  }
-
-  input[type="date"]::-webkit-calendar-picker-indicator {
-    margin-left: auto;
+    transition: background .2s, transform .2s, border-color .2s;
     cursor: pointer;
   }
-
-  input:focus,
-  select:focus,
-  textarea:focus {
-    border-color: #df7b00;
-    box-shadow: 0 0 0 4px rgba(223, 123, 0, 0.08);
-  }
-
-  .consent {
-    display: flex;
-    align-items: flex-start;
-    gap: 14px;
-    color: #5f6068;
-    font-size: 15px;
-    line-height: 1.55;
-  }
-
-  .consent input {
-    width: 19px;
-    height: 19px;
-    margin-top: 2px;
-    flex: 0 0 auto;
-    accent-color: #df7b00;
-  }
-
-  .consent span {
-    margin: 0;
-  }
-
-  .consent a {
-    color: #df7b00;
-    text-decoration: underline;
-  }
-
-  .submit-button {
-    justify-self: end;
-    height: 52px;
-    padding: 0 34px;
-    border: 0;
-    border-radius: 7px;
-    background: #df7b00;
-    color: white;
+  .button:hover { transform: translateY(-2px); }
+  .button-primary { background: var(--accent); color: #fff; }
+  .button-primary:hover { background: var(--accent-dark); }
+  .button-secondary { background: transparent; color: var(--ink); border-color: #d7d4d0; }
+  .button-secondary:hover { border-color: var(--accent); }
+  .subtle-link {
     display: inline-flex;
     align-items: center;
-    gap: 18px;
-    font: inherit;
-    font-size: 16px;
-    font-weight: 800;
-    cursor: pointer;
+    gap: 10px;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 750;
+    line-height: 1.5;
   }
-
-  @media (max-width: 950px) {
-    .emotion-section,
-    .lead-form-section {
-      grid-template-columns: 1fr;
-    }
-
-    .form-intro {
-      position: static;
-    }
-
-    .benefits-grid,
-    .package-grid,
-    .review-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .package-card.popular {
-      transform: none;
-    }
+  .subtle-link:hover { text-decoration: underline; }
+  .landing-hero { padding: 132px 0 67px; text-align: center; }
+  .landing-hero h1 {
+    max-width: 860px;
+    margin: 0 auto;
+    font-size: clamp(46px, 6.2vw, 82px);
+    font-weight: 300;
+    line-height: 1.04;
+    letter-spacing: -.065em;
+    text-wrap: balance;
   }
-
-  @media (max-width: 620px) {
-    .lead-page {
-      padding: 120px 14px 80px;
-    }
-
-    .lead-hero {
-      margin-bottom: 72px;
-    }
-
-    .lead-hero h1 {
-      font-size: clamp(38px, 10vw, 54px);
-    }
-
-    .hero-text {
-      font-size: 16px;
-    }
-
-    .primary-button,
-    .secondary-button {
-      width: 100%;
-    }
-
-    .video-section,
-    .emotion-section,
-    .packages-section,
-    .reviews-section,
-    .lead-form-section,
-    .benefits-grid {
-      margin-bottom: 76px;
-    }
-
-    .emotion-section,
-    .lead-form-section {
-      padding: 34px 22px;
-      border-radius: 22px;
-    }
-
-    .lead-form {
-      padding: 24px;
-    }
-
-    .form-grid {
-      grid-template-columns: minmax(0, 1fr);
-      gap: 22px;
-    }
-
-    input,
-    select,
-    textarea,
-    input[type="date"] {
-      width: 100%;
-      min-width: 0;
-      max-width: 100%;
-      border-radius: 8px;
-      font-size: 16px;
-    }
-
-    input,
-    select,
-    input[type="date"] {
-      height: 50px;
-      min-height: 50px;
-    }
-
-    .submit-button {
-      width: 100%;
-      justify-content: center;
-    }
-
-    .more-reviews a {
-      width: 100%;
-    }
+  .landing-hero h1 em { font-style: normal; font-weight: 500; }
+  .hero-description {
+    max-width: 700px;
+    margin: 24px auto 0;
+    color: var(--muted);
+    font-size: clamp(16px, 1.6vw, 18px);
+    line-height: 1.75;
+  }
+  .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 29px; }
+  .hero-note { margin: 24px auto 0; color: #7c7d83; font-size: 12px; line-height: 1.65; }
+  .film-section { padding-bottom: 102px; scroll-margin-top: 100px; }
+  .section-heading { max-width: 790px; margin: 0 auto 37px; text-align: center; }
+  .section-heading h2, .about-copy h2, .review-head h2, .request-intro h2 {
+    margin: 0;
+    font-size: clamp(33px, 4.3vw, 54px);
+    font-weight: 350;
+    line-height: 1.1;
+    letter-spacing: -.055em;
+    text-wrap: balance;
+  }
+  .section-heading > p:last-child { margin: 18px auto 0; max-width: 625px; color: var(--muted); line-height: 1.7; font-size: 15px; }
+  .section-heading-left { display: flex; justify-content: space-between; align-items: end; max-width: none; gap: 40px; text-align: left; }
+  .section-heading-left > p:last-child { max-width: 390px; margin: 0; }
+  .section-heading-left h2 span { color: var(--accent); }
+  .film-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #101115; border-radius: 16px; box-shadow: 0 20px 60px rgba(23,24,29,.15); }
+  .film-frame iframe { display: block; position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .film-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 22px; padding: 21px 2px 0; }
+  .film-bottom strong, .film-bottom span { display: block; }
+  .film-bottom strong { font-size: 16px; }
+  .film-bottom div > span { margin-top: 5px; color: var(--muted); font-size: 13px; }
+  .film-cta { margin-top: 35px; padding: 21px 27px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 11px; background: #f7f4ef; }
+  .film-cta p { margin: 0; font-size: 15px; color: #46474b; line-height: 1.5; }
+  .about-section { display: grid; grid-template-columns: .9fr 1.1fr; background: var(--ink); color: #fff; border-radius: 18px; overflow: hidden; margin-bottom: 104px; }
+  .about-image { position: relative; min-height: 440px; background: #37373b; }
+  .about-image img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; object-position: center 20%; }
+  .about-copy { padding: clamp(35px, 5vw, 68px); align-self: center; }
+  .about-copy h2 { color: #fff; }
+  .about-copy > p:not(.eyebrow) { max-width: 570px; margin: 18px 0 0; color: rgba(255,255,255,.79); font-size: 15px; line-height: 1.8; }
+  .subtle-link-light { margin-top: 23px; color: #f2b86a; }
+  .packages-section { padding: 92px 0 89px; background: #f8f8f7; }
+  .packages-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; align-items: stretch; }
+  .package-card { position: relative; display: flex; flex-direction: column; padding: 33px 29px 27px; background: #fff; border: 1px solid var(--line); border-radius: 13px; }
+  .package-card.is-featured { background: var(--ink); border-color: var(--ink); color: #fff; }
+  .package-label { position: absolute; top: -15px; right: 20px; padding: 7px 12px; border-radius: 5px; background: #ffc21d; color: var(--ink); font-size: 11px; font-weight: 800; }
+  .package-card h3 { margin: 0; font-size: 21px; font-weight: 650; }
+  .package-duration { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
+  .package-price { margin: 24px 0 15px; font-size: 38px; font-weight: 350; line-height: 1.1; letter-spacing: -.055em; }
+  .package-description { margin: 0; flex: 1; color: var(--muted); font-size: 14px; line-height: 1.65; }
+  .package-card.is-featured .package-duration, .package-card.is-featured .package-description { color: rgba(255,255,255,.75); }
+  .package-action { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 28px; padding-top: 17px; border-top: 1px solid var(--line); font-weight: 750; font-size: 14px; color: var(--accent); }
+  .package-card.is-featured .package-action { border-color: rgba(255,255,255,.2); color: #f2b86a; }
+  .price-note { margin: 25px auto 0; max-width: 780px; text-align: center; color: #777980; font-size: 12px; line-height: 1.7; }
+  .packages-link { display: flex; width: fit-content; margin: 24px auto 0; }
+  .review-section { display: grid; grid-template-columns: .63fr 1.37fr; gap: 58px; align-items: center; padding-top: 105px; padding-bottom: 105px; }
+  .review-head h2 { font-size: clamp(32px, 3.6vw, 46px); }
+  .review-content { display: grid; grid-template-columns: 175px 1fr; gap: 30px; align-items: center; }
+  .review-content > img { width: 175px; height: 245px; object-fit: cover; border-radius: 11px; }
+  .review-stars { margin: 0; color: #b66f0e; letter-spacing: .11em; }
+  .review-content blockquote { margin: 16px 0 0; font-size: 17px; font-weight: 350; line-height: 1.75; color: #484950; }
+  .review-name { margin: 19px 0 16px; font-size: 13px; font-weight: 800; }
+  .review-name span { color: var(--muted); font-weight: 500; }
+  .request-section { background: #f7f5f1; padding: 95px 0 100px; scroll-margin-top: 85px; }
+  .request-layout { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(32px, 6vw, 84px); align-items: start; }
+  .request-intro { position: sticky; top: 110px; }
+  .request-intro > p:not(.eyebrow) { margin: 20px 0 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+  .request-points { margin-top: 30px; display: grid; gap: 15px; }
+  .request-points span { font-size: 14px; font-weight: 650; }
+  .request-points i { margin-right: 9px; color: var(--accent); font-style: normal; }
+  .request-intro .request-alternative { margin-top: 42px !important; font-size: 13px !important; }
+  .request-alternative a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
+  .request-form { display: grid; gap: 20px; padding: clamp(23px, 3.8vw, 40px); background: #fff; border: 1px solid #ece8e3; border-radius: 16px; box-shadow: 0 16px 45px rgba(23,24,29,.045); }
+  .field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
+  .field { display: block; min-width: 0; }
+  .field > span { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 750; line-height: 1.5; }
+  .field em, .consent-row em { color: var(--accent); font-style: normal; }
+  .field small { color: #898a91; font-weight: 450; font-size: 12px; }
+  .request-form input:not([type="checkbox"]), .request-form select, .request-form textarea {
+    display: block; width: 100%; max-width: 100%; min-width: 0; min-height: 49px;
+    padding: 12px 14px; border: 1px solid #dcdde0; border-radius: 7px;
+    background: #fff; color: var(--ink); font-family: inherit; font-size: 16px;
+    outline: none; transition: border-color .2s, box-shadow .2s;
+  }
+  .request-form input[type="date"] { padding: 10px 12px; min-height: 49px; }
+  .request-form textarea { resize: vertical; min-height: 110px; }
+  .request-form input:focus, .request-form select:focus, .request-form textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(180,99,0,.1); }
+  .consent-row { display: flex; align-items: flex-start; gap: 12px; color: #60616a; font-size: 12px; line-height: 1.6; }
+  .consent-row input { flex: 0 0 18px; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); }
+  .consent-row a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+  .required-note { margin: -7px 0 0; color: #777980; font-size: 11px; }
+  .submit-button { width: 100%; font-family: inherit; }
+  .submit-button:disabled { cursor: progress; opacity: .7; transform: none; }
+  .form-message { margin: -10px 0 0; font-size: 13px; color: #925100; line-height: 1.5; }
+  .form-message:empty { display: none; }
+  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .explore-section { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 34px; padding-bottom: 36px; }
+  .explore-section > p { margin: 0; color: var(--muted); font-size: 13px; }
+  .explore-section > div { display: flex; align-items: center; flex-wrap: wrap; gap: 13px 25px; }
+  .explore-section a { color: var(--ink); font-size: 12px; font-weight: 700; }
+  .explore-section a:hover { color: var(--accent); }
+  @media (max-width: 920px) {
+    .about-section { grid-template-columns: 1fr; }
+    .about-image { min-height: 420px; }
+    .about-image img { object-position: center 24%; }
+    .review-section { grid-template-columns: 1fr; gap: 27px; }
+    .request-layout { grid-template-columns: 1fr; }
+    .request-intro { position: static; }
+    .section-heading-left { align-items: start; }
+  }
+  @media (max-width: 680px) {
+    .wrap { width: calc(100% - 30px); }
+    .landing-hero { padding-top: 107px; padding-bottom: 44px; }
+    .landing-hero h1 { font-size: clamp(42px, 10vw, 58px); }
+    .hero-description { font-size: 15px; }
+    .hero-actions { flex-direction: column; }
+    .hero-actions .button { width: 100%; }
+    .hero-note { font-size: 11px; }
+    .section-heading-left { flex-direction: column; gap: 10px; }
+    .section-heading-left > p:last-child { max-width: 100%; }
+    .film-frame { border-radius: 9px; }
+    .film-bottom { align-items: start; }
+    .film-cta { flex-direction: column; align-items: stretch; }
+    .film-cta .button { width: 100%; }
+    .film-section { padding-bottom: 74px; }
+    .about-section { margin-bottom: 74px; }
+    .about-image { min-height: 330px; }
+    .about-copy { padding: 35px 27px 39px; }
+    .packages-section { padding-top: 74px; padding-bottom: 75px; }
+    .packages-grid { grid-template-columns: 1fr; gap: 18px; }
+    .package-card { padding: 28px 25px; }
+    .review-section { padding-top: 73px; padding-bottom: 74px; }
+    .review-content { grid-template-columns: 100px 1fr; gap: 15px; align-items: start; }
+    .review-content > img { width: 100px; height: 139px; }
+    .review-content blockquote { font-size: 14px; line-height: 1.7; }
+    .request-section { padding: 75px 0 80px; }
+    .request-form { padding: 25px 19px; }
+    .field-row { grid-template-columns: 1fr; }
+    .explore-section { flex-direction: column; align-items: start; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    :global(html) { scroll-behavior: auto; }
+    .button { transition: none; }
   }
 </style>
