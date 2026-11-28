@@ -2,29 +2,30 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 
-// Derselbe Wedding Teaser, der bereits auf der Startseite zu sehen ist.
 const weddingTeaser = "https://galleries.vidflow.co/videos/b6w58mek";
 
-// Preise und Laufzeiten entsprechend der bestehenden Paketseite.
 const packages = [
   {
     name: "Basic",
     price: "1.290 €",
     duration: "4 Stunden Begleitung",
-    description: "Für Paare, die ihre wichtigsten Momente als Film bewahren möchten.",
+    description:
+      "Für Paare, die ihre wichtigsten Momente als Film bewahren möchten.",
   },
   {
     name: "Classic",
     price: "1.990 €",
     duration: "7 Stunden Begleitung",
-    description: "Mehr Raum für eure Geschichte – inklusive Kurzfilm für Social Media.",
+    description:
+      "Mehr Raum für eure Geschichte – inklusive Kurzfilm für Social Media.",
     featured: true,
   },
   {
     name: "Premium",
     price: "2.790 €",
     duration: "Bis zu 12 Stunden Begleitung",
-    description: "Für die ausführliche Begleitung eures Tages – inklusive Drohnenaufnahmen.",
+    description:
+      "Für die ausführliche Begleitung eures Tages – inklusive Drohnenaufnahmen.",
   },
 ];
 ---
@@ -34,14 +35,16 @@ const packages = [
   description="Euer Hochzeitstag als cineastischer Film: Entdeckt den Wedding Teaser von Phelina & Mert, die Pakete ab 1.290 € und fragt euren Termin bei VJ Production unverbindlich an."
 >
   <section class="vj-landing" aria-labelledby="vj-landing-title">
-    <!-- 1. Klare Botschaft und direkter Weg zum Formular -->
+    <!-- EINSTIEG -->
     <header class="landing-hero wrap">
       <p class="eyebrow">VJ Production · Hochzeitsvideografie in NRW</p>
-      <h1 id="vj-landing-title">Euer Tag vergeht.<br /><em>Das Gefühl bleibt.</em></h1>
+      <h1 id="vj-landing-title">
+        Euer Tag vergeht.<br /><em>Das Gefühl bleibt.</em>
+      </h1>
       <p class="hero-description">
-        Die leisen Blicke, das Lachen, die Stimmen eurer Liebsten – all die Momente,
-        die euren Hochzeitstag einzigartig machen. Ich halte sie in einem
-        persönlichen, cineastischen Hochzeitsfilm fest.
+        Die leisen Blicke, das Lachen, die Stimmen eurer Liebsten – all die
+        Momente, die euren Hochzeitstag einzigartig machen. Ich halte sie in
+        einem persönlichen, cineastischen Hochzeitsfilm fest.
       </p>
       <div class="hero-actions">
         <a class="button button-primary" href="#anfrage">
@@ -52,20 +55,25 @@ const packages = [
         </a>
       </div>
       <p class="hero-note">
-        Persönliche Begleitung aus Witten · NRW & deutschlandweit · Ab 1.290 € zzgl. ggf. Reisekosten
+        Persönliche Begleitung aus Witten · NRW & deutschlandweit ·
+        Ab 1.290 € zzgl. ggf. Reisekosten
       </p>
     </header>
 
-    <!-- 2. Der Film aus der Werbung – bewusst im originalen 16:9-Format -->
-    <section class="film-section wrap" id="film" aria-labelledby="film-title">
+    <!-- PHELINA & MERT -->
+    <section
+      class="film-section wrap"
+      id="film"
+      aria-labelledby="film-title"
+    >
       <div class="section-heading section-heading-left">
         <div>
           <p class="eyebrow">Ein Film. Eine echte Geschichte.</p>
           <h2 id="film-title">Phelina <span>&</span> Mert</h2>
         </div>
         <p>
-          So erzähle ich Hochzeiten: nicht als Aneinanderreihung schöner Bilder,
-          sondern als Geschichte voller Gefühl.
+          So erzähle ich Hochzeiten: nicht als Aneinanderreihung schöner
+          Bilder, sondern als Geschichte voller Gefühl.
         </p>
       </div>
 
@@ -79,24 +87,30 @@ const packages = [
           allowfullscreen
         ></iframe>
       </div>
+
       <div class="film-bottom">
         <div>
           <strong>Wedding Teaser · Phelina & Mert</strong>
-          <span>Ein Einblick in meine Bildsprache und meinen Filmschnitt.</span>
+          <span>
+            Ein Einblick in meine Bildsprache und meinen Filmschnitt.
+          </span>
         </div>
         <a class="subtle-link" href="/portfolio">
           Weitere Hochzeitsfilme <span aria-hidden="true">↗</span>
         </a>
       </div>
+
       <div class="film-cta">
-        <p>Ihr könnt euch vorstellen, euren Tag so festhalten zu lassen?</p>
+        <p>
+          Ihr könnt euch vorstellen, euren Tag so festhalten zu lassen?
+        </p>
         <a class="button button-primary" href="#anfrage">
           Verfügbarkeit prüfen <span aria-hidden="true">→</span>
         </a>
       </div>
     </section>
 
-    <!-- 3. Persönliche Begleitung statt austauschbare Werbeversprechen -->
+    <!-- ÜBER MICH -->
     <section class="about-section wrap" aria-labelledby="about-title">
       <div class="about-image">
         <img
@@ -110,13 +124,15 @@ const packages = [
         <p class="eyebrow">Der Mensch hinter der Kamera</p>
         <h2 id="about-title">Hallo, ich bin Vigny.</h2>
         <p>
-          Ich glaube, dass die schönsten Momente entstehen, wenn ihr euren Tag
-          einfach genießen könnt. Deshalb begleite ich euch ruhig und
-          unaufdringlich – und bin da, wenn aus einem Augenblick eine Erinnerung wird.
+          Ich glaube, dass die schönsten Momente entstehen, wenn ihr euren
+          Tag einfach genießen könnt. Deshalb begleite ich euch ruhig und
+          unaufdringlich – und bin da, wenn aus einem Augenblick eine
+          Erinnerung wird.
         </p>
         <p>
-          Jeder Film entsteht individuell. Musik, Schnitt und Bildsprache richte
-          ich nach euch und der Atmosphäre eurer Hochzeit aus. Kein Film von der Stange.
+          Jeder Film entsteht individuell. Musik, Schnitt und Bildsprache
+          richte ich nach euch und der Atmosphäre eurer Hochzeit aus.
+          Kein Film von der Stange.
         </p>
         <a class="subtle-link subtle-link-light" href="/ueber-mich">
           Mehr über mich erfahren <span aria-hidden="true">↗</span>
@@ -124,47 +140,103 @@ const packages = [
       </div>
     </section>
 
-    <!-- 4. Preisfilter, aber keine zweite ausführliche Paketseite -->
+    <!-- PAKETE & INDIVIDUELLES ANGEBOT -->
     <section class="packages-section" aria-labelledby="packages-title">
       <div class="wrap">
         <div class="section-heading">
           <p class="eyebrow">Transparent von Anfang an</p>
-          <h2 id="packages-title">Der passende Rahmen für eure Geschichte.</h2>
+          <h2 id="packages-title">
+            Der passende Rahmen für eure Geschichte.
+          </h2>
           <p>
-            Ihr sollt schon vor eurer Anfrage wissen, womit ihr planen könnt.
-            Gemeinsam finden wir die Begleitung, die zu eurem Tag passt.
+            Ihr sollt schon vor eurer Anfrage wissen, womit ihr planen
+            könnt. Gemeinsam finden wir die Begleitung, die zu eurem
+            Tag passt.
           </p>
         </div>
+
         <div class="packages-grid">
           {packages.map((item) => (
-            <article class:list={["package-card", { "is-featured": item.featured }]}>
-              {item.featured && <span class="package-label">Häufig gewählt</span>}
+            <article
+              class:list={[
+                "package-card",
+                { "is-featured": item.featured },
+              ]}
+            >
+              {item.featured && (
+                <span class="package-label">Häufig gewählt</span>
+              )}
+
               <h3>{item.name}</h3>
               <p class="package-duration">{item.duration}</p>
               <p class="package-price">{item.price}</p>
               <p class="package-description">{item.description}</p>
-              <a href="#anfrage" class="package-action">
+
+              <a
+                href="#anfrage"
+                class="package-action"
+                data-select-package={item.name}
+              >
                 Paket anfragen <span aria-hidden="true">→</span>
               </a>
             </article>
           ))}
         </div>
+
+        <!-- NEU: INDIVIDUELLE ANFRAGEN -->
+        <div
+          class="individual-offer"
+          aria-labelledby="individual-offer-title"
+        >
+          <div class="individual-offer-copy">
+            <p class="eyebrow">Auf euch zugeschnitten</p>
+
+            <h3 id="individual-offer-title">
+              Ihr habt andere Vorstellungen?
+            </h3>
+
+            <p>
+              Nicht jede Hochzeit passt in ein festes Paket. Ob eine andere
+              Begleitungsdauer, besondere Filmwünsche oder zusätzliche
+              Leistungen: Gerne erstelle ich euch ein individuelles
+              Angebot, das zu euch und eurem Hochzeitstag passt.
+            </p>
+          </div>
+
+          <a
+            href="#anfrage"
+            class="button button-primary individual-offer-button"
+            data-select-package="Individuell / noch unsicher"
+          >
+            Individuelles Angebot anfragen
+            <span aria-hidden="true">→</span>
+          </a>
+        </div>
+
         <p class="price-note">
-          Preise gemäß § 19 UStG ohne Umsatzsteuerausweis. Gegebenenfalls fallen
-          zusätzliche Reisekosten an. Individuelle Begleitungen sind ebenfalls möglich.
+          Preise gemäß § 19 UStG ohne Umsatzsteuerausweis.
+          Gegebenenfalls fallen zusätzliche Reisekosten an.
         </p>
+
         <a class="subtle-link packages-link" href="/pakete">
-          Alle Leistungen und Paketdetails ansehen <span aria-hidden="true">↗</span>
+          Alle Leistungen und Paketdetails ansehen
+          <span aria-hidden="true">↗</span>
         </a>
       </div>
     </section>
 
-    <!-- 5. Echte Kundenstimme passend zum Werbefilm -->
-    <section class="review-section wrap" aria-labelledby="review-title">
+    <!-- KUNDENBEWERTUNG -->
+    <section
+      class="review-section wrap"
+      aria-labelledby="review-title"
+    >
       <div class="review-head">
         <p class="eyebrow">Worte, die bleiben</p>
-        <h2 id="review-title">Wenn der Film mehr zurückbringt als Bilder.</h2>
+        <h2 id="review-title">
+          Wenn der Film mehr zurückbringt als Bilder.
+        </h2>
       </div>
+
       <div class="review-content">
         <img
           src="/images/Phelina & Mert .jpg"
@@ -172,37 +244,63 @@ const packages = [
           loading="lazy"
           decoding="async"
         />
+
         <div>
-          <p class="review-stars" aria-label="5 von 5 Sternen">★★★★★</p>
+          <p class="review-stars" aria-label="5 von 5 Sternen">
+            ★★★★★
+          </p>
+
           <blockquote>
-            „Wir sind unendlich dankbar, dass Vigny unseren großen Tag so
-            wunderschön und emotional festgehalten hat! Die Videos sind einfach
-            traumhaft geworden und wir könnten nicht glücklicher damit sein.“
+            „Wir sind unendlich dankbar, dass Vigny unseren großen Tag
+            so wunderschön und emotional festgehalten hat! Die Videos
+            sind einfach traumhaft geworden und wir könnten nicht
+            glücklicher damit sein.“
           </blockquote>
-          <p class="review-name">Phelina & Mert <span>· Dortmund</span></p>
+
+          <p class="review-name">
+            Phelina & Mert <span>· Dortmund</span>
+          </p>
+
           <a class="subtle-link" href="/bewertungen">
-            Weitere Erfahrungen lesen <span aria-hidden="true">↗</span>
+            Weitere Erfahrungen lesen
+            <span aria-hidden="true">↗</span>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- 6. Anfrage direkt auf der Landingpage: kein unnötiger Seitenwechsel -->
-    <section class="request-section" id="anfrage" aria-labelledby="request-title">
+    <!-- ANFRAGEFORMULAR -->
+    <section
+      class="request-section"
+      id="anfrage"
+      aria-labelledby="request-title"
+    >
       <div class="wrap request-layout">
         <div class="request-intro">
           <p class="eyebrow">Eure Geschichte beginnt hier</p>
           <h2 id="request-title">Erzählt mir von eurem Tag.</h2>
           <p>
-            Ob euer Ablauf schon feststeht oder ihr noch mitten in der Planung
-            steckt: Schreibt mir ein paar Eckdaten. Ich prüfe euren Wunschtermin
-            und melde mich persönlich bei euch zurück.
+            Ob euer Ablauf schon feststeht oder ihr noch mitten in
+            der Planung steckt: Schreibt mir ein paar Eckdaten.
+            Ich prüfe euren Wunschtermin und melde mich persönlich
+            bei euch zurück.
           </p>
+
           <div class="request-points">
-            <span><i aria-hidden="true">✓</i> Unverbindliche Anfrage</span>
-            <span><i aria-hidden="true">✓</i> Persönliche Rückmeldung</span>
-            <span><i aria-hidden="true">✓</i> Transparente Pakete & Preise</span>
+            <span>
+              <i aria-hidden="true">✓</i>
+              Unverbindliche Anfrage
+            </span>
+            <span>
+              <i aria-hidden="true">✓</i>
+              Persönliche Rückmeldung
+            </span>
+            <span>
+              <i aria-hidden="true">✓</i>
+              Transparente Pakete & Preise
+            </span>
           </div>
+
           <p class="request-alternative">
             Ihr möchtet euch erst umsehen?
             <a href="/portfolio">Portfolio</a>,
@@ -217,144 +315,323 @@ const packages = [
           action="https://api.web3forms.com/submit"
           method="POST"
         >
-          <input type="hidden" name="access_key" value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972" />
-          <input type="hidden" name="subject" value="Neue Hochzeitsanfrage über die VJ Production Landingpage" />
-          <input type="hidden" name="from_name" value="VJ Production Website" />
-          <input type="hidden" name="redirect" value="https://vjproduction.de/danke" />
-          <input type="hidden" name="Quelle" value="Landingpage Hochzeitsvideo anfragen" />
-          <input type="hidden" name="Kampagne" id="vjCampaign" value="" />
+          <input
+            type="hidden"
+            name="access_key"
+            value="d7e13ef0-2a0f-4bba-bf3b-386b61afe972"
+          />
+
+          <input
+            type="hidden"
+            name="subject"
+            value="Neue Hochzeitsanfrage über die VJ Production Landingpage"
+          />
+
+          <input
+            type="hidden"
+            name="from_name"
+            value="VJ Production Website"
+          />
+
+          <input
+            type="hidden"
+            name="redirect"
+            value="https://vjproduction.de/danke"
+          />
+
+          <input
+            type="hidden"
+            name="Quelle"
+            value="Landingpage Hochzeitsvideo anfragen"
+          />
+
+          <input
+            type="hidden"
+            name="Kampagne"
+            id="vjCampaign"
+            value=""
+          />
+
           <div class="honeypot" aria-hidden="true">
-            <label>Dieses Feld bitte leer lassen <input type="checkbox" name="botcheck" tabindex="-1" autocomplete="off" /></label>
+            <label>
+              Dieses Feld bitte leer lassen
+              <input
+                type="checkbox"
+                name="botcheck"
+                tabindex="-1"
+                autocomplete="off"
+              />
+            </label>
           </div>
 
           <div class="field-row">
             <label class="field">
               <span>Euer Name <em>*</em></span>
-              <input type="text" name="Name" placeholder="z. B. Anna & Max" autocomplete="name" required />
+              <input
+                type="text"
+                name="Name"
+                placeholder="z. B. Anna & Max"
+                autocomplete="name"
+                required
+              />
             </label>
+
             <label class="field">
               <span>E-Mail-Adresse <em>*</em></span>
-              <input type="email" name="email" placeholder="eure@email.de" autocomplete="email" required />
+              <input
+                type="email"
+                name="email"
+                placeholder="eure@email.de"
+                autocomplete="email"
+                required
+              />
             </label>
           </div>
+
           <div class="field-row">
             <label class="field">
               <span>Hochzeitsdatum</span>
-              <input type="date" name="Datum" />
+              <input
+                type="date"
+                name="Datum"
+              />
             </label>
+
             <label class="field">
               <span>Hochzeitsort</span>
-              <input type="text" name="Location" placeholder="Stadt / Location, falls bekannt" />
+              <input
+                type="text"
+                name="Location"
+                placeholder="Stadt / Location, falls bekannt"
+              />
             </label>
           </div>
+
           <div class="field-row">
             <label class="field">
-              <span>Welches Paket interessiert euch? <em>*</em></span>
-              <select name="Paket" required>
-                <option value="" disabled selected>Bitte auswählen</option>
-                <option value="Basic">Basic · 1.290 €</option>
-                <option value="Classic">Classic · 1.990 €</option>
-                <option value="Premium">Premium · 2.790 €</option>
-                <option value="Individuell / noch unsicher">Individuell / noch unsicher</option>
+              <span>
+                Welches Paket interessiert euch? <em>*</em>
+              </span>
+              <select name="Paket" id="vjPackageSelect" required>
+                <option value="" disabled selected>
+                  Bitte auswählen
+                </option>
+                <option value="Basic">
+                  Basic · 1.290 €
+                </option>
+                <option value="Classic">
+                  Classic · 1.990 €
+                </option>
+                <option value="Premium">
+                  Premium · 2.790 €
+                </option>
+                <option value="Individuell / noch unsicher">
+                  Individuell / noch unsicher
+                </option>
               </select>
             </label>
+
             <label class="field">
               <span>Euer Investitionsrahmen <em>*</em></span>
               <select name="Investitionsrahmen" required>
-                <option value="" disabled selected>Bitte auswählen</option>
-                <option value="1.290–1.989 €">1.290–1.989 €</option>
-                <option value="1.990–2.789 €">1.990–2.789 €</option>
-                <option value="2.790–3.499 €">2.790–3.499 €</option>
-                <option value="3.500 € oder mehr">3.500 € oder mehr</option>
+                <option value="" disabled selected>
+                  Bitte auswählen
+                </option>
+                <option value="1.290–1.989 €">
+                  1.290–1.989 €
+                </option>
+                <option value="1.990–2.789 €">
+                  1.990–2.789 €
+                </option>
+                <option value="2.790–3.499 €">
+                  2.790–3.499 €
+                </option>
+                <option value="3.500 € oder mehr">
+                  3.500 € oder mehr
+                </option>
               </select>
             </label>
           </div>
+
           <label class="field">
-            <span>Telefonnummer <small>(optional)</small></span>
-            <input type="tel" name="Telefon" placeholder="Für ein persönliches Kennenlerngespräch" autocomplete="tel" />
+            <span>
+              Telefonnummer <small>(optional)</small>
+            </span>
+            <input
+              type="tel"
+              name="Telefon"
+              placeholder="Für ein persönliches Kennenlerngespräch"
+              autocomplete="tel"
+            />
           </label>
+
           <label class="field">
             <span>Was sollte ich über euren Tag wissen?</span>
-            <textarea name="Nachricht" rows="4" placeholder="Erzählt mir gern von euren Plänen, eurer Location oder euren Wünschen ..."></textarea>
+            <textarea
+              name="Nachricht"
+              rows="4"
+              placeholder="Erzählt mir gern von euren Plänen, eurer Location oder euren Wünschen ..."
+            ></textarea>
           </label>
+
           <label class="consent-row">
-            <input type="checkbox" name="Datenschutz akzeptiert" value="Ja" required />
+            <input
+              type="checkbox"
+              name="Datenschutz akzeptiert"
+              value="Ja"
+              required
+            />
             <span>
-              Ich habe die <a href="/datenschutz" target="_blank" rel="noopener noreferrer">Datenschutzerklärung</a>
-              gelesen und bin mit der Verarbeitung meiner Angaben zur Beantwortung meiner Anfrage einverstanden. <em>*</em>
+              Ich habe die
+              <a
+                href="/datenschutz"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Datenschutzerklärung
+              </a>
+              gelesen und bin mit der Verarbeitung meiner Angaben zur
+              Beantwortung meiner Anfrage einverstanden. <em>*</em>
             </span>
           </label>
-          <p class="required-note">* Pflichtfelder · Unverbindlich und ohne Buchungsverpflichtung</p>
-          <button type="submit" class="button button-primary submit-button" id="vjSubmitButton">
-            Wunschtermin unverbindlich anfragen <span aria-hidden="true">→</span>
+
+          <p class="required-note">
+            * Pflichtfelder · Unverbindlich und ohne Buchungsverpflichtung
+          </p>
+
+          <button
+            type="submit"
+            class="button button-primary submit-button"
+            id="vjSubmitButton"
+          >
+            Wunschtermin unverbindlich anfragen
+            <span aria-hidden="true">→</span>
           </button>
-          <p id="vjFormMessage" class="form-message" role="status" aria-live="polite"></p>
+
+          <p
+            id="vjFormMessage"
+            class="form-message"
+            role="status"
+            aria-live="polite"
+          ></p>
         </form>
       </div>
     </section>
 
-    <!-- 7. Navigation bleibt normal nutzbar, zusätzliche klare Auswege -->
-    <nav class="explore-section wrap" aria-label="Weitere Bereiche der Website">
+    <!-- WEITERE SEITEN -->
+    <nav
+      class="explore-section wrap"
+      aria-label="Weitere Bereiche der Website"
+    >
       <p>Ihr möchtet VJ Production noch besser kennenlernen?</p>
       <div>
-        <a href="/portfolio">Alle Filme <span aria-hidden="true">↗</span></a>
-        <a href="/pakete">Pakete & Preise <span aria-hidden="true">↗</span></a>
-        <a href="/ueber-mich">Über mich <span aria-hidden="true">↗</span></a>
+        <a href="/portfolio">
+          Alle Filme <span aria-hidden="true">↗</span>
+        </a>
+        <a href="/pakete">
+          Pakete & Preise <span aria-hidden="true">↗</span>
+        </a>
+        <a href="/ueber-mich">
+          Über mich <span aria-hidden="true">↗</span>
+        </a>
       </div>
     </nav>
   </section>
 
-  <!-- Lead nur bei erfolgreicher Web3Forms-Antwort markieren.
-       BaseLayout.astro sendet das Meta-Lead-Event auf /danke. -->
   <script is:inline>
     (() => {
       const form = document.getElementById("vjLandingForm");
       const button = document.getElementById("vjSubmitButton");
       const message = document.getElementById("vjFormMessage");
       const campaign = document.getElementById("vjCampaign");
+      const packageSelect = document.getElementById("vjPackageSelect");
+
       if (!(form instanceof HTMLFormElement)) return;
 
+      // UTM-Parameter für die Werbeauswertung speichern
       const params = new URLSearchParams(window.location.search);
+
       if (campaign instanceof HTMLInputElement) {
-        const keys = ["utm_source", "utm_medium", "utm_campaign", "utm_content"];
+        const keys = [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_content",
+        ];
+
         campaign.value = keys
           .filter((key) => params.has(key))
           .map((key) => `${key}: ${params.get(key)}`)
           .join(" | ");
       }
 
+      // Paket vorauswählen, wenn ein Paket-Button angeklickt wird.
+      document
+        .querySelectorAll("[data-select-package]")
+        .forEach((link) => {
+          link.addEventListener("click", () => {
+            if (!(packageSelect instanceof HTMLSelectElement)) return;
+
+            const selected = link.getAttribute("data-select-package");
+
+            if (selected) {
+              packageSelect.value = selected;
+              packageSelect.dispatchEvent(
+                new Event("change", { bubbles: true })
+              );
+            }
+          });
+        });
+
+      // Anfrage versenden und nur bei Erfolg die Lead-Markierung setzen.
       form.addEventListener("submit", async (event) => {
         event.preventDefault();
+
         if (!form.reportValidity()) return;
 
         if (button instanceof HTMLButtonElement) {
           button.disabled = true;
           button.setAttribute("aria-busy", "true");
         }
-        if (message) message.textContent = "Eure Anfrage wird gesendet ...";
+
+        if (message) {
+          message.textContent = "Eure Anfrage wird gesendet ...";
+        }
 
         try {
           const response = await fetch(form.action, {
             method: "POST",
             body: new FormData(form),
-            headers: { Accept: "application/json" },
+            headers: {
+              Accept: "application/json",
+            },
           });
+
           const result = await response.json();
+
           if (!response.ok || result.success !== true) {
             throw new Error("Die Anfrage konnte nicht gesendet werden.");
           }
 
           try {
-            sessionStorage.setItem("vjContactFormSubmittedAt", String(Date.now()));
+            sessionStorage.setItem(
+              "vjContactFormSubmittedAt",
+              String(Date.now())
+            );
           } catch (error) {
-            console.warn("Tracking-Markierung konnte nicht gespeichert werden.", error);
+            console.warn(
+              "Tracking-Markierung konnte nicht gespeichert werden.",
+              error
+            );
           }
+
           window.location.assign("/danke");
         } catch (error) {
           if (message) {
             message.textContent =
               "Das Senden hat leider nicht geklappt. Bitte versucht es erneut oder nutzt die Kontaktseite.";
           }
+
           if (button instanceof HTMLButtonElement) {
             button.disabled = false;
             button.removeAttribute("aria-busy");
@@ -366,33 +643,53 @@ const packages = [
 </BaseLayout>
 
 <style>
-  :global(html) { scroll-behavior: smooth; }
+  :global(html) {
+    scroll-behavior: smooth;
+  }
+
   .vj-landing {
     --ink: #17181d;
     --accent: #b46300;
     --accent-dark: #995200;
     --muted: #62656e;
     --line: #e8e5e1;
+
     color: var(--ink);
     background: #fff;
     overflow-x: clip;
   }
-  .vj-landing *, .vj-landing *::before, .vj-landing *::after { box-sizing: border-box; }
-  .vj-landing a { text-decoration: none; }
-  .vj-landing a:focus-visible, .vj-landing button:focus-visible {
+
+  .vj-landing *,
+  .vj-landing *::before,
+  .vj-landing *::after {
+    box-sizing: border-box;
+  }
+
+  .vj-landing a {
+    text-decoration: none;
+  }
+
+  .vj-landing a:focus-visible,
+  .vj-landing button:focus-visible {
     outline: 3px solid var(--accent);
     outline-offset: 4px;
   }
-  .wrap { width: min(1120px, calc(100% - 48px)); margin-inline: auto; }
+
+  .wrap {
+    width: min(1120px, calc(100% - 48px));
+    margin-inline: auto;
+  }
+
   .eyebrow {
     margin: 0 0 18px;
     font-size: 11px;
-    letter-spacing: .2em;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     font-weight: 800;
     line-height: 1.5;
     color: var(--accent);
   }
+
   .button {
     display: inline-flex;
     min-height: 52px;
@@ -406,14 +703,36 @@ const packages = [
     font-weight: 750;
     text-align: center;
     line-height: 1.35;
-    transition: background .2s, transform .2s, border-color .2s;
+    transition:
+      background 0.2s,
+      transform 0.2s,
+      border-color 0.2s;
     cursor: pointer;
   }
-  .button:hover { transform: translateY(-2px); }
-  .button-primary { background: var(--accent); color: #fff; }
-  .button-primary:hover { background: var(--accent-dark); }
-  .button-secondary { background: transparent; color: var(--ink); border-color: #d7d4d0; }
-  .button-secondary:hover { border-color: var(--accent); }
+
+  .button:hover {
+    transform: translateY(-2px);
+  }
+
+  .button-primary {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .button-primary:hover {
+    background: var(--accent-dark);
+  }
+
+  .button-secondary {
+    background: transparent;
+    color: var(--ink);
+    border-color: #d7d4d0;
+  }
+
+  .button-secondary:hover {
+    border-color: var(--accent);
+  }
+
   .subtle-link {
     display: inline-flex;
     align-items: center;
@@ -423,18 +742,31 @@ const packages = [
     font-weight: 750;
     line-height: 1.5;
   }
-  .subtle-link:hover { text-decoration: underline; }
-  .landing-hero { padding: 132px 0 67px; text-align: center; }
+
+  .subtle-link:hover {
+    text-decoration: underline;
+  }
+
+  .landing-hero {
+    padding: 132px 0 67px;
+    text-align: center;
+  }
+
   .landing-hero h1 {
     max-width: 860px;
     margin: 0 auto;
     font-size: clamp(46px, 6.2vw, 82px);
     font-weight: 300;
     line-height: 1.04;
-    letter-spacing: -.065em;
+    letter-spacing: -0.065em;
     text-wrap: balance;
   }
-  .landing-hero h1 em { font-style: normal; font-weight: 500; }
+
+  .landing-hero h1 em {
+    font-style: normal;
+    font-weight: 500;
+  }
+
   .hero-description {
     max-width: 700px;
     margin: 24px auto 0;
@@ -442,138 +774,773 @@ const packages = [
     font-size: clamp(16px, 1.6vw, 18px);
     line-height: 1.75;
   }
-  .hero-actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 29px; }
-  .hero-note { margin: 24px auto 0; color: #7c7d83; font-size: 12px; line-height: 1.65; }
-  .film-section { padding-bottom: 102px; scroll-margin-top: 100px; }
-  .section-heading { max-width: 790px; margin: 0 auto 37px; text-align: center; }
-  .section-heading h2, .about-copy h2, .review-head h2, .request-intro h2 {
+
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 29px;
+  }
+
+  .hero-note {
+    margin: 24px auto 0;
+    color: #7c7d83;
+    font-size: 12px;
+    line-height: 1.65;
+  }
+
+  .film-section {
+    padding-bottom: 102px;
+    scroll-margin-top: 100px;
+  }
+
+  .section-heading {
+    max-width: 790px;
+    margin: 0 auto 37px;
+    text-align: center;
+  }
+
+  .section-heading h2,
+  .about-copy h2,
+  .review-head h2,
+  .request-intro h2 {
     margin: 0;
     font-size: clamp(33px, 4.3vw, 54px);
     font-weight: 350;
     line-height: 1.1;
-    letter-spacing: -.055em;
+    letter-spacing: -0.055em;
     text-wrap: balance;
   }
-  .section-heading > p:last-child { margin: 18px auto 0; max-width: 625px; color: var(--muted); line-height: 1.7; font-size: 15px; }
-  .section-heading-left { display: flex; justify-content: space-between; align-items: end; max-width: none; gap: 40px; text-align: left; }
-  .section-heading-left > p:last-child { max-width: 390px; margin: 0; }
-  .section-heading-left h2 span { color: var(--accent); }
-  .film-frame { position: relative; width: 100%; aspect-ratio: 16 / 9; overflow: hidden; background: #101115; border-radius: 16px; box-shadow: 0 20px 60px rgba(23,24,29,.15); }
-  .film-frame iframe { display: block; position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
-  .film-bottom { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 22px; padding: 21px 2px 0; }
-  .film-bottom strong, .film-bottom span { display: block; }
-  .film-bottom strong { font-size: 16px; }
-  .film-bottom div > span { margin-top: 5px; color: var(--muted); font-size: 13px; }
-  .film-cta { margin-top: 35px; padding: 21px 27px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 11px; background: #f7f4ef; }
-  .film-cta p { margin: 0; font-size: 15px; color: #46474b; line-height: 1.5; }
-  .about-section { display: grid; grid-template-columns: .9fr 1.1fr; background: var(--ink); color: #fff; border-radius: 18px; overflow: hidden; margin-bottom: 104px; }
-  .about-image { position: relative; min-height: 440px; background: #37373b; }
-  .about-image img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; object-position: center 20%; }
-  .about-copy { padding: clamp(35px, 5vw, 68px); align-self: center; }
-  .about-copy h2 { color: #fff; }
-  .about-copy > p:not(.eyebrow) { max-width: 570px; margin: 18px 0 0; color: rgba(255,255,255,.79); font-size: 15px; line-height: 1.8; }
-  .subtle-link-light { margin-top: 23px; color: #f2b86a; }
-  .packages-section { padding: 92px 0 89px; background: #f8f8f7; }
-  .packages-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 17px; align-items: stretch; }
-  .package-card { position: relative; display: flex; flex-direction: column; padding: 33px 29px 27px; background: #fff; border: 1px solid var(--line); border-radius: 13px; }
-  .package-card.is-featured { background: var(--ink); border-color: var(--ink); color: #fff; }
-  .package-label { position: absolute; top: -15px; right: 20px; padding: 7px 12px; border-radius: 5px; background: #ffc21d; color: var(--ink); font-size: 11px; font-weight: 800; }
-  .package-card h3 { margin: 0; font-size: 21px; font-weight: 650; }
-  .package-duration { margin: 6px 0 0; color: var(--muted); font-size: 13px; }
-  .package-price { margin: 24px 0 15px; font-size: 38px; font-weight: 350; line-height: 1.1; letter-spacing: -.055em; }
-  .package-description { margin: 0; flex: 1; color: var(--muted); font-size: 14px; line-height: 1.65; }
-  .package-card.is-featured .package-duration, .package-card.is-featured .package-description { color: rgba(255,255,255,.75); }
-  .package-action { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-top: 28px; padding-top: 17px; border-top: 1px solid var(--line); font-weight: 750; font-size: 14px; color: var(--accent); }
-  .package-card.is-featured .package-action { border-color: rgba(255,255,255,.2); color: #f2b86a; }
-  .price-note { margin: 25px auto 0; max-width: 780px; text-align: center; color: #777980; font-size: 12px; line-height: 1.7; }
-  .packages-link { display: flex; width: fit-content; margin: 24px auto 0; }
-  .review-section { display: grid; grid-template-columns: .63fr 1.37fr; gap: 58px; align-items: center; padding-top: 105px; padding-bottom: 105px; }
-  .review-head h2 { font-size: clamp(32px, 3.6vw, 46px); }
-  .review-content { display: grid; grid-template-columns: 175px 1fr; gap: 30px; align-items: center; }
-  .review-content > img { width: 175px; height: 245px; object-fit: cover; border-radius: 11px; }
-  .review-stars { margin: 0; color: #b66f0e; letter-spacing: .11em; }
-  .review-content blockquote { margin: 16px 0 0; font-size: 17px; font-weight: 350; line-height: 1.75; color: #484950; }
-  .review-name { margin: 19px 0 16px; font-size: 13px; font-weight: 800; }
-  .review-name span { color: var(--muted); font-weight: 500; }
-  .request-section { background: #f7f5f1; padding: 95px 0 100px; scroll-margin-top: 85px; }
-  .request-layout { display: grid; grid-template-columns: .78fr 1.22fr; gap: clamp(32px, 6vw, 84px); align-items: start; }
-  .request-intro { position: sticky; top: 110px; }
-  .request-intro > p:not(.eyebrow) { margin: 20px 0 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
-  .request-points { margin-top: 30px; display: grid; gap: 15px; }
-  .request-points span { font-size: 14px; font-weight: 650; }
-  .request-points i { margin-right: 9px; color: var(--accent); font-style: normal; }
-  .request-intro .request-alternative { margin-top: 42px !important; font-size: 13px !important; }
-  .request-alternative a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; }
-  .request-form { display: grid; gap: 20px; padding: clamp(23px, 3.8vw, 40px); background: #fff; border: 1px solid #ece8e3; border-radius: 16px; box-shadow: 0 16px 45px rgba(23,24,29,.045); }
-  .field-row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; }
-  .field { display: block; min-width: 0; }
-  .field > span { display: block; margin-bottom: 9px; font-size: 13px; font-weight: 750; line-height: 1.5; }
-  .field em, .consent-row em { color: var(--accent); font-style: normal; }
-  .field small { color: #898a91; font-weight: 450; font-size: 12px; }
-  .request-form input:not([type="checkbox"]), .request-form select, .request-form textarea {
-    display: block; width: 100%; max-width: 100%; min-width: 0; min-height: 49px;
-    padding: 12px 14px; border: 1px solid #dcdde0; border-radius: 7px;
-    background: #fff; color: var(--ink); font-family: inherit; font-size: 16px;
-    outline: none; transition: border-color .2s, box-shadow .2s;
+
+  .section-heading > p:last-child {
+    margin: 18px auto 0;
+    max-width: 625px;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 15px;
   }
-  .request-form input[type="date"] { padding: 10px 12px; min-height: 49px; }
-  .request-form textarea { resize: vertical; min-height: 110px; }
-  .request-form input:focus, .request-form select:focus, .request-form textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(180,99,0,.1); }
-  .consent-row { display: flex; align-items: flex-start; gap: 12px; color: #60616a; font-size: 12px; line-height: 1.6; }
-  .consent-row input { flex: 0 0 18px; width: 18px; height: 18px; margin: 2px 0 0; accent-color: var(--accent); }
-  .consent-row a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
-  .required-note { margin: -7px 0 0; color: #777980; font-size: 11px; }
-  .submit-button { width: 100%; font-family: inherit; }
-  .submit-button:disabled { cursor: progress; opacity: .7; transform: none; }
-  .form-message { margin: -10px 0 0; font-size: 13px; color: #925100; line-height: 1.5; }
-  .form-message:empty { display: none; }
-  .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  .explore-section { display: flex; justify-content: space-between; align-items: center; gap: 24px; padding-top: 34px; padding-bottom: 36px; }
-  .explore-section > p { margin: 0; color: var(--muted); font-size: 13px; }
-  .explore-section > div { display: flex; align-items: center; flex-wrap: wrap; gap: 13px 25px; }
-  .explore-section a { color: var(--ink); font-size: 12px; font-weight: 700; }
-  .explore-section a:hover { color: var(--accent); }
+
+  .section-heading-left {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    max-width: none;
+    gap: 40px;
+    text-align: left;
+  }
+
+  .section-heading-left > p:last-child {
+    max-width: 390px;
+    margin: 0;
+  }
+
+  .section-heading-left h2 span {
+    color: var(--accent);
+  }
+
+  .film-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    background: #101115;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(23, 24, 29, 0.15);
+  }
+
+  .film-frame iframe {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+  }
+
+  .film-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 22px;
+    padding: 21px 2px 0;
+  }
+
+  .film-bottom strong,
+  .film-bottom span {
+    display: block;
+  }
+
+  .film-bottom strong {
+    font-size: 16px;
+  }
+
+  .film-bottom div > span {
+    margin-top: 5px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .film-cta {
+    margin-top: 35px;
+    padding: 21px 27px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    border-radius: 11px;
+    background: #f7f4ef;
+  }
+
+  .film-cta p {
+    margin: 0;
+    font-size: 15px;
+    color: #46474b;
+    line-height: 1.5;
+  }
+
+  .about-section {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    background: var(--ink);
+    color: #fff;
+    border-radius: 18px;
+    overflow: hidden;
+    margin-bottom: 104px;
+  }
+
+  .about-image {
+    position: relative;
+    min-height: 440px;
+    background: #37373b;
+  }
+
+  .about-image img {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    inset: 0;
+    object-fit: cover;
+    object-position: center 20%;
+  }
+
+  .about-copy {
+    padding: clamp(35px, 5vw, 68px);
+    align-self: center;
+  }
+
+  .about-copy h2 {
+    color: #fff;
+  }
+
+  .about-copy > p:not(.eyebrow) {
+    max-width: 570px;
+    margin: 18px 0 0;
+    color: rgba(255, 255, 255, 0.79);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .subtle-link-light {
+    margin-top: 23px;
+    color: #f2b86a;
+  }
+
+  .packages-section {
+    padding: 92px 0 89px;
+    background: #f8f8f7;
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 17px;
+    align-items: stretch;
+  }
+
+  .package-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    padding: 33px 29px 27px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+  }
+
+  .package-card.is-featured {
+    background: var(--ink);
+    border-color: var(--ink);
+    color: #fff;
+  }
+
+  .package-label {
+    position: absolute;
+    top: -15px;
+    right: 20px;
+    padding: 7px 12px;
+    border-radius: 5px;
+    background: #ffc21d;
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 800;
+  }
+
+  .package-card h3 {
+    margin: 0;
+    font-size: 21px;
+    font-weight: 650;
+  }
+
+  .package-duration {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .package-price {
+    margin: 24px 0 15px;
+    font-size: 38px;
+    font-weight: 350;
+    line-height: 1.1;
+    letter-spacing: -0.055em;
+  }
+
+  .package-description {
+    margin: 0;
+    flex: 1;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .package-card.is-featured .package-duration,
+  .package-card.is-featured .package-description {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  .package-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 28px;
+    padding-top: 17px;
+    border-top: 1px solid var(--line);
+    font-weight: 750;
+    font-size: 14px;
+    color: var(--accent);
+  }
+
+  .package-card.is-featured .package-action {
+    border-color: rgba(255, 255, 255, 0.2);
+    color: #f2b86a;
+  }
+
+  /* INDIVIDUELLES ANGEBOT */
+  .individual-offer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    margin-top: 20px;
+    padding: 31px 34px;
+    background: #fff;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+  }
+
+  .individual-offer-copy {
+    max-width: 640px;
+  }
+
+  .individual-offer .eyebrow {
+    margin-bottom: 8px;
+  }
+
+  .individual-offer h3 {
+    margin: 0;
+    font-size: clamp(22px, 2.6vw, 29px);
+    font-weight: 500;
+    letter-spacing: -0.04em;
+  }
+
+  .individual-offer-copy > p:last-child {
+    margin: 12px 0 0;
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .individual-offer-button {
+    flex: 0 0 auto;
+  }
+
+  .price-note {
+    margin: 25px auto 0;
+    max-width: 780px;
+    text-align: center;
+    color: #777980;
+    font-size: 12px;
+    line-height: 1.7;
+  }
+
+  .packages-link {
+    display: flex;
+    width: fit-content;
+    margin: 24px auto 0;
+  }
+
+  .review-section {
+    display: grid;
+    grid-template-columns: 0.63fr 1.37fr;
+    gap: 58px;
+    align-items: center;
+    padding-top: 105px;
+    padding-bottom: 105px;
+  }
+
+  .review-head h2 {
+    font-size: clamp(32px, 3.6vw, 46px);
+  }
+
+  .review-content {
+    display: grid;
+    grid-template-columns: 175px 1fr;
+    gap: 30px;
+    align-items: center;
+  }
+
+  .review-content > img {
+    width: 175px;
+    height: 245px;
+    object-fit: cover;
+    border-radius: 11px;
+  }
+
+  .review-stars {
+    margin: 0;
+    color: #b66f0e;
+    letter-spacing: 0.11em;
+  }
+
+  .review-content blockquote {
+    margin: 16px 0 0;
+    font-size: 17px;
+    font-weight: 350;
+    line-height: 1.75;
+    color: #484950;
+  }
+
+  .review-name {
+    margin: 19px 0 16px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .review-name span {
+    color: var(--muted);
+    font-weight: 500;
+  }
+
+  .request-section {
+    background: #f7f5f1;
+    padding: 95px 0 100px;
+    scroll-margin-top: 85px;
+  }
+
+  .request-layout {
+    display: grid;
+    grid-template-columns: 0.78fr 1.22fr;
+    gap: clamp(32px, 6vw, 84px);
+    align-items: start;
+  }
+
+  .request-intro {
+    position: sticky;
+    top: 110px;
+  }
+
+  .request-intro > p:not(.eyebrow) {
+    margin: 20px 0 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.8;
+  }
+
+  .request-points {
+    margin-top: 30px;
+    display: grid;
+    gap: 15px;
+  }
+
+  .request-points span {
+    font-size: 14px;
+    font-weight: 650;
+  }
+
+  .request-points i {
+    margin-right: 9px;
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .request-intro .request-alternative {
+    margin-top: 42px !important;
+    font-size: 13px !important;
+  }
+
+  .request-alternative a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+
+  .request-form {
+    display: grid;
+    gap: 20px;
+    padding: clamp(23px, 3.8vw, 40px);
+    background: #fff;
+    border: 1px solid #ece8e3;
+    border-radius: 16px;
+    box-shadow: 0 16px 45px rgba(23, 24, 29, 0.045);
+  }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+  }
+
+  .field {
+    display: block;
+    min-width: 0;
+  }
+
+  .field > span {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 13px;
+    font-weight: 750;
+    line-height: 1.5;
+  }
+
+  .field em,
+  .consent-row em {
+    color: var(--accent);
+    font-style: normal;
+  }
+
+  .field small {
+    color: #898a91;
+    font-weight: 450;
+    font-size: 12px;
+  }
+
+  .request-form input:not([type="checkbox"]),
+  .request-form select,
+  .request-form textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 49px;
+    padding: 12px 14px;
+    border: 1px solid #dcdde0;
+    border-radius: 7px;
+    background: #fff;
+    color: var(--ink);
+    font-family: inherit;
+    font-size: 16px;
+    outline: none;
+    transition:
+      border-color 0.2s,
+      box-shadow 0.2s;
+  }
+
+  .request-form input[type="date"] {
+    padding: 10px 12px;
+    min-height: 49px;
+  }
+
+  .request-form textarea {
+    resize: vertical;
+    min-height: 110px;
+  }
+
+  .request-form input:focus,
+  .request-form select:focus,
+  .request-form textarea:focus {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(180, 99, 0, 0.1);
+  }
+
+  .consent-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: #60616a;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+
+  .consent-row input {
+    flex: 0 0 18px;
+    width: 18px;
+    height: 18px;
+    margin: 2px 0 0;
+    accent-color: var(--accent);
+  }
+
+  .consent-row a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .required-note {
+    margin: -7px 0 0;
+    color: #777980;
+    font-size: 11px;
+  }
+
+  .submit-button {
+    width: 100%;
+    font-family: inherit;
+  }
+
+  .submit-button:disabled {
+    cursor: progress;
+    opacity: 0.7;
+    transform: none;
+  }
+
+  .form-message {
+    margin: -10px 0 0;
+    font-size: 13px;
+    color: #925100;
+    line-height: 1.5;
+  }
+
+  .form-message:empty {
+    display: none;
+  }
+
+  .honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+  }
+
+  .explore-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 24px;
+    padding-top: 34px;
+    padding-bottom: 36px;
+  }
+
+  .explore-section > p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  .explore-section > div {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 13px 25px;
+  }
+
+  .explore-section a {
+    color: var(--ink);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .explore-section a:hover {
+    color: var(--accent);
+  }
+
   @media (max-width: 920px) {
-    .about-section { grid-template-columns: 1fr; }
-    .about-image { min-height: 420px; }
-    .about-image img { object-position: center 24%; }
-    .review-section { grid-template-columns: 1fr; gap: 27px; }
-    .request-layout { grid-template-columns: 1fr; }
-    .request-intro { position: static; }
-    .section-heading-left { align-items: start; }
+    .about-section {
+      grid-template-columns: 1fr;
+    }
+
+    .about-image {
+      min-height: 420px;
+    }
+
+    .about-image img {
+      object-position: center 24%;
+    }
+
+    .review-section {
+      grid-template-columns: 1fr;
+      gap: 27px;
+    }
+
+    .request-layout {
+      grid-template-columns: 1fr;
+    }
+
+    .request-intro {
+      position: static;
+    }
+
+    .section-heading-left {
+      align-items: start;
+    }
   }
+
   @media (max-width: 680px) {
-    .wrap { width: calc(100% - 30px); }
-    .landing-hero { padding-top: 107px; padding-bottom: 44px; }
-    .landing-hero h1 { font-size: clamp(42px, 10vw, 58px); }
-    .hero-description { font-size: 15px; }
-    .hero-actions { flex-direction: column; }
-    .hero-actions .button { width: 100%; }
-    .hero-note { font-size: 11px; }
-    .section-heading-left { flex-direction: column; gap: 10px; }
-    .section-heading-left > p:last-child { max-width: 100%; }
-    .film-frame { border-radius: 9px; }
-    .film-bottom { align-items: start; }
-    .film-cta { flex-direction: column; align-items: stretch; }
-    .film-cta .button { width: 100%; }
-    .film-section { padding-bottom: 74px; }
-    .about-section { margin-bottom: 74px; }
-    .about-image { min-height: 330px; }
-    .about-copy { padding: 35px 27px 39px; }
-    .packages-section { padding-top: 74px; padding-bottom: 75px; }
-    .packages-grid { grid-template-columns: 1fr; gap: 18px; }
-    .package-card { padding: 28px 25px; }
-    .review-section { padding-top: 73px; padding-bottom: 74px; }
-    .review-content { grid-template-columns: 100px 1fr; gap: 15px; align-items: start; }
-    .review-content > img { width: 100px; height: 139px; }
-    .review-content blockquote { font-size: 14px; line-height: 1.7; }
-    .request-section { padding: 75px 0 80px; }
-    .request-form { padding: 25px 19px; }
-    .field-row { grid-template-columns: 1fr; }
-    .explore-section { flex-direction: column; align-items: start; }
+    .wrap {
+      width: calc(100% - 30px);
+    }
+
+    .landing-hero {
+      padding-top: 107px;
+      padding-bottom: 44px;
+    }
+
+    .landing-hero h1 {
+      font-size: clamp(42px, 10vw, 58px);
+    }
+
+    .hero-description {
+      font-size: 15px;
+    }
+
+    .hero-actions {
+      flex-direction: column;
+    }
+
+    .hero-actions .button {
+      width: 100%;
+    }
+
+    .hero-note {
+      font-size: 11px;
+    }
+
+    .section-heading-left {
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .section-heading-left > p:last-child {
+      max-width: 100%;
+    }
+
+    .film-frame {
+      border-radius: 9px;
+    }
+
+    .film-bottom {
+      align-items: start;
+    }
+
+    .film-cta {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .film-cta .button {
+      width: 100%;
+    }
+
+    .film-section {
+      padding-bottom: 74px;
+    }
+
+    .about-section {
+      margin-bottom: 74px;
+    }
+
+    .about-image {
+      min-height: 330px;
+    }
+
+    .about-copy {
+      padding: 35px 27px 39px;
+    }
+
+    .packages-section {
+      padding-top: 74px;
+      padding-bottom: 75px;
+    }
+
+    .packages-grid {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+
+    .package-card {
+      padding: 28px 25px;
+    }
+
+    .individual-offer {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 22px;
+      padding: 26px 24px;
+    }
+
+    .individual-offer-button {
+      width: 100%;
+    }
+
+    .review-section {
+      padding-top: 73px;
+      padding-bottom: 74px;
+    }
+
+    .review-content {
+      grid-template-columns: 100px 1fr;
+      gap: 15px;
+      align-items: start;
+    }
+
+    .review-content > img {
+      width: 100px;
+      height: 139px;
+    }
+
+    .review-content blockquote {
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    .request-section {
+      padding: 75px 0 80px;
+    }
+
+    .request-form {
+      padding: 25px 19px;
+    }
+
+    .field-row {
+      grid-template-columns: 1fr;
+    }
+
+    .explore-section {
+      flex-direction: column;
+      align-items: start;
+    }
   }
+
   @media (prefers-reduced-motion: reduce) {
-    :global(html) { scroll-behavior: auto; }
-    .button { transition: none; }
+    :global(html) {
+      scroll-behavior: auto;
+    }
+
+    .button {
+      transition: none;
+    }
   }
 </style>
