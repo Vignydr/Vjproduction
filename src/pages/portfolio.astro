@@ -5,43 +5,46 @@ import BaseLayout from "../layouts/BaseLayout.astro";
 const featuredFilm = {
   names: "Phelina & Mert",
   label: "Highlightfilm",
-  video: "https://galleries.vidflow.co/videos/h7wkezfr",
+  src: "https://galleries.vidflow.co/videos/h7wkezfr",
 };
 
 const weddingStories = [
   {
     names: "Nina & Kevin",
-    description:
-      "Die großen Emotionen und die leisen Momente – zwei Perspektiven auf ihre Geschichte.",
-    mainVideo: {
-      label: "Wedding Teaser",
-      src: "https://galleries.vidflow.co/videos/wf8ljusx",
-    },
-    coupleVideo: {
-      label: "Paarmomente",
-      src: "https://galleries.vidflow.co/videos/klappejw",
-    },
+    videos: [
+      {
+        label: "Wedding Teaser",
+        src: "https://galleries.vidflow.co/videos/wf8ljusx",
+      },
+      {
+        label: "Paarmomente",
+        src: "https://galleries.vidflow.co/videos/klappejw",
+      },
+    ],
   },
   {
     names: "Melisa & Adis",
-    description:
-      "Ein Hochzeitstag voller besonderer Augenblicke – ergänzt durch persönliche Aufnahmen der beiden.",
-    mainVideo: {
-      label: "Wedding Teaser",
-      src: "https://galleries.vidflow.co/videos/n0p8pq7w",
-    },
-    coupleVideo: {
-      label: "Paarmomente",
-      src: "https://galleries.vidflow.co/videos/yajaab4f",
-    },
+    videos: [
+      {
+        label: "Wedding Teaser",
+        src: "https://galleries.vidflow.co/videos/n0p8pq7w",
+      },
+      {
+        label: "Paarmomente",
+        src: "https://galleries.vidflow.co/videos/yajaab4f",
+      },
+    ],
+  },
+  {
+    names: "Aleyna & Güven",
+    videos: [
+      {
+        label: "Paarmomente",
+        src: "https://galleries.vidflow.co/videos/gtv6l0mx",
+      },
+    ],
   },
 ];
-
-const additionalFilm = {
-  names: "Aleyna & Güven",
-  label: "Filmische Paarmomente",
-  src: "https://galleries.vidflow.co/videos/gtv6l0mx",
-};
 ---
 
 <BaseLayout
@@ -50,7 +53,7 @@ const additionalFilm = {
 >
   <div id="vjPortfolio" class="vj-portfolio-page">
 
-    <!-- HERO -->
+    <!-- EINSTIEG -->
     <header class="vj-portfolio-hero">
       <p class="vj-eyebrow">
         VJ Production · Portfolio
@@ -62,20 +65,18 @@ const additionalFilm = {
       </h1>
 
       <p class="vj-hero-description">
-        Keine Hochzeit gleicht der anderen. Deshalb verdient
-        jede Geschichte einen Film, der so einzigartig ist
-        wie die Menschen dahinter.
+        Echte Momente. Große Gefühle. Erinnerungen, die bleiben.
       </p>
     </header>
 
-    <!-- AUSGEWÄHLTER HAUPTFILM -->
+    <!-- AUSGEWÄHLTER HOCHZEITSFILM -->
     <section
       class="vj-featured-section"
       aria-labelledby="vjFeaturedTitle"
     >
       <div class="vj-featured-video">
         <iframe
-          src={featuredFilm.video}
+          src={featuredFilm.src}
           title={`${featuredFilm.label} – ${featuredFilm.names}`}
           loading="eager"
           allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
@@ -83,188 +84,76 @@ const additionalFilm = {
         ></iframe>
       </div>
 
-      <div class="vj-featured-info">
-        <div>
-          <p class="vj-video-label">
-            Ausgewählte Hochzeitsgeschichte
-          </p>
+      <div class="vj-featured-caption">
+        <h2 id="vjFeaturedTitle">
+          {featuredFilm.names}
+        </h2>
 
-          <h2 id="vjFeaturedTitle">
-            {featuredFilm.names}
-          </h2>
-        </div>
-
-        <p class="vj-featured-description">
-          Ein Film über echte Gefühle, besondere Menschen
-          und Augenblicke, die für immer bleiben.
-        </p>
+        <span>{featuredFilm.label}</span>
       </div>
     </section>
 
-    <!-- WEITERE HOCHZEITSGESCHICHTEN -->
+    <!-- HOCHZEITSGESCHICHTEN -->
     <section
       class="vj-stories-section"
       aria-labelledby="vjStoriesTitle"
     >
       <div class="vj-section-intro">
         <p class="vj-eyebrow">
-          Weitere Geschichten
+          Ausgewählte Arbeiten
         </p>
 
         <h2 id="vjStoriesTitle">
-          Liebe in bewegten Bildern.
+          Weitere Hochzeitsgeschichten
         </h2>
-
-        <p>
-          Ein Hochzeitstag besteht aus unzähligen Momenten.
-          Neben den großen Ereignissen sind es oft die
-          kleinen, persönlichen Augenblicke, die eine
-          Geschichte besonders machen.
-        </p>
       </div>
 
       <div class="vj-stories-list">
-        {weddingStories.map((story, index) => (
+        {weddingStories.map((story) => (
           <article class="vj-story">
 
-            <!-- PAAR UND BESCHREIBUNG -->
             <div class="vj-story-heading">
-              <div class="vj-story-heading-main">
-                <span class="vj-story-number">
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+              <h3>{story.names}</h3>
+            </div>
 
-                <div>
-                  <p class="vj-story-kicker">
-                    Eine Hochzeitsgeschichte
+            <div
+              class:list={[
+                "vj-story-videos",
+                { "vj-story-videos--single": story.videos.length === 1 },
+              ]}
+            >
+              {story.videos.map((video) => (
+                <div class="vj-story-film">
+                  <div class="vj-video-frame">
+                    <iframe
+                      src={video.src}
+                      title={`${video.label} – ${story.names}`}
+                      loading="lazy"
+                      allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
+                      allowfullscreen
+                    ></iframe>
+                  </div>
+
+                  <p class="vj-film-caption">
+                    {video.label}
                   </p>
-
-                  <h3>{story.names}</h3>
                 </div>
-              </div>
-
-              <p class="vj-story-description">
-                {story.description}
-              </p>
+              ))}
             </div>
 
-            <!-- BEIDE VIDEOS DES PAARES -->
-            <div class="vj-story-videos">
-
-              <div class="vj-story-video-item">
-                <div class="vj-video-frame">
-                  <iframe
-                    src={story.mainVideo.src}
-                    title={`${story.mainVideo.label} – ${story.names}`}
-                    loading="lazy"
-                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-
-                <div class="vj-video-caption">
-                  <div>
-                    <p class="vj-video-label">
-                      Film 01
-                    </p>
-
-                    <h4>{story.mainVideo.label}</h4>
-                  </div>
-
-                  <span class="vj-video-caption-detail">
-                    Die Geschichte ihres Tages
-                  </span>
-                </div>
-              </div>
-
-              <div class="vj-story-video-item">
-                <div class="vj-video-frame">
-                  <iframe
-                    src={story.coupleVideo.src}
-                    title={`${story.coupleVideo.label} – ${story.names}`}
-                    loading="lazy"
-                    allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-                    allowfullscreen
-                  ></iframe>
-                </div>
-
-                <div class="vj-video-caption">
-                  <div>
-                    <p class="vj-video-label">
-                      Film 02
-                    </p>
-
-                    <h4>{story.coupleVideo.label}</h4>
-                  </div>
-
-                  <span class="vj-video-caption-detail">
-                    Die persönlichen Augenblicke
-                  </span>
-                </div>
-              </div>
-
-            </div>
           </article>
         ))}
       </div>
     </section>
 
-    <!-- WEITERER FILMISCHER EINBLICK -->
-    <section
-      class="vj-additional-section"
-      aria-labelledby="vjAdditionalTitle"
-    >
-      <div class="vj-section-intro">
-        <p class="vj-eyebrow">
-          Ein weiterer Einblick
-        </p>
-
-        <h2 id="vjAdditionalTitle">
-          Die kleinen Momente zählen.
-        </h2>
-
-        <p>
-          Manchmal braucht es keine großen Worte.
-          Ein Blick, eine Berührung und die Nähe
-          zwischen zwei Menschen erzählen bereits
-          eine ganze Geschichte.
-        </p>
-      </div>
-
-      <article class="vj-additional-film">
-        <div class="vj-video-frame">
-          <iframe
-            src={additionalFilm.src}
-            title={`${additionalFilm.label} – ${additionalFilm.names}`}
-            loading="lazy"
-            allow="autoplay; fullscreen; picture-in-picture; encrypted-media"
-            allowfullscreen
-          ></iframe>
-        </div>
-
-        <div class="vj-additional-caption">
-          <div>
-            <p class="vj-video-label">
-              Persönliche Momente
-            </p>
-
-            <h3>{additionalFilm.names}</h3>
-          </div>
-
-          <span class="vj-additional-type">
-            {additionalFilm.label}
-          </span>
-        </div>
-      </article>
-    </section>
-
-    <!-- JULIA / FOTO UND VIDEO -->
+    <!-- FOTO UND VIDEO ALS TEAM -->
     <section
       class="vj-partner-section"
       id="foto-video-team"
       aria-labelledby="vjPartnerTitle"
     >
       <div class="vj-partner-content">
+
         <p class="vj-eyebrow">
           Foto &amp; Video als Team
         </p>
@@ -278,13 +167,9 @@ const additionalFilm = {
           Gemeinsam mit Julia von
           <strong>Junique Photography</strong>
           begleite ich Hochzeiten auch als eingespieltes
-          Foto- und Videoteam.
-        </p>
-
-        <p>
-          So können Fotos und Film aufeinander abgestimmt
-          entstehen, ohne dass ihr euren Tag für die Kamera
-          unterbrechen müsst.
+          Foto- und Videoteam. So können Fotos und Film
+          aufeinander abgestimmt entstehen, ohne dass ihr
+          euren Tag für die Kamera unterbrechen müsst.
         </p>
 
         <a
@@ -296,10 +181,11 @@ const additionalFilm = {
           Junique Photography entdecken
           <span aria-hidden="true">↗</span>
         </a>
+
       </div>
     </section>
 
-    <!-- ABSCHLUSS / KONTAKT -->
+    <!-- KONTAKTBEREICH -->
     <section
       class="vj-portfolio-cta"
       aria-labelledby="vjPortfolioCtaTitle"
@@ -316,8 +202,8 @@ const additionalFilm = {
       <p>
         Erzählt mir von euren Plänen.
         Ich freue mich darauf, euch kennenzulernen
-        und die besonderen Momente eures Hochzeitstags
-        in einem persönlichen Film festzuhalten.
+        und euren Hochzeitstag in bewegten Bildern
+        festzuhalten.
       </p>
 
       <a href="/kontakt" class="vj-cta-button">
@@ -331,7 +217,7 @@ const additionalFilm = {
 
 <style is:global>
   /* ================================= */
-  /* VJ PRODUCTION – NEUES PORTFOLIO */
+  /* VJ PRODUCTION – PORTFOLIO */
   /* ================================= */
 
   #vjPortfolio {
@@ -365,12 +251,10 @@ const additionalFilm = {
     outline-offset: 5px;
   }
 
-  #vjPortfolio .vj-eyebrow,
-  #vjPortfolio .vj-video-label,
-  #vjPortfolio .vj-story-kicker {
+  #vjPortfolio .vj-eyebrow {
     margin: 0;
-    color: var(--portfolio-orange);
 
+    color: var(--portfolio-orange);
     font-size: 11px;
     font-weight: 800;
     line-height: 1.5;
@@ -380,7 +264,6 @@ const additionalFilm = {
 
   #vjPortfolio .vj-featured-section,
   #vjPortfolio .vj-stories-section,
-  #vjPortfolio .vj-additional-section,
   #vjPortfolio .vj-partner-section,
   #vjPortfolio .vj-portfolio-cta {
     width: min(1180px, 100%);
@@ -388,22 +271,24 @@ const additionalFilm = {
     margin-right: auto;
   }
 
+  /* ============================ */
   /* HERO */
+  /* ============================ */
 
   #vjPortfolio .vj-portfolio-hero {
-    max-width: 930px;
-    margin: 0 auto 68px;
+    max-width: 940px;
+    margin: 0 auto 70px;
     text-align: center;
   }
 
   #vjPortfolio .vj-portfolio-hero .vj-eyebrow {
-    margin-bottom: 20px;
+    margin-bottom: 21px;
   }
 
   #vjPortfolio .vj-portfolio-hero h1 {
     margin: 0;
-    color: var(--portfolio-ink);
 
+    color: var(--portfolio-ink);
     font-size: clamp(40px, 5.6vw, 76px);
     font-weight: 300;
     line-height: 1.08;
@@ -411,15 +296,16 @@ const additionalFilm = {
   }
 
   #vjPortfolio .vj-hero-description {
-    max-width: 650px;
-    margin: 26px auto 0;
+    margin: 25px auto 0;
 
     color: var(--portfolio-muted);
-    font-size: 17px;
-    line-height: 1.8;
+    font-size: 16px;
+    line-height: 1.7;
   }
 
-  /* EINHEITLICHES VIDEOFORMAT */
+  /* ============================ */
+  /* VIDEOFORMAT 16:9 */
+  /* ============================ */
 
   #vjPortfolio .vj-featured-video,
   #vjPortfolio .vj-video-frame {
@@ -431,8 +317,8 @@ const additionalFilm = {
 
     overflow: hidden;
 
+    border-radius: 12px;
     background: #111216;
-    border-radius: 13px;
   }
 
   #vjPortfolio .vj-featured-video iframe,
@@ -449,54 +335,57 @@ const additionalFilm = {
     border: 0;
   }
 
+  /* ============================ */
   /* HAUPTFILM */
+  /* ============================ */
 
   #vjPortfolio .vj-featured-section {
-    padding-bottom: 105px;
+    padding-bottom: 107px;
     border-bottom: 1px solid var(--portfolio-line);
   }
 
   #vjPortfolio .vj-featured-video {
     border-radius: 19px;
-    box-shadow: 0 20px 65px rgba(23, 24, 29, .12);
+    box-shadow: 0 20px 65px rgba(23, 24, 29, .11);
   }
 
-  #vjPortfolio .vj-featured-info {
+  #vjPortfolio .vj-featured-caption {
     display: flex;
-    align-items: flex-end;
+    align-items: baseline;
     justify-content: space-between;
-    gap: 35px;
+    gap: 20px;
 
-    padding-top: 27px;
+    padding: 27px 2px 0;
   }
 
-  #vjPortfolio .vj-featured-info .vj-video-label {
-    margin-bottom: 9px;
-  }
-
-  #vjPortfolio .vj-featured-info h2 {
+  #vjPortfolio .vj-featured-caption h2 {
     margin: 0;
 
-    font-size: clamp(35px, 4.5vw, 54px);
+    color: var(--portfolio-ink);
+    font-size: clamp(35px, 4.5vw, 53px);
     font-weight: 350;
-    line-height: 1.1;
-    letter-spacing: -.05em;
+    line-height: 1.12;
+    letter-spacing: -.055em;
   }
 
-  #vjPortfolio .vj-featured-description {
-    max-width: 390px;
-    margin: 0 0 3px;
-
+  #vjPortfolio .vj-featured-caption > span {
     color: var(--portfolio-muted);
-    font-size: 15px;
-    line-height: 1.75;
+    font-size: 13px;
+    line-height: 1.5;
   }
 
-  /* ABSCHNITTSÜBERSCHRIFTEN */
+  /* ============================ */
+  /* WEITERE HOCHZEITSGESCHICHTEN */
+  /* ============================ */
+
+  #vjPortfolio .vj-stories-section {
+    padding-top: 105px;
+    padding-bottom: 106px;
+  }
 
   #vjPortfolio .vj-section-intro {
-    max-width: 760px;
-    margin: 0 auto 57px;
+    max-width: 800px;
+    margin: 0 auto 75px;
     text-align: center;
   }
 
@@ -507,183 +396,80 @@ const additionalFilm = {
   #vjPortfolio .vj-section-intro h2 {
     margin: 0;
 
+    color: var(--portfolio-ink);
     font-size: clamp(34px, 4.4vw, 52px);
     font-weight: 350;
     line-height: 1.12;
     letter-spacing: -.055em;
   }
 
-  #vjPortfolio .vj-section-intro > p:last-child {
-    max-width: 650px;
-    margin: 21px auto 0;
-
-    color: var(--portfolio-muted);
-    font-size: 15px;
-    line-height: 1.8;
-  }
-
-  /* HOCHZEITSGESCHICHTEN */
-
-  #vjPortfolio .vj-stories-section {
-    padding-top: 102px;
-    padding-bottom: 100px;
-    border-bottom: 1px solid var(--portfolio-line);
-  }
-
   #vjPortfolio .vj-stories-list {
     display: grid;
     grid-template-columns: minmax(0, 1fr);
-    gap: 80px;
+    gap: 86px;
   }
 
   #vjPortfolio .vj-story {
-    display: block;
     width: 100%;
     min-width: 0;
   }
 
+  /* PAARNAMEN */
+
   #vjPortfolio .vj-story-heading {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 26px;
-
-    margin-bottom: 25px;
-    padding-bottom: 22px;
-
+    margin-bottom: 27px;
+    padding-bottom: 20px;
     border-bottom: 1px solid var(--portfolio-line);
-  }
-
-  #vjPortfolio .vj-story-heading-main {
-    display: flex;
-    align-items: flex-start;
-    gap: 20px;
-    min-width: 0;
-  }
-
-  #vjPortfolio .vj-story-number {
-    display: inline-block;
-    padding-top: 5px;
-
-    color: var(--portfolio-orange);
-    font-size: 14px;
-    font-weight: 800;
-  }
-
-  #vjPortfolio .vj-story-kicker {
-    margin-bottom: 8px;
-    font-size: 10px;
   }
 
   #vjPortfolio .vj-story-heading h3 {
     margin: 0;
 
-    font-size: clamp(32px, 3.8vw, 47px);
+    color: var(--portfolio-ink);
+    font-size: clamp(34px, 4vw, 48px);
     font-weight: 350;
     line-height: 1.15;
     letter-spacing: -.055em;
   }
 
-  #vjPortfolio .vj-story-description {
-    max-width: 400px;
-    margin: 0 0 3px;
-
-    color: var(--portfolio-muted);
-    font-size: 14px;
-    line-height: 1.75;
-  }
-
-  /* ZWEI FILME EINER HOCHZEIT */
+  /* ZWEI VIDEOS PRO PAAR */
 
   #vjPortfolio .vj-story-videos {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 24px;
+    gap: 25px;
+    align-items: start;
   }
 
-  #vjPortfolio .vj-story-video-item {
+  #vjPortfolio .vj-story-film {
     min-width: 0;
   }
 
-  #vjPortfolio .vj-video-caption {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    gap: 16px;
+  /* EINZELNES VIDEO */
 
-    padding: 19px 2px 0;
-  }
-
-  #vjPortfolio .vj-video-caption .vj-video-label {
-    margin-bottom: 6px;
-    font-size: 10px;
-  }
-
-  #vjPortfolio .vj-video-caption h4 {
-    margin: 0;
-
-    color: var(--portfolio-ink);
-    font-size: 23px;
-    font-weight: 450;
-    line-height: 1.2;
-    letter-spacing: -.035em;
-  }
-
-  #vjPortfolio .vj-video-caption-detail {
-    max-width: 165px;
-    margin-top: 3px;
-
-    color: var(--portfolio-muted);
-    font-size: 12px;
-    line-height: 1.6;
-    text-align: right;
-  }
-
-  /* WEITERER EINBLICK */
-
-  #vjPortfolio .vj-additional-section {
-    padding-top: 103px;
-    padding-bottom: 107px;
-  }
-
-  #vjPortfolio .vj-additional-film {
-    display: block;
+  #vjPortfolio .vj-story-videos--single {
+    grid-template-columns: minmax(0, 1fr);
     width: min(850px, 100%);
     margin: 0 auto;
   }
 
-  #vjPortfolio .vj-additional-caption {
-    display: flex;
-    align-items: flex-end;
-    justify-content: space-between;
-    gap: 20px;
+  /* MINIMALISTISCHE BESCHRIFTUNG */
 
-    padding-top: 22px;
-  }
+  #vjPortfolio .vj-film-caption {
+    margin: 17px 2px 0;
 
-  #vjPortfolio .vj-additional-caption .vj-video-label {
-    margin-bottom: 7px;
-  }
-
-  #vjPortfolio .vj-additional-caption h3 {
-    margin: 0;
-
-    font-size: clamp(32px, 4vw, 43px);
-    font-weight: 350;
-    line-height: 1.15;
-    letter-spacing: -.05em;
-  }
-
-  #vjPortfolio .vj-additional-type {
-    margin-bottom: 4px;
     color: var(--portfolio-muted);
-    font-size: 13px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
   }
 
+  /* ============================ */
   /* FOTO UND VIDEO ALS TEAM */
+  /* ============================ */
 
   #vjPortfolio .vj-partner-section {
-    padding: 49px 55px;
+    padding: 50px 55px;
     margin-bottom: 95px;
 
     border: 1px solid #e8e8e9;
@@ -698,12 +484,13 @@ const additionalFilm = {
   }
 
   #vjPortfolio .vj-partner-content .vj-eyebrow {
-    margin-bottom: 17px;
+    margin-bottom: 18px;
   }
 
   #vjPortfolio .vj-partner-content h2 {
     margin: 0;
 
+    color: var(--portfolio-ink);
     font-size: clamp(33px, 4vw, 47px);
     font-weight: 350;
     line-height: 1.12;
@@ -711,11 +498,11 @@ const additionalFilm = {
   }
 
   #vjPortfolio .vj-partner-content > p:not(.vj-eyebrow) {
-    margin: 19px 0 0;
+    margin: 21px 0 0;
 
     color: var(--portfolio-muted);
     font-size: 15px;
-    line-height: 1.75;
+    line-height: 1.8;
   }
 
   #vjPortfolio .vj-partner-content strong {
@@ -748,7 +535,9 @@ const additionalFilm = {
     color: var(--portfolio-orange);
   }
 
-  /* ABSCHLUSS MIT KONTAKTAUFFORDERUNG */
+  /* ============================ */
+  /* KONTAKTBEREICH */
+  /* ============================ */
 
   #vjPortfolio .vj-portfolio-cta {
     display: flex;
@@ -765,7 +554,7 @@ const additionalFilm = {
   }
 
   #vjPortfolio .vj-portfolio-cta .vj-eyebrow {
-    margin-bottom: 19px;
+    margin-bottom: 20px;
     color: #ffb45a;
   }
 
@@ -775,17 +564,17 @@ const additionalFilm = {
     color: #ffffff;
     font-size: clamp(37px, 5vw, 59px);
     font-weight: 350;
-    line-height: 1.13;
+    line-height: 1.12;
     letter-spacing: -.055em;
   }
 
   #vjPortfolio .vj-portfolio-cta > p:not(.vj-eyebrow) {
-    max-width: 640px;
+    max-width: 630px;
     margin: 23px auto 0;
 
     color: rgba(255, 255, 255, .75);
     font-size: 15px;
-    line-height: 1.85;
+    line-height: 1.8;
   }
 
   #vjPortfolio .vj-cta-button {
@@ -798,7 +587,9 @@ const additionalFilm = {
     margin-top: 32px;
     padding: 13px 27px;
 
+    border: 0;
     border-radius: 7px;
+
     background: var(--portfolio-orange);
     color: #ffffff;
 
@@ -816,32 +607,23 @@ const additionalFilm = {
     transform: translateY(-2px);
   }
 
+  /* ============================ */
   /* TABLET */
+  /* ============================ */
 
   @media (max-width: 900px) {
-    #vjPortfolio .vj-story-heading {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 17px;
+    #vjPortfolio .vj-story-videos {
+      gap: 19px;
     }
 
-    #vjPortfolio .vj-story-description {
-      max-width: 640px;
-      margin-left: 40px;
-    }
-
-    #vjPortfolio .vj-video-caption {
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    #vjPortfolio .vj-video-caption-detail {
-      max-width: none;
-      text-align: left;
+    #vjPortfolio .vj-stories-list {
+      gap: 73px;
     }
   }
 
+  /* ============================ */
   /* HANDY */
+  /* ============================ */
 
   @media (max-width: 700px) {
     #vjPortfolio {
@@ -849,7 +631,7 @@ const additionalFilm = {
     }
 
     #vjPortfolio .vj-portfolio-hero {
-      margin-bottom: 45px;
+      margin-bottom: 47px;
     }
 
     #vjPortfolio .vj-portfolio-hero h1 {
@@ -863,35 +645,34 @@ const additionalFilm = {
     }
 
     #vjPortfolio .vj-hero-description {
-      margin-top: 21px;
+      margin-top: 20px;
       font-size: 15px;
     }
 
     #vjPortfolio .vj-featured-video {
-      border-radius: 9px;
+      border-radius: 10px;
       box-shadow: none;
     }
 
     #vjPortfolio .vj-featured-section {
-      padding-bottom: 70px;
+      padding-bottom: 73px;
     }
 
-    #vjPortfolio .vj-featured-info {
-      display: block;
-      padding-top: 21px;
+    #vjPortfolio .vj-featured-caption {
+      padding-top: 20px;
     }
 
-    #vjPortfolio .vj-featured-description {
-      margin-top: 13px;
+    #vjPortfolio .vj-featured-caption h2 {
+      font-size: 34px;
     }
 
     #vjPortfolio .vj-stories-section {
-      padding-top: 70px;
-      padding-bottom: 72px;
+      padding-top: 73px;
+      padding-bottom: 77px;
     }
 
     #vjPortfolio .vj-section-intro {
-      margin-bottom: 40px;
+      margin-bottom: 48px;
     }
 
     #vjPortfolio .vj-section-intro h2 {
@@ -902,47 +683,41 @@ const additionalFilm = {
       gap: 65px;
     }
 
-    #vjPortfolio .vj-story-heading-main {
-      gap: 12px;
+    #vjPortfolio .vj-story-heading {
+      margin-bottom: 22px;
+      padding-bottom: 17px;
     }
 
-    #vjPortfolio .vj-story-description {
-      margin-left: 27px;
+    #vjPortfolio .vj-story-heading h3 {
+      font-size: 35px;
     }
 
     #vjPortfolio .vj-story-videos {
       grid-template-columns: minmax(0, 1fr);
-      gap: 30px;
+      gap: 35px;
     }
 
     #vjPortfolio .vj-video-frame {
-      border-radius: 8px;
+      border-radius: 9px;
     }
 
-    #vjPortfolio .vj-video-caption {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-
-    #vjPortfolio .vj-video-caption-detail {
-      max-width: 150px;
-      text-align: right;
-    }
-
-    #vjPortfolio .vj-additional-section {
-      padding-top: 73px;
-      padding-bottom: 80px;
+    #vjPortfolio .vj-film-caption {
+      margin-top: 13px;
     }
 
     #vjPortfolio .vj-partner-section {
-      padding: 34px 27px;
-      margin-bottom: 72px;
+      padding: 35px 28px;
+      margin-bottom: 75px;
     }
 
     #vjPortfolio .vj-portfolio-cta {
       padding: 61px 23px;
     }
   }
+
+  /* ============================ */
+  /* KLEINE HANDYS */
+  /* ============================ */
 
   @media (max-width: 480px) {
     #vjPortfolio {
@@ -953,7 +728,13 @@ const additionalFilm = {
       font-size: clamp(36px, 9.5vw, 44px);
     }
 
-    #vjPortfolio .vj-featured-info h2 {
+    #vjPortfolio .vj-featured-caption {
+      align-items: flex-start;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    #vjPortfolio .vj-featured-caption h2 {
       font-size: 35px;
     }
 
@@ -965,18 +746,8 @@ const additionalFilm = {
       font-size: 34px;
     }
 
-    #vjPortfolio .vj-video-caption h4 {
-      font-size: 22px;
-    }
-
-    #vjPortfolio .vj-additional-caption {
-      align-items: flex-start;
-      flex-direction: column;
-      gap: 9px;
-    }
-
     #vjPortfolio .vj-partner-section {
-      padding: 30px 22px;
+      padding: 30px 23px;
       border-radius: 14px;
     }
 
